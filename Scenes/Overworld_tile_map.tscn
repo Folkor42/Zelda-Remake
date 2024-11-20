@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://crnq0jdygad60"]
+
+[ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="1_46iif"]
+[ext_resource type="PackedScene" uid="uid://t32kfpctgl4h" path="res://Scenes/link.tscn" id="2_kmej0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgjrn"]
+texture = ExtResource("1_46iif")
+33:1/size_in_atlas = Vector2i(15, 10)
+33:1/0 = 0
+33:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+33:1/0/physics_layer_0/angular_velocity = 0.0
+53:1/size_in_atlas = Vector2i(2, 2)
+53:1/0 = 0
+53:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+53:1/0/physics_layer_0/angular_velocity = 0.0
+55:1/size_in_atlas = Vector2i(2, 2)
+55:1/0 = 0
+55:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+55:1/0/physics_layer_0/angular_velocity = 0.0
+57:1/size_in_atlas = Vector2i(2, 2)
+57:1/0 = 0
+57:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+57:1/0/physics_layer_0/angular_velocity = 0.0
+53:3/size_in_atlas = Vector2i(2, 2)
+53:3/0 = 0
+53:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+53:3/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_y2o64"]
+tile_size = Vector2i(240, 240)
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_tgjrn")
+
+[node name="TileMap" type="TileMap"]
+position = Vector2(8, -40)
+tile_set = SubResource("TileSet_y2o64")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 2162691, 1, 1, 2162691, 1, 2, 2162691, 1, -65536, 2162691, 1, -65535, 2162691, 1, -65534, 2162691, 1)
+
+[node name="Link" parent="." instance=ExtResource("2_kmej0")]
+position = Vector2(81, 121)
