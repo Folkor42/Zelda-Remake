@@ -248,3 +248,5 @@ autoplay = "walk_down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_j8og6")
+
+[node name="Sword" type="Sprite2D" parent="."]

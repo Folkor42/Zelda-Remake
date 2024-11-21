@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bq5qvvqjtmk4b"
+path="res://.godot/imported/NES - The Legend of Zelda - Link-3.png-8dea1d8268b6d01ff6c4de76540b17cf.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-3.png"
+dest_files=["res://.godot/imported/NES - The Legend of Zelda - Link-3.png-8dea1d8268b6d01ff6c4de76540b17cf.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
