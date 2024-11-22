@@ -3,13 +3,15 @@
 [ext_resource type="Script" path="res://Scenes/door.gd" id="1_fbva0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hheh5"]
-size = Vector2(15, 15)
+resource_local_to_scene = true
+size = Vector2(8, 4)
 
 [node name="Door" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_fbva0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_hheh5")
 
 [node name="Marker2D" type="Marker2D" parent="."]

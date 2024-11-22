@@ -16,9 +16,6 @@
 [node name="Room2" parent="Rooms" instance=ExtResource("2_5xv0p")]
 position = Vector2(-256, 0)
 
-[node name="Marker2D" parent="Rooms/Room2/Doors/Door" index="1"]
-position = Vector2(64, 0)
-
 [node name="Room3" parent="Rooms" instance=ExtResource("5_f5yjw")]
 position = Vector2(256, 0)
 
@@ -34,6 +31,3 @@ position = Vector2(126, 119)
 anchor_mode = 0
 position_smoothing_enabled = true
 script = ExtResource("4_ep5xl")
-
-[editable path="Rooms/Room2"]
-[editable path="Rooms/Room2/Doors/Door"]

@@ -8,20 +8,16 @@ extends CharacterBody2D
 var cardinal_direction : Vector2 = Vector2.DOWN
 
 func get_input():
-	var input_direction = Vector2(
-		Input.get_axis("move_left","move_right"),
-		Input.get_axis("move_up","move_down")
-	).normalized()
+	var input_direction = Vector2(Input.get_axis("move_left","move_right"),	Input.get_axis("move_up","move_down")).normalized()
+	print (input_direction)
 	velocity = input_direction * speed
 	sword.scale.x = 1
 	sprite.scale.x = 1
 	
-	if input_direction.x==0 and input_direction.y > 0:
-		print("Down")
+	if input_direction==Vector2(0, 1):
 		animation_player.play("walk_down")
 		cardinal_direction = Vector2.DOWN
-	elif input_direction.x==0 and input_direction.y < 0:
-		print("UP")
+	elif input_direction==Vector2(0, -1):
 		animation_player.play("walk_up")
 		cardinal_direction = Vector2.UP
 	elif input_direction==Vector2(-1, 0):

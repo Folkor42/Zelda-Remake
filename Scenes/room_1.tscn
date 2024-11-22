@@ -215,24 +215,18 @@ tile_set = SubResource("TileSet_j2brn")
 
 [node name="DoorLeft" parent="Doors" instance=ExtResource("3_8c6sk")]
 position = Vector2(23, 88)
-
-[node name="Marker2D" parent="Doors/DoorLeft" index="1"]
-position = Vector2(-64, 0)
+direction = 3
 
 [node name="DoorRight" parent="Doors" instance=ExtResource("3_8c6sk")]
 position = Vector2(233, 88)
-
-[node name="Marker2D" parent="Doors/DoorRight" index="1"]
-position = Vector2(64, 0)
+direction = 1
 
 [node name="DoorUp" parent="Doors" instance=ExtResource("3_8c6sk")]
 position = Vector2(128, 23)
 
-[node name="Marker2D" parent="Doors/DoorUp" index="1"]
-position = Vector2(0, -64)
-
 [node name="DoorDown" parent="Doors" instance=ExtResource("3_8c6sk")]
 position = Vector2(128, 152)
+direction = 2
 
 [node name="Floor" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 2, 0, 2, 0, 1, 0, 1, 0, 0, 0, 0, 0)
@@ -294,7 +288,3 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Player Detector"]
 position = Vector2(128, 88)
 shape = SubResource("RectangleShape2D_taytn")
-
-[editable path="Doors/DoorLeft"]
-[editable path="Doors/DoorRight"]
-[editable path="Doors/DoorUp"]

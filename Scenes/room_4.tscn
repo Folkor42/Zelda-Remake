@@ -218,9 +218,7 @@ position = Vector2(128, 23)
 
 [node name="DoorDown" parent="Doors" instance=ExtResource("3_cadyp")]
 position = Vector2(128, 152)
-
-[node name="Marker2D" parent="Doors/DoorDown" index="1"]
-position = Vector2(0, 64)
+direction = 2
 
 [node name="Floor" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 2, 0, 2, 0, 1, 0, 3, 0, 0, 0, 0, 0)
@@ -238,5 +236,3 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Player Detector"]
 position = Vector2(128, 88)
 shape = SubResource("RectangleShape2D_taytn")
-
-[editable path="Doors/DoorDown"]
