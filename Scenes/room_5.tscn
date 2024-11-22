@@ -32,100 +32,6 @@ margins = Vector2i(9, 11)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wkj53")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oidep"]
-texture = ExtResource("2_1bgii")
-margins = Vector2i(15, 11)
-separation = Vector2i(1, 1)
-58:2/0 = 0
-57:2/0 = 0
-57:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-57:1/0 = 0
-57:0/0 = 0
-58:0/0 = 0
-58:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-59:0/0 = 0
-59:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-60:0/0 = 0
-60:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-60:1/0 = 0
-59:1/0 = 0
-58:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_3d7x5"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_oidep")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i347"]
-texture = ExtResource("2_1bgii")
-margins = Vector2i(23, 11)
-separation = Vector2i(1, 1)
-texture_region_size = Vector2i(32, 32)
-27:0/0 = 0
-27:0/0/texture_origin = Vector2i(-16, 0)
-27:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 0, 16)
-28:0/0 = 0
-28:0/0/texture_origin = Vector2i(-16, 0)
-28:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 24, 16, 24, 0, 8, 0, 8.22012, 16, 0, 16)
-25:1/0 = 0
-25:1/0/texture_origin = Vector2i(0, -8)
-25:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8, 16, -0.0883884, 0, 0, 0, 16, 16, 16)
-26:1/0 = 0
-26:1/0/texture_origin = Vector2i(0, -8)
-26:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8)
-27:1/0 = 0
-27:1/0/texture_origin = Vector2i(0, -8)
-27:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8)
-28:1/0 = 0
-28:1/0/texture_origin = Vector2i(0, -8)
-28:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8, 16, -0.0883884, 0, 0, 0, 16, 16, 16)
-28:2/0 = 0
-28:2/0/texture_origin = Vector2i(0, -8)
-28:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8, -16, -0.0883884, 0, 0, 0, 16, -16, 16)
-27:2/0 = 0
-27:2/0/texture_origin = Vector2i(0, -8)
-27:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8)
-26:2/0 = 0
-26:2/0/texture_origin = Vector2i(0, -8)
-26:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8)
-25:2/0 = 0
-25:2/0/texture_origin = Vector2i(0, -8)
-25:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8, -16, -0.0883884, 0, 0, 0, 16, -16, 16)
-24:1/0 = 0
-24:1/0/texture_origin = Vector2i(0, -8)
-24:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8)
-24:2/0 = 0
-24:2/0/texture_origin = Vector2i(0, -8)
-24:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8)
-24:3/0 = 0
-24:3/0/texture_origin = Vector2i(-16, 16)
-24:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 0, -32)
-25:3/0 = 0
-25:3/0/texture_origin = Vector2i(-16, 16)
-25:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 24, -32, 24, -16, 8, -16, 8, -32, 0, -32)
-26:3/0 = 0
-26:3/0/texture_origin = Vector2i(-16, 16)
-26:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 0, -32)
-27:3/0 = 0
-27:3/0/texture_origin = Vector2i(-16, 16)
-27:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 0, -32)
-28:3/0 = 0
-28:3/0/texture_origin = Vector2i(-16, 16)
-28:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 24, -32, 24, -16, 8, -16, 8, -32, 0, -32)
-26:0/0 = 0
-26:0/0/texture_origin = Vector2i(-16, 0)
-26:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 0, 16)
-25:0/0 = 0
-25:0/0/texture_origin = Vector2i(-16, 0)
-25:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 24, 16, 24, 0, 8, 0, 8.22012, 16, 0, 16)
-24:0/0 = 0
-24:0/0/texture_origin = Vector2i(-16, 0)
-24:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 0, 16)
-
-[sub_resource type="TileSet" id="TileSet_j2brn"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_1i347")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dl2dr"]
 texture = ExtResource("2_1bgii")
 margins = Vector2i(1, 192)
@@ -222,12 +128,117 @@ sources/1 = SubResource("TileSetAtlasSource_dl2dr")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taytn"]
 size = Vector2(192, 110)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oidep"]
+texture = ExtResource("2_1bgii")
+margins = Vector2i(15, 11)
+separation = Vector2i(1, 1)
+58:2/0 = 0
+57:2/0 = 0
+57:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+57:1/0 = 0
+57:0/0 = 0
+58:0/0 = 0
+58:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+59:0/0 = 0
+59:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+60:0/0 = 0
+60:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+60:1/0 = 0
+59:1/0 = 0
+58:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3d7x5"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_oidep")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i347"]
+texture = ExtResource("2_1bgii")
+margins = Vector2i(23, 11)
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(32, 32)
+27:0/0 = 0
+27:0/0/texture_origin = Vector2i(-16, 0)
+27:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 0, 16)
+28:0/0 = 0
+28:0/0/texture_origin = Vector2i(-16, 0)
+28:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 24, 16, 24, 0, 8, 0, 8.22012, 16, 0, 16)
+25:1/0 = 0
+25:1/0/texture_origin = Vector2i(0, -8)
+25:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8, 16, -0.0883884, 0, 0, 0, 16, 16, 16)
+26:1/0 = 0
+26:1/0/texture_origin = Vector2i(0, -8)
+26:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8)
+27:1/0 = 0
+27:1/0/texture_origin = Vector2i(0, -8)
+27:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8)
+28:1/0 = 0
+28:1/0/texture_origin = Vector2i(0, -8)
+28:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8, 16, -0.0883884, 0, 0, 0, 16, 16, 16)
+28:2/0 = 0
+28:2/0/texture_origin = Vector2i(0, -8)
+28:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8, -16, -0.0883884, 0, 0, 0, 16, -16, 16)
+27:2/0 = 0
+27:2/0/texture_origin = Vector2i(0, -8)
+27:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8)
+26:2/0 = 0
+26:2/0/texture_origin = Vector2i(0, -8)
+26:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8)
+25:2/0 = 0
+25:2/0/texture_origin = Vector2i(0, -8)
+25:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8, -16, -0.0883884, 0, 0, 0, 16, -16, 16)
+24:1/0 = 0
+24:1/0/texture_origin = Vector2i(0, -8)
+24:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 24, -16, 24, -16, -8, 16, -8)
+24:2/0 = 0
+24:2/0/texture_origin = Vector2i(0, -8)
+24:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 24, 16, 24, 16, -8, -16, -8)
+24:3/0 = 0
+24:3/0/texture_origin = Vector2i(-16, 16)
+24:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 0, -32)
+25:3/0 = 0
+25:3/0/texture_origin = Vector2i(-16, 16)
+25:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 24, -32, 24, -16, 8, -16, 8, -32, 0, -32)
+26:3/0 = 0
+26:3/0/texture_origin = Vector2i(-16, 16)
+26:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 0, -32)
+27:3/0 = 0
+27:3/0/texture_origin = Vector2i(-16, 16)
+27:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 0, -32)
+28:3/0 = 0
+28:3/0/texture_origin = Vector2i(-16, 16)
+28:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, -32, 24, -32, 24, -16, 8, -16, 8, -32, 0, -32)
+26:0/0 = 0
+26:0/0/texture_origin = Vector2i(-16, 0)
+26:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 0, 16)
+25:0/0 = 0
+25:0/0/texture_origin = Vector2i(-16, 0)
+25:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 24, 16, 24, 0, 8, 0, 8.22012, 16, 0, 16)
+24:0/0 = 0
+24:0/0/texture_origin = Vector2i(-16, 0)
+24:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 32, -16, 32, 16, 0, 16)
+
+[sub_resource type="TileSet" id="TileSet_j2brn"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1i347")
+
 [node name="Room5" type="Node2D"]
 script = ExtResource("1_bpha3")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 32, 0, 2, 0, 0, 0, 0, 0, 9, 0, 0, 0, 32, 0, 9, 0, 0, 0, 14, 0, 2, 0, 0, 0, 46, 0, 2, 0, 0, 0)
 tile_set = SubResource("TileSet_va7gw")
+
+[node name="Floor" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 2, 0, 2, 0, 1, 0, 4, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_xbmq4")
+
+[node name="Player Detector" type="Area2D" parent="Floor"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Player Detector"]
+position = Vector2(128, 88)
+shape = SubResource("RectangleShape2D_taytn")
 
 [node name="Placeables" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 4, 0, 4, 0, 0, 0, 58, 0, 0, 0, 0, 0, 4, 0, 6, 0, 0, 0, 58, 0, 0, 0, 0, 0, 11, 0, 6, 0, 0, 0, 58, 0, 0, 0, 0, 0, 11, 0, 4, 0, 0, 0, 58, 0, 0, 0, 0, 0)
@@ -253,17 +264,6 @@ position = Vector2(128, 152)
 direction = 2
 
 [node name="Doors2" type="TileMapLayer" parent="."]
-visible = false
-tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 25, 0, 1, 0, 0, 0, 7, 0, 2, 0, 0, 0, 25, 0, 2, 0, 0, 0, 3, 0, 5, 0, 0, 0, 25, 0, 3, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0)
+enabled = false
 tile_set = SubResource("TileSet_j2brn")
-
-[node name="Floor" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 2, 0, 2, 0, 1, 0, 4, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_xbmq4")
-
-[node name="Player Detector" type="Area2D" parent="Floor"]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Player Detector"]
-position = Vector2(128, 88)
-shape = SubResource("RectangleShape2D_taytn")

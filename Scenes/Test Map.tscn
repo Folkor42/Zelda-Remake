@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c52mqag1as035"]
+[gd_scene load_steps=20 format=3 uid="uid://c52mqag1as035"]
 
 [ext_resource type="PackedScene" uid="uid://bnwqkvxnroftf" path="res://Scenes/room_1.tscn" id="1_0jukm"]
 [ext_resource type="PackedScene" uid="uid://dp8v4a8jjk75f" path="res://Scenes/room_2.tscn" id="2_5xv0p"]
@@ -7,6 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://b3ull75bbs50p" path="res://Scenes/room_4.tscn" id="4_p8gvt"]
 [ext_resource type="PackedScene" uid="uid://dkxs23fatbqph" path="res://Scenes/room_5.tscn" id="5_55tte"]
 [ext_resource type="PackedScene" uid="uid://bs4msomqsmexe" path="res://Scenes/room_3.tscn" id="5_f5yjw"]
+[ext_resource type="PackedScene" uid="uid://co5tyxg8aca0v" path="res://Scenes/room_6.tscn" id="6_w1e1m"]
+[ext_resource type="PackedScene" uid="uid://4q2brnfggrce" path="res://Scenes/room_7.tscn" id="7_10l82"]
+[ext_resource type="PackedScene" uid="uid://dkl2ln0ukqjg5" path="res://Scenes/room_8.tscn" id="8_0v15u"]
+[ext_resource type="PackedScene" uid="uid://imc01yc7nw2g" path="res://Scenes/room_9.tscn" id="9_31rjk"]
+[ext_resource type="PackedScene" uid="uid://dkroifdebunbs" path="res://Scenes/room_10.tscn" id="10_wh15a"]
+[ext_resource type="PackedScene" uid="uid://cyoiv80oeo5sy" path="res://Scenes/room_11.tscn" id="11_d0i5t"]
+[ext_resource type="PackedScene" uid="uid://b1eumef4huiqn" path="res://Scenes/room_12.tscn" id="12_t4kf3"]
+[ext_resource type="PackedScene" uid="uid://b5gh27xwp1uh8" path="res://Scenes/room_13.tscn" id="13_4y4e8"]
+[ext_resource type="PackedScene" uid="uid://dy8opnrhogu8y" path="res://Scenes/room_14.tscn" id="14_6n3v2"]
+[ext_resource type="PackedScene" uid="uid://bb4ph6ftaw0is" path="res://Scenes/room_15.tscn" id="15_k4hj1"]
+[ext_resource type="PackedScene" uid="uid://00rfsax5jltg" path="res://Scenes/room_16.tscn" id="16_483en"]
+[ext_resource type="PackedScene" uid="uid://ctf8pfjxaq427" path="res://Scenes/room_17.tscn" id="17_d5d58"]
 
 [node name="Dungeon 1 Map" type="Node2D"]
 
@@ -26,9 +38,45 @@ position = Vector2(0, -176)
 [node name="Room5" parent="Rooms" instance=ExtResource("5_55tte")]
 position = Vector2(0, -352)
 
+[node name="Room6" parent="Rooms" instance=ExtResource("6_w1e1m")]
+position = Vector2(-256, -352)
+
+[node name="Room7" parent="Rooms" instance=ExtResource("7_10l82")]
+position = Vector2(256, -352)
+
+[node name="Room8" parent="Rooms" instance=ExtResource("8_0v15u")]
+position = Vector2(0, -528)
+
+[node name="Room9" parent="Rooms" instance=ExtResource("9_31rjk")]
+position = Vector2(-256, -528)
+
+[node name="Room10" parent="Rooms" instance=ExtResource("10_wh15a")]
+position = Vector2(-512, -528)
+
+[node name="Room11" parent="Rooms" instance=ExtResource("11_d0i5t")]
+position = Vector2(0, -704)
+
+[node name="Room12" parent="Rooms" instance=ExtResource("12_t4kf3")]
+position = Vector2(0, -880)
+
+[node name="Room13" parent="Rooms" instance=ExtResource("13_4y4e8")]
+position = Vector2(-256, -880)
+
+[node name="Room14" parent="Rooms" instance=ExtResource("14_6n3v2")]
+position = Vector2(256, -528)
+
+[node name="Room15" parent="Rooms" instance=ExtResource("15_k4hj1")]
+position = Vector2(512, -528)
+
+[node name="Room16" parent="Rooms" instance=ExtResource("16_483en")]
+position = Vector2(512, -704)
+
+[node name="Room17" parent="Rooms" instance=ExtResource("17_d5d58")]
+position = Vector2(768, -704)
+
 [node name="Link" parent="." instance=ExtResource("2_lbc3x")]
 z_index = 1
-position = Vector2(128, 131)
+position = Vector2(128, -409)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(126, 119)

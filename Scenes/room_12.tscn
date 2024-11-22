@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://bnwqkvxnroftf"]
+[gd_scene load_steps=13 format=4 uid="uid://b1eumef4huiqn"]
 
-[ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="1_c1jxx"]
-[ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_d5m62"]
-[ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_8c6sk"]
+[ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_3ivwi"]
+[ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_qcmm1"]
+[ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_068nl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
-texture = ExtResource("1_c1jxx")
+texture = ExtResource("2_qcmm1")
 margins = Vector2i(9, 11)
 46:2/size_in_atlas = Vector2i(2, 7)
 46:2/0 = 0
@@ -33,7 +33,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wkj53")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dl2dr"]
-texture = ExtResource("1_c1jxx")
+texture = ExtResource("2_qcmm1")
 margins = Vector2i(1, 192)
 separation = Vector2i(3, 3)
 texture_region_size = Vector2i(192, 112)
@@ -129,7 +129,7 @@ sources/1 = SubResource("TileSetAtlasSource_dl2dr")
 size = Vector2(192, 110)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oidep"]
-texture = ExtResource("1_c1jxx")
+texture = ExtResource("2_qcmm1")
 margins = Vector2i(15, 11)
 separation = Vector2i(1, 1)
 58:2/0 = 0
@@ -145,6 +145,7 @@ separation = Vector2i(1, 1)
 60:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 60:1/0 = 0
 59:1/0 = 0
+59:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 58:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3d7x5"]
@@ -152,7 +153,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_oidep")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i347"]
-texture = ExtResource("1_c1jxx")
+texture = ExtResource("2_qcmm1")
 margins = Vector2i(23, 11)
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(32, 32)
@@ -223,14 +224,14 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1i347")
 
 [node name="Room1" type="Node2D"]
-script = ExtResource("1_d5m62")
+script = ExtResource("1_3ivwi")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAAgAAAAAAAAAAIAAAAgAAIAAAAAAAkAAAAgAAkAAAAOAAIAAAAuAAIAAAA=")
 tile_set = SubResource("TileSet_va7gw")
 
 [node name="Floor" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAACAAIAAQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAAIAAQABAAIAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
 
 [node name="Player Detector" type="Area2D" parent="Floor"]
@@ -241,29 +242,29 @@ position = Vector2(128, 88)
 shape = SubResource("RectangleShape2D_taytn")
 
 [node name="Placeables" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAADAAMAAAA7AAAAAAADAAUAAAA7AAAAAAADAAcAAAA7AAAAAAAGAAcAAAA7AAAAAAAGAAUAAAA7AAAAAAAGAAMAAAA7AAAAAAAJAAMAAAA8AAAAAAAMAAMAAAA8AAAAAAAMAAUAAAA8AAAAAAAMAAcAAAA8AAAAAAAJAAcAAAA8AAAAAAAJAAUAAAA8AAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAAMAAAA7AAEAAAAEAAMAAAA7AAEAAAADAAMAAAA7AAEAAAADAAQAAAA7AAEAAAADAAUAAAA7AAEAAAADAAYAAAA7AAEAAAADAAcAAAA7AAEAAAAEAAcAAAA7AAEAAAAFAAcAAAA7AAEAAAAFAAUAAAA7AAEAAAAGAAUAAAA7AAEAAAAHAAUAAAA7AAEAAAAIAAUAAAA7AAEAAAAJAAUAAAA7AAEAAAAKAAUAAAA7AAEAAAAKAAMAAAA7AAEAAAALAAMAAAA7AAEAAAAMAAMAAAA7AAEAAAAKAAcAAAA7AAEAAAALAAcAAAA7AAEAAAAMAAcAAAA7AAEAAAAMAAYAAAA7AAEAAAAMAAUAAAA7AAEAAAAMAAQAAAA7AAEAAAA=")
 tile_set = SubResource("TileSet_3d7x5")
 
 [node name="Doors" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAADAAAAAAAZAAAAAAAAAAIAAAAZAAEAAAAHAAIAAAAZAAIAAAADAAUAAAAZAAMAAAA=")
+tile_map_data = PackedByteArray("AAADAAAAAAAYAAAAAAAAAAIAAAAZAAEAAAAHAAIAAAAYAAIAAAADAAUAAAAZAAMAAAA=")
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="DoorLeft" parent="Doors" instance=ExtResource("3_8c6sk")]
+[node name="DoorLeft" parent="Doors" instance=ExtResource("3_068nl")]
 position = Vector2(23, 88)
 direction = 3
 
-[node name="DoorRight" parent="Doors" instance=ExtResource("3_8c6sk")]
+[node name="DoorRight" parent="Doors" instance=ExtResource("3_068nl")]
 position = Vector2(233, 88)
 direction = 1
 
-[node name="DoorUp" parent="Doors" instance=ExtResource("3_8c6sk")]
+[node name="DoorUp" parent="Doors" instance=ExtResource("3_068nl")]
 position = Vector2(128, 23)
 
-[node name="DoorDown" parent="Doors" instance=ExtResource("3_8c6sk")]
+[node name="DoorDown" parent="Doors" instance=ExtResource("3_068nl")]
 position = Vector2(128, 152)
 direction = 2
 
 [node name="Doors2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAADAAAAAAAaAAAAAAAAAAIAAAAZAAEAAAAHAAIAAAAZAAIAAAADAAUAAAAZAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAAAaAAEAAAADAAUAAAAaAAMAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_j2brn")

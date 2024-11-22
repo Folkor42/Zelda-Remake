@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3ull75bbs50p"]
+[gd_scene load_steps=13 format=4 uid="uid://b3ull75bbs50p"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_5x0m7"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_4nquh"]
@@ -196,21 +196,41 @@ texture_region_size = Vector2i(192, 112)
 [sub_resource type="TileSet" id="TileSet_xbmq4"]
 sources/1 = SubResource("TileSetAtlasSource_dl2dr")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmg6x"]
-size = Vector2(32, 48)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taytn"]
 size = Vector2(192, 110)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idvwy"]
+texture = ExtResource("2_4nquh")
+margins = Vector2i(15, 11)
+separation = Vector2i(1, 1)
+58:2/0 = 0
+57:2/0 = 0
+57:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+57:1/0 = 0
+57:0/0 = 0
+58:0/0 = 0
+58:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+59:0/0 = 0
+59:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+60:0/0 = 0
+60:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+60:1/0 = 0
+59:1/0 = 0
+58:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i2mnw"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_idvwy")
 
 [node name="Room4" type="Node2D"]
 script = ExtResource("1_5x0m7")
 
 [node name="Walls" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 32, 0, 2, 0, 0, 0, 0, 0, 9, 0, 0, 0, 32, 0, 9, 0, 0, 0, 14, 0, 2, 0, 0, 0, 46, 0, 2, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAAAAAAAgAAAAAAAAAAIAAAAgAAIAAAAAAAkAAAAgAAkAAAAOAAIAAAAuAAIAAAA=")
 tile_set = SubResource("TileSet_va7gw")
 
 [node name="Doors" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 24, 0, 1, 0, 0, 0, 7, 0, 2, 0, 0, 0, 24, 0, 2, 0, 0, 0, 3, 0, 5, 0, 0, 0, 25, 0, 3, 0, 0, 0)
+tile_map_data = PackedByteArray("AAADAAAAAAAZAAAAAAAAAAIAAAAYAAEAAAAHAAIAAAAYAAIAAAADAAUAAAAZAAMAAAA=")
 tile_set = SubResource("TileSet_j2brn")
 
 [node name="DoorUp" parent="Doors" instance=ExtResource("3_cadyp")]
@@ -221,14 +241,8 @@ position = Vector2(128, 152)
 direction = 2
 
 [node name="Floor" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 2, 0, 2, 0, 1, 0, 3, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAACAAIAAQADAAAAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
-
-[node name="Obstacles" type="StaticBody2D" parent="Floor"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(128, 88)
-shape = SubResource("RectangleShape2D_mmg6x")
 
 [node name="Player Detector" type="Area2D" parent="Floor"]
 collision_layer = 0
@@ -236,3 +250,7 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Player Detector"]
 position = Vector2(128, 88)
 shape = SubResource("RectangleShape2D_taytn")
+
+[node name="Placeables" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAHAAQAAAA6AAAAAAAHAAUAAAA6AAAAAAAHAAYAAAA6AAAAAAAIAAQAAAA6AAAAAAAIAAUAAAA6AAAAAAAIAAYAAAA6AAAAAAA=")
+tile_set = SubResource("TileSet_i2mnw")
