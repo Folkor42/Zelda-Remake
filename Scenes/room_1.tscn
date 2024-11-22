@@ -253,6 +253,7 @@ position = Vector2(128, 152)
 direction = 2
 
 [node name="Doors2" type="TileMapLayer" parent="."]
+visible = false
 tile_map_data = PackedByteArray("AAADAAAAAAAaAAAAAAAAAAIAAAAZAAEAAAAHAAIAAAAZAAIAAAADAAUAAAAZAAMAAAA=")
 tile_set = SubResource("TileSet_j2brn")
 
