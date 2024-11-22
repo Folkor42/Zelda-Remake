@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnwqkvxnroftf"]
+[gd_scene load_steps=13 format=4 uid="uid://bnwqkvxnroftf"]
 
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="1_c1jxx"]
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_d5m62"]
@@ -7,11 +7,11 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("1_c1jxx")
 margins = Vector2i(9, 11)
-32:0/size_in_atlas = Vector2i(16, 2)
-32:0/0 = 0
-32:0/0/texture_origin = Vector2i(-120, -8)
-32:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 104, -8, 104, 24, -8, 24)
-32:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(136, -8, 136, 24, 248, 24, 248, -8)
+46:2/size_in_atlas = Vector2i(2, 7)
+46:2/0 = 0
+46:2/0/texture_origin = Vector2i(-8, -48)
+46:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 24, -8, 24, 32, -8, 32)
+46:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, 64, -8, 104, 24, 104, 24, 64)
 32:9/size_in_atlas = Vector2i(16, 2)
 32:9/0 = 0
 32:9/0/texture_origin = Vector2i(-120, -8)
@@ -22,15 +22,38 @@ margins = Vector2i(9, 11)
 32:2/0/texture_origin = Vector2i(-8, -48)
 32:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 24, -8, 24, 32, -8, 32)
 32:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, 64, -8, 104, 24, 104, 24, 64)
-46:2/size_in_atlas = Vector2i(2, 7)
-46:2/0 = 0
-46:2/0/texture_origin = Vector2i(-8, -48)
-46:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 24, -8, 24, 32, -8, 32)
-46:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, 64, -8, 104, 24, 104, 24, 64)
+32:0/size_in_atlas = Vector2i(16, 2)
+32:0/0 = 0
+32:0/0/texture_origin = Vector2i(-120, -8)
+32:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 104, -8, 104, 24, -8, 24)
+32:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(136, -8, 136, 24, 248, 24, 248, -8)
 
 [sub_resource type="TileSet" id="TileSet_va7gw"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wkj53")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oidep"]
+texture = ExtResource("1_c1jxx")
+margins = Vector2i(15, 11)
+separation = Vector2i(1, 1)
+58:2/0 = 0
+57:2/0 = 0
+57:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+57:1/0 = 0
+57:0/0 = 0
+58:0/0 = 0
+58:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+59:0/0 = 0
+59:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+60:0/0 = 0
+60:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+60:1/0 = 0
+59:1/0 = 0
+58:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3d7x5"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_oidep")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i347"]
 texture = ExtResource("1_c1jxx")
@@ -196,9 +219,6 @@ texture_region_size = Vector2i(192, 112)
 [sub_resource type="TileSet" id="TileSet_xbmq4"]
 sources/1 = SubResource("TileSetAtlasSource_dl2dr")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_08a4b"]
-size = Vector2(16, 17)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taytn"]
 size = Vector2(192, 110)
 
@@ -206,11 +226,15 @@ size = Vector2(192, 110)
 script = ExtResource("1_d5m62")
 
 [node name="Walls" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 32, 0, 2, 0, 0, 0, 0, 0, 9, 0, 0, 0, 32, 0, 9, 0, 0, 0, 14, 0, 2, 0, 0, 0, 46, 0, 2, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAAAAAAAgAAAAAAAAAAIAAAAgAAIAAAAAAAkAAAAgAAkAAAAOAAIAAAAuAAIAAAA=")
 tile_set = SubResource("TileSet_va7gw")
 
+[node name="Placeables" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAAMAAAA7AAAAAAADAAUAAAA7AAAAAAADAAcAAAA7AAAAAAAGAAcAAAA7AAAAAAAGAAUAAAA7AAAAAAAGAAMAAAA7AAAAAAAJAAMAAAA8AAAAAAAMAAMAAAA8AAAAAAAMAAUAAAA8AAAAAAAMAAcAAAA8AAAAAAAJAAcAAAA8AAAAAAAJAAUAAAA8AAAAAAA=")
+tile_set = SubResource("TileSet_3d7x5")
+
 [node name="Doors" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 25, 0, 1, 0, 0, 0, 7, 0, 2, 0, 0, 0, 25, 0, 2, 0, 0, 0, 3, 0, 5, 0, 0, 0, 25, 0, 3, 0, 0, 0)
+tile_map_data = PackedByteArray("AAADAAAAAAAZAAAAAAAAAAIAAAAZAAEAAAAHAAIAAAAZAAIAAAADAAUAAAAZAAMAAAA=")
 tile_set = SubResource("TileSet_j2brn")
 
 [node name="DoorLeft" parent="Doors" instance=ExtResource("3_8c6sk")]
@@ -228,59 +252,13 @@ position = Vector2(128, 23)
 position = Vector2(128, 152)
 direction = 2
 
+[node name="Doors2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAAAAAAAaAAAAAAAAAAIAAAAZAAEAAAAHAAIAAAAZAAIAAAADAAUAAAAZAAMAAAA=")
+tile_set = SubResource("TileSet_j2brn")
+
 [node name="Floor" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 2, 0, 2, 0, 1, 0, 1, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAACAAIAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
-
-[node name="Obstacles" type="StaticBody2D" parent="Floor"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(56, 55)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(104, 55.5)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(152, 55.5)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(200, 55.5)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(56, 87.5)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(104, 88)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(152, 88)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(200, 88)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(56, 119.5)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(104, 120)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(152, 120)
-shape = SubResource("RectangleShape2D_08a4b")
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="Floor/Obstacles"]
-position = Vector2(200, 120)
-shape = SubResource("RectangleShape2D_08a4b")
 
 [node name="Player Detector" type="Area2D" parent="Floor"]
 collision_layer = 0
