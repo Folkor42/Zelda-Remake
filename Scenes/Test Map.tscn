@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c52mqag1as035"]
+[gd_scene load_steps=8 format=3 uid="uid://c52mqag1as035"]
 
 [ext_resource type="PackedScene" uid="uid://bnwqkvxnroftf" path="res://Scenes/room_1.tscn" id="1_0jukm"]
 [ext_resource type="PackedScene" uid="uid://dp8v4a8jjk75f" path="res://Scenes/room_2.tscn" id="2_5xv0p"]
 [ext_resource type="PackedScene" uid="uid://t32kfpctgl4h" path="res://Scenes/link.tscn" id="2_lbc3x"]
 [ext_resource type="Script" path="res://Scenes/camera.gd" id="4_ep5xl"]
 [ext_resource type="PackedScene" uid="uid://b3ull75bbs50p" path="res://Scenes/room_4.tscn" id="4_p8gvt"]
+[ext_resource type="PackedScene" uid="uid://dkxs23fatbqph" path="res://Scenes/room_5.tscn" id="5_55tte"]
 [ext_resource type="PackedScene" uid="uid://bs4msomqsmexe" path="res://Scenes/room_3.tscn" id="5_f5yjw"]
 
 [node name="Dungeon 1 Map" type="Node2D"]
@@ -21,6 +22,9 @@ position = Vector2(256, 0)
 
 [node name="Room4" parent="Rooms" instance=ExtResource("4_p8gvt")]
 position = Vector2(0, -176)
+
+[node name="Room5" parent="Rooms" instance=ExtResource("5_55tte")]
+position = Vector2(0, -352)
 
 [node name="Link" parent="." instance=ExtResource("2_lbc3x")]
 z_index = 1
