@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://t32kfpctgl4h"]
+[gd_scene load_steps=19 format=3 uid="uid://t32kfpctgl4h"]
 
 [ext_resource type="Script" path="res://Scenes/link.gd" id="1_6m654"]
 [ext_resource type="Texture2D" uid="uid://43nr4vtn4al2" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-2.png" id="2_3k256"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_iejdd"]
 
 [sub_resource type="Animation" id="Animation_tlw8f"]
 length = 0.001
@@ -229,7 +230,11 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_j8og6"]
 radius = 4.12311
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxtpg"]
+size = Vector2(12, 14)
+
 [node name="Link" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_6m654")
 speed = 80
 
@@ -250,3 +255,11 @@ position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_j8og6")
 
 [node name="Sword" type="Sprite2D" parent="."]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_iejdd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_oxtpg")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brmcqtl0076wx"
+path="res://.godot/imported/12 Death Mountain BGM.mp3-1c06bc5f86f637b282f1ceafa6667cd7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/12 Death Mountain BGM.mp3"
+dest_files=["res://.godot/imported/12 Death Mountain BGM.mp3-1c06bc5f86f637b282f1ceafa6667cd7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

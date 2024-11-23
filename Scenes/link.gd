@@ -1,11 +1,22 @@
 extends CharacterBody2D
 
+@export var hp : int = 6
 @export var speed : int = 120
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var sword: Sprite2D = $Sword
+@onready var hit_box: HitBox = $HitBox
 
 var cardinal_direction : Vector2 = Vector2.DOWN
+
+func _ready() -> void:
+	hit_box.Damaged.connect(playerdamaged)
+	pass
+
+func playerdamaged(_hb : HurtBox)->void:
+	hp -= _hb.damage
+	print (hp)
+	pass
 
 func get_input():
 	var input_direction = Vector2(
