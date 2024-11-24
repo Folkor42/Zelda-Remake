@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://co5tyxg8aca0v"]
+[gd_scene load_steps=14 format=4 uid="uid://co5tyxg8aca0v"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_1yy83"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_lpi6a"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_3pvfg"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_oo2i7"]
+[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/bat.tscn" id="5_rxexg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_lpi6a")
@@ -252,3 +253,21 @@ position = Vector2(128, 23)
 tile_map_data = PackedByteArray("AAADAAAAAAAaAAAAAAAHAAIAAAAbAAIAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
+
+[node name="Keese" parent="." instance=ExtResource("5_rxexg")]
+position = Vector2(56, 47)
+
+[node name="Keese2" parent="." instance=ExtResource("5_rxexg")]
+position = Vector2(124, 77)
+
+[node name="Keese3" parent="." instance=ExtResource("5_rxexg")]
+position = Vector2(56, 124)
+
+[node name="Keese4" parent="." instance=ExtResource("5_rxexg")]
+position = Vector2(133, 124)
+
+[node name="Keese5" parent="." instance=ExtResource("5_rxexg")]
+position = Vector2(201, 127)
+
+[node name="Keese6" parent="." instance=ExtResource("5_rxexg")]
+position = Vector2(188, 47)

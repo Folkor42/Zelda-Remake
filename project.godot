@@ -18,13 +18,15 @@ config/icon="res://Assets/Link.png"
 [autoload]
 
 Events="*res://events.gd"
+SceneTransition="*res://Universal Scripts/Scene_Transition.tscn"
+LevelManager="*res://Universal Scripts/GlobalLevelManager.gd"
 
 [display]
 
 window/size/viewport_width=256
-window/size/viewport_height=180
-window/size/window_width_override=960
-window/size/window_height_override=540
+window/size/viewport_height=240
+window/size/window_width_override=768
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 
 [input]
@@ -65,6 +67,7 @@ attack={
 2d_physics/layer_1="Walls"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Ladder Crossable"
 
 [rendering]
 

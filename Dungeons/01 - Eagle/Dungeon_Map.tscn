@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c52mqag1as035"]
+[gd_scene load_steps=22 format=3 uid="uid://c52mqag1as035"]
 
 [ext_resource type="PackedScene" uid="uid://bnwqkvxnroftf" path="res://Dungeons/01 - Eagle/room_1.tscn" id="1_fxssn"]
 [ext_resource type="PackedScene" uid="uid://dp8v4a8jjk75f" path="res://Dungeons/01 - Eagle/room_2.tscn" id="2_tiasm"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bb4ph6ftaw0is" path="res://Dungeons/01 - Eagle/room_15.tscn" id="15_l8ajq"]
 [ext_resource type="PackedScene" uid="uid://00rfsax5jltg" path="res://Dungeons/01 - Eagle/room_16.tscn" id="16_bak2b"]
 [ext_resource type="PackedScene" uid="uid://ctf8pfjxaq427" path="res://Dungeons/01 - Eagle/room_17.tscn" id="17_g78wu"]
+[ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="19_6t846"]
 [ext_resource type="PackedScene" uid="uid://snh18otta0v2" path="res://Scenes/link2.tscn" id="19_rkfce"]
 [ext_resource type="Script" path="res://Scenes/camera.gd" id="19_wj6oy"]
 [ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/372183_Heavy_Dungeon.mp3" id="20_bhtn0"]
@@ -76,15 +77,32 @@ position = Vector2(512, -704)
 position = Vector2(768, -704)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(126, 119)
+offset = Vector2(0, -64)
 anchor_mode = 0
 position_smoothing_enabled = true
-position_smoothing_speed = 15.0
+position_smoothing_speed = 10.0
 script = ExtResource("19_wj6oy")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+z_index = 10
+custom_minimum_size = Vector2(256, 64)
+layout_direction = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -64.0
+offset_right = 256.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ColorRect"]
+position = Vector2(128, 32)
+texture = ExtResource("19_6t846")
+region_enabled = true
+region_rect = Rect2(256, 0, 256, 64)
 
 [node name="Link2" parent="." instance=ExtResource("19_rkfce")]
 z_index = 1
-position = Vector2(312, 130)
+position = Vector2(129, 130)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_bhtn0")
