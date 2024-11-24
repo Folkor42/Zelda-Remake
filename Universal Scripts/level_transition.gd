@@ -16,11 +16,11 @@ enum SIDE { TOP, BOTTOM }
 	set ( _v ):
 		_snap_to_grid()
 
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
-
+@onready var collision_shape_2d: CollisionShape2D
 
 func _ready() -> void:
-	#_update_area()
+	collision_shape_2d = $CollisionShape2D
+	_update_area()
 	if Engine.is_editor_hint():
 		return
 	monitoring = false
@@ -58,18 +58,18 @@ func get_offset() -> Vector2:
 	return offset
 	
 func _update_area() -> void:
-	var new_rect : Vector2 = Vector2( 32,32 )
+	var new_rect : Vector2 = Vector2( 16,16 )
 	var new_position : Vector2 = Vector2.ZERO
 	
 	if side == SIDE.TOP:
-		new_position.y -=16
+		new_position.y -=8
 	elif side == SIDE.BOTTOM:
-		new_position.y +=16
-	if collision_shape == null:
-		collision_shape = get_node("CollisionShape2D")
-		
-	#collision_shape.shape.size = new_rect
-	#collision_shape.position = new_position
+		new_position.y +=8
+	#if collision_shape_2d == null:
+		#collision_shape_2d = get_node("CollisionShape2D")
+	if collision_shape_2d != null:	
+		collision_shape_2d.shape.size = new_rect
+		collision_shape_2d.position = new_position
 	
 func _snap_to_grid () -> void:
 	position.x=round( position.x/16 ) * 16

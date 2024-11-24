@@ -253,10 +253,10 @@ direction = 1
 [node name="DoorUp" parent="Doors" instance=ExtResource("3_8c6sk")]
 position = Vector2(128, 23)
 
-[node name="LevelTransition" parent="Doors" instance=ExtResource("5_e7c1j")]
-position = Vector2(128, 160)
+[node name="EagleDungeonEntrance" parent="Doors" instance=ExtResource("5_e7c1j")]
+position = Vector2(128, 152)
 level = "res://Scenes/over_world_quest_1.tscn"
-target_transition_area = "LevelTransition"
+target_transition_area = "EagleDungeonEntrance"
 side = 1
 
 [node name="Doors2" type="TileMapLayer" parent="."]
