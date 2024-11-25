@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="19_6t846"]
 [ext_resource type="PackedScene" uid="uid://snh18otta0v2" path="res://Scenes/link2.tscn" id="19_rkfce"]
 [ext_resource type="Script" path="res://Scenes/camera.gd" id="19_wj6oy"]
-[ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/372183_Heavy_Dungeon.mp3" id="20_bhtn0"]
+[ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="20_bhtn0"]
 
 [node name="01 - Eagle Dungeon" type="Node2D"]
 

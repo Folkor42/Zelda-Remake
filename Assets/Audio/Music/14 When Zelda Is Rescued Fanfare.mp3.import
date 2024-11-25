@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j2x31j07ubr0"
+path="res://.godot/imported/14 When Zelda Is Rescued Fanfare.mp3-654971af3d0e91afc77bbb9e06fb5c5d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/14 When Zelda Is Rescued Fanfare.mp3"
+dest_files=["res://.godot/imported/14 When Zelda Is Rescued Fanfare.mp3-654971af3d0e91afc77bbb9e06fb5c5d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
