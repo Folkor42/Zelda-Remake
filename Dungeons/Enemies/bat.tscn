@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0lkdy2mkcoq1"]
+[gd_scene load_steps=12 format=3 uid="uid://d0lkdy2mkcoq1"]
 
 [ext_resource type="Script" path="res://Dungeons/Enemies/skeleton.gd" id="1_6kd54"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_0vtwp"]
@@ -52,7 +52,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86i26"]
-size = Vector2(14, 16)
+size = Vector2(14, 9)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tq4b"]
+radius = 5.0
 
 [node name="Keese" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "timer")]
 z_index = 1
@@ -91,6 +94,7 @@ monitoring = false
 script = ExtResource("3_tbooc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_86i26")
 
 [node name="HurtBox" type="Area2D" parent="."]
@@ -100,4 +104,4 @@ monitorable = false
 script = ExtResource("4_oknfi")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("RectangleShape2D_86i26")
+shape = SubResource("CircleShape2D_5tq4b")

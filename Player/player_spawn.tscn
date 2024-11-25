@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctsnowjve7avk"]
+
+[ext_resource type="Script" path="res://Universal Scripts/player_spawn.gd" id="1_m0iw2"]
+[ext_resource type="Texture2D" uid="uid://bq5qvvqjtmk4b" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-3.png" id="2_t8k7l"]
+
+[node name="PlayerSpawn" type="Node2D"]
+script = ExtResource("1_m0iw2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.96, 0.448, 0.219608)
+texture = ExtResource("2_t8k7l")
+hframes = 22
+vframes = 18

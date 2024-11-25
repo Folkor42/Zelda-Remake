@@ -255,8 +255,9 @@ position = Vector2(128, 23)
 
 [node name="EagleDungeonEntrance" parent="Doors" instance=ExtResource("5_e7c1j")]
 position = Vector2(128, 152)
-level = "res://Scenes/over_world_quest_1.tscn"
+level = "res://Overworld/over_world_quest_1.tscn"
 target_transition_area = "EagleDungeonEntrance"
+center_player = true
 side = 1
 
 [node name="Doors2" type="TileMapLayer" parent="."]
