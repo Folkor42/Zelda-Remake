@@ -5,6 +5,7 @@ class_name Level extends Node2D
 var scene : String
 
 func _ready():
+	PlayerManager.player.remove_camera()
 	self.y_sort_enabled = true
 	PlayerManager.set_as_parent( self )
 	LevelManager.level_load_started.connect( _free_level )

@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://c52mqag1as035"]
+[gd_scene load_steps=22 format=3 uid="uid://c52mqag1as035"]
 
 [ext_resource type="PackedScene" uid="uid://bnwqkvxnroftf" path="res://Dungeons/01 - Eagle/room_1.tscn" id="1_fxssn"]
+[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_gev80"]
 [ext_resource type="PackedScene" uid="uid://dp8v4a8jjk75f" path="res://Dungeons/01 - Eagle/room_2.tscn" id="2_tiasm"]
 [ext_resource type="PackedScene" uid="uid://bs4msomqsmexe" path="res://Dungeons/01 - Eagle/room_3.tscn" id="3_j8ybl"]
 [ext_resource type="PackedScene" uid="uid://b3ull75bbs50p" path="res://Dungeons/01 - Eagle/room_4.tscn" id="4_g0u4q"]
@@ -22,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="20_bhtn0"]
 
 [node name="01 - Eagle Dungeon" type="Node2D"]
+script = ExtResource("1_gev80")
 
 [node name="Rooms" type="Node" parent="."]
 
@@ -75,10 +77,9 @@ position = Vector2(512, -704)
 [node name="Room17" parent="Rooms" instance=ExtResource("17_g78wu")]
 position = Vector2(768, -704)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="DungeonCamera" type="Camera2D" parent="."]
 offset = Vector2(0, -64)
 anchor_mode = 0
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("19_wj6oy")
 

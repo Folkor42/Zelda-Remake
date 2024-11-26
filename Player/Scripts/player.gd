@@ -112,3 +112,8 @@ func revive_player() -> void:
 	##store throwable object
 	#carry.throwable=_t
 	#pass
+
+func remove_camera()->void:
+	for c in get_children():
+		if c is Camera2D:
+			c.queue_free()
