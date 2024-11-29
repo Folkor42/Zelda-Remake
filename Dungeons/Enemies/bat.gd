@@ -1,4 +1,4 @@
-class_name Skeleton extends Enemy
+class_name Bat extends Enemy
 
 const DEATH_ANIM = preload("res://Scenes/enemy_death.tscn")
 

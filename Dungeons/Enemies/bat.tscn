@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://d0lkdy2mkcoq1"]
 
-[ext_resource type="Script" path="res://Dungeons/Enemies/skeleton.gd" id="1_6kd54"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/bat.gd" id="1_ene7i"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_0vtwp"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_tbooc"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_oknfi"]
@@ -60,7 +60,7 @@ radius = 5.0
 [node name="Keese" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "timer")]
 z_index = 1
 collision_layer = 4
-script = ExtResource("1_6kd54")
+script = ExtResource("1_ene7i")
 speed = 20.0
 WallDetector = NodePath("WallDetector")
 timer = NodePath("Change Direction")

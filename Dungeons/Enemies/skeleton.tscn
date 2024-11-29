@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bq3sebmy1cg7f"]
+[gd_scene load_steps=12 format=3 uid="uid://bq3sebmy1cg7f"]
 
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="1_hxsg2"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/skeleton.gd" id="1_s1ti6"]
@@ -40,15 +40,45 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7ptmo"]
 resource_name = "Stun"
+
+[sub_resource type="Animation" id="Animation_ynpa2"]
+resource_name = "hit"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.137255), Color(1, 1, 1, 1), Color(1, 1, 1, 0.137255), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7mvr"]
 _data = {
 "Move": SubResource("Animation_mqpbc"),
 "RESET": SubResource("Animation_r08pl"),
-"Stun": SubResource("Animation_7ptmo")
+"Stun": SubResource("Animation_7ptmo"),
+"hit": SubResource("Animation_ynpa2")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86i26"]
