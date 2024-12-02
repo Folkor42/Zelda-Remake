@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://vcn5yobjf3vy"]
+
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_m4r88"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_h4rv7"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_vlcca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46tve"]
+atlas = ExtResource("3_vlcca")
+region = Rect2(72, 16, 8, 16)
+
+[resource]
+script = ExtResource("2_h4rv7")
+name = "Blue Ruby"
+description = "Worth 5 Monies!"
+texture = SubResource("AtlasTexture_46tve")
+effects = Array[ExtResource("1_m4r88")]([])

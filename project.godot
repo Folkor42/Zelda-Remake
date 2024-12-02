@@ -22,6 +22,7 @@ SceneTransition="*res://Universal Scripts/Scene_Transition.tscn"
 LevelManager="*res://Universal Scripts/GlobalLevelManager.gd"
 PlayerHud="*res://Player/GUI/HUD/player_hud.tscn"
 PlayerManager="*res://Universal Scripts/GlobalPlayerManager.gd"
+SaveManager="*res://Universal Scripts/GlobalSaveManager.gd"
 
 [display]
 

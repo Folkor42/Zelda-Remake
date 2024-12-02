@@ -114,6 +114,8 @@ func revive_player() -> void:
 	#pass
 
 func remove_camera()->void:
+	print ("Removing Cameras")
 	for c in get_children():
+		print(c)
 		if c is Camera2D:
 			c.queue_free()

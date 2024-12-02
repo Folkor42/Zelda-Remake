@@ -13,7 +13,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if WallDetector.is_colliding() or timer.is_stopped():
 		timer.stop()
-		print("Need new Direction")
+		#print("Need new Direction")
 		current_direction=change_direction(current_direction)
 		velocity = current_direction * speed
 		timer.start(3)

@@ -1,7 +1,6 @@
 extends Node
 
 const PLAYER = preload("res://Scenes/link2.tscn")
-#const INVENTORY_DATA : InventoryData = preload ("res://GUI/Pause_Menu/Inventory/player_inventory.tres")
 
 signal interact_pressed
 signal camera_shook ( trama : float )
@@ -9,8 +8,10 @@ signal camera_shook ( trama : float )
 var interact_handled : bool = true
 var player : Player
 var player_spawned : bool = false
+var inventory : InventoryData
 
 func _ready() -> void:
+	inventory = InventoryData.new()
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true

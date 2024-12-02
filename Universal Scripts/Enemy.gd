@@ -3,6 +3,7 @@ class_name Enemy extends CharacterBody2D
 enum direction {UP,RIGHT,DOWN,LEFT}
 @export var hp : int = 1
 @export var speed : float = 50.0
+@export_enum ("A", "B", "C", "D", "X") var drop_group
 @export var WallDetector : RayCast2D
 @export var timer : Timer
 
@@ -62,5 +63,5 @@ func change_direction (old_direction : Vector2) -> Vector2:
 		3 : new_dir = Vector2.LEFT
 	if new_dir == old_direction:
 		new_dir=change_direction(old_direction)
-	print (new_dir)
+	#print (new_dir)
 	return new_dir

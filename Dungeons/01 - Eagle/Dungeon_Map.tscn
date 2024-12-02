@@ -22,8 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="20_acy5b"]
 [ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="20_bhtn0"]
 
-[node name="01 - Eagle Dungeon" type="Node2D"]
+[node name="01 - Eagle Dungeon" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
 script = ExtResource("1_gev80")
+music = ExtResource("20_bhtn0")
+dungeon_camera = NodePath("DungeonCamera")
 
 [node name="Rooms" type="Node" parent="."]
 
@@ -78,9 +80,9 @@ position = Vector2(512, -704)
 position = Vector2(768, -704)
 
 [node name="DungeonCamera" type="Camera2D" parent="."]
+position = Vector2(0, 256)
 offset = Vector2(0, -64)
 anchor_mode = 0
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("19_wj6oy")
 
