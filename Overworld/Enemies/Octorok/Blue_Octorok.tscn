@@ -1,17 +1,16 @@
-[gd_scene load_steps=27 format=3 uid="uid://shvn3y018out"]
+[gd_scene load_steps=23 format=3 uid="uid://b4ymlo8lave5m"]
 
-[ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="1_jlsry"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_xn7lh"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="2_75drt"]
-[ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="3_2ptap"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="3_mhv6m"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_ngxr5"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="6_0aiel"]
-[ext_resource type="Script" path="res://Items/drop_data.gd" id="7_8nxm5"]
-[ext_resource type="Resource" uid="uid://vcn5yobjf3vy" path="res://Items/blue_ruby.tres" id="8_yyvww"]
-[ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="10_7okah"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="10_grtm4"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_2ale3"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_126v2"]
+[ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_oykvk"]
+[ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="3_hxj27"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="4_h6l3m"]
+[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_e4pu5"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="6_snr3c"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="7_2584t"]
+[ext_resource type="Script" path="res://Items/drop_data.gd" id="8_3883m"]
+[ext_resource type="Resource" uid="uid://vcn5yobjf3vy" path="res://Items/blue_ruby.tres" id="9_pln55"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="10_mcjxs"]
+[ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="11_6squy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ddn"]
 size = Vector2(14, 14)
@@ -129,7 +128,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 1.00778,
 "start_offset": 0.0,
-"stream": ExtResource("3_2ptap")
+"stream": ExtResource("3_hxj27")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -185,7 +184,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 1.00778,
 "start_offset": 0.0,
-"stream": ExtResource("3_2ptap")
+"stream": ExtResource("3_hxj27")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -241,7 +240,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 1.00778,
 "start_offset": 0.0,
-"stream": ExtResource("3_2ptap")
+"stream": ExtResource("3_hxj27")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -265,7 +264,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -290,11 +289,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 3]
+"values": [0, 1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -334,96 +333,9 @@ tracks/1/keys = {
 "values": [3.14159]
 }
 
-[sub_resource type="Animation" id="Animation_8uosr"]
-resource_name = "attack_down"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_8gg04"]
-resource_name = "attack_side"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [2, 3, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
-}
-
-[sub_resource type="Animation" id="Animation_krru4"]
-resource_name = "attack_up"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xse2c"]
 _data = {
 "RESET": SubResource("Animation_u2xrl"),
-"attack_down": SubResource("Animation_8uosr"),
-"attack_side": SubResource("Animation_8gg04"),
-"attack_up": SubResource("Animation_krru4"),
 "destroy_down": SubResource("Animation_46ycf"),
 "destroy_side": SubResource("Animation_oglhd"),
 "destroy_up": SubResource("Animation_1c7nn"),
@@ -436,22 +348,22 @@ _data = {
 size = Vector2(16, 16)
 
 [sub_resource type="Resource" id="Resource_2eusg"]
-script = ExtResource("7_8nxm5")
-item = ExtResource("8_yyvww")
+script = ExtResource("8_3883m")
+item = ExtResource("9_pln55")
 probability = 100.0
 min_amount = 1
 max_amount = 1
 
-[node name="Octorok" type="CharacterBody2D"]
+[node name="Blue_Octorok" type="CharacterBody2D"]
 collision_layer = 4
-script = ExtResource("1_xn7lh")
-hp = 1
+script = ExtResource("1_126v2")
+hp = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_jlsry")
+texture = ExtResource("2_oykvk")
 hframes = 4
 region_enabled = true
-region_rect = Rect2(0, 0, 64, 16)
+region_rect = Rect2(0, 16, 64, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_68ddn")
@@ -466,33 +378,29 @@ autoplay = "idle_down"
 collision_layer = 4
 collision_mask = 0
 monitoring = false
-script = ExtResource("5_ngxr5")
+script = ExtResource("4_h6l3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_i30tg")
 
 [node name="EnemyStateMachine" type="Node" parent="."]
-script = ExtResource("2_75drt")
+script = ExtResource("5_e4pu5")
 
 [node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
-script = ExtResource("3_mhv6m")
+script = ExtResource("6_snr3c")
 after_idle_state = NodePath("../Wander")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("6_0aiel")
-drops = Array[ExtResource("7_8nxm5")]([SubResource("Resource_2eusg")])
+script = ExtResource("7_2584t")
+drops = Array[ExtResource("8_3883m")]([SubResource("Resource_2eusg")])
 
 [node name="Wander" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("10_grtm4")
-next_state = NodePath("../Attack")
-
-[node name="Attack" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
-script = ExtResource("11_2ale3")
-after_idle_state = NodePath("../Idle")
+script = ExtResource("10_mcjxs")
+next_state = NodePath("../Idle")
 
 [node name="DeathSprite" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("10_7okah")
+texture = ExtResource("11_6squy")
 hframes = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
