@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://bnwqkvxnroftf"]
+[gd_scene load_steps=15 format=4 uid="uid://bnwqkvxnroftf"]
 
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="1_c1jxx"]
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_d5m62"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_5ovls"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_8c6sk"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="5_e7c1j"]
+[ext_resource type="PackedScene" uid="uid://shvn3y018out" path="res://Overworld/Enemies/Octorok/Octorok.tscn" id="6_ljh0x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("1_c1jxx")
@@ -264,3 +265,6 @@ side = 1
 tile_map_data = PackedByteArray("AAADAAAAAAAaAAAAAAAAAAIAAAAZAAEAAAAHAAIAAAAZAAIAAAADAAUAAAAZAAMAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
+
+[node name="Octorok" parent="." instance=ExtResource("6_ljh0x")]
+position = Vector2(128, 72)
