@@ -9,13 +9,26 @@ const PICKUP = preload("res://Items/Item Pickup/item_pickup.tscn")
 @export_category("Item Drops")
 @export var drops : Array [ DropData ]
 
+var active : bool = false
+
 func _ready() -> void:
 	hit_box.Damaged.connect(enemy_damaged)
+	get_parent().activate.connect(activate)
+	get_parent().deactivate.connect(deactivate)
+
+func activate ()->void:
+	active = true
 	var start_time = randf_range(0,0.4)
 	animation_player.seek(start_time,true)
+	pass
+
+func deactivate ()->void:
+	active = false
+	velocity=Vector2.ZERO
+	pass
 	
 func _process(_delta: float) -> void:
-	if WallDetector.is_colliding() or timer.is_stopped():
+	if active and (WallDetector.is_colliding() or timer.is_stopped()):
 		timer.stop()
 		#print("Need new Direction")
 		current_direction=change_direction(current_direction)

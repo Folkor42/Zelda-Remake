@@ -4,7 +4,7 @@ var direction
 var vertical
 var travelled_distance : float = 0
 
-const RANGE = 256
+const RANGE = 240
 const SPEED = 200
 
 @onready var hurt_box: HurtBox = $HurtBox

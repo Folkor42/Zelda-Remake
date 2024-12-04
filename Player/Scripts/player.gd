@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+signal player_pickup
+
 var cardinal_direction : Vector2 = Vector2.DOWN
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 var direction : Vector2 = Vector2.ZERO
@@ -42,6 +44,9 @@ func _process( _delta ):
 	
 func _physics_process( _delta ):
 	move_and_slide()
+
+func major_pickup()->void:
+	player_pickup.emit()
 
 func calculate_direction_index(direction_temp: Vector2, cardinal_direction_temp: Vector2, dir_size: int) -> int:
 	var direction_bias = 0.1

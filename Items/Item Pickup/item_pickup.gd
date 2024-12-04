@@ -46,6 +46,7 @@ func item_picked_up ( _name : String ) -> void:
 	area_2d.body_entered.disconnect( _on_body_entered )
 	if major_drop:
 		audio_stream_player_2d.stream=major_pickup_audio
+		PlayerManager.player.major_pickup()
 	else:
 		audio_stream_player_2d.stream=pickup_audio
 	audio_stream_player_2d.play()
