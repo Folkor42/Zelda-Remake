@@ -283,7 +283,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1b7rk"]
-size = Vector2(3, 19)
+size = Vector2(12, 16)
 
 [sub_resource type="Animation" id="Animation_tlw8f"]
 length = 0.001
@@ -697,6 +697,7 @@ libraries = {
 [node name="HurtBox" type="Area2D" parent="Sprite2D/Sword"]
 collision_layer = 0
 collision_mask = 4
+monitorable = false
 script = ExtResource("3_g3lxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Sword/HurtBox"]
@@ -717,6 +718,7 @@ shape = SubResource("CircleShape2D_j8og6")
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 script = ExtResource("3_ggm60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]

@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_34wm2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xcl"]
-size = Vector2(2, 2)
+size = Vector2(14, 14)
 
 [sub_resource type="Animation" id="Animation_mqpbc"]
 resource_name = "Move"
@@ -110,12 +110,14 @@ autoplay = "Move"
 
 [node name="WallDetector" type="RayCast2D" parent="."]
 target_position = Vector2(0, 8)
+collision_mask = 5
 
 [node name="Change Direction" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 monitoring = false
 script = ExtResource("3_brha7")
@@ -124,6 +126,7 @@ script = ExtResource("3_brha7")
 shape = SubResource("RectangleShape2D_86i26")
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
