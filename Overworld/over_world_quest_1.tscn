@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://d3vi5vgdge1q0"]
+[gd_scene load_steps=10 format=4 uid="uid://d3vi5vgdge1q0"]
 
 [ext_resource type="Script" path="res://Overworld/over_world_quest_1.gd" id="1_abc4w"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_cwrbh"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="4_e5f6w"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="6_441e8"]
 [ext_resource type="Script" path="res://Overworld/player_camera.gd" id="6_dbj6b"]
+[ext_resource type="PackedScene" uid="uid://shvn3y018out" path="res://Overworld/Enemies/Octorok/Octorok.tscn" id="9_rlikv"]
 
 [node name="OverWorld_Quest1" type="Node2D"]
 script = ExtResource("1_abc4w")
@@ -36,6 +37,7 @@ position = Vector2(71, 78)
 
 [node name="OverworldCamera" type="Camera2D" parent="."]
 script = ExtResource("6_dbj6b")
+shake_power = 0.0
 
 [node name="ColorRect" type="ColorRect" parent="OverworldCamera"]
 visible = false
@@ -60,3 +62,15 @@ region_rect = Rect2(256, 0, 256, 64)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_e5m7q")
 autoplay = true
+
+[node name="Octorok" parent="." instance=ExtResource("9_rlikv")]
+position = Vector2(424, 136)
+
+[node name="Octorok2" parent="." instance=ExtResource("9_rlikv")]
+position = Vector2(344, 72)
+
+[node name="Octorok3" parent="." instance=ExtResource("9_rlikv")]
+position = Vector2(424, 72)
+
+[node name="Octorok4" parent="." instance=ExtResource("9_rlikv")]
+position = Vector2(376, 168)

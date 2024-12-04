@@ -21,6 +21,7 @@ func enter() -> void:
 	_direction = enemy.DIR_4[ rand ]
 	enemy.velocity = _direction * wander_speed
 	enemy.SetDirection ( _direction )
+	print (_direction)
 	enemy.UpdateAnimation( anim_name )
 	pass
 	
