@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b4ymlo8lave5m"]
+[gd_scene load_steps=29 format=3 uid="uid://b4ymlo8lave5m"]
 
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_qwnmi"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_fgoay"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="10_oy3vx"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_r1dvx"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="12_8qnoa"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="13_qbjnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ddn"]
 size = Vector2(14, 14)
@@ -444,9 +445,12 @@ size = Vector2(16, 16)
 [sub_resource type="Resource" id="Resource_2eusg"]
 script = ExtResource("8_nqplx")
 item = ExtResource("9_m0koj")
-probability = 100.0
+probability = 41.0
 min_amount = 1
 max_amount = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnx0x"]
+size = Vector2(12, 12)
 
 [node name="Blue Octorok" type="CharacterBody2D"]
 top_level = true
@@ -504,3 +508,11 @@ texture = ExtResource("12_8qnoa")
 hframes = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("13_qbjnn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_wnx0x")

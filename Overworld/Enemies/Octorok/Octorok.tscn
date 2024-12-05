@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_ngxr5"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="6_0aiel"]
 [ext_resource type="Script" path="res://Items/drop_data.gd" id="7_8nxm5"]
-[ext_resource type="Resource" uid="uid://vcn5yobjf3vy" path="res://Items/blue_ruby.tres" id="8_yyvww"]
+[ext_resource type="Resource" uid="uid://da5nmokb43354" path="res://Items/Ruby.tres" id="9_pxudh"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="10_7okah"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="10_grtm4"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_2ale3"]
@@ -444,8 +444,8 @@ size = Vector2(16, 16)
 
 [sub_resource type="Resource" id="Resource_2eusg"]
 script = ExtResource("7_8nxm5")
-item = ExtResource("8_yyvww")
-probability = 100.0
+item = ExtResource("9_pxudh")
+probability = 31.0
 min_amount = 1
 max_amount = 1
 

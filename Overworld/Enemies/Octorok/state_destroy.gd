@@ -38,7 +38,7 @@ func exit() -> void:
 	pass
 
 func process( _delta : float ) -> EnemyState:
-	enemy.velocity -= enemy.velocity * decelerate_speed * _delta
+	enemy.velocity = Vector2.ZERO
 	return null
 
 func physics( _delta : float ) -> EnemyState:

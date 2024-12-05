@@ -23,10 +23,10 @@ func _ready() -> void:
 	#item_drop.set_drop_value(global_position,item_data)
 
 func _physics_process(delta: float) -> void:
-	var collision_info = move_and_collide( velocity * delta )
-	if collision_info:
-		velocity = velocity.bounce( collision_info.get_normal() )
-	velocity -= velocity * delta * 4
+	#var collision_info = move_and_collide( velocity * delta )
+	#if collision_info:
+		#velocity = velocity.bounce( collision_info.get_normal() )
+	#velocity -= velocity * delta * 4
 	pass
 
 func _set_item_data ( value : ItemData ) -> void:

@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dto0oqk85ctld" path="res://Universal Scripts/persistant_handler.tscn" id="2_f30rl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_byvnq"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mtqnk"]
+radius = 8.0
 
 [sub_resource type="Animation" id="Animation_gu3ym"]
 length = 0.001
@@ -35,7 +37,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.7, 1),
 "transitions": PackedFloat32Array(-2, -2, -2, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -6), Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k1xkb"]
