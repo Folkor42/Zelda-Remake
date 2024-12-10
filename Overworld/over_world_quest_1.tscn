@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d3vi5vgdge1q0"]
+[gd_scene load_steps=12 format=4 uid="uid://d3vi5vgdge1q0"]
 
 [ext_resource type="Script" path="res://Overworld/over_world_quest_1.gd" id="1_abc4w"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_cwrbh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Overworld/player_camera.gd" id="6_dbj6b"]
 [ext_resource type="PackedScene" uid="uid://shvn3y018out" path="res://Overworld/Enemies/Octorok/Octorok.tscn" id="9_rlikv"]
 [ext_resource type="PackedScene" uid="uid://b4ymlo8lave5m" path="res://Overworld/Enemies/Octorok/Blue_Octorok.tscn" id="10_mmwnm"]
+[ext_resource type="PackedScene" uid="uid://b1uwg4vrjhhel" path="res://Universal Scripts/player_detector-Overworld.tscn" id="11_3jt7p"]
 
 [node name="OverWorld_Quest1" type="Node2D"]
 script = ExtResource("1_abc4w")
@@ -42,7 +43,6 @@ script = ExtResource("6_dbj6b")
 shake_power = 0.0
 
 [node name="ColorRect" type="ColorRect" parent="OverworldCamera"]
-visible = false
 z_index = 10
 layout_direction = 2
 anchors_preset = 10
@@ -55,7 +55,6 @@ grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="OverworldCamera/ColorRect"]
-visible = false
 position = Vector2(128, 32)
 texture = ExtResource("3_dfyx1")
 region_enabled = true
@@ -88,3 +87,24 @@ position = Vector2(34, -39)
 
 [node name="Octorok5" parent="." instance=ExtResource("9_rlikv")]
 position = Vector2(71, -104)
+
+[node name="Player Detector - Overworld" parent="." instance=ExtResource("11_3jt7p")]
+position = Vector2(128, 112)
+
+[node name="Player Detector - Overworld2" parent="." instance=ExtResource("11_3jt7p")]
+position = Vector2(128, 120)
+
+[node name="Player Detector - Overworld3" parent="." instance=ExtResource("11_3jt7p")]
+position = Vector2(128, -56)
+
+[node name="Player Detector - Overworld4" parent="." instance=ExtResource("11_3jt7p")]
+position = Vector2(128, -232)
+
+[node name="Player Detector - Overworld5" parent="." instance=ExtResource("11_3jt7p")]
+position = Vector2(128, -408)
+
+[node name="Player Detector - Overworld6" parent="." instance=ExtResource("11_3jt7p")]
+position = Vector2(128, -584)
+
+[node name="Player Detector - Overworld7" parent="." instance=ExtResource("11_3jt7p")]
+position = Vector2(128, -584)
