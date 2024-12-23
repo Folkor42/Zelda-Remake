@@ -1,7 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxn1aaxm4h54f"]
+[gd_scene load_steps=7 format=3 uid="uid://cxn1aaxm4h54f"]
 
+[ext_resource type="Script" path="res://Scenes/enemy_death.gd" id="1_4vlu7"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="1_py2rg"]
 [ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="2_6pld7"]
+
+[sub_resource type="Animation" id="Animation_s72tq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_v1hwh"]
 resource_name = "default"
@@ -49,21 +65,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_s72tq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lphlq"]
 _data = {
 "RESET": SubResource("Animation_s72tq"),
@@ -71,6 +72,7 @@ _data = {
 }
 
 [node name="Enemy Death" type="Node2D"]
+script = ExtResource("1_4vlu7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_py2rg")

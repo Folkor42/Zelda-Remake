@@ -17,6 +17,7 @@ var next_state : State = null
 @onready var audio: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
 
 
+
 func init () -> void:
 	player.player_damaged.connect( _player_damaged )
 	pass
@@ -34,7 +35,6 @@ func Enter() -> void:
 	audio.play()
 	#player.effect_animation_player.play( "damaged" )
 	#PlayerManager.shake_camera( hurt_box.damage )
-	next_state = idle
 	pass
 
 func Exit() -> void:
@@ -57,7 +57,7 @@ func _player_damaged ( _hurt_box : HurtBox ) -> void:
 	if state_machine.current_state!=death:
 		state_machine.ChangeState( self )
 	var tween = get_tree().create_tween()
-	tween.tween_method(SetShader_BlinkIntensity,1.0,0.0,0.5)
+	tween.tween_method(SetShader_BlinkIntensity,1.0,0.0,1.0)
 	pass
 
 func _animation_finished ( _a : String ) -> void:

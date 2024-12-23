@@ -2,6 +2,7 @@ class_name Level extends Node2D
 
 #const PICKUP = preload("res://Items/Item_pickup/item_pickup.tscn")
 @export var music : AudioStream
+@export var dungeon_camera: Camera2D
 var scene : String
 
 func _ready():
@@ -12,8 +13,13 @@ func _ready():
 	#AudioManager.play_music( music )
 	scene = get_tree().current_scene.scene_file_path
 	#check_for_previous_drops()
+	LevelManager.level_loaded.connect(level_ready)
 	pass
 
+func level_ready()->void:
+	if dungeon_camera:
+		dungeon_camera.position_smoothing_enabled=true
+	pass
 func _free_level() -> void:
 	PlayerManager.unparent_player ( self )
 	queue_free()

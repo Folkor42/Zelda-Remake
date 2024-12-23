@@ -4,16 +4,32 @@ const DEATH_ANIM = preload("res://Scenes/enemy_death.tscn")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_box: HitBox = $HitBox
+var active : bool = false
+var landing : bool = false
+var takingoff : bool = false
 
 func _ready() -> void:
 	hit_box.Damaged.connect(enemy_damaged)
+	get_parent().activate.connect(activate)
+	get_parent().deactivate.connect(deactivate)
+
+func activate ()->void:
+	active = true
+	animation_player.play("Move")
 	var start_time = randf_range(0,0.4)
 	animation_player.seek(start_time,true)
-	
+	pass
+
+func deactivate ()->void:
+	active = false
+	velocity=Vector2.ZERO
+	animation_player.play("slow_down")
+	pass
+
 func _process(_delta: float) -> void:
-	if WallDetector.is_colliding() or timer.is_stopped():
+	if active and (WallDetector.is_colliding() or timer.is_stopped()):
 		timer.stop()
-		print("Need new Direction")
+		#print("Need new Direction")
 		current_direction=change_direction(current_direction)
 		velocity = current_direction * speed
 		timer.start(3)

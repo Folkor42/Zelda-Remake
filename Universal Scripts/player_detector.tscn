@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taytn"]
 size = Vector2(192, 110)
 
-[node name="Player Detector" type="Area2D"]
+[node name="Player Detector - Dungeon" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 

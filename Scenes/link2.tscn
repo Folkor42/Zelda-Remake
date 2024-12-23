@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://snh18otta0v2"]
+[gd_scene load_steps=46 format=3 uid="uid://snh18otta0v2"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_3vd0b"]
 [ext_resource type="Texture2D" uid="uid://bq5qvvqjtmk4b" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-3.png" id="2_7mmtp"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://Scenes/state_stun.gd" id="10_d3poa"]
 [ext_resource type="Script" path="res://Scenes/state_death.gd" id="11_53ap7"]
 [ext_resource type="AudioStream" uid="uid://wgj1taaooup4" path="res://Assets/Audio/Sounds/Sound Effect (1) - Hurt.wav" id="12_rnvxf"]
+[ext_resource type="Script" path="res://Scenes/state_pickup.gd" id="14_8hq8r"]
+[ext_resource type="AudioStream" uid="uid://djdl2m3ffg66f" path="res://Assets/Audio/Sounds/Sound Effect (4) - Pickup.wav" id="14_ukqfw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_khxb0"]
 shader = ExtResource("2_flq05")
@@ -535,9 +537,25 @@ tracks/0/keys = {
 "values": [4]
 }
 
+[sub_resource type="Animation" id="Animation_r8ygj"]
+resource_name = "pickup"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10]
+}
+
 [sub_resource type="Animation" id="Animation_ockx1"]
 resource_name = "stun_down"
-length = 0.1
+length = 0.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -554,7 +572,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_l201e"]
 resource_name = "stun_side"
-length = 0.1
+length = 0.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -571,7 +589,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_rybjc"]
 resource_name = "stun_up"
-length = 0.1
+length = 0.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -653,6 +671,7 @@ _data = {
 "idle_down": SubResource("Animation_0b7rr"),
 "idle_side": SubResource("Animation_mp1sm"),
 "idle_up": SubResource("Animation_g4g0l"),
+"pickup": SubResource("Animation_r8ygj"),
 "stun_down": SubResource("Animation_ockx1"),
 "stun_side": SubResource("Animation_l201e"),
 "stun_up": SubResource("Animation_rybjc"),
@@ -667,9 +686,11 @@ radius = 4.12311
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upo7p"]
 size = Vector2(12, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wm3s"]
+
 [node name="Link2" type="CharacterBody2D"]
 z_index = 1
-collision_layer = 2
+collision_layer = 18
 script = ExtResource("1_3vd0b")
 hp = 32
 max_hp = 32
@@ -745,3 +766,18 @@ hurt_sound = ExtResource("12_rnvxf")
 
 [node name="Death" type="Node" parent="Player State Machine"]
 script = ExtResource("11_53ap7")
+
+[node name="Pickup" type="Node" parent="Player State Machine"]
+script = ExtResource("14_8hq8r")
+
+[node name="Shield" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+
+[node name="ShieldShape2D" type="CollisionShape2D" parent="Shield"]
+shape = SubResource("RectangleShape2D_3wm3s")
+disabled = true
+
+[node name="ShieldBlockSound" type="AudioStreamPlayer2D" parent="Shield"]
+stream = ExtResource("14_ukqfw")

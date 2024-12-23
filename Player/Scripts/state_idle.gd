@@ -2,13 +2,16 @@ class_name State_Idle extends State
 
 @onready var walk: State_Walk = $"../Walk"
 @onready var attack: State_Attack = $"../Attack"
+@onready var shield_shape_2d: CollisionShape2D = $"../../Shield/ShieldShape2D"
 
 
 func Enter() -> void:
+	shield_shape_2d.set_deferred("disabled", false)
 	player.UpdateAnimation("idle")
 	pass
 
 func Exit() -> void:
+	shield_shape_2d.set_deferred("disabled", true)
 	pass
 
 func Process( _delta : float ) -> State:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0lkdy2mkcoq1"]
+[gd_scene load_steps=15 format=3 uid="uid://d0lkdy2mkcoq1"]
 
 [ext_resource type="Script" path="res://Dungeons/Enemies/bat.gd" id="1_ene7i"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_0vtwp"]
@@ -10,7 +10,7 @@ size = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_mqpbc"]
 resource_name = "Move"
-length = 0.4
+length = 0.2
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -20,7 +20,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [54, 55]
@@ -44,11 +44,66 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_7ptmo"]
 resource_name = "Stun"
 
+[sub_resource type="Animation" id="Animation_852kc"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [55]
+}
+
+[sub_resource type="Animation" id="Animation_3nqs2"]
+resource_name = "slow_down"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.8, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [54, 55, 54, 55, 54, 55]
+}
+
+[sub_resource type="Animation" id="Animation_j0h38"]
+resource_name = "speed_up"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.8, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [55, 54, 55, 54, 55, 54]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7mvr"]
 _data = {
 "Move": SubResource("Animation_mqpbc"),
 "RESET": SubResource("Animation_r08pl"),
-"Stun": SubResource("Animation_7ptmo")
+"Stun": SubResource("Animation_7ptmo"),
+"idle": SubResource("Animation_852kc"),
+"slow_down": SubResource("Animation_3nqs2"),
+"speed_up": SubResource("Animation_j0h38")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86i26"]
@@ -62,6 +117,7 @@ z_index = 1
 collision_layer = 4
 script = ExtResource("1_ene7i")
 speed = 20.0
+drop_group = 4
 WallDetector = NodePath("WallDetector")
 timer = NodePath("Change Direction")
 
@@ -87,6 +143,7 @@ target_position = Vector2(0, 8)
 [node name="Change Direction" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+autostart = true
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4

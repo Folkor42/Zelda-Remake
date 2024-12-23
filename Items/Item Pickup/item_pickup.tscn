@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3oxecarnbiir"]
+
+[ext_resource type="Script" path="res://Items/Item Pickup/item_pickup.gd" id="1_n28cw"]
+[ext_resource type="PackedScene" uid="uid://dto0oqk85ctld" path="res://Universal Scripts/persistant_handler.tscn" id="2_f30rl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_byvnq"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mtqnk"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_4fhov"]
+resource_name = "Pickup"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16), Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_gu3ym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6xbh8"]
+resource_name = "bounce"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k1xkb"]
+_data = {
+"Pickup": SubResource("Animation_4fhov"),
+"RESET": SubResource("Animation_gu3ym"),
+"bounce": SubResource("Animation_6xbh8")
+}
+
+[node name="ItemPickup" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_n28cw")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_byvnq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mtqnk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k1xkb")
+}
+
+[node name="ItemDrop" parent="." instance=ExtResource("2_f30rl")]

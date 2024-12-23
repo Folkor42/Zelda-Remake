@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+signal player_pickup
+
 var cardinal_direction : Vector2 = Vector2.DOWN
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 var direction : Vector2 = Vector2.ZERO
@@ -13,6 +15,7 @@ var direction : Vector2 = Vector2.ZERO
 #@onready var pickup: State_Pickup = $StateMachine/Pickup
 #@onready var held_item: Sprite2D = $Sprite2D/HeldItem
 #@onready var carry = $StateMachine/Carry
+@onready var shield_block_sound: AudioStreamPlayer2D = $Shield/ShieldBlockSound
 
 
 
@@ -41,6 +44,9 @@ func _process( _delta ):
 	
 func _physics_process( _delta ):
 	move_and_slide()
+
+func major_pickup()->void:
+	player_pickup.emit()
 
 func calculate_direction_index(direction_temp: Vector2, cardinal_direction_temp: Vector2, dir_size: int) -> int:
 	var direction_bias = 0.1
@@ -114,6 +120,8 @@ func revive_player() -> void:
 	#pass
 
 func remove_camera()->void:
+	print ("Removing Cameras")
 	for c in get_children():
+		print(c)
 		if c is Camera2D:
 			c.queue_free()

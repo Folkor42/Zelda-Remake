@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Zelda Remake"
+config/tags=PackedStringArray("2d", "adventure")
 run/main_scene="res://Dungeons/01 - Eagle/Dungeon_Map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/Link.png"
@@ -22,6 +23,7 @@ SceneTransition="*res://Universal Scripts/Scene_Transition.tscn"
 LevelManager="*res://Universal Scripts/GlobalLevelManager.gd"
 PlayerHud="*res://Player/GUI/HUD/player_hud.tscn"
 PlayerManager="*res://Universal Scripts/GlobalPlayerManager.gd"
+SaveManager="*res://Universal Scripts/GlobalSaveManager.gd"
 
 [display]
 
@@ -70,6 +72,7 @@ attack={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Ladder Crossable"
+2d_physics/layer_5="Basic Shield"
 
 [rendering]
 
