@@ -6,6 +6,7 @@ signal picked_up
 @export var item_data : ItemData : set = _set_item_data
 var major_drop : bool = false
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var area_2d : Area2D = $Area2D
 @onready var sprite_2d : Sprite2D = $Sprite2D
 @onready var audio_stream_player_2d : AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -47,13 +48,21 @@ func item_picked_up ( _name : String ) -> void:
 	if major_drop:
 		audio_stream_player_2d.stream=major_pickup_audio
 		PlayerManager.player.major_pickup()
+		animation_player.play("Pickup")
 	else:
 		audio_stream_player_2d.stream=pickup_audio
 	audio_stream_player_2d.play()
 	visible = false
 	picked_up.emit()
 	PlayerHud.update_display_pickup (_name)
-	await audio_stream_player_2d.finished
+	if major_drop:
+		global_position.x = PlayerManager.player.global_position.x
+		global_position.y = PlayerManager.player.global_position.y - 4
+		visible = true
+		await animation_player.animation_finished
+		visible = false
+	else:
+		await audio_stream_player_2d.finished
 	#item_drop.clear_drop_value()
 	queue_free()
 	pass

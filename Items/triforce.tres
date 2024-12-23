@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bjtq2ewvncewg"]
+
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_0b25r"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_v7lsr"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_bfwbu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw6j8"]
+atlas = ExtResource("3_bfwbu")
+region = Rect2(275, 3, 10, 10)
+
+[resource]
+script = ExtResource("2_v7lsr")
+name = "Triforce"
+description = "A piece of the Triforce of Courage"
+texture = SubResource("AtlasTexture_dw6j8")
+effects = Array[ExtResource("1_0b25r")]([])
