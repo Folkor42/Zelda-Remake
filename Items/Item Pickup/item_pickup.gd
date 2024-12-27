@@ -4,6 +4,8 @@ class_name ItemPickup extends CharacterBody2D
 signal picked_up
 
 @export var item_data : ItemData : set = _set_item_data
+@onready var timer: Timer = $Timer
+
 var major_drop : bool = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -23,7 +25,7 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	#item_drop.set_drop_value(global_position,item_data)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#var collision_info = move_and_collide( velocity * delta )
 	#if collision_info:
 		#velocity = velocity.bounce( collision_info.get_normal() )
@@ -75,3 +77,9 @@ func _update_texture() -> void:
 func bounce() -> void:
 	$AnimationPlayer.play("bounce")
 	
+func start_timer()->void:
+	$Timer.timeout.connect ( clear_drop )
+	pass
+	
+func clear_drop ()->void:
+	queue_free()

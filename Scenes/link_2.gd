@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var sword: Sprite2D = $Sword
 @onready var hurt_box: HurtBox = $Sword/HurtBox
+@onready var shield: Area2D = $Shield/ShieldShape2D
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 

@@ -15,6 +15,7 @@ var direction : Vector2 = Vector2.ZERO
 #@onready var pickup: State_Pickup = $StateMachine/Pickup
 #@onready var held_item: Sprite2D = $Sprite2D/HeldItem
 #@onready var carry = $StateMachine/Carry
+@onready var shield: Area2D = $Shield
 @onready var shield_block_sound: AudioStreamPlayer2D = $Shield/ShieldBlockSound
 
 
@@ -67,6 +68,7 @@ func SetDirection() -> bool:
 	cardinal_direction = new_dir
 	DirectionChanged.emit( new_dir )
 	sprite.scale.x = -1 if cardinal_direction== Vector2.LEFT else 1
+	shield.scale.y = -1 if cardinal_direction== Vector2.LEFT else 1
 	return true
 	
 func UpdateAnimation( state : String ) -> void:

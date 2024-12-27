@@ -43,6 +43,7 @@ script = ExtResource("6_dbj6b")
 shake_power = 0.0
 
 [node name="ColorRect" type="ColorRect" parent="OverworldCamera"]
+visible = false
 z_index = 10
 layout_direction = 2
 anchors_preset = 10
@@ -88,9 +89,6 @@ position = Vector2(34, -39)
 [node name="Octorok5" parent="." instance=ExtResource("9_rlikv")]
 position = Vector2(71, -104)
 
-[node name="Player Detector - Overworld" parent="." instance=ExtResource("11_3jt7p")]
-position = Vector2(128, 112)
-
 [node name="Player Detector - Overworld2" parent="." instance=ExtResource("11_3jt7p")]
 position = Vector2(128, 120)
 
@@ -104,7 +102,4 @@ position = Vector2(128, -232)
 position = Vector2(128, -408)
 
 [node name="Player Detector - Overworld6" parent="." instance=ExtResource("11_3jt7p")]
-position = Vector2(128, -584)
-
-[node name="Player Detector - Overworld7" parent="." instance=ExtResource("11_3jt7p")]
 position = Vector2(128, -584)

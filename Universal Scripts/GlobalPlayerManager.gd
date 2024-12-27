@@ -9,6 +9,10 @@ var interact_handled : bool = true
 var player : Player
 var player_spawned : bool = false
 var inventory : InventoryData
+var rubies : int = 0
+var bombs : int = 0
+var max_bombs : int = 8
+var keys : int = 0
 
 func _ready() -> void:
 	inventory = InventoryData.new()
@@ -56,3 +60,11 @@ func shake_camera ( tramua : float = 1 ) -> void:
 func interact() -> void:
 	interact_handled=false
 	interact_pressed.emit()
+
+func update_rubies( _c : int ) ->void:
+	PlayerManager.rubies = clampi( PlayerManager.rubies + _c, 0, 255 )
+	PlayerHud.update_rubies()
+
+func update_bombs( _c : int) ->void:
+	PlayerManager.bombs = clampi( PlayerManager.bombs + _c, 0, max_bombs )
+	PlayerHud.update_bombs()

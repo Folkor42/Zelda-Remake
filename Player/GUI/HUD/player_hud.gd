@@ -14,6 +14,10 @@ var hearts : Array[ HeartGUI ] = []
 #@onready var boss_ui = $Control2/BossUI
 #@onready var boss_hp__bar = $Control2/BossUI/TextureProgressBar
 #@onready var boss_label = $Control2/BossUI/Label
+@onready var rubies: Label = $Control/Rubies
+@onready var bombs: Label = $Control/Bombs
+@onready var keys: Label = $Control/Keys
+
 
 func _ready():
 	#hide_boss_health()
@@ -22,6 +26,9 @@ func _ready():
 			hearts.append( child )
 			child.visible = false
 	timer.connect("timeout", _on_timer_timeout)
+	update_rubies()
+	update_bombs()
+	update_keys()
 	
 	#hide_game_over_screen()
 	#continue_button.focus_entered.connect( play_audio.bind( button_focus_audio ))
@@ -69,6 +76,18 @@ func update_heart ( _index : int, _hp : int ) -> void:
 	hearts[ _index ].value = _value
 	pass
 
+func update_rubies ( ) -> void:
+	rubies.text = str(PlayerManager.rubies)
+	pass
+
+func update_bombs ( ) -> void:
+	bombs.text = str(PlayerManager.bombs)
+	pass
+	
+func update_keys ( ) -> void:
+	keys.text = str(PlayerManager.keys)
+	pass
+	
 func update_max_hp ( _max_hp : int ) -> void:
 	@warning_ignore("integer_division")
 	var _heart_count : int = roundi ( _max_hp / 2 )

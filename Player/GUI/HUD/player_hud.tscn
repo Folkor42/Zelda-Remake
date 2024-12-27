@@ -126,4 +126,40 @@ texture = ExtResource("2_v3tc0")
 region_enabled = true
 region_rect = Rect2(604, 137, 8, 16)
 
+[node name="Rubies" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 15.0
+offset_right = 120.0
+offset_bottom = 28.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_jggjn")
+theme_override_font_sizes/font_size = 16
+text = "255"
+horizontal_alignment = 1
+
+[node name="Keys" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 30.0
+offset_right = 120.0
+offset_bottom = 43.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_jggjn")
+theme_override_font_sizes/font_size = 16
+text = "255"
+horizontal_alignment = 1
+
+[node name="Bombs" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 46.0
+offset_right = 120.0
+offset_bottom = 59.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_jggjn")
+theme_override_font_sizes/font_size = 16
+text = "255"
+horizontal_alignment = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
