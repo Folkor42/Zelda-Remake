@@ -13,6 +13,7 @@ var rubies : int = 0
 var bombs : int = 0
 var max_bombs : int = 8
 var keys : int = 0
+var kill_count : int = 0
 
 func _ready() -> void:
 	inventory = InventoryData.new()
@@ -68,3 +69,8 @@ func update_rubies( _c : int ) ->void:
 func update_bombs( _c : int) ->void:
 	PlayerManager.bombs = clampi( PlayerManager.bombs + _c, 0, max_bombs )
 	PlayerHud.update_bombs()
+
+func increase_kill_counter () -> void:
+	kill_count += 1
+	if kill_count >= 10:
+		kill_count = 0

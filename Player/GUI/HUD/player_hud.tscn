@@ -163,3 +163,31 @@ text = "255"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="DEBUG" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 15.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DEBUG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="DEBUG/HBoxContainer"]
+z_index = 50
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_jggjn")
+theme_override_font_sizes/font_size = 16
+text = "Kill Turn:"
+
+[node name="KillCounter" type="Label" parent="DEBUG/HBoxContainer"]
+z_index = 50
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_jggjn")
+theme_override_font_sizes/font_size = 16
+text = "0"
