@@ -20,10 +20,6 @@ func _process(delta: float) -> void:
 	if travelled_distance > RANGE:
 		queue_free()
 	
-#func _physics_process(delta: float) -> void:
-	#if check_shield.is_colliding():
-		#queue_free()
-
 func _on_area_entered(_area):
 	print("HIT SHIELD")
 	PlayerManager.player.shield_block_sound.play()

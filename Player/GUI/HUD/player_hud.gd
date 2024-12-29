@@ -17,6 +17,7 @@ var hearts : Array[ HeartGUI ] = []
 @onready var rubies: Label = $Control/Rubies
 @onready var bombs: Label = $Control/Bombs
 @onready var keys: Label = $Control/Keys
+@onready var kill_counter: Label = $DEBUG/HBoxContainer/KillCounter
 
 
 func _ready():
@@ -115,7 +116,9 @@ func play_audio( _a : AudioStream ) -> void:
 	audio.stream = _a
 	audio.play()
 	pass
-	
+
+func _process(_delta: float) -> void:
+	kill_counter.text=str(PlayerManager.kill_count)
 #func load_game() -> void:
 	#play_audio( button_select_audio )
 	#await fade_to_black()

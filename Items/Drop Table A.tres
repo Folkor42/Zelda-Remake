@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DropTable" load_steps=6 format=3 uid="uid://cumbs2b7gq6bv"]
+
+[ext_resource type="Script" path="res://Items/item_data.gd" id="1_w4rnp"]
+[ext_resource type="Script" path="res://Items/droptable.gd" id="2_34m2x"]
+[ext_resource type="Resource" uid="uid://da5nmokb43354" path="res://Items/Ruby.tres" id="2_oryb3"]
+[ext_resource type="Resource" uid="uid://bt4fmhs82xmd2" path="res://Items/heart.tres" id="3_5eqcr"]
+[ext_resource type="Resource" uid="uid://bjtq2ewvncewg" path="res://Items/triforce.tres" id="4_cis5c"]
+
+[resource]
+script = ExtResource("2_34m2x")
+group = "A"
+drop_rate = 31
+drops = Array[ExtResource("1_w4rnp")]([ExtResource("2_oryb3"), ExtResource("3_5eqcr"), ExtResource("2_oryb3"), ExtResource("4_cis5c"), ExtResource("2_oryb3"), ExtResource("3_5eqcr"), ExtResource("3_5eqcr"), ExtResource("2_oryb3"), ExtResource("2_oryb3"), ExtResource("3_5eqcr")])

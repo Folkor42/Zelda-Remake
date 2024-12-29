@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bt4fmhs82xmd2"]
+
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_kmk5v"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_66jen"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_0a12h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_617y8"]
+atlas = ExtResource("3_0a12h")
+region = Rect2(0, 0, 7, 8)
+
+[resource]
+script = ExtResource("2_66jen")
+name = "Heart"
+description = "A lovely Heart that heals."
+texture = SubResource("AtlasTexture_617y8")
+effects = Array[ExtResource("1_kmk5v")]([])

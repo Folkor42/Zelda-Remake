@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://shvn3y018out"]
+[gd_scene load_steps=30 format=3 uid="uid://shvn3y018out"]
 
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="1_jlsry"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_xn7lh"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://da5nmokb43354" path="res://Items/Ruby.tres" id="9_pxudh"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="10_7okah"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="10_grtm4"]
+[ext_resource type="Resource" uid="uid://cumbs2b7gq6bv" path="res://Items/Drop Table A.tres" id="10_u7g2u"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_2ale3"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="13_qt8eo"]
 
@@ -494,6 +495,7 @@ after_idle_state = NodePath("../Wander")
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("6_0aiel")
 drops = Array[ExtResource("7_8nxm5")]([SubResource("Resource_2eusg")])
+drop_table = ExtResource("10_u7g2u")
 
 [node name="Wander" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("10_grtm4")

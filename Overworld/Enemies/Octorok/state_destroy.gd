@@ -12,6 +12,7 @@ const DEATH_ANIM = preload("res://Scenes/enemy_death.tscn")
 
 @export_category("Item Drops")
 @export var drops : Array [ DropData ]
+@export var drop_table : DropTable
 
 var _direction : Vector2
 var _damage_position : Vector2
@@ -52,18 +53,28 @@ func _on_animation_finished ( _a : String ) -> void:
 	enemy.queue_free()
 
 func drop_items() -> void:
-	if drops.size() == 0:
-		return
-	for i in drops.size():
-		if drops[ i ] == null or drops[ i ].item == null:
-			continue
-		var drop_count : int = drops[ i ].get_drop_count()
-		for j in drop_count:
-			var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
-			drop.item_data = drops[ i ].item
-			enemy.get_parent().call_deferred( "add_child", drop )
-			drop.global_position = enemy.global_position
-			drop.velocity = enemy.velocity.rotated( randf_range(-1.5, 1.5) ) * randf_range( 0.9, 1.5)
-			drop.bounce()
-			drop.start_timer()
+	var turn_drop = drop_table.get_drop(PlayerManager.kill_count)
+	PlayerManager.increase_kill_counter()
+	if turn_drop:
+		var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
+		drop.item_data = turn_drop
+		enemy.get_parent().call_deferred( "add_child", drop )
+		drop.global_position = enemy.global_position
+		drop.velocity = enemy.velocity.rotated( randf_range(-1.5, 1.5) ) * randf_range( 0.9, 1.5)
+		drop.bounce()
+		drop.start_timer()
+	#if drops.size() == 0:
+		#return
+	#for i in drops.size():
+		#if drops[ i ] == null or drops[ i ].item == null:
+			#continue
+		#var drop_count : int = drops[ i ].get_drop_count()
+		#for j in drop_count:
+			#var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
+			#drop.item_data = drops[ i ].item
+			#enemy.get_parent().call_deferred( "add_child", drop )
+			#drop.global_position = enemy.global_position
+			#drop.velocity = enemy.velocity.rotated( randf_range(-1.5, 1.5) ) * randf_range( 0.9, 1.5)
+			#drop.bounce()
+			#drop.start_timer()
 	pass
