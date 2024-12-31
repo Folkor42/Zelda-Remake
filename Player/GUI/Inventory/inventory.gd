@@ -7,6 +7,12 @@ func add_item ( item : ItemData, count : int = 1 ) -> bool:
 		PlayerManager.update_rubies(1)
 	elif item.name == "Blue Ruby":
 		PlayerManager.update_rubies(5)
+	elif item.name == "Heart":
+		PlayerManager.set_health(PlayerManager.player.hp+2,PlayerManager.player.max_hp)
+	elif item.name == "Fairy":
+		PlayerManager.set_health(PlayerManager.player.hp+6,PlayerManager.player.max_hp)
+	elif item.name == "Heart Container":
+		PlayerManager.set_health(PlayerManager.player.max_hp+2,PlayerManager.player.max_hp+2)
 	elif item.name == "Bomb":
 		PlayerManager.update_bombs(1)
 	elif item.name == "Key":

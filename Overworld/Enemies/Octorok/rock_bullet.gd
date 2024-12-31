@@ -11,6 +11,7 @@ const SPEED = 200
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
+	body_entered.connect(destroy)
 	hurt_box.hit.connect(destroy)
 	pass
 	
@@ -25,5 +26,5 @@ func _on_area_entered(_area):
 	PlayerManager.player.shield_block_sound.play()
 	queue_free()
 
-func destroy()->void:
+func destroy(_a = null)->void:
 	queue_free()

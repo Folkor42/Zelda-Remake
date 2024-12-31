@@ -741,8 +741,6 @@ size = Vector2(16, 12)
 z_index = 1
 collision_layer = 18
 script = ExtResource("1_3vd0b")
-hp = 32
-max_hp = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_khxb0")
