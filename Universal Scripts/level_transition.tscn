@@ -10,6 +10,7 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_b44rf")
+target_transition_area = "Entrance"
 side = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

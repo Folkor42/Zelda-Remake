@@ -74,3 +74,7 @@ func increase_kill_counter () -> void:
 	kill_count += 1
 	if kill_count >= 10:
 		kill_count = 0
+
+func update_keys( _c : int ) ->void:
+	PlayerManager.keys = clampi( PlayerManager.keys + _c, 0, 255 )
+	PlayerHud.update_keys()

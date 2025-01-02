@@ -29,9 +29,20 @@ center_player = true
 side = 0
 
 [node name="Cave-SwordA" parent="." instance=ExtResource("4_e5f6w")]
-position = Vector2(73, 64)
+position = Vector2(72, 64)
 level = "res://Overworld/Cave-SwordA.tscn"
-target_transition_area = "Entrance"
+center_player = true
+side = 0
+
+[node name="Cave-ShopA" parent="." instance=ExtResource("4_e5f6w")]
+position = Vector2(-136, -112)
+level = "res://Overworld/Cave-ShopA.tscn"
+center_player = true
+side = 0
+
+[node name="Cave-MoneyA" parent="." instance=ExtResource("4_e5f6w")]
+position = Vector2(120, -112)
+level = "res://Overworld/Cave-MoneyA.tscn"
 center_player = true
 side = 0
 
@@ -90,16 +101,21 @@ position = Vector2(34, -39)
 position = Vector2(71, -104)
 
 [node name="Player Detector - Overworld2" parent="." instance=ExtResource("11_3jt7p")]
+visible = false
 position = Vector2(128, 120)
 
 [node name="Player Detector - Overworld3" parent="." instance=ExtResource("11_3jt7p")]
+visible = false
 position = Vector2(128, -56)
 
 [node name="Player Detector - Overworld4" parent="." instance=ExtResource("11_3jt7p")]
+visible = false
 position = Vector2(128, -232)
 
 [node name="Player Detector - Overworld5" parent="." instance=ExtResource("11_3jt7p")]
+visible = false
 position = Vector2(128, -408)
 
 [node name="Player Detector - Overworld6" parent="." instance=ExtResource("11_3jt7p")]
+visible = false
 position = Vector2(128, -584)

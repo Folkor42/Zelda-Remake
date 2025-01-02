@@ -1,19 +1,12 @@
-[gd_scene load_steps=18 format=4 uid="uid://bjfqbx15cxb7n"]
+[gd_scene load_steps=11 format=4 uid="uid://d4he8av8ec8ts"]
 
-[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_51a3b"]
-[ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_aftb8"]
-[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="2_jv4gg"]
-[ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="4_efiur"]
-[ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_ntd8r"]
-[ext_resource type="PackedScene" uid="uid://b3oxecarnbiir" path="res://Items/Item Pickup/item_pickup.tscn" id="6_0bxqn"]
-[ext_resource type="Resource" uid="uid://dvq4hasaw8tre" path="res://Items/wooden sword.tres" id="7_p4sof"]
-[ext_resource type="Resource" uid="uid://da5nmokb43354" path="res://Items/Ruby.tres" id="7_pkleh"]
-[ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="8_jfowg"]
-[ext_resource type="Resource" uid="uid://bdrqiutagyist" path="res://Items/bomb.tres" id="9_gl4o6"]
-[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="9_mkajb"]
-[ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="9_u1bdg"]
-[ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="13_tnoff"]
-[ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="14_ybfs8"]
+[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_kfe3k"]
+[ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_5idui"]
+[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="3_6iggs"]
+[ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_8kgr4"]
+[ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_bamc6"]
+[ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="14_2ijjg"]
+[ext_resource type="PackedScene" uid="uid://b57hdmdgfnpjj" path="res://NPCs/merchant.tscn" id="14_agq48"]
 
 [sub_resource type="Animation" id="Animation_cedfc"]
 length = 0.001
@@ -54,16 +47,16 @@ _data = {
 }
 
 [node name="Cave-SwordA" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
-script = ExtResource("1_51a3b")
+script = ExtResource("1_kfe3k")
 dungeon_camera = NodePath("Camera2D")
 
-[node name="OverWorldMapTiles" parent="." instance=ExtResource("1_aftb8")]
+[node name="OverWorldMapTiles" parent="." instance=ExtResource("2_5idui")]
 tile_map_data = PackedByteArray("AAAAAAAAAAAeAAYAAAABAAAAAAAeAAYAAAACAAAAAAAeAAYAAAADAAAAAAAeAAYAAAAEAAAAAAAeAAYAAAAFAAAAAAAeAAYAAAAGAAAAAAAeAAYAAAAHAAAAAAAeAAYAAAAIAAAAAAAeAAYAAAAJAAAAAAAeAAYAAAAKAAAAAAAeAAYAAAALAAAAAAAeAAYAAAAMAAAAAAAeAAYAAAANAAAAAAAeAAYAAAAOAAAAAAAeAAYAAAAPAAAAAAAeAAYAAAAAAAEAAAAeAAYAAAABAAEAAAAeAAYAAAACAAEAAAAeAAYAAAADAAEAAAAeAAYAAAAEAAEAAAAeAAYAAAAFAAEAAAAeAAYAAAAGAAEAAAAeAAYAAAAHAAEAAAAeAAYAAAAIAAEAAAAeAAYAAAAJAAEAAAAeAAYAAAAKAAEAAAAeAAYAAAALAAEAAAAeAAYAAAAMAAEAAAAeAAYAAAANAAEAAAAeAAYAAAAOAAEAAAAeAAYAAAAPAAEAAAAeAAYAAAAAAAIAAAAeAAYAAAAAAAMAAAAeAAYAAAAAAAQAAAAeAAYAAAAAAAUAAAAeAAYAAAAAAAYAAAAeAAYAAAAAAAcAAAAeAAYAAAAAAAgAAAAeAAYAAAAPAAIAAAAeAAYAAAAPAAMAAAAeAAYAAAAPAAQAAAAeAAYAAAAPAAUAAAAeAAYAAAAPAAYAAAAeAAYAAAAPAAcAAAAeAAYAAAAPAAgAAAAeAAYAAAAAAAkAAAAeAAYAAAABAAkAAAAeAAYAAAACAAkAAAACAAkAAAADAAkAAAAeAAYAAAAEAAkAAAAeAAYAAAAFAAkAAAAeAAYAAAAAAAoAAAAeAAYAAAABAAoAAAAeAAYAAAACAAoAAAAeAAYAAAADAAoAAAAeAAYAAAAEAAoAAAAeAAYAAAAFAAoAAAAeAAYAAAAPAAkAAAAeAAYAAAAOAAkAAAAeAAYAAAANAAkAAAAeAAYAAAAMAAkAAAAeAAYAAAALAAkAAAAeAAYAAAAKAAkAAAAeAAYAAAAGAAkAAAAeAAYAAAAGAAoAAAAeAAYAAAABAAcAAAAeAAYAAAABAAIAAAAeAAYAAAABAAMAAAAeAAYAAAABAAQAAAAeAAYAAAABAAUAAAAeAAYAAAABAAYAAAAeAAYAAAABAAgAAAAeAAYAAAAOAAIAAAAeAAYAAAAOAAMAAAAeAAYAAAAOAAQAAAAeAAYAAAAOAAUAAAAeAAYAAAAOAAYAAAAeAAYAAAAOAAcAAAAeAAYAAAAOAAgAAAAeAAYAAAAKAAoAAAAeAAYAAAALAAoAAAAeAAYAAAAMAAoAAAAeAAYAAAANAAoAAAAeAAYAAAAOAAoAAAAeAAYAAAAPAAoAAAAeAAYAAAAJAAkAAAAeAAYAAAAJAAoAAAAeAAYAAAACAAIAAAAIAAsAAAACAAMAAAAIAAsAAAACAAQAAAAIAAsAAAACAAUAAAAIAAsAAAACAAYAAAAIAAsAAAACAAcAAAAIAAsAAAACAAgAAAAIAAsAAAADAAIAAAAIAAsAAAADAAMAAAAIAAsAAAADAAQAAAAIAAsAAAADAAUAAAAIAAsAAAADAAYAAAAIAAsAAAADAAcAAAAIAAsAAAADAAgAAAAIAAsAAAAEAAIAAAAIAAsAAAAEAAMAAAAIAAsAAAAEAAQAAAAIAAsAAAAEAAUAAAAIAAsAAAAEAAYAAAAIAAsAAAAEAAcAAAAIAAsAAAAEAAgAAAAIAAsAAAAFAAIAAAAIAAsAAAAFAAMAAAAIAAsAAAAFAAQAAAAIAAsAAAAFAAUAAAAIAAsAAAAFAAYAAAAIAAsAAAAFAAcAAAAIAAsAAAAFAAgAAAAIAAsAAAAGAAIAAAAIAAsAAAAGAAMAAAAIAAsAAAAGAAQAAAAIAAsAAAAGAAUAAAAIAAsAAAAGAAYAAAAIAAsAAAAGAAcAAAAIAAsAAAAGAAgAAAAIAAsAAAAHAAIAAAAIAAsAAAAHAAMAAAAIAAsAAAAHAAQAAAAIAAsAAAAHAAUAAAAIAAsAAAAHAAYAAAAIAAsAAAAHAAcAAAAIAAsAAAAHAAgAAAAIAAsAAAAIAAIAAAAIAAsAAAAIAAMAAAAIAAsAAAAIAAQAAAAIAAsAAAAIAAUAAAAIAAsAAAAIAAYAAAAIAAsAAAAIAAcAAAAIAAsAAAAIAAgAAAAIAAsAAAAJAAIAAAAIAAsAAAAJAAMAAAAIAAsAAAAJAAQAAAAIAAsAAAAJAAUAAAAIAAsAAAAJAAYAAAAIAAsAAAAJAAcAAAAIAAsAAAAJAAgAAAAIAAsAAAAKAAIAAAAIAAsAAAAKAAMAAAAIAAsAAAAKAAQAAAAIAAsAAAAKAAUAAAAIAAsAAAAKAAYAAAAIAAsAAAAKAAcAAAAIAAsAAAAKAAgAAAAIAAsAAAALAAIAAAAIAAsAAAALAAMAAAAIAAsAAAALAAQAAAAIAAsAAAALAAUAAAAIAAsAAAALAAYAAAAIAAsAAAALAAcAAAAIAAsAAAALAAgAAAAIAAsAAAAMAAIAAAAIAAsAAAAMAAMAAAAIAAsAAAAMAAQAAAAIAAsAAAAMAAUAAAAIAAsAAAAMAAYAAAAIAAsAAAAMAAcAAAAIAAsAAAAMAAgAAAAIAAsAAAANAAIAAAAIAAsAAAANAAMAAAAIAAsAAAANAAQAAAAIAAsAAAANAAUAAAAIAAsAAAANAAYAAAAIAAsAAAANAAcAAAAIAAsAAAANAAgAAAAIAAsAAAAHAAkAAAAIAAsAAAAHAAoAAAAIAAsAAAAIAAkAAAAIAAsAAAAIAAoAAAAIAAsAAAA=")
 
-[node name="Entrance" parent="." instance=ExtResource("2_jv4gg")]
+[node name="Entrance" parent="." instance=ExtResource("3_6iggs")]
 position = Vector2(128, 160)
 level = "res://Overworld/over_world_quest_1.tscn"
-target_transition_area = "Cave-SwordA"
+target_transition_area = "Cave-ShopA"
 center_player = true
 side = 1
 
@@ -75,12 +68,11 @@ offset_left = 37.0
 offset_top = 32.0
 offset_right = 215.0
 offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("4_ntd8r")
-text = "It's dangerous to go alone!
-Take this."
+theme_override_fonts/font = ExtResource("4_8kgr4")
+text = "Buy somethin' will ya!"
 horizontal_alignment = 1
 autowrap_mode = 2
-visible_ratio = -0.0263158
+visible_ratio = -0.0454545
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {
@@ -88,36 +80,14 @@ libraries = {
 }
 autoplay = "Show Text"
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("4_efiur")]
+[node name="PlayerSpawn" parent="." instance=ExtResource("5_bamc6")]
 position = Vector2(129, 140)
 
-[node name="ItemPickup2" parent="." instance=ExtResource("6_0bxqn")]
-position = Vector2(68, 105)
-item_data = ExtResource("7_pkleh")
-
-[node name="ItemPickup3" parent="." instance=ExtResource("6_0bxqn")]
-position = Vector2(185, 105)
-item_data = ExtResource("8_jfowg")
-
-[node name="ItemPickup4" parent="." instance=ExtResource("6_0bxqn")]
-position = Vector2(68, 128)
-item_data = ExtResource("9_gl4o6")
-
-[node name="ItemDropper" parent="." instance=ExtResource("9_mkajb")]
-position = Vector2(128, 105)
-item_data = ExtResource("7_p4sof")
-major_drop = true
-
-[node name="ItemDropper2" parent="." instance=ExtResource("9_mkajb")]
-position = Vector2(186, 131)
-item_data = ExtResource("9_u1bdg")
-major_drop = true
-
-[node name="OldMan" parent="." instance=ExtResource("13_tnoff")]
-position = Vector2(128, 71)
-
-[node name="Fire" parent="." instance=ExtResource("14_ybfs8")]
+[node name="Fire" parent="." instance=ExtResource("14_2ijjg")]
 position = Vector2(69, 71)
 
-[node name="Fire2" parent="." instance=ExtResource("14_ybfs8")]
+[node name="Fire2" parent="." instance=ExtResource("14_2ijjg")]
 position = Vector2(186, 72)
+
+[node name="Merchant" parent="." instance=ExtResource("14_agq48")]
+position = Vector2(128, 71)
