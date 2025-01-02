@@ -4,9 +4,11 @@ var contents : Dictionary={}
 
 func add_item ( item : ItemData, count : int = 1 ) -> bool:
 	if item.name == "Ruby":
-		PlayerManager.update_rubies(1)
+		PlayerManager.update_rubies(item.value)
 	elif item.name == "Blue Ruby":
-		PlayerManager.update_rubies(5)
+		PlayerManager.update_rubies(item.value)
+	elif item.name == "Transaction":
+		PlayerManager.update_rubies(item.value)
 	elif item.name == "Heart":
 		PlayerManager.set_health(PlayerManager.player.hp+2,PlayerManager.player.max_hp)
 	elif item.name == "Fairy":

@@ -63,8 +63,19 @@ func interact() -> void:
 	interact_pressed.emit()
 
 func update_rubies( _c : int ) ->void:
-	PlayerManager.rubies = clampi( PlayerManager.rubies + _c, 0, 255 )
-	PlayerHud.update_rubies()
+	if _c > 0:
+		for i in _c:
+			print(i)
+			PlayerManager.rubies = clampi( PlayerManager.rubies + 1, 0, 255 )
+			PlayerHud.update_rubies()
+			await get_tree().create_timer(.05).timeout
+	else:
+		_c *= -1
+		for i in _c:
+			print(i)
+			PlayerManager.rubies = clampi( PlayerManager.rubies - 1, 0, 255 )
+			PlayerHud.update_rubies()
+			await get_tree().create_timer(.05).timeout
 
 func update_bombs( _c : int) ->void:
 	PlayerManager.bombs = clampi( PlayerManager.bombs + _c, 0, max_bombs )

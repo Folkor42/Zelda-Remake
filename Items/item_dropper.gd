@@ -9,8 +9,6 @@ const PICKUP = preload("res://Items/Item Pickup/item_pickup.tscn")
 @export var item_data : ItemData : set = _set_item_data
 @export var major_drop : bool = false
 
-signal dropped
-
 var has_dropped : bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +26,6 @@ func drop_item() -> void:
 	if has_dropped:
 		return
 	has_dropped = true
-	dropped.emit()
 	var drop = PICKUP.instantiate() as ItemPickup
 	drop.major_drop=major_drop
 	drop.item_data = item_data

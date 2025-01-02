@@ -28,23 +28,41 @@ target_transition_area = "EagleDungeonEntrance"
 center_player = true
 side = 0
 
-[node name="Cave-SwordA" parent="." instance=ExtResource("4_e5f6w")]
+[node name="Caves" type="Node" parent="."]
+
+[node name="Cave-SwordA" parent="Caves" instance=ExtResource("4_e5f6w")]
 position = Vector2(72, 64)
 level = "res://Overworld/Cave-SwordA.tscn"
 center_player = true
 side = 0
 
-[node name="Cave-ShopA" parent="." instance=ExtResource("4_e5f6w")]
+[node name="Cave-ShopA" parent="Caves" instance=ExtResource("4_e5f6w")]
 position = Vector2(-136, -112)
 level = "res://Overworld/Cave-ShopA.tscn"
 center_player = true
 side = 0
 
-[node name="Cave-MoneyA" parent="." instance=ExtResource("4_e5f6w")]
+[node name="Cave-MoneyA" parent="Caves" instance=ExtResource("4_e5f6w")]
 position = Vector2(120, -112)
 level = "res://Overworld/Cave-MoneyA.tscn"
 center_player = true
 side = 0
+
+[node name="Cave-MoneyB" parent="Caves" instance=ExtResource("4_e5f6w")]
+position = Vector2(296, -32)
+level = "res://Overworld/Cave-MoneyB.tscn"
+center_player = true
+side = 0
+
+[node name="Cave-MoneyC" parent="Caves" instance=ExtResource("4_e5f6w")]
+position = Vector2(472, -456)
+level = "res://Overworld/Cave-MoneyC.tscn"
+center_player = true
+
+[node name="Cave-MoneyD" parent="Caves" instance=ExtResource("4_e5f6w")]
+position = Vector2(-88, -216)
+level = "res://Overworld/Cave-MoneyD.tscn"
+center_player = true
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("6_441e8")]
 position = Vector2(71, 78)
