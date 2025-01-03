@@ -13,4 +13,5 @@ script = ExtResource("2_3fmfa")
 name = "Wooden Sword"
 description = "Good for "
 texture = SubResource("AtlasTexture_n4hgs")
+value = 0
 effects = Array[ExtResource("1_1prss")]([])

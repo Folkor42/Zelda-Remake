@@ -13,4 +13,5 @@ script = ExtResource("2_upsne")
 name = "Heart Container"
 description = "Expands Links Life Bar"
 texture = SubResource("AtlasTexture_4fehv")
+value = 0
 effects = Array[ExtResource("1_rbxbs")]([])

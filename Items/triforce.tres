@@ -13,4 +13,5 @@ script = ExtResource("2_v7lsr")
 name = "Triforce"
 description = "A piece of the Triforce of Courage"
 texture = SubResource("AtlasTexture_dw6j8")
+value = 0
 effects = Array[ExtResource("1_0b25r")]([])

@@ -13,4 +13,5 @@ script = ExtResource("2_kvksg")
 name = "Fairy"
 description = "A healing Fairy"
 texture = SubResource("AtlasTexture_rrga4")
+value = 0
 effects = Array[ExtResource("1_avdd2")]([])

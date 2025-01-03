@@ -60,9 +60,10 @@ level = "res://Overworld/Cave-MoneyC.tscn"
 center_player = true
 
 [node name="Cave-MoneyD" parent="Caves" instance=ExtResource("4_e5f6w")]
-position = Vector2(-88, -216)
+position = Vector2(-88, -208)
 level = "res://Overworld/Cave-MoneyD.tscn"
 center_player = true
+side = 0
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("6_441e8")]
 position = Vector2(71, 78)

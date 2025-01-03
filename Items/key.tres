@@ -13,4 +13,5 @@ script = ExtResource("2_xnxjv")
 name = "Key"
 description = "It unlocks stuff."
 texture = SubResource("AtlasTexture_bsotc")
+value = 0
 effects = Array[ExtResource("1_42vlp")]([])

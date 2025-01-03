@@ -13,4 +13,5 @@ script = ExtResource("2_1kjac")
 name = "Bomb"
 description = "Blow up things!"
 texture = SubResource("AtlasTexture_60o33")
+value = 0
 effects = Array[ExtResource("1_edpkn")]([])
