@@ -1,6 +1,6 @@
 class_name Overworld extends Node2D
 
-var dungeon1 = preload("res://Dungeons/01 - Eagle/Dungeon_Map.tscn")
+#var dungeon1 = preload("res://Dungeons/01 - Eagle/Dungeon_Map.tscn")
 #const PICKUP = preload("res://Items/Item_pickup/item_pickup.tscn")
 @export var music : AudioStream
 @onready var camera_2d: Camera2D = $OverworldCamera

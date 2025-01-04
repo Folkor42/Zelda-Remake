@@ -18,6 +18,7 @@ var hearts : Array[ HeartGUI ] = []
 @onready var bombs: Label = $Control/Bombs
 @onready var keys: Label = $Control/Keys
 @onready var kill_counter: Label = $DEBUG/HBoxContainer/KillCounter
+@onready var b_item: Sprite2D = $"Control/B-Item"
 
 
 func _ready():

@@ -1,10 +1,33 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjvndve0gt2lj"]
 
 [ext_resource type="Script" path="res://Player/GUI/HUD/player_hud.gd" id="1_q6v14"]
-[ext_resource type="Texture2D" uid="uid://heabr3kyq3vn" path="res://Player/GUI/HUD/gui-health.png" id="2_aeku0"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_v3tc0"]
 [ext_resource type="PackedScene" uid="uid://37st6ky0w4is" path="res://Player/GUI/HUD/heart.tscn" id="3_433lj"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="5_jggjn"]
+
+[sub_resource type="GDScript" id="GDScript_gx1g6"]
+script/source = "extends Sprite2D
+
+func _ready() -> void:
+	if PlayerManager.sword == \"Wooden Sword\":
+		region_rect = Rect2(555, 137, 7, 16)
+	elif PlayerManager.sword == \"White Sword\":
+		region_rect = Rect2(564, 137, 7, 16)
+	elif PlayerManager.sword == \"Magic Sword\":
+		region_rect = Rect2(573, 137, 8, 16)
+	else:
+		region_rect = Rect2(495, 145, 7, 16)
+		
+func update_b () -> void:
+	if PlayerManager.sword == \"Wooden Sword\":
+		region_rect = Rect2(555, 137, 7, 16)
+	elif PlayerManager.sword == \"White Sword\":
+		region_rect = Rect2(564, 137, 7, 16)
+	elif PlayerManager.sword == \"Magic Sword\":
+		region_rect = Rect2(573, 137, 8, 16)
+	else:
+		region_rect = Rect2(495, 145, 7, 16)
+"
 
 [node name="PlayerHud" type="CanvasLayer"]
 script = ExtResource("1_q6v14")
@@ -33,13 +56,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
-visible = false
-position = Vector2(208, 30)
-texture = ExtResource("2_aeku0")
-region_enabled = true
-region_rect = Rect2(29, 0, 34, 8)
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Control"]
 layout_mode = 0
@@ -101,6 +117,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PickupLabel" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 12.0
 offset_top = 222.0
@@ -118,7 +135,8 @@ one_shot = true
 position = Vector2(132, 37)
 texture = ExtResource("2_v3tc0")
 region_enabled = true
-region_rect = Rect2(555, 137, 8, 16)
+region_rect = Rect2(573, 137, 8, 16)
+script = SubResource("GDScript_gx1g6")
 
 [node name="A-Item" type="Sprite2D" parent="Control"]
 position = Vector2(156, 37)

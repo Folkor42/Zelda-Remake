@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c52mqag1as035"]
+[gd_scene load_steps=23 format=3 uid="uid://c52mqag1as035"]
 
 [ext_resource type="PackedScene" uid="uid://bnwqkvxnroftf" path="res://Dungeons/01 - Eagle/room_1.tscn" id="1_fxssn"]
 [ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_gev80"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://Scenes/camera.gd" id="19_wj6oy"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="20_acy5b"]
 [ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="20_bhtn0"]
+[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="22_8jahd"]
 
 [node name="01 - Eagle Dungeon" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
 script = ExtResource("1_gev80")
@@ -94,3 +95,10 @@ bus = &"Music"
 [node name="PlayerSpawn" parent="." instance=ExtResource("20_acy5b")]
 z_index = 1
 position = Vector2(128, 136)
+
+[node name="Stairs" parent="." instance=ExtResource("22_8jahd")]
+z_index = 1
+position = Vector2(-152, -800)
+level = "res://Dungeons/01 - Eagle/room_item.tscn"
+center_player = true
+side = 1

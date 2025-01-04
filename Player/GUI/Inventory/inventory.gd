@@ -19,6 +19,8 @@ func add_item ( item : ItemData, count : int = 1 ) -> bool:
 		PlayerManager.update_bombs(1)
 	elif item.name == "Key":
 		PlayerManager.update_keys(1)
+	elif item.name == "Wooden Sword" or item.name == "White Sword" or item.name == "Magic Sword" :
+		PlayerManager.update_sword (item.name)
 	elif contents.has(item.name):
 		contents[item.name]+=count
 	else:

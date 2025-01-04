@@ -5,6 +5,7 @@ signal player_pickup
 var cardinal_direction : Vector2 = Vector2.DOWN
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 var direction : Vector2 = Vector2.ZERO
+var terminal_velocity = 5000
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
@@ -17,13 +18,14 @@ var direction : Vector2 = Vector2.ZERO
 #@onready var carry = $StateMachine/Carry
 @onready var shield: Area2D = $Shield
 @onready var shield_block_sound: AudioStreamPlayer2D = $Shield/ShieldBlockSound
-
-
+@onready var hurt_box: HurtBox = $Sprite2D/Sword/HurtBox
 
 signal DirectionChanged ( new_direction : Vector2 )
 signal player_damaged ( hurt_box : HurtBox )
 
 var invulnerable : bool = false
+var gravity_active : bool = false
+
 @export var hp : int = 6
 @export var max_hp : int = 6
 
@@ -44,6 +46,12 @@ func _process( _delta ):
 	pass
 	
 func _physics_process( _delta ):
+	if gravity_active and !self.is_on_floor():
+		if velocity.y < terminal_velocity:
+			velocity.y += terminal_velocity*_delta
+		elif velocity.y > terminal_velocity:
+				velocity.y = terminal_velocity*_delta
+		velocity.x=0
 	move_and_slide()
 
 func major_pickup()->void:
