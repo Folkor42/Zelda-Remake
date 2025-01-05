@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://00rfsax5jltg"]
+[gd_scene load_steps=14 format=4 uid="uid://00rfsax5jltg"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_1m108"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_jjg3v"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_mo0a4"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_tmsdr"]
+[ext_resource type="PackedScene" uid="uid://cl8s7yqr4dg0u" path="res://Dungeons/Enemies/aquamentus.tscn" id="5_mqm1x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_jjg3v")
@@ -253,3 +254,6 @@ direction = 2
 tile_map_data = PackedByteArray("AAADAAUAAAAaAAMAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
+
+[node name="Aquamentus" parent="." instance=ExtResource("5_mqm1x")]
+position = Vector2(199, 79)

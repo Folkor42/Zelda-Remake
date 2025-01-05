@@ -14,4 +14,8 @@ target_transition_area = "Entrance"
 side = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_3q44f")
+
+[node name="Exit" type="Marker2D" parent="."]
+position = Vector2(8, 0)

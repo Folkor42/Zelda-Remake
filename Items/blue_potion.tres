@@ -19,5 +19,5 @@ script = ExtResource("2_uda7d")
 name = "Blue Potion"
 description = "Restores Link's Health"
 texture = SubResource("AtlasTexture_cvco4")
-value = 0
+value = 40
 effects = Array[ExtResource("1_ox1oy")]([SubResource("Resource_42o23")])

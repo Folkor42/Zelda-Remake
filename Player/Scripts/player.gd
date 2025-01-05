@@ -91,12 +91,12 @@ func AnimDirection() -> String:
 	else:
 		return "side"
 
-func _take_damage ( hurt_box : HurtBox ) -> void:
+func _take_damage ( _hurt_box : HurtBox ) -> void:
 	if invulnerable == true:
 		return
 	if hp > 0:
-		update_hp( -hurt_box.damage )
-		player_damaged.emit( hurt_box )
+		update_hp( -_hurt_box.damage )
+		player_damaged.emit( _hurt_box )
 	pass
 	
 func update_hp ( delta : int ) -> void:
@@ -135,3 +135,4 @@ func remove_camera()->void:
 		print(c)
 		if c is Camera2D:
 			c.queue_free()
+			

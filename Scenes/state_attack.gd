@@ -1,6 +1,7 @@
 class_name State_Attack extends State
 
 var attacking : bool = false
+const SWORD = preload("res://Player/Sword.tscn")
 
 @export var attack_sound : AudioStream
 @export_range(1,20,0.5) var decelerate_speed : float = 5.0
@@ -11,13 +12,20 @@ var attacking : bool = false
 @onready var idle: State_Idle = $"../Idle"
 @onready var walk: State_Walk = $"../Walk"
 @onready var hurt_box: HurtBox = $"../../Sprite2D/Sword/HurtBox"
-#@onready var charge_attack: State = $"../ChargeAttack"
+@onready var sword_cooldown: Timer = $SwordCooldown
+
 
 
 func Enter() -> void:
+	if PlayerManager.sword=="":
+		return
 	player.UpdateAnimation("attack")
 	attack_animation.play( "attack_" + player.AnimDirection() )
 	animation_player.animation_finished.connect ( EndAttack )
+	
+	if PlayerManager.player.hp == PlayerManager.player.max_hp and sword_cooldown.is_stopped():
+		shoot_sword()
+		sword_cooldown.start()
 	
 	audio.stream = attack_sound
 	audio.pitch_scale = randf_range(0.9, 1.1)
@@ -31,7 +39,8 @@ func Enter() -> void:
 	pass
 
 func Exit() -> void:
-	animation_player.animation_finished.disconnect ( EndAttack )
+	if animation_player.animation_finished.is_connected( EndAttack ):
+		animation_player.animation_finished.disconnect ( EndAttack )
 	attacking = false
 	hurt_box.monitoring = false
 	pass
@@ -58,4 +67,22 @@ func EndAttack( _newAnimName : String ) -> void:
 		#state_machine.ChangeState( charge_attack )
 	attack_animation.stop()
 	attacking = false
+	pass
+
+func shoot_sword () -> void:
+	print ("PEW")
+	var bullet = SWORD.instantiate()
+	var parent : Node = get_parent().get_parent().get_parent()
+	var rot = parent.rotation
+	if player.cardinal_direction==Vector2.UP:
+		rot = deg_to_rad(270)
+	elif player.cardinal_direction==Vector2.DOWN:
+		rot = deg_to_rad(90)
+	elif player.cardinal_direction==Vector2.RIGHT:
+		rot = deg_to_rad(0)
+	elif player.cardinal_direction==Vector2.LEFT:
+		rot = deg_to_rad(180)
+	bullet.position = player.position
+	bullet.rotation = rot
+	parent.add_child (bullet)
 	pass

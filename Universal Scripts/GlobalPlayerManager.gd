@@ -80,14 +80,14 @@ func interact() -> void:
 func update_rubies( _c : int ) ->void:
 	if _c > 0:
 		for i in _c:
-			print(i)
+			#print(i)
 			PlayerManager.rubies = clampi( PlayerManager.rubies + 1, 0, 255 )
 			PlayerHud.update_rubies()
 			await get_tree().create_timer(.05).timeout
 	else:
 		_c *= -1
 		for i in _c:
-			print(i)
+			#print(i)
 			PlayerManager.rubies = clampi( PlayerManager.rubies - 1, 0, 255 )
 			PlayerHud.update_rubies()
 			await get_tree().create_timer(.05).timeout

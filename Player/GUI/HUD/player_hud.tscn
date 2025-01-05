@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjvndve0gt2lj"]
+[gd_scene load_steps=7 format=3 uid="uid://bjvndve0gt2lj"]
 
 [ext_resource type="Script" path="res://Player/GUI/HUD/player_hud.gd" id="1_q6v14"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_v3tc0"]
@@ -27,6 +27,15 @@ func update_b () -> void:
 		region_rect = Rect2(573, 137, 8, 16)
 	else:
 		region_rect = Rect2(495, 145, 7, 16)
+"
+
+[sub_resource type="GDScript" id="GDScript_v8b4v"]
+script/source = "extends Label
+
+func _process(_delta: float) -> void:
+	# Get the time dictionary
+	var time = Time.get_time_dict_from_system()
+	text=str(\"%02d:%02d:%02d\" % [time.hour, time.minute, time.second]) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
 "
 
 [node name="PlayerHud" type="CanvasLayer"]
@@ -198,6 +207,18 @@ theme_override_fonts/font = ExtResource("5_jggjn")
 text = "X"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Clock" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_jggjn")
+text = "12:38:40"
+script = SubResource("GDScript_v8b4v")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

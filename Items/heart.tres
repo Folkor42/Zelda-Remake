@@ -13,5 +13,5 @@ script = ExtResource("2_66jen")
 name = "Heart"
 description = "A lovely Heart that heals."
 texture = SubResource("AtlasTexture_617y8")
-value = 0
+value = 10
 effects = Array[ExtResource("1_kmk5v")]([])

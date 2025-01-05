@@ -1,16 +1,15 @@
-[gd_scene load_steps=15 format=4 uid="uid://d4he8av8ec8ts"]
+[gd_scene load_steps=14 format=4 uid="uid://c60pcl585hl4d"]
 
-[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_kfe3k"]
-[ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_5idui"]
-[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="3_6iggs"]
-[ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_8kgr4"]
-[ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_bamc6"]
-[ext_resource type="PackedScene" uid="uid://bxhw0ins77nc7" path="res://Items/item_buy.tscn" id="8_bgyhh"]
-[ext_resource type="Resource" uid="uid://b1kn50p6vfcr2" path="res://Items/candle.tres" id="9_cgaxv"]
-[ext_resource type="Resource" uid="uid://pktp0jdaulx" path="res://Items/shield.tres" id="10_hdfbt"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="11_lnd4s"]
-[ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="14_2ijjg"]
-[ext_resource type="PackedScene" uid="uid://b57hdmdgfnpjj" path="res://NPCs/merchant.tscn" id="14_agq48"]
+[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_u53bf"]
+[ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_keroc"]
+[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="3_xn2n3"]
+[ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_qkdnc"]
+[ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_1dbaj"]
+[ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="6_50gx1"]
+[ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="7_iv2lp"]
+[ext_resource type="Script" path="res://Overworld/gamble_game.gd" id="9_81ilj"]
+[ext_resource type="PackedScene" uid="uid://0rxdqg787124" path="res://Items/item_bet.tscn" id="10_kesek"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="11_ucbra"]
 
 [sub_resource type="Animation" id="Animation_cedfc"]
 length = 0.001
@@ -50,17 +49,17 @@ _data = {
 "Show Text": SubResource("Animation_ve2go")
 }
 
-[node name="Cave-ShopA" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
-script = ExtResource("1_kfe3k")
+[node name="Cave-GambleA" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
+script = ExtResource("1_u53bf")
 dungeon_camera = NodePath("Camera2D")
 
-[node name="OverWorldMapTiles" parent="." instance=ExtResource("2_5idui")]
+[node name="OverWorldMapTiles" parent="." instance=ExtResource("2_keroc")]
 tile_map_data = PackedByteArray("AAAAAAAAAAAeAAYAAAABAAAAAAAeAAYAAAACAAAAAAAeAAYAAAADAAAAAAAeAAYAAAAEAAAAAAAeAAYAAAAFAAAAAAAeAAYAAAAGAAAAAAAeAAYAAAAHAAAAAAAeAAYAAAAIAAAAAAAeAAYAAAAJAAAAAAAeAAYAAAAKAAAAAAAeAAYAAAALAAAAAAAeAAYAAAAMAAAAAAAeAAYAAAANAAAAAAAeAAYAAAAOAAAAAAAeAAYAAAAPAAAAAAAeAAYAAAAAAAEAAAAeAAYAAAABAAEAAAAeAAYAAAACAAEAAAAeAAYAAAADAAEAAAAeAAYAAAAEAAEAAAAeAAYAAAAFAAEAAAAeAAYAAAAGAAEAAAAeAAYAAAAHAAEAAAAeAAYAAAAIAAEAAAAeAAYAAAAJAAEAAAAeAAYAAAAKAAEAAAAeAAYAAAALAAEAAAAeAAYAAAAMAAEAAAAeAAYAAAANAAEAAAAeAAYAAAAOAAEAAAAeAAYAAAAPAAEAAAAeAAYAAAAAAAIAAAAeAAYAAAAAAAMAAAAeAAYAAAAAAAQAAAAeAAYAAAAAAAUAAAAeAAYAAAAAAAYAAAAeAAYAAAAAAAcAAAAeAAYAAAAAAAgAAAAeAAYAAAAPAAIAAAAeAAYAAAAPAAMAAAAeAAYAAAAPAAQAAAAeAAYAAAAPAAUAAAAeAAYAAAAPAAYAAAAeAAYAAAAPAAcAAAAeAAYAAAAPAAgAAAAeAAYAAAAAAAkAAAAeAAYAAAABAAkAAAAeAAYAAAACAAkAAAACAAkAAAADAAkAAAAeAAYAAAAEAAkAAAAeAAYAAAAFAAkAAAAeAAYAAAAAAAoAAAAeAAYAAAABAAoAAAAeAAYAAAACAAoAAAAeAAYAAAADAAoAAAAeAAYAAAAEAAoAAAAeAAYAAAAFAAoAAAAeAAYAAAAPAAkAAAAeAAYAAAAOAAkAAAAeAAYAAAANAAkAAAAeAAYAAAAMAAkAAAAeAAYAAAALAAkAAAAeAAYAAAAKAAkAAAAeAAYAAAAGAAkAAAAeAAYAAAAGAAoAAAAeAAYAAAABAAcAAAAeAAYAAAABAAIAAAAeAAYAAAABAAMAAAAeAAYAAAABAAQAAAAeAAYAAAABAAUAAAAeAAYAAAABAAYAAAAeAAYAAAABAAgAAAAeAAYAAAAOAAIAAAAeAAYAAAAOAAMAAAAeAAYAAAAOAAQAAAAeAAYAAAAOAAUAAAAeAAYAAAAOAAYAAAAeAAYAAAAOAAcAAAAeAAYAAAAOAAgAAAAeAAYAAAAKAAoAAAAeAAYAAAALAAoAAAAeAAYAAAAMAAoAAAAeAAYAAAANAAoAAAAeAAYAAAAOAAoAAAAeAAYAAAAPAAoAAAAeAAYAAAAJAAkAAAAeAAYAAAAJAAoAAAAeAAYAAAACAAIAAAAIAAsAAAACAAMAAAAIAAsAAAACAAQAAAAIAAsAAAACAAUAAAAIAAsAAAACAAYAAAAIAAsAAAACAAcAAAAIAAsAAAACAAgAAAAIAAsAAAADAAIAAAAIAAsAAAADAAMAAAAIAAsAAAADAAQAAAAIAAsAAAADAAUAAAAIAAsAAAADAAYAAAAIAAsAAAADAAcAAAAIAAsAAAADAAgAAAAIAAsAAAAEAAIAAAAIAAsAAAAEAAMAAAAIAAsAAAAEAAQAAAAIAAsAAAAEAAUAAAAIAAsAAAAEAAYAAAAIAAsAAAAEAAcAAAAIAAsAAAAEAAgAAAAIAAsAAAAFAAIAAAAIAAsAAAAFAAMAAAAIAAsAAAAFAAQAAAAIAAsAAAAFAAUAAAAIAAsAAAAFAAYAAAAIAAsAAAAFAAcAAAAIAAsAAAAFAAgAAAAIAAsAAAAGAAIAAAAIAAsAAAAGAAMAAAAIAAsAAAAGAAQAAAAIAAsAAAAGAAUAAAAIAAsAAAAGAAYAAAAIAAsAAAAGAAcAAAAIAAsAAAAGAAgAAAAIAAsAAAAHAAIAAAAIAAsAAAAHAAMAAAAIAAsAAAAHAAQAAAAIAAsAAAAHAAUAAAAIAAsAAAAHAAYAAAAIAAsAAAAHAAcAAAAIAAsAAAAHAAgAAAAIAAsAAAAIAAIAAAAIAAsAAAAIAAMAAAAIAAsAAAAIAAQAAAAIAAsAAAAIAAUAAAAIAAsAAAAIAAYAAAAIAAsAAAAIAAcAAAAIAAsAAAAIAAgAAAAIAAsAAAAJAAIAAAAIAAsAAAAJAAMAAAAIAAsAAAAJAAQAAAAIAAsAAAAJAAUAAAAIAAsAAAAJAAYAAAAIAAsAAAAJAAcAAAAIAAsAAAAJAAgAAAAIAAsAAAAKAAIAAAAIAAsAAAAKAAMAAAAIAAsAAAAKAAQAAAAIAAsAAAAKAAUAAAAIAAsAAAAKAAYAAAAIAAsAAAAKAAcAAAAIAAsAAAAKAAgAAAAIAAsAAAALAAIAAAAIAAsAAAALAAMAAAAIAAsAAAALAAQAAAAIAAsAAAALAAUAAAAIAAsAAAALAAYAAAAIAAsAAAALAAcAAAAIAAsAAAALAAgAAAAIAAsAAAAMAAIAAAAIAAsAAAAMAAMAAAAIAAsAAAAMAAQAAAAIAAsAAAAMAAUAAAAIAAsAAAAMAAYAAAAIAAsAAAAMAAcAAAAIAAsAAAAMAAgAAAAIAAsAAAANAAIAAAAIAAsAAAANAAMAAAAIAAsAAAANAAQAAAAIAAsAAAANAAUAAAAIAAsAAAANAAYAAAAIAAsAAAANAAcAAAAIAAsAAAANAAgAAAAIAAsAAAAHAAkAAAAIAAsAAAAHAAoAAAAIAAsAAAAIAAkAAAAIAAsAAAAIAAoAAAAIAAsAAAA=")
 
-[node name="Entrance" parent="." instance=ExtResource("3_6iggs")]
+[node name="Entrance" parent="." instance=ExtResource("3_xn2n3")]
 position = Vector2(128, 160)
 level = "res://Overworld/over_world_quest_1.tscn"
-target_transition_area = "Cave-ShopA"
+target_transition_area = "Cave-GambleA"
 center_player = true
 side = 1
 
@@ -72,11 +71,12 @@ offset_left = 37.0
 offset_top = 32.0
 offset_right = 215.0
 offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("4_8kgr4")
-text = "Buy somethin' will ya!"
+theme_override_fonts/font = ExtResource("4_qkdnc")
+text = "Let's play the money
+makin' game!"
 horizontal_alignment = 1
 autowrap_mode = 2
-visible_ratio = -0.0454545
+visible_ratio = -0.030303
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {
@@ -84,32 +84,21 @@ libraries = {
 }
 autoplay = "Show Text"
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("5_bamc6")]
+[node name="PlayerSpawn" parent="." instance=ExtResource("5_1dbaj")]
 position = Vector2(129, 140)
 
-[node name="Fire" parent="." instance=ExtResource("14_2ijjg")]
+[node name="Fire" parent="." instance=ExtResource("6_50gx1")]
 position = Vector2(69, 71)
 
-[node name="Fire2" parent="." instance=ExtResource("14_2ijjg")]
+[node name="Fire2" parent="." instance=ExtResource("6_50gx1")]
 position = Vector2(186, 72)
 
-[node name="Merchant" parent="." instance=ExtResource("14_agq48")]
+[node name="OldMan1" parent="." instance=ExtResource("7_iv2lp")]
 position = Vector2(128, 71)
-
-[node name="ItemBuy" parent="." instance=ExtResource("8_bgyhh")]
-position = Vector2(128, 90)
-
-[node name="ItemBuy2" parent="." instance=ExtResource("8_bgyhh")]
-position = Vector2(160, 90)
-item_data = ExtResource("9_cgaxv")
-
-[node name="ItemBuy3" parent="." instance=ExtResource("8_bgyhh")]
-position = Vector2(97, 90)
-item_data = ExtResource("10_hdfbt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(65, 104)
-texture = ExtResource("11_lnd4s")
+texture = ExtResource("11_ucbra")
 region_enabled = true
 region_rect = Rect2(72, 0, 8, 16)
 
@@ -118,6 +107,18 @@ offset_left = 75.0
 offset_top = 96.0
 offset_right = 115.0
 offset_bottom = 119.0
-theme_override_fonts/font = ExtResource("4_8kgr4")
+theme_override_fonts/font = ExtResource("4_qkdnc")
 theme_override_font_sizes/font_size = 16
 text = "x"
+
+[node name="GambleGame" type="Node" parent="."]
+script = ExtResource("9_81ilj")
+
+[node name="ItemBet1" parent="GambleGame" instance=ExtResource("10_kesek")]
+position = Vector2(97, 90)
+
+[node name="ItemBet2" parent="GambleGame" instance=ExtResource("10_kesek")]
+position = Vector2(128, 90)
+
+[node name="ItemBet3" parent="GambleGame" instance=ExtResource("10_kesek")]
+position = Vector2(160, 90)

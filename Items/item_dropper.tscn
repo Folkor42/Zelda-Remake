@@ -11,6 +11,7 @@ script = ExtResource("1_riq74")
 [node name="Label" type="Label" parent="Sprite2D"]
 offset_right = 40.0
 offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 

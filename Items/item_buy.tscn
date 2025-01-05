@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxhw0ins77nc7"]
+
+[ext_resource type="Script" path="res://Items/item_buy.gd" id="1_sxv4h"]
+[ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="2_s5hf1"]
+[ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="3_d0okk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iukbu"]
+size = Vector2(12, 20)
+
+[node name="ItemBuy" type="Node2D"]
+script = ExtResource("1_sxv4h")
+item_data = ExtResource("2_s5hf1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iukbu")
+
+[node name="CostLabel" type="Label" parent="."]
+offset_left = -9.0
+offset_top = 7.0
+offset_right = 9.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_d0okk")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
