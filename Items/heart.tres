@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_617y8"]
 atlas = ExtResource("3_0a12h")
-region = Rect2(0, 0, 7, 8)
+region = Rect2(0, 0, 8, 16)
 
 [resource]
 script = ExtResource("2_66jen")
@@ -15,3 +15,7 @@ description = "A lovely Heart that heals."
 texture = SubResource("AtlasTexture_617y8")
 value = 10
 effects = Array[ExtResource("1_kmk5v")]([])
+animated = true
+h_frames = 1
+v_frames = 2
+frames = 2

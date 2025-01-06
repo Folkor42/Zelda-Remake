@@ -8,6 +8,11 @@ class_name ItemData extends Resource
 @export var value : int = 0
 @export var effects : Array [ ItemEffect ]
 
+@export_category("Item Animation")
+@export var animated : bool = false
+@export var h_frames : int = 1
+@export var v_frames : int = 1
+@export var frames : int = 1
 
 func use () -> bool:
 	if effects.size() == 0:

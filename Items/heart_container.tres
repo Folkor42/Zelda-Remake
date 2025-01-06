@@ -15,3 +15,7 @@ description = "Expands Links Life Bar"
 texture = SubResource("AtlasTexture_4fehv")
 value = 0
 effects = Array[ExtResource("1_rbxbs")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1

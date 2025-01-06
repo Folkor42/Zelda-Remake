@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw6j8"]
 atlas = ExtResource("3_bfwbu")
-region = Rect2(275, 3, 10, 10)
+region = Rect2(275, 0, 10, 32)
 
 [resource]
 script = ExtResource("2_v7lsr")
@@ -15,3 +15,7 @@ description = "A piece of the Triforce of Courage"
 texture = SubResource("AtlasTexture_dw6j8")
 value = 0
 effects = Array[ExtResource("1_0b25r")]([])
+animated = true
+h_frames = 1
+v_frames = 2
+frames = 2

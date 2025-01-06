@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrga4"]
 atlas = ExtResource("3_mjti5")
-region = Rect2(40, 0, 8, 16)
+region = Rect2(40, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_kvksg")
@@ -15,3 +15,7 @@ description = "A healing Fairy"
 texture = SubResource("AtlasTexture_rrga4")
 value = 0
 effects = Array[ExtResource("1_avdd2")]([])
+animated = true
+h_frames = 2
+v_frames = 1
+frames = 2
