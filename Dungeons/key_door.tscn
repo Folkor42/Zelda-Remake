@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://42uh7lj7oybh"]
+
+[ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="1_6rbhn"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="2_jce05"]
+[ext_resource type="Script" path="res://Dungeons/key_door.gd" id="2_lia3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv4uq"]
+size = Vector2(20, 10)
+
+[node name="KeyDoor" type="StaticBody2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_lia3b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6rbhn")
+region_enabled = true
+region_rect = Rect2(881, 11, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_62mwj")
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0, -10)
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("2_jce05")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_sv4uq")
