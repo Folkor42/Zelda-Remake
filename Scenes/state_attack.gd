@@ -73,7 +73,7 @@ func shoot_sword () -> void:
 	print ("PEW")
 	var bullet = SWORD.instantiate()
 	var parent : Node = get_parent().get_parent().get_parent()
-	var rot = parent.rotation
+	var rot = deg_to_rad(0)
 	if player.cardinal_direction==Vector2.UP:
 		rot = deg_to_rad(270)
 	elif player.cardinal_direction==Vector2.DOWN:

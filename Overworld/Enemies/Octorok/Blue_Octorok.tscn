@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b4ymlo8lave5m"]
+[gd_scene load_steps=31 format=3 uid="uid://b4ymlo8lave5m"]
 
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_qwnmi"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_fgoay"]
@@ -7,14 +7,12 @@
 [ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_xm5wq"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="6_5gton"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="7_arc3e"]
-[ext_resource type="Script" path="res://Items/drop_data.gd" id="8_nqplx"]
-[ext_resource type="Resource" uid="uid://vcn5yobjf3vy" path="res://Items/blue_ruby.tres" id="9_m0koj"]
-[ext_resource type="Resource" uid="uid://d1qkoch45h7oi" path="res://Items/Drop Table B.tres" id="10_p4pxs"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/dunegon_enemy_state_wander.gd" id="11_bf7wl"]
+[ext_resource type="Resource" uid="uid://d1qkoch45h7oi" path="res://Items/Drop Table B.tres" id="8_soj48"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_r1dvx"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="11_sa778"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="12_8qnoa"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_stun.gd" id="13_1i3am"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="13_qbjnn"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_stun.gd" id="13_wt2ws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ddn"]
 size = Vector2(14, 14)
@@ -534,19 +532,13 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i30tg"]
 size = Vector2(16, 16)
 
-[sub_resource type="Resource" id="Resource_2eusg"]
-script = ExtResource("8_nqplx")
-item = ExtResource("9_m0koj")
-probability = 41.0
-min_amount = 1
-max_amount = 1
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnx0x"]
 size = Vector2(12, 12)
 
 [node name="Blue Octorok" type="CharacterBody2D"]
 top_level = true
 z_index = 1
+position = Vector2(121, 128)
 collision_layer = 4
 script = ExtResource("1_qwnmi")
 hp = 2
@@ -584,11 +576,10 @@ after_idle_state = NodePath("../Wander")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("7_arc3e")
-drops = Array[ExtResource("8_nqplx")]([SubResource("Resource_2eusg")])
-drop_table = ExtResource("10_p4pxs")
+drop_table = ExtResource("8_soj48")
 
 [node name="Wander" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("11_bf7wl")
+script = ExtResource("11_sa778")
 next_state = NodePath("../Attack")
 
 [node name="Attack" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
@@ -596,7 +587,7 @@ script = ExtResource("11_r1dvx")
 after_idle_state = NodePath("../Idle")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("13_wt2ws")
+script = ExtResource("13_1i3am")
 next_state = NodePath("../Idle")
 
 [node name="DeathSprite" type="Sprite2D" parent="."]

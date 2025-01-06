@@ -1,4 +1,4 @@
-class_name EnemyStateDestroy extends EnemyState
+class_name DungeonEnemyStateDestroy extends DungeonEnemyState
 
 const PICKUP = preload("res://Items/Item Pickup/item_pickup.tscn")
 const DEATH_ANIM = preload("res://Scenes/enemy_death.tscn")
@@ -35,11 +35,11 @@ func exit() -> void:
 	enemy.invulnerable = false
 	pass
 
-func process( _delta : float ) -> EnemyState:
+func process( _delta : float ) -> DungeonEnemyState:
 	enemy.velocity = Vector2.ZERO
 	return null
 
-func physics( _delta : float ) -> EnemyState:
+func physics( _delta : float ) -> DungeonEnemyState:
 	return null
 	
 func _on_enemy_destroyed ( hurt_box : HurtBox ) -> void:
@@ -51,11 +51,12 @@ func _on_animation_finished ( _a : String ) -> void:
 
 func drop_items() -> void:
 	var turn_drop = drop_table.get_drop(PlayerManager.kill_count)
+	print(turn_drop.name)
 	PlayerManager.increase_kill_counter()
 	if turn_drop:
 		var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
 		drop.item_data = turn_drop
-		enemy.get_parent().call_deferred( "add_child", drop )
+		enemy.get_parent().get_parent().call_deferred( "add_child", drop )
 		drop.global_position = enemy.global_position
 		drop.velocity = enemy.velocity.rotated( randf_range(-1.5, 1.5) ) * randf_range( 0.9, 1.5)
 		drop.bounce()
