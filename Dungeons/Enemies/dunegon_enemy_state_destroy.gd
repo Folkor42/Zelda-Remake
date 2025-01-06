@@ -51,7 +51,7 @@ func _on_animation_finished ( _a : String ) -> void:
 
 func drop_items() -> void:
 	var turn_drop = drop_table.get_drop(PlayerManager.kill_count)
-	print(turn_drop.name)
+	#print(turn_drop.name)
 	PlayerManager.increase_kill_counter()
 	if turn_drop:
 		var drop : ItemPickup = PICKUP.instantiate() as ItemPickup

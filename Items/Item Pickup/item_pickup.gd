@@ -15,7 +15,7 @@ var major_drop : bool = false
 @onready var item_drop: PersistantDataHandler = $ItemDrop
 var pickup_audio = preload("res://Assets/Audio/Sounds/Sound Effect (4) - Pickup.wav")
 var major_pickup_audio = preload("res://Assets/Audio/Music/04 Item Jingle.mp3")
-
+var blink : float = 0
 
 func _ready() -> void:
 	_update_texture()
@@ -25,6 +25,18 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	#item_drop.set_drop_value(global_position,item_data)
 
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	if item_data.animated:
+		blink += delta
+		if blink < .2:
+			sprite_2d.frame = 0
+		elif blink <.4:
+			sprite_2d.frame = 1
+		else:
+			blink=0
+	
 func _physics_process(_delta: float) -> void:
 	#var collision_info = move_and_collide( velocity * delta )
 	#if collision_info:
@@ -71,6 +83,10 @@ func item_picked_up ( _name : String ) -> void:
 	
 func _update_texture() -> void:
 	if item_data and sprite_2d:
+		if item_data.animated:
+			sprite_2d.hframes=item_data.h_frames
+			sprite_2d.vframes=item_data.v_frames
+			print("Animated")
 		sprite_2d.texture = item_data.texture
 	pass
 

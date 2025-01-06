@@ -15,3 +15,7 @@ description = "It unlocks stuff."
 texture = SubResource("AtlasTexture_bsotc")
 value = 100
 effects = Array[ExtResource("1_42vlp")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1

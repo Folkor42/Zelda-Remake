@@ -15,3 +15,7 @@ description = "Worth 1 Monies"
 texture = SubResource("AtlasTexture_m76i1")
 value = 1
 effects = Array[ExtResource("1_8aroc")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1
