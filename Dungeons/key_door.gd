@@ -1,18 +1,19 @@
-extends StaticBody2D
+class_name KeyDoor extends StaticBody2D
 
-@onready var hit_box: HitBox = $HitBox
+enum SIDE { TOP, BOTTOM, LEFT, RIGHT }
+
+@onready var door_mat: DoorMat = $DoorMat
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+@export var direction : SIDE = SIDE.TOP
+
+signal unlocked
+
+var is_opened : bool = false
 
 func _ready() -> void:
-	hit_box.Damaged.connect (check_for_key)
-	print ("Door Ready!")
-	pass
-	
-func check_for_key(_a) -> void:
-	print (_a)
-	print ("Checking for Key")
-	if PlayerManager.keys >= 1:
-		print ("Unlocked")
-		queue_free()
-	else:
-		print ("You don't have a key!")
-	
+	door_mat.unlocked.connect ( unlock_door )
+
+func unlock_door()->void:
+	unlocked.emit()
