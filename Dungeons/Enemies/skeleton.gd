@@ -42,6 +42,7 @@ func enemy_damaged(_hb:HurtBox)->void:
 		death.position=position
 		get_parent().add_child(death)
 		drop_items()
+		drop_carried()
 		queue_free()
 	else:
 		#knockback
@@ -53,6 +54,12 @@ func enemy_damaged(_hb:HurtBox)->void:
 		animation_player.play("Move")
 		pass
 
+func drop_carried()->void:
+	for i in get_children():
+		if i is ItemDropper:
+			i.call_deferred("reparent",get_parent())
+	pass
+	
 func drop_items() -> void:
 	print("DROPPING ITEMS")
 	if drops.size() == 0:

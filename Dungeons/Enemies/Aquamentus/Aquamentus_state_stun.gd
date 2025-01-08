@@ -7,7 +7,6 @@ class_name AquamentusStateStun extends DungeonEnemyState
 @export_category("AI")
 @export var next_state : DungeonEnemyState
 
-var _direction : Vector2
 var _animation_finished : bool = false
 var _damage_position : Vector2
 

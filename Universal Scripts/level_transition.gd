@@ -31,7 +31,7 @@ func _ready() -> void:
 	
 	monitoring = true
 	body_entered.connect( _player_entered )
-	ResourceLoader.load_threaded_request(level)
+	#ResourceLoader.load_threaded_request(level)
 	pass
 
 func _player_entered ( _p : Node2D ) -> void:

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp1k12fh1jdf5"]
+
+[ext_resource type="PackedScene" uid="uid://dy671ichhmllv" path="res://Dungeons/key_door_down.tscn" id="1_nkj30"]
+[ext_resource type="Script" path="res://Dungeons/key_door_pair.gd" id="1_r1vei"]
+[ext_resource type="PackedScene" uid="uid://bhmgoglo3xyag" path="res://Dungeons/key_door_up.tscn" id="2_g8lnq"]
+[ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="4_iqvbp"]
+
+[node name="Key Door UD" type="Node2D"]
+script = ExtResource("1_r1vei")
+
+[node name="KeyDoorDown" parent="." instance=ExtResource("1_nkj30")]
+position = Vector2(0, -16)
+
+[node name="KeyDoorUp" parent="." instance=ExtResource("2_g8lnq")]
+position = Vector2(0, 16)
+
+[node name="Opened" type="Node" parent="."]
+script = ExtResource("4_iqvbp")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhmgoglo3xyag"]
+
+[ext_resource type="Script" path="res://Dungeons/key_door.gd" id="1_ri08x"]
+[ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_4m52x"]
+[ext_resource type="Script" path="res://Dungeons/door_mat.gd" id="3_jsycr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwo41"]
+size = Vector2(20, 4)
+
+[node name="KeyDoorUp" type="StaticBody2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_ri08x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4m52x")
+region_enabled = true
+region_rect = Rect2(881, 11, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_62mwj")
+
+[node name="DoorMat" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_jsycr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorMat"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_gwo41")

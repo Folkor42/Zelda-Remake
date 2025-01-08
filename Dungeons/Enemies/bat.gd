@@ -10,9 +10,14 @@ var takingoff : bool = false
 
 func _ready() -> void:
 	hit_box.Damaged.connect(enemy_damaged)
-	get_parent().activate.connect(activate)
-	get_parent().deactivate.connect(deactivate)
-
+	if get_parent().has_signal("activate"):
+		get_parent().activate.connect(activate)
+	else:
+		get_parent().get_parent().activate.connect(activate)
+	if get_parent().has_signal("deactivate"):
+		get_parent().deactivate.connect(deactivate)
+	else:
+		get_parent().get_parent().deactivate.connect(deactivate)
 func activate ()->void:
 	active = true
 	animation_player.play("Move")

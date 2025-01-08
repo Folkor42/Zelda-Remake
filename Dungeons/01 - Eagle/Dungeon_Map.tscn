@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c52mqag1as035"]
+[gd_scene load_steps=26 format=3 uid="uid://c52mqag1as035"]
 
 [ext_resource type="PackedScene" uid="uid://bnwqkvxnroftf" path="res://Dungeons/01 - Eagle/room_1.tscn" id="1_fxssn"]
 [ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_gev80"]
@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="20_acy5b"]
 [ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="20_bhtn0"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="22_8jahd"]
+[ext_resource type="PackedScene" uid="uid://bp1k12fh1jdf5" path="res://Dungeons/key_door_ud.tscn" id="23_brg25"]
+[ext_resource type="PackedScene" uid="uid://cjtn46ftxd15f" path="res://Dungeons/key_door_LR.tscn" id="24_ll478"]
+[ext_resource type="PackedScene" uid="uid://dtme62ocn0g14" path="res://Dungeons/bomb_door_UD.tscn" id="25_h3vur"]
 
 [node name="01 - Eagle Dungeon" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
 script = ExtResource("1_gev80")
@@ -102,3 +105,29 @@ position = Vector2(-152, -800)
 level = "res://Dungeons/01 - Eagle/room_item.tscn"
 center_player = true
 side = 1
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Key Door UD1" parent="Doors" instance=ExtResource("23_brg25")]
+position = Vector2(128, 0)
+
+[node name="Key Door UD2" parent="Doors" instance=ExtResource("23_brg25")]
+position = Vector2(-128, -352)
+
+[node name="Key Door UD3" parent="Doors" instance=ExtResource("23_brg25")]
+position = Vector2(128, -704)
+
+[node name="Key Door UD4" parent="Doors" instance=ExtResource("23_brg25")]
+position = Vector2(640, -528)
+
+[node name="Key Door LR" parent="Doors" instance=ExtResource("24_ll478")]
+position = Vector2(256, -440)
+
+[node name="Key Door LR2" parent="Doors" instance=ExtResource("24_ll478")]
+position = Vector2(0, -792)
+
+[node name="Bomb Door LR" parent="." instance=ExtResource("25_h3vur")]
+position = Vector2(128, -352)
+
+[node name="Bomb Door LR2" parent="." instance=ExtResource("25_h3vur")]
+position = Vector2(384, -352)

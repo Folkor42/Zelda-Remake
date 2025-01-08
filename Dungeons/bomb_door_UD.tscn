@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtme62ocn0g14"]
+
+[ext_resource type="Script" path="res://Dungeons/bomb_door_pair.gd" id="1_sjny1"]
+[ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="2_xajrd"]
+[ext_resource type="PackedScene" uid="uid://bs3c4ywmnsw1e" path="res://Dungeons/bomb_door.tscn" id="3_ry3wr"]
+
+[node name="Bomb Door UD" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_sjny1")
+
+[node name="Opened" type="Node" parent="."]
+script = ExtResource("2_xajrd")
+
+[node name="BombDoor" parent="." instance=ExtResource("3_ry3wr")]
+position = Vector2(0, -16)
+direction = 1
+
+[node name="BombDoor2" parent="." instance=ExtResource("3_ry3wr")]
+position = Vector2(0, 16)
