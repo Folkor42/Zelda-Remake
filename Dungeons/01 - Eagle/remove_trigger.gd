@@ -1,4 +1,4 @@
-class_name RemoveTrigger extends Node
+class_name RemoveTrigger extends Node2D
 
 var item_count : int = 0
 

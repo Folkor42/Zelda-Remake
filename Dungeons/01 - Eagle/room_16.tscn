@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://00rfsax5jltg"]
+[gd_scene load_steps=16 format=4 uid="uid://00rfsax5jltg"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_1m108"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_jjg3v"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_mo0a4"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_tmsdr"]
 [ext_resource type="PackedScene" uid="uid://cl8s7yqr4dg0u" path="res://Dungeons/Enemies/aquamentus.tscn" id="5_mqm1x"]
+[ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="6_admn5"]
 [ext_resource type="PackedScene" uid="uid://dcfsharmal5w" path="res://Dungeons/trigger_door.tscn" id="7_nlsr7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
@@ -32,7 +33,7 @@ margins = Vector2i(9, 11)
 32:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(136, -8, 136, 24, 248, 24, 248, -8)
 
 [sub_resource type="TileSet" id="TileSet_va7gw"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 49
 sources/0 = SubResource("TileSetAtlasSource_wkj53")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dl2dr"]
@@ -256,8 +257,13 @@ tile_map_data = PackedByteArray("AAADAAUAAAAaAAMAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="Aquamentus" parent="." instance=ExtResource("5_mqm1x")]
+[node name="RemoveTrigger" type="Node2D" parent="."]
+script = ExtResource("6_admn5")
+
+[node name="Aquamentus" parent="RemoveTrigger" instance=ExtResource("5_mqm1x")]
 position = Vector2(178, 79)
 
-[node name="TriggerDoor" parent="." instance=ExtResource("7_nlsr7")]
+[node name="TriggerDoor" parent="RemoveTrigger" instance=ExtResource("7_nlsr7")]
 position = Vector2(240, 88)
+
+[connection signal="enemies_defeated" from="RemoveTrigger" to="RemoveTrigger/TriggerDoor" method="unlock_door"]

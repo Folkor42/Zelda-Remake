@@ -826,7 +826,7 @@ size = Vector2(12, 14)
 size = Vector2(16, 12)
 
 [node name="Link2" type="CharacterBody2D"]
-z_index = 1
+z_index = 2
 collision_layer = 18
 script = ExtResource("1_3vd0b")
 
@@ -852,7 +852,7 @@ libraries = {
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D/Sword"]
 collision_layer = 0
-collision_mask = 68
+collision_mask = 132
 script = ExtResource("3_g3lxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Sword/HurtBox"]
@@ -867,16 +867,17 @@ libraries = {
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_j8og6")
 
 [node name="HitBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("3_ggm60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
 shape = SubResource("RectangleShape2D_upo7p")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -916,6 +917,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="ShieldShape2D" type="CollisionShape2D" parent="Shield"]
+visible = false
 position = Vector2(0, 6)
 rotation = -3.14159
 shape = SubResource("RectangleShape2D_3wm3s")

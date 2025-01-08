@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs3c4ywmnsw1e"]
+
+[ext_resource type="Script" path="res://Dungeons/bomb_door.gd" id="1_thyr4"]
+[ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_pp826"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_tegpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcydr"]
+
+[node name="BombDoor" type="StaticBody2D"]
+script = ExtResource("1_thyr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pp826")
+region_enabled = true
+region_rect = Rect2(815, 44, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_62mwj")
+
+[node name="BombArea" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("3_tegpy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BombArea"]
+shape = SubResource("RectangleShape2D_vcydr")
