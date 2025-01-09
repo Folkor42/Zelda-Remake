@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bjfqbx15cxb7n"]
+[gd_scene load_steps=18 format=4 uid="uid://bjfqbx15cxb7n"]
 
 [ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_51a3b"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_aftb8"]
@@ -12,8 +12,6 @@
 [ext_resource type="Resource" uid="uid://bt4fmhs82xmd2" path="res://Items/heart.tres" id="9_b0o4c"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="9_mkajb"]
 [ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="9_u1bdg"]
-[ext_resource type="Resource" uid="uid://cs7ga304jntwk" path="res://Items/magic sword.tres" id="11_31bfk"]
-[ext_resource type="Resource" uid="uid://umgkj2id0ol3" path="res://Items/white sword.tres" id="13_pwj7s"]
 [ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="13_tnoff"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="14_ybfs8"]
 
@@ -105,19 +103,9 @@ item_data = ExtResource("8_jfowg")
 position = Vector2(68, 128)
 item_data = ExtResource("9_b0o4c")
 
-[node name="ItemDropper" parent="." instance=ExtResource("9_mkajb")]
-position = Vector2(128, 105)
-item_data = ExtResource("11_31bfk")
-major_drop = true
-
 [node name="ItemDropper4" parent="." instance=ExtResource("9_mkajb")]
-position = Vector2(110, 105)
+position = Vector2(128, 105)
 item_data = ExtResource("7_p4sof")
-major_drop = true
-
-[node name="ItemDropper3" parent="." instance=ExtResource("9_mkajb")]
-position = Vector2(144, 105)
-item_data = ExtResource("13_pwj7s")
 major_drop = true
 
 [node name="ItemDropper2" parent="." instance=ExtResource("9_mkajb")]

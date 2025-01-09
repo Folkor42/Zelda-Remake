@@ -5,6 +5,7 @@ enum SIDE { TOP, BOTTOM, LEFT, RIGHT }
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var direction : SIDE = SIDE.TOP :
 	set ( _v ):
@@ -45,9 +46,11 @@ func toggle_door()->void:
 func unlock_door()->void:
 	sprite_2d.visible=false
 	collision_shape_2d.set_deferred("disabled",true)
+	audio.play()
 	pass
 
 func lock_door()->void:
 	sprite_2d.visible=true
 	collision_shape_2d.set_deferred("disabled",false)
+	audio.play()
 	pass

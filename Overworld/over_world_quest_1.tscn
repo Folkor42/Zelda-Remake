@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Overworld/over_world_quest_1.gd" id="1_abc4w"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_cwrbh"]
-[ext_resource type="AudioStream" uid="uid://de4sapca52cui" path="res://Assets/Audio/Music/02 Overworld BGM.mp3" id="2_e5m7q"]
+[ext_resource type="AudioStream" uid="uid://bnhobrk0a52bg" path="res://Assets/Audio/Music/1-07. The Legend of Zelda Medley.mp3" id="2_pvmm2"]
 [ext_resource type="Script" path="res://TileMaps/level_tile_map.gd" id="3_dc1l6"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="4_e5f6w"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="6_441e8"]
@@ -13,7 +13,7 @@
 
 [node name="OverWorld_Quest1" type="Node2D"]
 script = ExtResource("1_abc4w")
-music = ExtResource("2_e5m7q")
+music = ExtResource("2_pvmm2")
 
 [node name="OverWorldMapTiles" parent="." instance=ExtResource("1_cwrbh")]
 z_index = -1
@@ -90,8 +90,9 @@ script = ExtResource("6_dbj6b")
 shake_power = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_e5m7q")
+stream = ExtResource("2_pvmm2")
 autoplay = true
+bus = &"Music"
 
 [node name="Octorok" parent="." instance=ExtResource("9_rlikv")]
 position = Vector2(424, 136)

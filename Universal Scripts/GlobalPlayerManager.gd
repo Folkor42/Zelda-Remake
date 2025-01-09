@@ -14,7 +14,8 @@ var bombs : int = 0
 var max_bombs : int = 8
 var keys : int = 0
 var kill_count : int = 0
-var sword : String = "Wooden Sword"
+var sword : String = ""
+var active_item : String = ""
 
 func _ready() -> void:
 	inventory = InventoryData.new()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjtn46ftxd15f"]
+[gd_scene load_steps=6 format=3 uid="uid://cjtn46ftxd15f"]
 
 [ext_resource type="Script" path="res://Dungeons/key_door_pair.gd" id="1_pxnn6"]
 [ext_resource type="PackedScene" uid="uid://ctd1b5ksoxyvk" path="res://Dungeons/key_door_right.tscn" id="3_f3wui"]
 [ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="4_ykqce"]
 [ext_resource type="PackedScene" uid="uid://cmxm0ingp1fgf" path="res://Dungeons/key_door_left.tscn" id="4_yvpgu"]
+[ext_resource type="AudioStream" uid="uid://b4d1dhnyhfpwt" path="res://Assets/Audio/Sounds/Sound Effect (11) - Door.wav" id="5_34o86"]
 
 [node name="Key Door LR" type="Node2D"]
 script = ExtResource("1_pxnn6")
@@ -16,3 +17,6 @@ position = Vector2(16, 0)
 
 [node name="Opened" type="Node" parent="."]
 script = ExtResource("4_ykqce")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_34o86")

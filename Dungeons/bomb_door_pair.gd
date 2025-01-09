@@ -1,6 +1,8 @@
 extends Node2D
 
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var opened: PersistantDataHandler = $Opened
+
 var doors : Array [BombDoor] = []
 var is_opened : bool = false
 
@@ -20,10 +22,10 @@ func set_state() -> void:
 
 func unlock_door()->void:
 	opened.set_value()
+	audio.play()
 	open_doors()
 	
 func open_doors()->void:
 	for i in doors:
 		i.queue_free()
-	
 	pass

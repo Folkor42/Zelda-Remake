@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjvndve0gt2lj"]
+[gd_scene load_steps=8 format=3 uid="uid://bjvndve0gt2lj"]
 
 [ext_resource type="Script" path="res://Player/GUI/HUD/player_hud.gd" id="1_q6v14"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_v3tc0"]
@@ -24,6 +24,30 @@ func update_b () -> void:
 	elif PlayerManager.sword == \"White Sword\":
 		region_rect = Rect2(564, 137, 7, 16)
 	elif PlayerManager.sword == \"Magic Sword\":
+		region_rect = Rect2(573, 137, 8, 16)
+	else:
+		region_rect = Rect2(495, 145, 7, 16)
+"
+
+[sub_resource type="GDScript" id="GDScript_07qm7"]
+script/source = "extends Sprite2D
+
+func _ready() -> void:
+	if PlayerManager.active_item == \"Bomb\":
+		region_rect = Rect2(604, 137, 8, 16)
+	elif PlayerManager.active_item == \"White Sword\":
+		region_rect = Rect2(564, 137, 7, 16)
+	elif PlayerManager.active_item == \"Magic Sword\":
+		region_rect = Rect2(573, 137, 8, 16)
+	else:
+		region_rect = Rect2(495, 145, 7, 16)
+		
+func update_a () -> void:
+	if PlayerManager.active_item == \"Bomb\":
+		region_rect = Rect2(604, 137, 8, 16)
+	elif PlayerManager.active_item == \"White Sword\":
+		region_rect = Rect2(564, 137, 7, 16)
+	elif PlayerManager.active_item == \"Magic Sword\":
 		region_rect = Rect2(573, 137, 8, 16)
 	else:
 		region_rect = Rect2(495, 145, 7, 16)
@@ -152,6 +176,7 @@ position = Vector2(156, 37)
 texture = ExtResource("2_v3tc0")
 region_enabled = true
 region_rect = Rect2(604, 137, 8, 16)
+script = SubResource("GDScript_07qm7")
 
 [node name="Rubies" type="Label" parent="Control"]
 layout_mode = 0
