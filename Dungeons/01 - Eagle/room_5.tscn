@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkxs23fatbqph"]
+[gd_scene load_steps=16 format=3 uid="uid://dkxs23fatbqph"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_bpha3"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_1bgii"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_b08j1"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_pb05b"]
 [ext_resource type="PackedScene" uid="uid://bq3sebmy1cg7f" path="res://Dungeons/Enemies/skeleton.tscn" id="5_ryap2"]
+[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="6_hd7t1"]
+[ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="7_bakyu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_1bgii")
@@ -276,3 +278,7 @@ position = Vector2(156, 107)
 
 [node name="Skeleton5" parent="." instance=ExtResource("5_ryap2")]
 position = Vector2(131, 79)
+
+[node name="ItemDropper" parent="." instance=ExtResource("6_hd7t1")]
+position = Vector2(135, 56)
+item_data = ExtResource("7_bakyu")

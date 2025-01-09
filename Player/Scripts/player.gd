@@ -23,7 +23,7 @@ var terminal_velocity = 5000
 signal DirectionChanged ( new_direction : Vector2 )
 signal player_damaged ( hurt_box : HurtBox )
 
-var invulnerable : bool = true
+var invulnerable : bool = false
 var gravity_active : bool = false
 
 @export var hp : int = 6

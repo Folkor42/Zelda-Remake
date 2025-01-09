@@ -101,10 +101,10 @@ position = Vector2(128, 136)
 
 [node name="Stairs" parent="." instance=ExtResource("22_8jahd")]
 z_index = 1
-position = Vector2(-152, -800)
+position = Vector2(-128, -792)
 level = "res://Dungeons/01 - Eagle/room_item.tscn"
 center_player = true
-side = 1
+side = 3
 
 [node name="Doors" type="Node" parent="."]
 

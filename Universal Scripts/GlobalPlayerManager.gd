@@ -12,7 +12,7 @@ var inventory : InventoryData
 var rubies : int = 0
 var bombs : int = 0
 var max_bombs : int = 8
-var keys : int = 8
+var keys : int = 0
 var kill_count : int = 0
 var sword : String = "Wooden Sword"
 

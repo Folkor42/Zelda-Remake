@@ -4,7 +4,6 @@ extends Node2D
 
 signal activate
 signal deactivate
-signal cleared
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

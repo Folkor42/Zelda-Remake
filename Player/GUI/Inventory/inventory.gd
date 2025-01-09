@@ -16,7 +16,7 @@ func add_item ( item : ItemData, count : int = 1 ) -> bool:
 	elif item.name == "Heart Container":
 		PlayerManager.set_health(PlayerManager.player.max_hp+2,PlayerManager.player.max_hp+2)
 	elif item.name == "Bomb":
-		PlayerManager.update_bombs(1)
+		PlayerManager.update_bombs(4)
 	elif item.name == "Key":
 		PlayerManager.update_keys(1)
 	elif item.name == "Wooden Sword" or item.name == "White Sword" or item.name == "Magic Sword" :
