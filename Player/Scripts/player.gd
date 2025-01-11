@@ -116,6 +116,8 @@ func make_invulnerable ( _duration : float = 1.0 ) -> void:
 func _unhandled_input(_event):
 	#if _event.is_action_pressed("test"):
 		#PlayerManager.shake_camera()
+	if _event.is_action_pressed("use_item"):
+		PlayerManager.interact()
 	pass
 	
 func revive_player() -> void:

@@ -15,13 +15,13 @@ var is_opened : bool = false
 func _ready() -> void:
 	bomb_area.Damaged.connect ( unlock_door )
 	if direction == SIDE.TOP:
-		sprite_2d.region_rect = Rect2(815,11,32,32)
+		sprite_2d.region_rect = Rect2(1052,11,32,32)
 	elif direction == SIDE.LEFT:
-		sprite_2d.region_rect = Rect2(815,44,32,32)
+		sprite_2d.region_rect = Rect2(1052,44,32,32)
 	elif direction == SIDE.RIGHT:
-		sprite_2d.region_rect = Rect2(815,77,32,32)
+		sprite_2d.region_rect = Rect2(1052,77,32,32)
 	elif direction == SIDE.BOTTOM:
-		sprite_2d.region_rect = Rect2(815,110,32,32)
+		sprite_2d.region_rect = Rect2(1052,110,32,32)
 
 func unlock_door(_b)->void:
 	print ("BOOM!")
