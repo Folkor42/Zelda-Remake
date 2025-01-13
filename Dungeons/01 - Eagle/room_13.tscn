@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://b5gh27xwp1uh8"]
+[gd_scene load_steps=14 format=4 uid="uid://b5gh27xwp1uh8"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_e2bnu"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_1xgk8"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_0j4hj"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_fgu4d"]
+[ext_resource type="PackedScene" uid="uid://log0bcmrwiw5" path="res://Dungeons/Enemies/Trap/trap.tscn" id="5_7xq0p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_1xgk8")
@@ -255,3 +256,23 @@ position = Vector2(128, 23)
 [node name="DoorDown" parent="Doors" instance=ExtResource("3_fgu4d")]
 position = Vector2(128, 152)
 direction = 2
+
+[node name="Trap" parent="." instance=ExtResource("5_7xq0p")]
+position = Vector2(40, 136)
+right = true
+
+[node name="Trap2" parent="." instance=ExtResource("5_7xq0p")]
+position = Vector2(40, 40)
+up = false
+right = true
+down = true
+
+[node name="Trap3" parent="." instance=ExtResource("5_7xq0p")]
+position = Vector2(216, 136)
+left = true
+
+[node name="Trap4" parent="." instance=ExtResource("5_7xq0p")]
+position = Vector2(216, 40)
+up = false
+down = true
+left = true

@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://log0bcmrwiw5"]
+
+[ext_resource type="Script" path="res://Dungeons/Enemies/Trap/trap.gd" id="1_0omw1"]
+[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_2yjbq"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="3_15jul"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Trap/enemy_state_machine.gd" id="4_4es4y"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Trap/idle.gd" id="5_pwrf7"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Trap/attack.gd" id="6_hbky6"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Trap/reset.gd" id="7_ru22j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seslg"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dat2b"]
+size = Vector2(14, 14)
+
+[node name="Trap" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_0omw1")
+up = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2yjbq")
+hframes = 12
+vframes = 14
+frame = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_seslg")
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 250)
+collision_mask = 2
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -250)
+collision_mask = 2
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-250, 0)
+collision_mask = 2
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(250, 0)
+collision_mask = 2
+
+[node name="CollisionDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 9)
+collision_mask = 5
+
+[node name="CollisionUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -9)
+collision_mask = 5
+
+[node name="CollisionLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-9, 0)
+collision_mask = 5
+
+[node name="CollisionRight" type="RayCast2D" parent="."]
+target_position = Vector2(9, 0)
+collision_mask = 5
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_15jul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_dat2b")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("4_4es4y")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("5_pwrf7")
+after_idle_state = NodePath("../Attack")
+
+[node name="Attack" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_attack_state")]
+script = ExtResource("6_hbky6")
+after_attack_state = NodePath("../Reset")
+
+[node name="Reset" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_reset_state")]
+script = ExtResource("7_ru22j")
+after_reset_state = NodePath("../Idle")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "STATE"
