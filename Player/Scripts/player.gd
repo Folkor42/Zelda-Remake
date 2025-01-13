@@ -22,6 +22,7 @@ var terminal_velocity = 5000
 @onready var shield: Area2D = $Shield
 @onready var shield_block_sound: AudioStreamPlayer2D = $Shield/ShieldBlockSound
 @onready var hurt_box: HurtBox = $Sprite2D/Sword/HurtBox
+@onready var equipped_item: Node = $EquippedItem
 
 signal DirectionChanged ( new_direction : Vector2 )
 signal player_damaged ( hurt_box : HurtBox )
@@ -127,7 +128,7 @@ func _unhandled_input(_event):
 	
 func show_menu()->void:
 	if menu_opened:
-		get_parent().get_node("Inventory").queue_free()
+		get_parent().get_node("InventoryScreen").queue_free()
 		menu_opened = false
 		return
 	var overlay = inv.instantiate()

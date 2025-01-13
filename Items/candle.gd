@@ -1,18 +1,24 @@
 extends Node2D
 
-const bomb = preload("res://Items/bomb.tscn")
+const fire = preload("res://Items/candle_fire.tscn")
 var parent : Node
+@export var red_candle : bool = false
+
+@onready var timer: Timer = $Timer
+
 
 func _ready() -> void:
-	Events.bomb_used.connect (place_bomb)
+	Events.candle_used.connect (cast_fire)
 	parent = get_parent().get_parent().get_parent().get_parent()
+	if red_candle:
+		timer.wait_time=1
 	
-func place_bomb()->void:
-	if PlayerManager.bombs < 1:
-		print ("You have no bombs!")
+func cast_fire()->void:
+	if !timer.is_stopped():
+		print ("You can't cast yet")
 		return
-	# We have bombs
-	PlayerManager.update_bombs(-1)
+	# We can cast fire
+	timer.start()
 	var facing : Vector2
 	if PlayerManager.player.cardinal_direction==Vector2.UP:
 		facing = Vector2(0,-16)
@@ -22,6 +28,6 @@ func place_bomb()->void:
 		facing = Vector2(-16,0)
 	elif PlayerManager.player.cardinal_direction==Vector2.RIGHT:
 		facing = Vector2(16,0)
-	var new_bomb = bomb.instantiate()
-	new_bomb.global_position=PlayerManager.player.global_position + facing
-	parent.add_child(new_bomb)
+	var new_fire = fire.instantiate()
+	new_fire.global_position=PlayerManager.player.global_position + facing
+	parent.add_child(new_fire)

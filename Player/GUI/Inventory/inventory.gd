@@ -21,13 +21,21 @@ func add_item ( item : ItemData, count : int = 1 ) -> bool:
 		PlayerManager.update_keys(1)
 	elif item.name == "Wooden Sword" or item.name == "White Sword" or item.name == "Magic Sword" :
 		PlayerManager.update_sword (item.name)
-	elif contents.has(item.name):
-		contents[item.name]+=count
+	#elif contents.has(item.name):
+		#contents[item.name]+=count
 	else:
 		contents[item.name]=count
 	print (contents)
 	return true
 	
-func use_item ( _item : ItemData, _count : int = 1 ) -> bool:
-	
+func use_potion ( _item : ItemData, _count : int = 1 ) -> bool:
+	if contents.has(_item.name):
+		print ("Found: " + _item.name)
+		if _item.name == "Red Potion":
+			add_item(load("res://Items/blue_potion.tres"))
+		contents.erase(_item.name)
+		PlayerManager.update_active_item ("")
+		return true
+	else:
+		print ("NOT FOUND!")
 	return false

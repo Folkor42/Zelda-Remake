@@ -1,6 +1,8 @@
 @tool
 class_name ItemDropper extends Node2D
 
+signal item_dropped 
+
 const PICKUP = preload("res://Items/Item Pickup/item_pickup.tscn")
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer
@@ -36,6 +38,7 @@ func drop_item() -> void:
 
 func _on_drop_pickup () -> void:
 	has_dropped_data.set_value()
+	item_dropped.emit()
 	pass
 
 func _on_data_loaded () -> void:

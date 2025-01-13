@@ -4,6 +4,7 @@ class_name Overworld extends Node2D
 #const PICKUP = preload("res://Items/Item_pickup/item_pickup.tscn")
 @export var music : AudioStream
 @onready var camera_2d: Camera2D = $OverworldCamera
+@onready var secret_found: AudioStreamPlayer2D = $SecretFound
 
 var scene : String
 
@@ -16,6 +17,7 @@ func _ready():
 	#AudioManager.play_music( music )
 	scene = get_tree().current_scene.scene_file_path
 	#check_for_previous_drops()
+	Events.secret_revealed.connect(secret_reveal)
 	pass
 
 func _free_level() -> void:
@@ -23,3 +25,5 @@ func _free_level() -> void:
 	queue_free()
 	pass
 	
+func secret_reveal()->void:
+	secret_found.play()

@@ -1,4 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1uwg4vrjhhel"]
+[gd_scene load_steps=3 format=3 uid="uid://b1uwg4vrjhhel"]
+
+[sub_resource type="GDScript" id="GDScript_kbhuq"]
+script/source = "extends Area2D
+
+@export var x : int = 0
+@export var y : int = 0
+
+func _ready() -> void:
+	body_entered.connect (_on_player_detector_body_entered)
+	pass # Replace with function body.
+	
+func _on_player_detector_body_entered(_b) -> void:
+	Events.map_cords.emit(x,y)
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taytn"]
 size = Vector2(256, 176)
@@ -6,6 +20,7 @@ size = Vector2(256, 176)
 [node name="Player Detector - Overworld" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
+script = SubResource("GDScript_kbhuq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_taytn")

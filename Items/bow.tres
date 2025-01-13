@@ -15,3 +15,7 @@ description = "Arrows are expensive!"
 texture = SubResource("AtlasTexture_8qyeg")
 value = 0
 effects = Array[ExtResource("1_yggwe")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1

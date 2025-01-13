@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://snh18otta0v2"]
+[gd_scene load_steps=49 format=3 uid="uid://snh18otta0v2"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_3vd0b"]
 [ext_resource type="Texture2D" uid="uid://bq5qvvqjtmk4b" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-3.png" id="2_7mmtp"]
@@ -817,14 +817,45 @@ _data = {
 "walk_up": SubResource("Animation_vdbsm")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j8og6"]
-radius = 4.12311
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqvdx"]
+size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upo7p"]
 size = Vector2(12, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wm3s"]
 size = Vector2(16, 12)
+
+[sub_resource type="GDScript" id="GDScript_y7i33"]
+script/source = "extends Node
+
+const BOOMERANG : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
+const BOMB : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
+const BOW : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
+const CANDLE : PackedScene = preload (\"res://Items/CandleEquipped.tscn\")
+const FLUTE : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
+const BAIT : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
+const POTION : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
+const WAND : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
+
+
+func _ready() -> void:
+	remove_equipped()
+	equip_item(null)
+	
+func remove_equipped() -> void:
+	for i in get_children():
+		i.queue_free()
+		
+func equip_item(item = \"\") -> void:
+	print(\"Equipping: \" + str(item))
+	if item == \"Bomb\":
+		var bomb = BOMB.instantiate()
+		add_child(bomb)
+	if item == \"Candle\":
+		var candle = CANDLE.instantiate()
+		add_child(candle)
+"
 
 [node name="Link2" type="CharacterBody2D"]
 z_index = 2
@@ -868,9 +899,8 @@ libraries = {
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 4)
-shape = SubResource("CircleShape2D_j8og6")
+shape = SubResource("RectangleShape2D_aqvdx")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
@@ -928,5 +958,6 @@ disabled = true
 stream = ExtResource("14_ukqfw")
 
 [node name="EquippedItem" type="Node" parent="."]
+script = SubResource("GDScript_y7i33")
 
 [node name="BombEquipped" parent="EquippedItem" instance=ExtResource("17_4fccm")]
