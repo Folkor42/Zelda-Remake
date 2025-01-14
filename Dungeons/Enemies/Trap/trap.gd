@@ -13,7 +13,7 @@ class_name TrapEnemy extends CharacterBody2D
 @export var right : bool = false
 @export var down : bool = false
 @export var left : bool = false
-@export var speed : float = 180
+@export var speed : float = 120
 
 var home : Vector2
 var player_spotted : Vector2
