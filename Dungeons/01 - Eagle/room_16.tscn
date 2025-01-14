@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=4 uid="uid://00rfsax5jltg"]
+[gd_scene load_steps=18 format=4 uid="uid://00rfsax5jltg"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_1m108"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_jjg3v"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_mo0a4"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_tmsdr"]
-[ext_resource type="PackedScene" uid="uid://cl8s7yqr4dg0u" path="res://Dungeons/Enemies/aquamentus.tscn" id="5_mqm1x"]
+[ext_resource type="PackedScene" uid="uid://cl8s7yqr4dg0u" path="res://Dungeons/Enemies/Aquamentus/aquamentus.tscn" id="5_mqm1x"]
 [ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="6_admn5"]
 [ext_resource type="PackedScene" uid="uid://dcfsharmal5w" path="res://Dungeons/trigger_door.tscn" id="7_nlsr7"]
+[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="8_dqpqd"]
+[ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="9_yt2sa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_jjg3v")
@@ -266,4 +268,10 @@ position = Vector2(178, 79)
 [node name="TriggerDoor" parent="RemoveTrigger" instance=ExtResource("7_nlsr7")]
 position = Vector2(240, 88)
 
+[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("8_dqpqd")]
+position = Vector2(200, 88)
+item_data = ExtResource("9_yt2sa")
+start_dropped = false
+
 [connection signal="enemies_defeated" from="RemoveTrigger" to="RemoveTrigger/TriggerDoor" method="unlock_door"]
+[connection signal="enemies_defeated" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]

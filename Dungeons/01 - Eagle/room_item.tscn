@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="3_b1dqp"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="5_onmse"]
 [ext_resource type="Resource" uid="uid://dkxoh6dbr6up3" path="res://Items/bow.tres" id="6_kx2dh"]
-[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/bat.tscn" id="7_tak4q"]
+[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/Keese/bat.tscn" id="7_tak4q"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="8_igcck"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="9_dqi26"]
 

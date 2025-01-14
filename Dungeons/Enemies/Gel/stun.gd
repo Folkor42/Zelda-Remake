@@ -1,8 +1,6 @@
-class_name OctorokStun extends EnemyState
+class_name GelStun extends EnemyState
 
 @export var anim_name : String = "stun"
-@export var knockback_speed : float = 100.0
-@export var decelerate_speed : float = 10.0
 
 @export_category("AI")
 @export var next_state : EnemyState
@@ -20,7 +18,7 @@ func enter() -> void:
 	_animation_finished = false
 	_direction = enemy.global_position.direction_to ( _damage_position )
 	enemy.SetDirection ( _direction )
-	enemy.velocity = _direction * -knockback_speed
+	enemy.velocity = _direction
 	enemy.UpdateAnimation( anim_name )
 	enemy.animation_player.animation_finished.connect( _on_animation_finished )
 	pass
@@ -33,7 +31,7 @@ func exit() -> void:
 func process( _delta : float ) -> EnemyState:
 	if _animation_finished == true :
 		return next_state
-	enemy.velocity -= enemy.velocity * decelerate_speed * _delta
+	enemy.velocity -= enemy.velocity * _delta
 	return null
 
 func physics( _delta : float ) -> EnemyState:

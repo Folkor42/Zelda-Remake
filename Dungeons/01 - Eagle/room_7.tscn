@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://4q2brnfggrce"]
+[gd_scene load_steps=16 format=3 uid="uid://4q2brnfggrce"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_jl3k1"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_05paa"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_8kd2l"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_agtko"]
-[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/bat.tscn" id="5_p0daa"]
+[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/Keese/bat.tscn" id="5_p0daa"]
+[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="6_6h8xd"]
+[ext_resource type="Resource" uid="uid://drad24ak7ur3c" path="res://Items/compass.tres" id="7_rwucg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_05paa")
@@ -277,3 +279,7 @@ position = Vector2(184, 103)
 
 [node name="Keese8" parent="." instance=ExtResource("5_p0daa")]
 position = Vector2(202, 121)
+
+[node name="ItemDropper" parent="." instance=ExtResource("6_6h8xd")]
+position = Vector2(200, 88)
+item_data = ExtResource("7_rwucg")

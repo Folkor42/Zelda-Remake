@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bq3sebmy1cg7f"]
 
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="1_hxsg2"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/skeleton.gd" id="1_s1ti6"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/skeleton.gd" id="1_s1ti6"]
 [ext_resource type="Script" path="res://Items/drop_data.gd" id="2_bbvnk"]
 [ext_resource type="Resource" uid="uid://da5nmokb43354" path="res://Items/Ruby.tres" id="3_6yffh"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_brha7"]

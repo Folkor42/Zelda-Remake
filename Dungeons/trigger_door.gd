@@ -6,6 +6,7 @@ enum SIDE { TOP, BOTTOM, LEFT, RIGHT }
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var player_detector: Area2D = $"../../Floor/Player Detector"
 
 @export var direction : SIDE = SIDE.TOP :
 	set ( _v ):
@@ -30,10 +31,15 @@ func _ready() -> void:
 	_update_texture()
 	if Engine.is_editor_hint():
 		return
-	lock_door()
-	get_parent().cleared.connect(toggle_door)
+	player_detector.area_entered.connect (room_entered)
+	get_parent().cleared.connect(unlock_door)
 	#get_parent().deactivate.connect(toggle_door)
 	#trigger.connect (toggle_door)
+	
+func room_entered(_b)->void:
+	lock_door()
+	if is_opened:
+		unlock_door()
 	
 func toggle_door()->void:
 	if is_opened:
@@ -44,6 +50,7 @@ func toggle_door()->void:
 		is_opened=true
 	
 func unlock_door()->void:
+	is_opened=true
 	sprite_2d.visible=false
 	collision_shape_2d.set_deferred("disabled",true)
 	audio.play()

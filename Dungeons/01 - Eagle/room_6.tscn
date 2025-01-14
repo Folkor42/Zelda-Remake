@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://co5tyxg8aca0v"]
+[gd_scene load_steps=16 format=4 uid="uid://co5tyxg8aca0v"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_1yy83"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_lpi6a"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_3pvfg"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_oo2i7"]
-[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/bat.tscn" id="5_rxexg"]
+[ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="5_5sub2"]
+[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/Keese/bat.tscn" id="5_rxexg"]
+[ext_resource type="PackedScene" uid="uid://dcfsharmal5w" path="res://Dungeons/trigger_door.tscn" id="6_ptjag"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_lpi6a")
@@ -229,13 +231,13 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAgAAAAAAAAAAIAAAAgAAIAAAAAAAkAAAAgAAk
 tile_set = SubResource("TileSet_va7gw")
 
 [node name="Floor" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAACAAIAAQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAAIAAQADAAAAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
 
 [node name="Player Detector" parent="Floor" instance=ExtResource("3_oo2i7")]
 
 [node name="Placeables" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAEAAQAAAA6AAAAAAAEAAUAAAA6AAAAAAAEAAYAAAA6AAAAAAAFAAQAAAA6AAAAAAAFAAUAAAA6AAAAAAAFAAYAAAA6AAAAAAAKAAQAAAA6AAAAAAAKAAUAAAA6AAAAAAAKAAYAAAA6AAAAAAALAAQAAAA6AAAAAAALAAUAAAA6AAAAAAALAAYAAAA6AAAAAAA=")
+tile_map_data = PackedByteArray("AAAHAAUAAAA6AAAAAAAHAAYAAAA6AAAAAAAIAAQAAAA6AAAAAAAIAAUAAAA6AAAAAAAIAAYAAAA6AAAAAAAHAAQAAAA6AAAAAAA=")
 tile_set = SubResource("TileSet_3d7x5")
 
 [node name="Doors" type="TileMapLayer" parent="."]
@@ -254,20 +256,26 @@ tile_map_data = PackedByteArray("AAADAAAAAAAaAAAAAAAHAAIAAAAbAAIAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="Keese" parent="." instance=ExtResource("5_rxexg")]
+[node name="RemoveTriggerRoom16" type="Node2D" parent="."]
+script = ExtResource("5_5sub2")
+
+[node name="Keese" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
 position = Vector2(56, 47)
 
-[node name="Keese2" parent="." instance=ExtResource("5_rxexg")]
-position = Vector2(124, 77)
+[node name="Keese2" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
+position = Vector2(104, 72)
 
-[node name="Keese3" parent="." instance=ExtResource("5_rxexg")]
+[node name="Keese3" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
 position = Vector2(56, 124)
 
-[node name="Keese4" parent="." instance=ExtResource("5_rxexg")]
+[node name="Keese4" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
 position = Vector2(133, 124)
 
-[node name="Keese5" parent="." instance=ExtResource("5_rxexg")]
+[node name="Keese5" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
 position = Vector2(201, 127)
 
-[node name="Keese6" parent="." instance=ExtResource("5_rxexg")]
+[node name="Keese6" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
 position = Vector2(188, 47)
+
+[node name="TriggerDoor" parent="RemoveTriggerRoom16" instance=ExtResource("6_ptjag")]
+position = Vector2(240, 88)

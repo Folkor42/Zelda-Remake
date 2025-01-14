@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="1_nj1w5"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="2_aqi40"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="4_7ycqk"]
-[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/bat.tscn" id="5_iita5"]
+[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/Keese/bat.tscn" id="5_iita5"]
 [ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="5_ojfej"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="7_8t4ih"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="8_qy3ha"]

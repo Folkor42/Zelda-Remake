@@ -1,4 +1,4 @@
-class_name EnemyStateDestroy extends EnemyState
+class_name OctorokDestroy extends EnemyState
 
 const PICKUP = preload("res://Items/Item Pickup/item_pickup.tscn")
 const DEATH_ANIM = preload("res://Scenes/enemy_death.tscn")
@@ -17,7 +17,7 @@ var _damage_position : Vector2
 
 
 func init() -> void:
-	enemy.enemy_destroyed.connect( _on_enemy_destroyed )
+	enemy.Enemy_Destroyed.connect( _on_enemy_destroyed )
 	pass # Replace with function body.
 
 func enter() -> void:

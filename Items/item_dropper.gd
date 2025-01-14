@@ -10,8 +10,10 @@ const PICKUP = preload("res://Items/Item Pickup/item_pickup.tscn")
 
 @export var item_data : ItemData : set = _set_item_data
 @export var major_drop : bool = false
+@export var start_dropped : bool = true
 
 var has_dropped : bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +23,8 @@ func _ready() -> void:
 	sprite.visible = false
 	has_dropped_data.data_loaded.connect( _on_data_loaded )
 	_on_data_loaded()
-	drop_item()
+	if start_dropped:
+		drop_item()
 	pass # Replace with function body.
 
 func drop_item() -> void:

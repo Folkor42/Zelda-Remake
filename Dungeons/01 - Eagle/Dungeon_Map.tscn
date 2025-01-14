@@ -126,8 +126,8 @@ position = Vector2(256, -440)
 [node name="Key Door LR2" parent="Doors" instance=ExtResource("24_ll478")]
 position = Vector2(0, -792)
 
-[node name="Bomb Door LR" parent="." instance=ExtResource("25_h3vur")]
+[node name="Bomb Door LR" parent="Doors" instance=ExtResource("25_h3vur")]
 position = Vector2(128, -352)
 
-[node name="Bomb Door LR2" parent="." instance=ExtResource("25_h3vur")]
+[node name="Bomb Door LR2" parent="Doors" instance=ExtResource("25_h3vur")]
 position = Vector2(384, -352)

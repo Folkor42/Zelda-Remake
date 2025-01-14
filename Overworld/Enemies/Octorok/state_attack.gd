@@ -1,4 +1,4 @@
-class_name EnemyStateShoot extends EnemyState
+class_name OctorokShoot extends EnemyState
 
 const ENEMYBULLET = preload("res://Overworld/Enemies/Octorok/rock_bullet.tscn")
 
