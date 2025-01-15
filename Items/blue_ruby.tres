@@ -10,8 +10,12 @@ region = Rect2(72, 16, 8, 16)
 
 [resource]
 script = ExtResource("2_h4rv7")
-name = ""
+name = "Blue Ruby"
 description = "Worth 5 Monies!"
 texture = SubResource("AtlasTexture_46tve")
 value = 5
 effects = Array[ExtResource("1_m4r88")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1

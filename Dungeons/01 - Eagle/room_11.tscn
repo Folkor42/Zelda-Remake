@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_fvbqw"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_8eds1"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_hua3h"]
-[ext_resource type="PackedScene" uid="uid://bq3sebmy1cg7f" path="res://Dungeons/Enemies/Stalfos/skeleton.tscn" id="4_fn5di"]
+[ext_resource type="PackedScene" uid="uid://fvnjgpwf3ror" path="res://Dungeons/Enemies/Stalfos/Stalfos.tscn" id="5_j50p8"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="6_a77hq"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="7_pl37x"]
 
@@ -265,14 +265,14 @@ tile_map_data = PackedByteArray("AAADAAAAAAAaAAAAAAAAAAIAAAAZAAEAAAAHAAIAAAAZAAI
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="Stalfos" parent="." instance=ExtResource("4_fn5di")]
-position = Vector2(134, 104)
+[node name="Stalfos4" parent="." instance=ExtResource("5_j50p8")]
+position = Vector2(55, 56)
 
-[node name="Stalfos2" parent="." instance=ExtResource("4_fn5di")]
-position = Vector2(87, 69)
+[node name="Stalfos5" parent="." instance=ExtResource("5_j50p8")]
+position = Vector2(200, 56)
 
-[node name="Stalfos3" parent="." instance=ExtResource("4_fn5di")]
-position = Vector2(199, 87)
-
-[node name="ItemDropper" parent="Stalfos3" instance=ExtResource("6_a77hq")]
+[node name="ItemDropper" parent="Stalfos5" instance=ExtResource("6_a77hq")]
 item_data = ExtResource("7_pl37x")
+
+[node name="Stalfos6" parent="." instance=ExtResource("5_j50p8")]
+position = Vector2(120, 56)

@@ -21,7 +21,7 @@ func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
-	update_sword ("White Sword")
+	update_sword ("Wooden Sword")
 	update_active_item ("Bomb")
 	pass
 

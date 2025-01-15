@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m76i1"]
 atlas = ExtResource("3_mildi")
-region = Rect2(72, 0, 8, 16)
+region = Rect2(72, 0, 8, 32)
 
 [resource]
 script = ExtResource("2_q35ff")
@@ -15,7 +15,7 @@ description = "Worth 1 Monies"
 texture = SubResource("AtlasTexture_m76i1")
 value = 1
 effects = Array[ExtResource("1_8aroc")]([])
-animated = false
+animated = true
 h_frames = 1
-v_frames = 1
+v_frames = 2
 frames = 1

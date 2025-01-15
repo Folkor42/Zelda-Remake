@@ -112,7 +112,7 @@ size = Vector2(14, 9)
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tq4b"]
 radius = 5.0
 
-[node name="Keese" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "timer")]
+[node name="Bat" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "timer")]
 z_index = 1
 collision_layer = 4
 script = ExtResource("1_ene7i")

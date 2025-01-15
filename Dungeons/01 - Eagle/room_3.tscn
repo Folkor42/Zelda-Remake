@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_ps2sb"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_fthun"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="4_k6psm"]
-[ext_resource type="PackedScene" uid="uid://bq3sebmy1cg7f" path="res://Dungeons/Enemies/Stalfos/skeleton.tscn" id="4_scvn4"]
+[ext_resource type="PackedScene" uid="uid://fvnjgpwf3ror" path="res://Dungeons/Enemies/Stalfos/Stalfos.tscn" id="5_vw6fv"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="6_go3gg"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="7_vsttn"]
 
@@ -248,20 +248,20 @@ tile_set = SubResource("TileSet_xbmq4")
 tile_map_data = PackedByteArray("AAAEAAQAAAA6AAAAAAAEAAUAAAA6AAAAAAAKAAQAAAA6AAAAAAAKAAUAAAA6AAAAAAAKAAYAAAA6AAAAAAALAAQAAAA6AAAAAAALAAUAAAA6AAAAAAALAAYAAAA6AAAAAAAFAAQAAAA6AAAAAAAFAAUAAAA6AAAAAAAFAAYAAAA6AAAAAAAEAAYAAAA6AAAAAAA=")
 tile_set = SubResource("TileSet_istjs")
 
-[node name="Skeleton" parent="." instance=ExtResource("4_scvn4")]
-position = Vector2(104, 120)
+[node name="Stalfos" parent="." instance=ExtResource("5_vw6fv")]
+position = Vector2(152, 120)
 
-[node name="ItemDropper" parent="Skeleton" instance=ExtResource("6_go3gg")]
+[node name="ItemDropper" parent="Stalfos" instance=ExtResource("6_go3gg")]
 item_data = ExtResource("7_vsttn")
 
-[node name="Skeleton2" parent="." instance=ExtResource("4_scvn4")]
+[node name="Stalfos2" parent="." instance=ExtResource("5_vw6fv")]
+position = Vector2(216, 136)
+
+[node name="Stalfos3" parent="." instance=ExtResource("5_vw6fv")]
+position = Vector2(216, 56)
+
+[node name="Stalfos4" parent="." instance=ExtResource("5_vw6fv")]
 position = Vector2(120, 56)
 
-[node name="Skeleton3" parent="." instance=ExtResource("4_scvn4")]
-position = Vector2(216, 128)
-
-[node name="Skeleton4" parent="." instance=ExtResource("4_scvn4")]
-position = Vector2(208, 48)
-
-[node name="Skeleton5" parent="." instance=ExtResource("4_scvn4")]
-position = Vector2(160, 128)
+[node name="Stalfos5" parent="." instance=ExtResource("5_vw6fv")]
+position = Vector2(104, 120)
