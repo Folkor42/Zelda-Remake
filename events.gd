@@ -5,7 +5,7 @@ signal map_cords(x,y)
 signal item_used(item)
 signal bomb_used()
 signal candle_used()
-signal secret_revealed
+signal secret_revealed_sound
 
 func _ready() -> void:
 	item_used.connect(item_signal)	
@@ -27,4 +27,5 @@ func item_signal(item)->void:
 		PlayerManager.inventory.use_potion(load("res://Items/red_potion.tres"),1)
 	
 func secret_found () -> void:
-	secret_revealed.emit()
+	print ("SECRET REVEALED")
+	secret_revealed_sound.emit()

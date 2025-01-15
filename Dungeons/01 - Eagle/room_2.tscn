@@ -222,10 +222,6 @@ tile_set = SubResource("TileSet_xbmq4")
 
 [node name="Player Detector" parent="Floor" instance=ExtResource("4_7ycqk")]
 
-[node name="ItemDropper" parent="." instance=ExtResource("7_8t4ih")]
-position = Vector2(152, 136)
-item_data = ExtResource("8_qy3ha")
-
 [node name="RemoveTrigger" type="Node2D" parent="."]
 script = ExtResource("5_ojfej")
 
@@ -237,3 +233,10 @@ position = Vector2(72, 72)
 
 [node name="Keese3" parent="RemoveTrigger" instance=ExtResource("5_iita5")]
 position = Vector2(168, 120)
+
+[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("7_8t4ih")]
+position = Vector2(152, 136)
+item_data = ExtResource("8_qy3ha")
+start_dropped = false
+
+[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]

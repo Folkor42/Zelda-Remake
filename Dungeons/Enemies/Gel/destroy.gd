@@ -6,9 +6,6 @@ const DEATH_ANIM = preload("res://Scenes/enemy_death.tscn")
 @export_category("Item Drops")
 @export var drop_table : DropTable
 
-var _direction : Vector2
-var _damage_position : Vector2
-
 func init() -> void:
 	enemy.Enemy_Destroyed.connect( _on_enemy_destroyed )
 	pass # Replace with function body.
@@ -24,7 +21,7 @@ func enter() -> void:
 	enemy.queue_free()
 	pass
 	
-func _on_enemy_destroyed ( hurt_box : HurtBox ) -> void:
+func _on_enemy_destroyed ( _hurt_box : HurtBox ) -> void:
 	state_machine.ChangeState( self )
 	
 func drop_items() -> void:

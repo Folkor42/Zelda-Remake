@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm6pykt80dbur"]
+[gd_scene load_steps=4 format=3 uid="uid://dm6pykt80dbur"]
 
 [ext_resource type="Script" path="res://Items/item_dropper.gd" id="1_riq74"]
+[ext_resource type="AudioStream" uid="uid://cj4g0ux0jgijr" path="res://Assets/Audio/Music/06 Secret Jingle.mp3" id="2_37c6d"]
 [ext_resource type="PackedScene" uid="uid://dto0oqk85ctld" path="res://Universal Scripts/persistant_handler.tscn" id="2_i0ll3"]
 
 [node name="ItemDropper" type="Node2D"]
@@ -14,5 +15,6 @@ offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_37c6d")
 
 [node name="PersistantHandler" parent="." instance=ExtResource("2_i0ll3")]

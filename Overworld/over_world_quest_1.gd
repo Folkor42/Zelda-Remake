@@ -17,7 +17,7 @@ func _ready():
 	#AudioManager.play_music( music )
 	scene = get_tree().current_scene.scene_file_path
 	#check_for_previous_drops()
-	Events.secret_revealed.connect(secret_reveal)
+	Events.secret_revealed_sound.connect(secret_reveal)
 	pass
 
 func _free_level() -> void:

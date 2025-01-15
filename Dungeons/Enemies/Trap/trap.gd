@@ -23,5 +23,5 @@ func _ready():
 	home = global_position
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()

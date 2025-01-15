@@ -24,9 +24,13 @@ func _ready() -> void:
 	has_dropped_data.data_loaded.connect( _on_data_loaded )
 	_on_data_loaded()
 	if start_dropped:
-		drop_item()
+		start_drop_item()
 	pass # Replace with function body.
 
+func play_audio()->void:
+	print (item_data.name + " is playing Audio")
+	audio.play()
+	
 func drop_item() -> void:
 	if has_dropped:
 		return
@@ -36,7 +40,18 @@ func drop_item() -> void:
 	drop.item_data = item_data
 	add_child( drop )
 	drop.picked_up.connect( _on_drop_pickup )
-	audio.play()
+	play_audio()
+	pass
+
+func start_drop_item() -> void:
+	if has_dropped:
+		return
+	has_dropped = true
+	var drop = PICKUP.instantiate() as ItemPickup
+	drop.major_drop=major_drop
+	drop.item_data = item_data
+	add_child( drop )
+	drop.picked_up.connect( _on_drop_pickup )
 	pass
 
 func _on_drop_pickup () -> void:
