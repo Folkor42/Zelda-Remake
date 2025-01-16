@@ -1,4 +1,4 @@
-class_name StalfosMove extends EnemyState
+class_name KeeseFly extends EnemyState
 
 @export var after_move_state : EnemyState
 @onready var timer: Timer = $"Change Direction"
@@ -19,6 +19,7 @@ func process( _delta: float) -> EnemyState:
 	if enemy.active and (enemy.WallDetector.is_colliding() or timer.is_stopped()):
 		timer.stop()
 		#print("Need new Direction")
+		enemy.current_direction=enemy.change_direction(enemy.current_direction)
 		next_state=after_move_state
 	return next_state
 

@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="3_b1dqp"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="5_onmse"]
 [ext_resource type="Resource" uid="uid://dkxoh6dbr6up3" path="res://Items/bow.tres" id="6_kx2dh"]
-[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/Keese/bat.tscn" id="7_tak4q"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="8_igcck"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="9_dqi26"]
+[ext_resource type="PackedScene" uid="uid://bbeyh24euvevl" path="res://Dungeons/Enemies/Keese/Keese.tscn" id="9_kr4sq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4veyo"]
 texture = ExtResource("1_fbjin")
@@ -46,15 +46,21 @@ position = Vector2(133, 156)
 item_data = ExtResource("6_kx2dh")
 major_drop = true
 
-[node name="Keese" parent="." instance=ExtResource("7_tak4q")]
-position = Vector2(216, 128)
-
-[node name="Keese2" parent="." instance=ExtResource("7_tak4q")]
-position = Vector2(72, 208)
-
 [node name="Entrance" parent="." instance=ExtResource("9_dqi26")]
 position = Vector2(56, 72)
 level = "res://Dungeons/01 - Eagle/Dungeon_Map.tscn"
 target_transition_area = "Stairs"
 center_player = true
 side = 0
+
+[node name="Keese" parent="." instance=ExtResource("9_kr4sq")]
+position = Vector2(96, 185)
+
+[node name="Keese2" parent="." instance=ExtResource("9_kr4sq")]
+position = Vector2(16, 184)
+
+[node name="Keese3" parent="." instance=ExtResource("9_kr4sq")]
+position = Vector2(232, 136)
+
+[node name="Keese4" parent="." instance=ExtResource("9_kr4sq")]
+position = Vector2(216, 184)

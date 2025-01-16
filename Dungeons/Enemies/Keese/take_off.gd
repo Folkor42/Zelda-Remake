@@ -1,15 +1,16 @@
-class_name StalfosMove extends EnemyState
+class_name KeeseTakeOff extends EnemyState
 
 @export var after_move_state : EnemyState
-@onready var timer: Timer = $"Change Direction"
+@onready var timer: Timer = $"../Fly/Change Direction"
 
 var next_state : EnemyState = null
 
 func enter() -> void:
-	timer.start()
+	timer.start(3)
 	next_state = null
 	if enemy.active:
 		enemy.velocity = enemy.current_direction * enemy.speed
+	timer.start()
 	pass
 	
 func exit() -> void:

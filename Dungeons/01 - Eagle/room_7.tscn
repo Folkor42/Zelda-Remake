@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_05paa"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_8kd2l"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_agtko"]
-[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/Keese/bat.tscn" id="5_p0daa"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="6_6h8xd"]
 [ext_resource type="Resource" uid="uid://drad24ak7ur3c" path="res://Items/compass.tres" id="7_rwucg"]
+[ext_resource type="PackedScene" uid="uid://bbeyh24euvevl" path="res://Dungeons/Enemies/Keese/Keese.tscn" id="7_vi7q3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_05paa")
@@ -256,30 +256,30 @@ tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0)
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="Keese" parent="." instance=ExtResource("5_p0daa")]
-position = Vector2(95, 39)
-
-[node name="Keese2" parent="." instance=ExtResource("5_p0daa")]
-position = Vector2(152, 74)
-
-[node name="Keese3" parent="." instance=ExtResource("5_p0daa")]
-position = Vector2(185, 74)
-
-[node name="Keese4" parent="." instance=ExtResource("5_p0daa")]
-position = Vector2(202, 55)
-
-[node name="Keese5" parent="." instance=ExtResource("5_p0daa")]
-position = Vector2(216, 89)
-
-[node name="Keese6" parent="." instance=ExtResource("5_p0daa")]
-position = Vector2(153, 105)
-
-[node name="Keese7" parent="." instance=ExtResource("5_p0daa")]
-position = Vector2(184, 103)
-
-[node name="Keese8" parent="." instance=ExtResource("5_p0daa")]
-position = Vector2(202, 121)
-
 [node name="ItemDropper" parent="." instance=ExtResource("6_6h8xd")]
 position = Vector2(200, 88)
 item_data = ExtResource("7_rwucg")
+
+[node name="Keese9" parent="." instance=ExtResource("7_vi7q3")]
+position = Vector2(96, 40)
+
+[node name="Keese10" parent="." instance=ExtResource("7_vi7q3")]
+position = Vector2(152, 72)
+
+[node name="Keese11" parent="." instance=ExtResource("7_vi7q3")]
+position = Vector2(152, 104)
+
+[node name="Keese12" parent="." instance=ExtResource("7_vi7q3")]
+position = Vector2(184, 72)
+
+[node name="Keese13" parent="." instance=ExtResource("7_vi7q3")]
+position = Vector2(184, 104)
+
+[node name="Keese14" parent="." instance=ExtResource("7_vi7q3")]
+position = Vector2(200, 120)
+
+[node name="Keese15" parent="." instance=ExtResource("7_vi7q3")]
+position = Vector2(216, 88)
+
+[node name="Keese16" parent="." instance=ExtResource("7_vi7q3")]
+position = Vector2(208, 56)

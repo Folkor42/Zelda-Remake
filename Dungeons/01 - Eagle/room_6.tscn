@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_3pvfg"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_oo2i7"]
 [ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="5_5sub2"]
-[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/Keese/bat.tscn" id="5_rxexg"]
+[ext_resource type="PackedScene" uid="uid://bbeyh24euvevl" path="res://Dungeons/Enemies/Keese/Keese.tscn" id="6_66tw3"]
 [ext_resource type="PackedScene" uid="uid://dcfsharmal5w" path="res://Dungeons/trigger_door.tscn" id="6_ptjag"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
@@ -259,23 +259,23 @@ tile_set = SubResource("TileSet_j2brn")
 [node name="RemoveTriggerRoom16" type="Node2D" parent="."]
 script = ExtResource("5_5sub2")
 
-[node name="Keese" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
-position = Vector2(56, 47)
+[node name="Keese" parent="RemoveTriggerRoom16" instance=ExtResource("6_66tw3")]
+position = Vector2(56, 48)
 
-[node name="Keese2" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
+[node name="Keese2" parent="RemoveTriggerRoom16" instance=ExtResource("6_66tw3")]
 position = Vector2(104, 72)
 
-[node name="Keese3" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
-position = Vector2(56, 124)
+[node name="Keese3" parent="RemoveTriggerRoom16" instance=ExtResource("6_66tw3")]
+position = Vector2(56, 120)
 
-[node name="Keese4" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
-position = Vector2(133, 124)
+[node name="Keese4" parent="RemoveTriggerRoom16" instance=ExtResource("6_66tw3")]
+position = Vector2(136, 120)
 
-[node name="Keese5" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
-position = Vector2(201, 127)
+[node name="Keese5" parent="RemoveTriggerRoom16" instance=ExtResource("6_66tw3")]
+position = Vector2(184, 48)
 
-[node name="Keese6" parent="RemoveTriggerRoom16" instance=ExtResource("5_rxexg")]
-position = Vector2(188, 47)
+[node name="Keese6" parent="RemoveTriggerRoom16" instance=ExtResource("6_66tw3")]
+position = Vector2(200, 128)
 
 [node name="TriggerDoor" parent="RemoveTriggerRoom16" instance=ExtResource("6_ptjag")]
 position = Vector2(240, 88)
