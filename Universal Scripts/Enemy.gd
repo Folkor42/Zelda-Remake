@@ -2,6 +2,7 @@ class_name Enemy extends CharacterBody2D
 
 signal Enemy_Damaged ( hurt_box : HurtBox )
 signal Enemy_Destroyed ( hurt_box : HurtBox )
+signal Enemy_Stunned ( hurt_box : HurtBox )
 
 @export var hp : int = 1
 @export var speed : float = 50.0
@@ -79,6 +80,12 @@ func enemy_damaged( hurt_box ) -> void:
 		Enemy_Damaged.emit( hurt_box )
 	else:
 		Enemy_Destroyed.emit( hurt_box )
+	pass
+
+func enemy_stunned( stun_box ) -> void:
+	if invulnerable == true:
+		return
+	Enemy_Stunned.emit( stun_box )
 	pass
 
 #func UpdateAnimation( state : String ) -> void:

@@ -4,6 +4,8 @@ class_name Stalfos extends Enemy
 @onready var hit_box: HitBox = $HitBox
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
 
+@export var throw_swords : bool = false
+
 var active : bool = false
 
 func _ready() -> void:

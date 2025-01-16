@@ -1,11 +1,10 @@
-class_name SwordBullet extends Area2D
+class_name StalfosSword extends Area2D
 
 var direction
-var vertical
 var travelled_distance : float = 0
 
 const RANGE = 176
-const SPEED = 200
+const SPEED = 150
 
 @onready var hurt_box: HurtBox = $HurtBox
 
@@ -13,7 +12,6 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	body_entered.connect(destroy)
 	hurt_box.hit.connect(destroy)
-	hurt_box.damage=PlayerManager.player.hurt_box.damage
 	pass
 	
 func _process(delta: float) -> void:

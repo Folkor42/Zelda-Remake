@@ -1,15 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://fvnjgpwf3ror"]
+[gd_scene load_steps=20 format=3 uid="uid://fvnjgpwf3ror"]
 
 [ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/stalfos.gd" id="1_lbe8u"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="4_jx7rv"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_bsb2e"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="6_kqltv"]
 [ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_xw33x"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/damaged.gd" id="8_4wraq"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/idle.gd" id="8_x6y7j"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/move.gd" id="9_j6gq8"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/stun.gd" id="10_bu8ef"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/destroy.gd" id="10_iruwl"]
 [ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="11_bbqws"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/attack.gd" id="11_wbcks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xcl"]
 size = Vector2(2, 2)
@@ -91,7 +93,7 @@ _data = {
 size = Vector2(14, 16)
 
 [node name="Stalfos" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector")]
-collision_layer = 4
+collision_layer = 0
 script = ExtResource("1_lbe8u")
 hp = 2
 speed = 20.0
@@ -118,6 +120,7 @@ target_position = Vector2(0, 8)
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
+collision_mask = 0
 monitoring = false
 script = ExtResource("5_bsb2e")
 
@@ -136,9 +139,10 @@ shape = SubResource("RectangleShape2D_86i26")
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("7_xw33x")
 
-[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state", "attack_state")]
 script = ExtResource("8_x6y7j")
 after_idle_state = NodePath("../Move")
+attack_state = NodePath("../Attack")
 
 [node name="Move" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
 script = ExtResource("9_j6gq8")
@@ -148,12 +152,18 @@ after_move_state = NodePath("../Idle")
 wait_time = 3.0
 one_shot = true
 
-[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("10_bu8ef")
+[node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("8_4wraq")
 next_state = NodePath("../Idle")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("10_iruwl")
 drop_table = ExtResource("11_bbqws")
 
-[node name="Attack" type="Node" parent="EnemyStateMachine"]
+[node name="Attack" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_attack_state")]
+script = ExtResource("11_wbcks")
+after_attack_state = NodePath("../Move")
+
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("10_bu8ef")
+next_state = NodePath("../Idle")

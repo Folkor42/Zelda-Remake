@@ -6,7 +6,7 @@ class_name StalfosMove extends EnemyState
 var next_state : EnemyState = null
 
 func enter() -> void:
-	enemy.current_direction=enemy.change_direction(enemy.current_direction)
+	timer.start(3)
 	next_state = null
 	if enemy.active:
 		enemy.velocity = enemy.current_direction * enemy.speed
@@ -20,9 +20,7 @@ func process( _delta: float) -> EnemyState:
 	if enemy.active and (enemy.WallDetector.is_colliding() or timer.is_stopped()):
 		timer.stop()
 		#print("Need new Direction")
-		enemy.current_direction=enemy.change_direction(enemy.current_direction)
-		enemy.velocity = enemy.current_direction * enemy.speed
-		timer.start(3)
+		next_state=after_move_state
 	return next_state
 
 func physics( _delta : float ) -> EnemyState:
