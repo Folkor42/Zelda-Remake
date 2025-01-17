@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://4sh8d5001njr"]
+
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_yb1on"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_n5w5q"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_58okf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0tcs"]
+atlas = ExtResource("3_58okf")
+region = Rect2(129, 3, 5, 8)
+
+[resource]
+script = ExtResource("2_n5w5q")
+name = "Boomerang"
+description = ""
+texture = SubResource("AtlasTexture_l0tcs")
+value = 0
+effects = Array[ExtResource("1_yb1on")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1

@@ -22,9 +22,9 @@ func _ready() -> void:
 
 func activate ()->void:
 	active = true
-	animation_player.play("Move")
-	var start_time = randf_range(0,0.4)
-	animation_player.seek(start_time,true)
+	#animation_player.play("Move")
+	#var start_time = randf_range(0,0.4)
+	#animation_player.seek(start_time,true)
 	pass
 
 func deactivate ()->void:
