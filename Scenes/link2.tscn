@@ -831,7 +831,7 @@ script/source = "extends Node
 
 const BOOMERANG : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
 const BOMB : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
-const BOW : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
+const BOW : PackedScene = preload(\"res://Items/BowEquipped.tscn\")
 const CANDLE : PackedScene = preload (\"res://Items/CandleEquipped.tscn\")
 const FLUTE : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
 const BAIT : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
@@ -852,6 +852,9 @@ func equip_item(item = \"\") -> void:
 	if item == \"Bomb\":
 		var bomb = BOMB.instantiate()
 		add_child(bomb)
+	if item == \"Bow\":
+		var bow = BOW.instantiate()
+		add_child(bow)
 	if item == \"Candle\":
 		var candle = CANDLE.instantiate()
 		add_child(candle)
@@ -930,6 +933,7 @@ attack_sound = ExtResource("4_lpdj2")
 decelerate_speed = 20.0
 
 [node name="SwordCooldown" type="Timer" parent="Player State Machine/Attack"]
+wait_time = 0.6
 one_shot = true
 
 [node name="Stun" type="Node" parent="Player State Machine"]
