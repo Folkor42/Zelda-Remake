@@ -14,7 +14,7 @@ var max_bombs : int = 8
 var keys : int = 0
 var kill_count : int = 0
 var sword : String = ""
-var active_item : String = "Bomb"
+var active_item : String = ""
 
 func _ready() -> void:
 	inventory = InventoryData.new()
@@ -22,7 +22,6 @@ func _ready() -> void:
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
 	update_sword ("Wooden Sword")
-	update_active_item ("Bomb")
 	pass
 
 func update_sword( new_sword : String ) -> void:

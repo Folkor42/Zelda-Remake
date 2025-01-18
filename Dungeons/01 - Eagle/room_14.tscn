@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dy8opnrhogu8y"]
+[gd_scene load_steps=17 format=3 uid="uid://dy8opnrhogu8y"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_070ei"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_m6jjp"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_1bbe2"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_jgwiw"]
+[ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="5_1307l"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="5_wmuuk"]
 [ext_resource type="Resource" uid="uid://4sh8d5001njr" path="res://Items/boomerang.tres" id="6_4dlea"]
+[ext_resource type="PackedScene" uid="uid://bmpudlfj8sjol" path="res://Dungeons/Enemies/Goriya/Goriya.tscn" id="6_cg73s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_m6jjp")
@@ -260,6 +262,21 @@ tile_map_data = PackedByteArray(0, 0, 0, 0, 2, 0, 0, 0, 26, 0, 1, 0, 0, 0)
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="ItemDropper" parent="." instance=ExtResource("5_wmuuk")]
+[node name="RemoveTrigger" type="Node2D" parent="."]
+script = ExtResource("5_1307l")
+
+[node name="Goriya" parent="RemoveTrigger" instance=ExtResource("6_cg73s")]
+position = Vector2(184, 56)
+
+[node name="Goriya2" parent="RemoveTrigger" instance=ExtResource("6_cg73s")]
+position = Vector2(152, 40)
+
+[node name="Goriya3" parent="RemoveTrigger" instance=ExtResource("6_cg73s")]
+position = Vector2(152, 104)
+
+[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("5_wmuuk")]
 position = Vector2(136, 56)
 item_data = ExtResource("6_4dlea")
+start_dropped = false
+
+[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]

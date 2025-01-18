@@ -278,6 +278,6 @@ position = Vector2(120, 56)
 position = Vector2(88, 88)
 
 [node name="Gel3" parent="." instance=ExtResource("8_y8wf2")]
-position = Vector2(120, 120)
+position = Vector2(152, 89)
 
 [connection signal="moved" from="Puzzle/MoveableBlock" to="Puzzle" method="completed"]

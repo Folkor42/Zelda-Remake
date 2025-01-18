@@ -25,3 +25,7 @@ func place_bomb()->void:
 	var new_bomb = bomb.instantiate()
 	new_bomb.global_position=PlayerManager.player.global_position + facing
 	parent.add_child(new_bomb)
+	#check to see if we need to clear the bombs
+	if PlayerManager.bombs < 1:
+		PlayerManager.update_active_item("")
+	

@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=4 uid="uid://bb4ph6ftaw0is"]
+[gd_scene load_steps=17 format=4 uid="uid://bb4ph6ftaw0is"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_f033o"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_e0p57"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_16flc"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_ge0yj"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="5_6dtcm"]
+[ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="5_r5hc0"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="6_gef5x"]
+[ext_resource type="PackedScene" uid="uid://b8dk4ji4aa5fb" path="res://Dungeons/Enemies/Gel/Gel.tscn" id="8_i6bap"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_e0p57")
@@ -250,6 +252,15 @@ direction = 3
 [node name="DoorUp" parent="Doors" instance=ExtResource("3_16flc")]
 position = Vector2(128, 23)
 
-[node name="ItemDropper" parent="." instance=ExtResource("5_6dtcm")]
+[node name="RemoveTrigger" type="Node2D" parent="."]
+script = ExtResource("5_r5hc0")
+
+[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("5_6dtcm")]
 position = Vector2(169, 136)
 item_data = ExtResource("6_gef5x")
+start_dropped = false
+
+[node name="Gel" parent="RemoveTrigger" instance=ExtResource("8_i6bap")]
+position = Vector2(150, 102)
+
+[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]
