@@ -1,0 +1,243 @@
+[gd_scene load_steps=22 format=3 uid="uid://bmpudlfj8sjol"]
+
+[ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/goriya.gd" id="1_66bbc"]
+[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_we2s4"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_gnxs7"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_i8wfd"]
+[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_63pfb"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/idle.gd" id="6_f0525"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/move.gd" id="7_lq3dx"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/damaged.gd" id="8_mptdq"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/destroy.gd" id="9_dfl00"]
+[ext_resource type="Resource" uid="uid://d1qkoch45h7oi" path="res://Items/Drop Table B.tres" id="10_6ake8"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/attack.gd" id="11_fi3kg"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/stun.gd" id="11_t7pt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xcl"]
+size = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_mqpbc"]
+resource_name = "Move"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_r08pl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [120]
+}
+
+[sub_resource type="Animation" id="Animation_7ptmo"]
+resource_name = "Stun"
+
+[sub_resource type="Animation" id="Animation_ynpa2"]
+resource_name = "hit"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.137255), Color(1, 1, 1, 1), Color(1, 1, 1, 0.137255), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_scy4d"]
+resource_name = "Move_Right"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [122, 123]
+}
+
+[sub_resource type="Animation" id="Animation_46mmf"]
+resource_name = "Move_Left"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [122, 123]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7mvr"]
+_data = {
+"Move": SubResource("Animation_mqpbc"),
+"Move_Left": SubResource("Animation_46mmf"),
+"Move_Right": SubResource("Animation_scy4d"),
+"RESET": SubResource("Animation_r08pl"),
+"Stun": SubResource("Animation_7ptmo"),
+"hit": SubResource("Animation_ynpa2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86i26"]
+size = Vector2(14, 16)
+
+[node name="Goriya" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector")]
+collision_layer = 0
+script = ExtResource("1_66bbc")
+throw_swords = true
+hp = 2
+speed = 20.0
+WallDetector = NodePath("WallDetector")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_we2s4")
+hframes = 12
+vframes = 14
+frame = 120
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_d5xcl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a7mvr")
+}
+autoplay = "Move"
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 8)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_gnxs7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_86i26")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("4_i8wfd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_86i26")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("5_63pfb")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state", "attack_state")]
+script = ExtResource("6_f0525")
+after_idle_state = NodePath("../Move")
+attack_state = NodePath("../Attack")
+
+[node name="Move" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("7_lq3dx")
+after_move_state = NodePath("../Idle")
+
+[node name="Change Direction" type="Timer" parent="EnemyStateMachine/Move"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("8_mptdq")
+next_state = NodePath("../Idle")
+
+[node name="Destroy" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("9_dfl00")
+drop_table = ExtResource("10_6ake8")
+
+[node name="Attack" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_attack_state")]
+script = ExtResource("11_fi3kg")
+after_attack_state = NodePath("../Move")
+
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("11_t7pt7")
+next_state = NodePath("../Idle")

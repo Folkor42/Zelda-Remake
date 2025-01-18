@@ -1,6 +1,6 @@
 class_name EnemyState extends Node
 
-var enemy : EnemyOverWorld
+var enemy : Enemy
 var state_machine : EnemyStateMachine
 
 

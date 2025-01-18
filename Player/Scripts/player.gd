@@ -2,6 +2,9 @@ class_name Player extends CharacterBody2D
 
 signal player_pickup
 
+const inv : PackedScene = preload ("res://Player/GUI/Inventory/inventory.tscn")
+var menu_opened : bool = false
+
 var cardinal_direction : Vector2 = Vector2.DOWN
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 var direction : Vector2 = Vector2.ZERO
@@ -19,6 +22,7 @@ var terminal_velocity = 5000
 @onready var shield: Area2D = $Shield
 @onready var shield_block_sound: AudioStreamPlayer2D = $Shield/ShieldBlockSound
 @onready var hurt_box: HurtBox = $Sprite2D/Sword/HurtBox
+@onready var equipped_item: Node = $EquippedItem
 
 signal DirectionChanged ( new_direction : Vector2 )
 signal player_damaged ( hurt_box : HurtBox )
@@ -116,10 +120,21 @@ func make_invulnerable ( _duration : float = 1.0 ) -> void:
 func _unhandled_input(_event):
 	#if _event.is_action_pressed("test"):
 		#PlayerManager.shake_camera()
+	if _event.is_action_pressed("menu"):
+		show_menu()
 	if _event.is_action_pressed("use_item"):
 		PlayerManager.interact()
 	pass
 	
+func show_menu()->void:
+	if menu_opened:
+		get_parent().get_node("InventoryScreen").queue_free()
+		menu_opened = false
+		return
+	var overlay = inv.instantiate()
+	get_parent().add_child(overlay)
+	menu_opened=true
+
 func revive_player() -> void:
 	update_hp( 99 )
 	state_machine.ChangeState( $StateMachine/Idle )

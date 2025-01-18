@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="1_nj1w5"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="2_aqi40"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="4_7ycqk"]
-[ext_resource type="PackedScene" uid="uid://d0lkdy2mkcoq1" path="res://Dungeons/Enemies/bat.tscn" id="5_iita5"]
 [ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="5_ojfej"]
+[ext_resource type="PackedScene" uid="uid://bbeyh24euvevl" path="res://Dungeons/Enemies/Keese/Keese.tscn" id="6_7m3bl"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="7_8t4ih"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="8_qy3ha"]
 
@@ -222,18 +222,21 @@ tile_set = SubResource("TileSet_xbmq4")
 
 [node name="Player Detector" parent="Floor" instance=ExtResource("4_7ycqk")]
 
-[node name="ItemDropper" parent="." instance=ExtResource("7_8t4ih")]
-position = Vector2(152, 136)
-item_data = ExtResource("8_qy3ha")
-
 [node name="RemoveTrigger" type="Node2D" parent="."]
 script = ExtResource("5_ojfej")
 
-[node name="Keese" parent="RemoveTrigger" instance=ExtResource("5_iita5")]
-position = Vector2(56, 56)
+[node name="Keese" parent="RemoveTrigger" instance=ExtResource("6_7m3bl")]
+position = Vector2(168, 121)
 
-[node name="Keese2" parent="RemoveTrigger" instance=ExtResource("5_iita5")]
+[node name="Keese2" parent="RemoveTrigger" instance=ExtResource("6_7m3bl")]
 position = Vector2(72, 72)
 
-[node name="Keese3" parent="RemoveTrigger" instance=ExtResource("5_iita5")]
-position = Vector2(168, 120)
+[node name="Keese3" parent="RemoveTrigger" instance=ExtResource("6_7m3bl")]
+position = Vector2(56, 56)
+
+[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("7_8t4ih")]
+position = Vector2(152, 136)
+item_data = ExtResource("8_qy3ha")
+start_dropped = false
+
+[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]

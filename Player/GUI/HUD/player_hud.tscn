@@ -1,9 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjvndve0gt2lj"]
+[gd_scene load_steps=9 format=3 uid="uid://bjvndve0gt2lj"]
 
 [ext_resource type="Script" path="res://Player/GUI/HUD/player_hud.gd" id="1_q6v14"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_v3tc0"]
 [ext_resource type="PackedScene" uid="uid://37st6ky0w4is" path="res://Player/GUI/HUD/heart.tscn" id="3_433lj"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="5_jggjn"]
+
+[sub_resource type="GDScript" id="GDScript_j4pyk"]
+script/source = "extends Label
+
+func _ready() -> void:
+	Events.map_cords.connect(_update)
+	
+func _update(x : int, y: int)->void:
+	text = \"(\"+str(x)+\",\"+str(y)+\")\"
+"
 
 [sub_resource type="GDScript" id="GDScript_gx1g6"]
 script/source = "extends Sprite2D
@@ -33,22 +43,11 @@ func update_b () -> void:
 script/source = "extends Sprite2D
 
 func _ready() -> void:
-	if PlayerManager.active_item == \"Bomb\":
-		region_rect = Rect2(604, 137, 8, 16)
-	elif PlayerManager.active_item == \"White Sword\":
-		region_rect = Rect2(564, 137, 7, 16)
-	elif PlayerManager.active_item == \"Magic Sword\":
-		region_rect = Rect2(573, 137, 8, 16)
-	else:
-		region_rect = Rect2(495, 145, 7, 16)
+	region_rect = Rect2(495, 145, 7, 16)
 		
-func update () -> void:
-	if PlayerManager.active_item == \"Bomb\":
-		region_rect = Rect2(604, 137, 8, 16)
-	elif PlayerManager.active_item == \"White Sword\":
-		region_rect = Rect2(564, 137, 7, 16)
-	elif PlayerManager.active_item == \"Magic Sword\":
-		region_rect = Rect2(573, 137, 8, 16)
+func update (rect : Rect2 ) -> void:
+	if rect:
+		region_rect = rect
 	else:
 		region_rect = Rect2(495, 145, 7, 16)
 "
@@ -150,19 +149,941 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PickupLabel" type="Label" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = 12.0
-offset_top = 222.0
-offset_right = 69.0
-offset_bottom = 240.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_right = 57.0
+offset_bottom = 9.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_jggjn")
 theme_override_font_sizes/font_size = 10
 text = "ITEM NAME"
+clip_text = true
+text_overrun_behavior = 2
+max_lines_visible = 1
 
 [node name="Timer" type="Timer" parent="Control/PickupLabel"]
 wait_time = 2.0
 one_shot = true
+
+[node name="OverWorldMap" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 48.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 16
+
+[node name="ColorRect" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect16" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect17" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect18" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect19" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect20" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect21" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect22" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect23" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect24" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect25" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect26" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect27" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect28" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect29" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect30" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect31" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect32" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect33" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ColorRect34" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ColorRect35" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect36" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect37" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect38" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect39" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect40" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect41" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect42" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect43" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect44" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect45" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect46" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect47" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect48" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ColorRect49" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ColorRect50" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ColorRect51" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect52" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect53" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect54" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect55" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect56" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect57" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect58" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect59" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect60" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect61" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect62" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect63" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect64" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect65" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ColorRect66" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ColorRect67" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect68" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect69" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect70" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect71" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect72" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect73" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect74" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect75" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect76" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect77" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect78" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect79" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect80" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect81" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ColorRect82" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect83" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect84" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect85" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect86" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect87" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect88" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect89" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect90" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect91" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect92" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect93" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect94" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect95" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect96" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect97" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect98" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect99" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect100" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect101" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect102" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect103" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect104" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect105" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect106" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect107" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect108" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect109" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect110" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect111" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect112" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="ColorRect113" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect114" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect115" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect116" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.988235, 0.847059, 0.658824, 1)
+
+[node name="ColorRect117" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect118" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect119" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect120" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect121" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0.658824, 0, 1)
+
+[node name="ColorRect122" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect123" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect124" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect125" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect126" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect127" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.784314, 0.298039, 0.0470588, 1)
+
+[node name="ColorRect128" type="ColorRect" parent="Control/OverWorldMap"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.12549, 0.219608, 0.92549, 1)
+
+[node name="LocationLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 49.0
+offset_right = -48.0
+offset_bottom = 58.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_jggjn")
+theme_override_font_sizes/font_size = 10
+text = "(12,12)"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 2
+max_lines_visible = 1
+script = SubResource("GDScript_j4pyk")
 
 [node name="B-Item" type="Sprite2D" parent="Control"]
 position = Vector2(132, 37)

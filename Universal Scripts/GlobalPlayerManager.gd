@@ -11,7 +11,7 @@ var inventory : InventoryData
 var rubies : int = 0
 var bombs : int = 4
 var max_bombs : int = 8
-var keys : int = 8
+var keys : int = 0
 var kill_count : int = 0
 var sword : String = ""
 var active_item : String = ""
@@ -21,8 +21,7 @@ func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
-	update_sword ("White Sword")
-	update_active_item ("Bomb")
+	update_sword ("Wooden Sword")
 	pass
 
 func update_sword( new_sword : String ) -> void:
@@ -40,17 +39,19 @@ func update_sword( new_sword : String ) -> void:
 		player.hurt_box.damage=0
 	PlayerHud.b_item.update_b()
 
-func update_active_item(item : String)->void:
-	if item == "Bomb":
-		active_item = "Bomb"
-	PlayerHud.a_item.update()
+func update_active_item(item : String, rect : Rect2 = Rect2(0,0,0,0))->void:
+	player.equipped_item.remove_equipped()
+	active_item = item
+	PlayerHud.a_item.update(rect)
+	player.equipped_item.equip_item(active_item)
+	# TODO Swap out Equipped Item Script
 
 func add_player_instance () -> void:
 	player = PLAYER.instantiate()
 	add_child( player )
 	pass
 
-func set_health( hp : int , max_hp : int ) -> void:
+func set_health( hp : int , max_hp : int = player.max_hp ) -> void:
 	player.max_hp = max_hp
 	player.hp = hp
 	player.update_hp( 0 )
@@ -82,7 +83,7 @@ func shake_camera ( tramua : float = 1 ) -> void:
 
 func interact() -> void:
 	interact_handled=false
-	Events.item_used.emit("bomb")
+	Events.item_used.emit(active_item)
 
 func update_rubies( _c : int ) ->void:
 	if _c > 0:

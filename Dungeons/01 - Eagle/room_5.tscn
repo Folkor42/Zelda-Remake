@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_1bgii"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_b08j1"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_pb05b"]
-[ext_resource type="PackedScene" uid="uid://bq3sebmy1cg7f" path="res://Dungeons/Enemies/skeleton.tscn" id="5_ryap2"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="6_hd7t1"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="7_bakyu"]
+[ext_resource type="PackedScene" uid="uid://fvnjgpwf3ror" path="res://Dungeons/Enemies/Stalfos/Stalfos.tscn" id="7_lx5pj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_1bgii")
@@ -264,21 +264,20 @@ tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0)
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="Skeleton" parent="." instance=ExtResource("5_ryap2")]
-position = Vector2(92, 59)
+[node name="Stalfos" parent="." instance=ExtResource("7_lx5pj")]
+position = Vector2(152, 104)
 
-[node name="Skeleton2" parent="." instance=ExtResource("5_ryap2")]
-position = Vector2(157, 56)
+[node name="Stalfos2" parent="." instance=ExtResource("7_lx5pj")]
+position = Vector2(104, 104)
 
-[node name="Skeleton3" parent="." instance=ExtResource("5_ryap2")]
-position = Vector2(101, 100)
+[node name="Stalfos3" parent="." instance=ExtResource("7_lx5pj")]
+position = Vector2(88, 56)
 
-[node name="Skeleton4" parent="." instance=ExtResource("5_ryap2")]
-position = Vector2(156, 107)
+[node name="Stalfos4" parent="." instance=ExtResource("7_lx5pj")]
+position = Vector2(152, 56)
 
-[node name="Skeleton5" parent="." instance=ExtResource("5_ryap2")]
-position = Vector2(131, 79)
-
-[node name="ItemDropper" parent="." instance=ExtResource("6_hd7t1")]
-position = Vector2(135, 56)
+[node name="ItemDropper" parent="Stalfos4" instance=ExtResource("6_hd7t1")]
 item_data = ExtResource("7_bakyu")
+
+[node name="Stalfos5" parent="." instance=ExtResource("7_lx5pj")]
+position = Vector2(120, 72)

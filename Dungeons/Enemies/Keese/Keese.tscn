@@ -1,9 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0lkdy2mkcoq1"]
+[gd_scene load_steps=23 format=3 uid="uid://bbeyh24euvevl"]
 
-[ext_resource type="Script" path="res://Dungeons/Enemies/bat.gd" id="1_ene7i"]
-[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_0vtwp"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_tbooc"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_oknfi"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Keese/keese.gd" id="1_72yfl"]
+[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_ojhv7"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_2reyh"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_e45u8"]
+[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_1gfb8"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Keese/idle.gd" id="6_4l1bf"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Keese/land.gd" id="7_h6ocn"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Keese/destroy.gd" id="7_hf6jp"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Keese/take_off.gd" id="7_nrwrp"]
+[ext_resource type="Resource" uid="uid://lt658aytnf23" path="res://Items/Drop Table X.tres" id="8_r0hn4"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Keese/fly.gd" id="8_scsaj"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Keese/stun.gd" id="9_22ag3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xcl"]
 size = Vector2(2, 2)
@@ -115,14 +123,14 @@ radius = 5.0
 [node name="Keese" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "timer")]
 z_index = 1
 collision_layer = 4
-script = ExtResource("1_ene7i")
+script = ExtResource("1_72yfl")
 speed = 20.0
 drop_group = 4
 WallDetector = NodePath("WallDetector")
-timer = NodePath("Change Direction")
+timer = NodePath("EnemyStateMachine/Fly/Change Direction")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0vtwp")
+texture = ExtResource("2_ojhv7")
 hframes = 12
 vframes = 14
 frame = 54
@@ -140,15 +148,10 @@ autoplay = "Move"
 [node name="WallDetector" type="RayCast2D" parent="."]
 target_position = Vector2(0, 8)
 
-[node name="Change Direction" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-autostart = true
-
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 monitoring = false
-script = ExtResource("3_tbooc")
+script = ExtResource("3_2reyh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 0.5)
@@ -158,7 +161,40 @@ shape = SubResource("RectangleShape2D_86i26")
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("4_oknfi")
+script = ExtResource("4_e45u8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_5tq4b")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("5_1gfb8")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("6_4l1bf")
+after_idle_state = NodePath("../Take Off")
+
+[node name="Land" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("7_h6ocn")
+after_move_state = NodePath("../Idle")
+_decelerationRate = 0.2
+
+[node name="Take Off" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("7_nrwrp")
+after_move_state = NodePath("../Fly")
+
+[node name="Fly" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("8_scsaj")
+after_move_state = NodePath("../Land")
+
+[node name="Change Direction" type="Timer" parent="EnemyStateMachine/Fly"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("9_22ag3")
+next_state = NodePath("../Idle")
+
+[node name="Destroy" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_hf6jp")
+drop_table = ExtResource("8_r0hn4")

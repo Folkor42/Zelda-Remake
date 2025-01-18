@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_4nquh"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_cadyp"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="4_ww63o"]
-[ext_resource type="PackedScene" uid="uid://bq3sebmy1cg7f" path="res://Dungeons/Enemies/skeleton.tscn" id="5_mphge"]
+[ext_resource type="PackedScene" uid="uid://fvnjgpwf3ror" path="res://Dungeons/Enemies/Stalfos/Stalfos.tscn" id="5_1rdds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_4nquh")
@@ -249,11 +249,11 @@ tile_set = SubResource("TileSet_xbmq4")
 tile_map_data = PackedByteArray("AAAHAAQAAAA6AAAAAAAHAAUAAAA6AAAAAAAHAAYAAAA6AAAAAAAIAAQAAAA6AAAAAAAIAAUAAAA6AAAAAAAIAAYAAAA6AAAAAAA=")
 tile_set = SubResource("TileSet_i2mnw")
 
-[node name="Skeleton" parent="." instance=ExtResource("5_mphge")]
-position = Vector2(89, 40)
+[node name="Stalfos" parent="." instance=ExtResource("5_1rdds")]
+position = Vector2(88, 120)
 
-[node name="Skeleton2" parent="." instance=ExtResource("5_mphge")]
-position = Vector2(105, 73)
+[node name="Stalfos2" parent="." instance=ExtResource("5_1rdds")]
+position = Vector2(104, 72)
 
-[node name="Skeleton3" parent="." instance=ExtResource("5_mphge")]
-position = Vector2(89, 120)
+[node name="Stalfos3" parent="." instance=ExtResource("5_1rdds")]
+position = Vector2(88, 40)

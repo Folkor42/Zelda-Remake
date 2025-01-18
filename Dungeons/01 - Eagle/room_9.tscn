@@ -1,9 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://imc01yc7nw2g"]
+[gd_scene load_steps=17 format=3 uid="uid://imc01yc7nw2g"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_vstep"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_j3r2e"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_78pcn"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_pwyhp"]
+[ext_resource type="PackedScene" uid="uid://du1hkek41ut33" path="res://Dungeons/moveable_block.tscn" id="5_qvkbd"]
+[ext_resource type="PackedScene" uid="uid://dcfsharmal5w" path="res://Dungeons/trigger_door.tscn" id="6_ey31e"]
+[ext_resource type="Script" path="res://Dungeons/puzzle.gd" id="7_ol008"]
+[ext_resource type="PackedScene" uid="uid://b8dk4ji4aa5fb" path="res://Dungeons/Enemies/Gel/Gel.tscn" id="8_y8wf2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_j3r2e")
@@ -220,7 +224,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1i347")
 
-[node name="Room1" type="Node2D"]
+[node name="Room9" type="Node2D"]
 script = ExtResource("1_vstep")
 
 [node name="Walls" type="TileMapLayer" parent="."]
@@ -257,3 +261,23 @@ direction = 2
 tile_map_data = PackedByteArray(0, 0, 0, 0, 2, 0, 0, 0, 27, 0, 1, 0, 0, 0, 3, 0, 5, 0, 0, 0, 26, 0, 3, 0, 0, 0)
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
+
+[node name="Puzzle" type="Node2D" parent="."]
+script = ExtResource("7_ol008")
+
+[node name="MoveableBlock" parent="Puzzle" instance=ExtResource("5_qvkbd")]
+
+[node name="TriggerDoor" parent="Puzzle" instance=ExtResource("6_ey31e")]
+position = Vector2(16, 88)
+direction = 2
+
+[node name="Gel" parent="." instance=ExtResource("8_y8wf2")]
+position = Vector2(120, 56)
+
+[node name="Gel2" parent="." instance=ExtResource("8_y8wf2")]
+position = Vector2(88, 88)
+
+[node name="Gel3" parent="." instance=ExtResource("8_y8wf2")]
+position = Vector2(152, 89)
+
+[connection signal="moved" from="Puzzle/MoveableBlock" to="Puzzle" method="completed"]

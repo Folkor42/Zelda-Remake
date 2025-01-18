@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxlqwcmp32abu"]
+
+[ext_resource type="Script" path="res://Dungeons/bomb_rock.gd" id="1_75r0c"]
+[ext_resource type="Texture2D" uid="uid://b0po442d4i62r" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Tileset.png" id="2_3efxq"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_dg2by"]
+[ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="4_gvfnh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcydr"]
+
+[node name="BurnableTree" type="StaticBody2D"]
+script = ExtResource("1_75r0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3efxq")
+region_enabled = true
+region_rect = Rect2(320, 112, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+top_level = true
+shape = SubResource("RectangleShape2D_62mwj")
+
+[node name="BombArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("3_dg2by")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BombArea"]
+shape = SubResource("RectangleShape2D_vcydr")
+
+[node name="PersistantDataHandler" type="Node" parent="."]
+script = ExtResource("4_gvfnh")

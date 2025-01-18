@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DropTable" load_steps=3 format=3 uid="uid://lt658aytnf23"]
+
+[ext_resource type="Script" path="res://Items/item_data.gd" id="1_1qbka"]
+[ext_resource type="Script" path="res://Items/droptable.gd" id="2_krl81"]
+
+[resource]
+script = ExtResource("2_krl81")
+group = "X"
+drop_rate = 0
+drops = Array[ExtResource("1_1qbka")]([])

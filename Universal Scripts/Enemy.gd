@@ -1,13 +1,19 @@
 class_name Enemy extends CharacterBody2D
 
-enum direction {UP,RIGHT,DOWN,LEFT}
+signal Enemy_Damaged ( hurt_box : HurtBox )
+signal Enemy_Destroyed ( hurt_box : HurtBox )
+signal Enemy_Stunned ( hurt_box : HurtBox )
+
 @export var hp : int = 1
 @export var speed : float = 50.0
 @export_enum ("A", "B", "C", "D", "X") var drop_group
 @export var WallDetector : RayCast2D
 @export var timer : Timer
+#@export var animation_player: AnimationPlayer
 
 var current_direction : Vector2 = Vector2.ZERO
+var cardinal_direction : Vector2 = Vector2.DOWN
+var invulnerable : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,3 +71,31 @@ func change_direction (old_direction : Vector2) -> Vector2:
 		new_dir=change_direction(old_direction)
 	#print (new_dir)
 	return new_dir
+
+func enemy_damaged( hurt_box ) -> void:
+	if invulnerable == true:
+		return
+	hp -= hurt_box.damage
+	if hp > 0:
+		Enemy_Damaged.emit( hurt_box )
+	else:
+		Enemy_Destroyed.emit( hurt_box )
+	pass
+
+func enemy_stunned( stun_box ) -> void:
+	if invulnerable == true:
+		return
+	Enemy_Stunned.emit( stun_box )
+	pass
+
+#func UpdateAnimation( state : String ) -> void:
+	#animation_player.play( state + "_" + AnimDirection() )
+	#pass
+#
+#func AnimDirection() -> String:
+	#if cardinal_direction == Vector2.DOWN:
+		#return "down"
+	#elif cardinal_direction == Vector2.UP:
+		#return "up"
+	#else:
+		#return "side"

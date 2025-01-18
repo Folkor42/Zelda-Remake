@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bmpus74owgljf"]
+
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_gj3q4"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_oisdh"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_nugle"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vggew"]
+atlas = ExtResource("3_nugle")
+region = Rect2(88, 0, 8, 16)
+
+[resource]
+script = ExtResource("2_oisdh")
+name = "Map"
+description = ""
+texture = SubResource("AtlasTexture_vggew")
+value = 0
+effects = Array[ExtResource("1_gj3q4")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1

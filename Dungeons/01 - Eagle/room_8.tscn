@@ -1,9 +1,13 @@
-[gd_scene load_steps=13 format=4 uid="uid://dkl2ln0ukqjg5"]
+[gd_scene load_steps=17 format=4 uid="uid://dkl2ln0ukqjg5"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_46t2i"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_gl15h"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_7o2t0"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_gws72"]
+[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="5_u8pds"]
+[ext_resource type="Resource" uid="uid://bmpus74owgljf" path="res://Items/map.tres" id="6_6i2as"]
+[ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="7_7inju"]
+[ext_resource type="PackedScene" uid="uid://b8dk4ji4aa5fb" path="res://Dungeons/Enemies/Gel/Gel.tscn" id="8_cwira"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_gl15h")
@@ -260,3 +264,29 @@ direction = 2
 tile_map_data = PackedByteArray("AAADAAAAAAAaAAAAAAAHAAIAAAAaAAIAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
+
+[node name="ItemDropper" parent="." instance=ExtResource("5_u8pds")]
+position = Vector2(200, 88)
+item_data = ExtResource("6_6i2as")
+major_drop = true
+start_dropped = false
+
+[node name="RemoveTrigger" type="Node2D" parent="."]
+script = ExtResource("7_7inju")
+
+[node name="Gel" parent="RemoveTrigger" instance=ExtResource("8_cwira")]
+position = Vector2(72, 40)
+
+[node name="Gel2" parent="RemoveTrigger" instance=ExtResource("8_cwira")]
+position = Vector2(168, 40)
+
+[node name="Gel3" parent="RemoveTrigger" instance=ExtResource("8_cwira")]
+position = Vector2(88, 72)
+
+[node name="Gel4" parent="RemoveTrigger" instance=ExtResource("8_cwira")]
+position = Vector2(88, 120)
+
+[node name="Gel5" parent="RemoveTrigger" instance=ExtResource("8_cwira")]
+position = Vector2(168, 88)
+
+[connection signal="enemies_defeated" from="RemoveTrigger" to="ItemDropper" method="drop_item"]

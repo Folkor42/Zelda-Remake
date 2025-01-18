@@ -1,10 +1,11 @@
 extends Node2D
 
 const bomb = preload("res://Items/bomb.tscn")
-@onready var parent : Node = get_parent().get_parent().get_parent()
+var parent : Node
 
 func _ready() -> void:
 	Events.bomb_used.connect (place_bomb)
+	parent = get_parent().get_parent().get_parent().get_parent()
 	
 func place_bomb()->void:
 	if PlayerManager.bombs < 1:
@@ -24,3 +25,7 @@ func place_bomb()->void:
 	var new_bomb = bomb.instantiate()
 	new_bomb.global_position=PlayerManager.player.global_position + facing
 	parent.add_child(new_bomb)
+	#check to see if we need to clear the bombs
+	if PlayerManager.bombs < 1:
+		PlayerManager.update_active_item("")
+	

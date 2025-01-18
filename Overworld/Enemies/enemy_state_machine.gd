@@ -19,7 +19,7 @@ func _physics_process(delta):
 	pass
 
 
-func initialize ( _enemy : EnemyOverWorld ) -> void:
+func initialize ( _enemy : Enemy ) -> void:
 	states = []
 	for c in get_children():
 		if c is EnemyState:

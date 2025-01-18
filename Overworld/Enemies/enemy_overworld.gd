@@ -1,17 +1,17 @@
-class_name EnemyOverWorld extends CharacterBody2D
+class_name EnemyOverWorld extends Enemy
 
 signal Direction_Changed ( new_direction : Vector2 )
-signal Enemy_Damaged ( hurt_box : HurtBox )
+#signal Enemy_Damaged ( hurt_box : HurtBox )
 signal enemy_destroyed ( hurt_box : HurtBox )
 
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 
-@export var hp : int = 3
+#@export var hp : int = 3
 
 var cardinal_direction : Vector2 = Vector2.DOWN
-var direction : Vector2 = Vector2.ZERO
+#var direction : Vector2 = Vector2.ZERO
 var player : Player
-var invulnerable : bool = false
+#var invulnerable : bool = false
 
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D

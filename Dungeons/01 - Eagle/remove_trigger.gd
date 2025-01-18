@@ -22,12 +22,14 @@ func item_leave( _c )->void:
 	if item_count <= 0:
 		print ("All Removed")
 		cleared.emit()
+		Events.secret_found()
 	
 func on_enemy_destroyed ( _e : Node2D ) -> void:
 	if _e is Enemy or _e is DungeonEnemy:
 		if enemy_count() <= 1:
 			print("Enemy Defeated")
 			enemies_defeated.emit()
+			cleared.emit()
 	pass
 	
 func enemy_count () -> int:

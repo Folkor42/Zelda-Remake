@@ -1,0 +1,303 @@
+[gd_scene load_steps=23 format=3 uid="uid://e3m87fab8sjm"]
+
+[ext_resource type="Script" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
+[ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="1_cptov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us4bt"]
+atlas = ExtResource("1_cptov")
+region = Rect2(0, 0, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55jyx"]
+atlas = ExtResource("1_cptov")
+region = Rect2(258, 112, 256, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abo5a"]
+atlas = ExtResource("1_cptov")
+region = Rect2(1, 112, 256, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he7ak"]
+atlas = ExtResource("1_cptov")
+region = Rect2(519, 42, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnl1f"]
+atlas = ExtResource("1_cptov")
+region = Rect2(256, 0, 256, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ols0k"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_frxmw"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qboup"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jafsc"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5mdun"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u8xte"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iu6la"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="GDScript" id="GDScript_pshon"]
+script/source = "extends Sprite2D
+
+func _ready()->void:
+	if PlayerManager.inventory.contents.has(\"Red Potion\"):
+		print (\"Red Potion found\")
+		region_rect = Rect2(704,137,8,16)
+	elif PlayerManager.inventory.contents.has(\"Blue Potion\"):
+		region_rect = Rect2(695,137,8,16)
+		print (\"Blue Potion found\")
+	else:
+		region_rect = Rect2(0,0,0,0)
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhern"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0vbgh"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yw881"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2f3qh"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pgco5"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rcwe7"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jyxnx"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[node name="InventoryScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_5xidi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ItemsBackground" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_us4bt")
+
+[node name="MapBackground" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_55jyx")
+
+[node name="TriforceBackground" type="TextureRect" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_abo5a")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TriforceBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -28.0
+offset_right = 48.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_he7ak")
+
+[node name="PLACEHOLDER" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_qnl1f")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 49.0
+offset_right = 144.0
+offset_bottom = 65.0
+disabled = true
+flat = true
+
+[node name="BoomerangSprite" type="Sprite2D" parent="Control/Button"]
+visible = false
+position = Vector2(8, 8)
+texture = ExtResource("1_cptov")
+region_enabled = true
+region_rect = Rect2(584, 137, 8, 16)
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 49.0
+offset_right = 168.0
+offset_bottom = 65.0
+flat = true
+
+[node name="BombSprite" type="Sprite2D" parent="Control/Button2"]
+visible = false
+position = Vector2(8, 8)
+texture = SubResource("CompressedTexture2D_ols0k")
+region_enabled = true
+region_rect = Rect2(604, 137, 8, 16)
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 49.0
+offset_right = 192.0
+offset_bottom = 65.0
+flat = true
+
+[node name="ArrowSprite" type="Sprite2D" parent="Control/Button3"]
+visible = false
+position = Vector2(4, 8)
+texture = SubResource("CompressedTexture2D_frxmw")
+region_enabled = true
+region_rect = Rect2(615, 137, 8, 16)
+
+[node name="BowSprite" type="Sprite2D" parent="Control/Button3"]
+visible = false
+position = Vector2(12, 8)
+texture = SubResource("CompressedTexture2D_qboup")
+region_enabled = true
+region_rect = Rect2(633, 137, 8, 16)
+
+[node name="Button4" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 49.0
+offset_right = 216.0
+offset_bottom = 65.0
+flat = true
+
+[node name="CandleSprite" type="Sprite2D" parent="Control/Button4"]
+visible = false
+position = Vector2(8, 8)
+texture = SubResource("CompressedTexture2D_jafsc")
+region_enabled = true
+region_rect = Rect2(644, 137, 8, 16)
+
+[node name="Button5" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 67.0
+offset_right = 144.0
+offset_bottom = 83.0
+flat = true
+
+[node name="FluteSprite" type="Sprite2D" parent="Control/Button5"]
+visible = false
+position = Vector2(8, 8)
+texture = SubResource("CompressedTexture2D_5mdun")
+region_enabled = true
+region_rect = Rect2(664, 137, 8, 16)
+
+[node name="Button6" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 67.0
+offset_right = 168.0
+offset_bottom = 83.0
+flat = true
+
+[node name="BaitSprite" type="Sprite2D" parent="Control/Button6"]
+visible = false
+position = Vector2(8, 8)
+texture = SubResource("CompressedTexture2D_u8xte")
+region_enabled = true
+region_rect = Rect2(675, 137, 8, 16)
+
+[node name="Button7" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 67.0
+offset_right = 192.0
+offset_bottom = 83.0
+flat = true
+
+[node name="PotionSprite" type="Sprite2D" parent="Control/Button7"]
+visible = false
+position = Vector2(8, 8)
+texture = SubResource("CompressedTexture2D_iu6la")
+region_enabled = true
+region_rect = Rect2(704, 137, 8, 16)
+script = SubResource("GDScript_pshon")
+
+[node name="Button8" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 67.0
+offset_right = 216.0
+offset_bottom = 83.0
+flat = true
+
+[node name="WandSprite" type="Sprite2D" parent="Control/Button8"]
+visible = false
+position = Vector2(8, 8)
+texture = SubResource("CompressedTexture2D_qhern")
+region_enabled = true
+region_rect = Rect2(715, 137, 8, 16)
+
+[node name="SelectedItemSprite" type="Sprite2D" parent="Control"]
+position = Vector2(72, 57)
+texture = SubResource("CompressedTexture2D_0vbgh")
+region_enabled = true
+region_rect = Rect2(584, 137, 8, 16)
+
+[node name="RaftSprite" type="Sprite2D" parent="Control"]
+position = Vector2(136, 31)
+texture = ExtResource("1_cptov")
+region_enabled = true
+region_rect = Rect2(519, 156, 16, 16)
+
+[node name="MagicBookSprite" type="Sprite2D" parent="Control"]
+position = Vector2(156, 31)
+texture = SubResource("CompressedTexture2D_yw881")
+region_enabled = true
+region_rect = Rect2(538, 156, 8, 16)
+
+[node name="RingSprite" type="Sprite2D" parent="Control"]
+position = Vector2(168, 31)
+texture = SubResource("CompressedTexture2D_2f3qh")
+region_enabled = true
+region_rect = Rect2(549, 156, 8, 16)
+
+[node name="LadderSprite" type="Sprite2D" parent="Control"]
+position = Vector2(184, 31)
+texture = SubResource("CompressedTexture2D_pgco5")
+region_enabled = true
+region_rect = Rect2(560, 156, 16, 16)
+
+[node name="MasterKeySprite" type="Sprite2D" parent="Control"]
+position = Vector2(200, 31)
+texture = SubResource("CompressedTexture2D_rcwe7")
+region_enabled = true
+region_rect = Rect2(579, 156, 8, 16)
+
+[node name="PowerBraceletSprite" type="Sprite2D" parent="Control"]
+position = Vector2(212, 32)
+texture = SubResource("CompressedTexture2D_jyxnx")
+region_enabled = true
+region_rect = Rect2(590, 156, 8, 16)

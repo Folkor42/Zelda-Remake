@@ -1,4 +1,4 @@
-class_name EnemyStateIdle extends EnemyState
+class_name OctorokIdle extends EnemyState
 
 @export var anim_name : String = "idle"
 @export_category("AI")

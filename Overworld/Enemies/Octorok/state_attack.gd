@@ -1,4 +1,4 @@
-class_name EnemyStateShoot extends EnemyState
+class_name OctorokShoot extends EnemyState
 
 const ENEMYBULLET = preload("res://Overworld/Enemies/Octorok/rock_bullet.tscn")
 
@@ -13,7 +13,7 @@ var shooting : bool = false
 var count : int = 0
 var shot_count = 1
 func enter() -> void:
-	print("Enemy Shooting")
+	#print("Enemy Shooting")
 	enemy.velocity=Vector2.ZERO
 	shooting = true
 	count = 1
@@ -46,7 +46,7 @@ func physics( _delta : float ) -> EnemyState:
 	return null
 
 func shoot()->void:
-	print("SHOOT towards: "+str(enemy.direction))
+	#print("SHOOT towards: "+str(enemy.direction))
 	#shoot_audio.play()
 	var pos = enemy.global_position
 	var rot = enemy.rotation

@@ -1,0 +1,169 @@
+[gd_scene load_steps=20 format=3 uid="uid://fvnjgpwf3ror"]
+
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/stalfos.gd" id="1_lbe8u"]
+[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="4_jx7rv"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_bsb2e"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="6_kqltv"]
+[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_xw33x"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/damaged.gd" id="8_4wraq"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/idle.gd" id="8_x6y7j"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/move.gd" id="9_j6gq8"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/stun.gd" id="10_bu8ef"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/destroy.gd" id="10_iruwl"]
+[ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="11_bbqws"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/attack.gd" id="11_wbcks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xcl"]
+size = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_mqpbc"]
+resource_name = "Move"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_r08pl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7ptmo"]
+resource_name = "Stun"
+
+[sub_resource type="Animation" id="Animation_ynpa2"]
+resource_name = "hit"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.137255), Color(1, 1, 1, 1), Color(1, 1, 1, 0.137255), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7mvr"]
+_data = {
+"Move": SubResource("Animation_mqpbc"),
+"RESET": SubResource("Animation_r08pl"),
+"Stun": SubResource("Animation_7ptmo"),
+"hit": SubResource("Animation_ynpa2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86i26"]
+size = Vector2(14, 16)
+
+[node name="Stalfos" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector")]
+collision_layer = 0
+script = ExtResource("1_lbe8u")
+hp = 2
+speed = 20.0
+drop_group = 2
+WallDetector = NodePath("WallDetector")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_jx7rv")
+hframes = 12
+vframes = 14
+frame = 36
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_d5xcl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a7mvr")
+}
+autoplay = "Move"
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 8)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("5_bsb2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_86i26")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("6_kqltv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_86i26")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("7_xw33x")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state", "attack_state")]
+script = ExtResource("8_x6y7j")
+after_idle_state = NodePath("../Move")
+attack_state = NodePath("../Attack")
+
+[node name="Move" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("9_j6gq8")
+after_move_state = NodePath("../Idle")
+
+[node name="Change Direction" type="Timer" parent="EnemyStateMachine/Move"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("8_4wraq")
+next_state = NodePath("../Idle")
+
+[node name="Destroy" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("10_iruwl")
+drop_table = ExtResource("11_bbqws")
+
+[node name="Attack" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_attack_state")]
+script = ExtResource("11_wbcks")
+after_attack_state = NodePath("../Move")
+
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("10_bu8ef")
+next_state = NodePath("../Idle")
