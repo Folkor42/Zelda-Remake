@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://dkxoh6dbr6up3" path="res://Items/bow.tres" id="7_j0qxa"]
 [ext_resource type="Resource" uid="uid://dvq4hasaw8tre" path="res://Items/wooden sword.tres" id="7_p4sof"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="8_jfowg"]
-[ext_resource type="Resource" uid="uid://bt4fmhs82xmd2" path="res://Items/heart.tres" id="9_1uw7g"]
+[ext_resource type="Resource" uid="uid://cou22i0duwxoo" path="res://Items/arrows.tres" id="9_0tu12"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="9_mkajb"]
 [ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="9_u1bdg"]
 [ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="13_tnoff"]
@@ -101,7 +101,7 @@ item_data = ExtResource("8_jfowg")
 
 [node name="ItemPickup4" parent="." instance=ExtResource("6_0bxqn")]
 position = Vector2(68, 128)
-item_data = ExtResource("9_1uw7g")
+item_data = ExtResource("9_0tu12")
 
 [node name="ItemDropper4" parent="." instance=ExtResource("9_mkajb")]
 position = Vector2(128, 105)
