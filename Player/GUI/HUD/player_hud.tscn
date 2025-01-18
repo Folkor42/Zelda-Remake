@@ -62,6 +62,7 @@ func _process(_delta: float) -> void:
 "
 
 [node name="PlayerHud" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_q6v14")
 
 [node name="ColorRect" type="ColorRect" parent="."]

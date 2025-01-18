@@ -137,7 +137,6 @@ offset_left = 128.0
 offset_top = 49.0
 offset_right = 144.0
 offset_bottom = 65.0
-disabled = true
 flat = true
 
 [node name="BoomerangSprite" type="Sprite2D" parent="Control/Button"]

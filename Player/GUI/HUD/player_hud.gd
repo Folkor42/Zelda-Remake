@@ -154,3 +154,12 @@ func _process(_delta: float) -> void:
 #func update_boss_health( hp : int, max_hp : int ) -> void:
 	#boss_hp__bar.value=clampi(hp,0,max_hp)
 	#pass
+
+func _unhandled_input(_event):
+	#if _event.is_action_pressed("test"):
+		#PlayerManager.shake_camera()
+	if _event.is_action_pressed("pause"):
+		if get_tree().paused:
+			get_tree().paused=false
+		else:
+			get_tree().paused=true

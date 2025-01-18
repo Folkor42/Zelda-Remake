@@ -82,7 +82,7 @@ func update_active_items()->void:
 		potion_sprite.visible=false
 	
 	if PlayerManager.inventory.contents.has("Wand"):
-		button_8.pressed.connect(equip.bind("Boomerang"))
+		button_8.pressed.connect(equip.bind("Wand"))
 		wand_sprite.visible=true
 	else:
 		wand_sprite.visible=false

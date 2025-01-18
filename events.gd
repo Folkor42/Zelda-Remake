@@ -4,6 +4,7 @@ signal room_entered(room)
 signal map_cords(x,y)
 signal item_used(item)
 signal bomb_used()
+signal bow_used()
 signal candle_used()
 signal secret_revealed_sound
 
@@ -17,6 +18,8 @@ func ignore_me()->void:
 func item_signal(item)->void:
 	if item == "Bomb":
 		bomb_used.emit()
+	if item == "Bow":
+		bow_used.emit()
 	if item == "Candle":
 		candle_used.emit()
 	if item == "Blue Potion":
