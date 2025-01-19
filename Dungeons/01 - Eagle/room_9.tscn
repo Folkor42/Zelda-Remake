@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://imc01yc7nw2g"]
+[gd_scene load_steps=18 format=3 uid="uid://imc01yc7nw2g"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_vstep"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_j3r2e"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcfsharmal5w" path="res://Dungeons/trigger_door.tscn" id="6_ey31e"]
 [ext_resource type="Script" path="res://Dungeons/puzzle.gd" id="7_ol008"]
 [ext_resource type="PackedScene" uid="uid://b8dk4ji4aa5fb" path="res://Dungeons/Enemies/Gel/Gel.tscn" id="8_y8wf2"]
+[ext_resource type="PackedScene" uid="uid://bbeyh24euvevl" path="res://Dungeons/Enemies/Keese/Keese.tscn" id="9_pntek"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_j3r2e")
@@ -238,7 +239,6 @@ tile_set = SubResource("TileSet_xbmq4")
 [node name="Player Detector" parent="Floor" instance=ExtResource("3_78pcn")]
 
 [node name="Placeables" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 7, 0, 5, 0, 0, 0, 58, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_3d7x5")
 
 [node name="Doors" type="TileMapLayer" parent="."]
@@ -266,6 +266,7 @@ tile_set = SubResource("TileSet_j2brn")
 script = ExtResource("7_ol008")
 
 [node name="MoveableBlock" parent="Puzzle" instance=ExtResource("5_qvkbd")]
+position = Vector2(120, 88)
 
 [node name="TriggerDoor" parent="Puzzle" instance=ExtResource("6_ey31e")]
 position = Vector2(16, 88)
@@ -279,5 +280,8 @@ position = Vector2(88, 88)
 
 [node name="Gel3" parent="." instance=ExtResource("8_y8wf2")]
 position = Vector2(152, 89)
+
+[node name="Keese" parent="." instance=ExtResource("9_pntek")]
+position = Vector2(184, 72)
 
 [connection signal="moved" from="Puzzle/MoveableBlock" to="Puzzle" method="completed"]

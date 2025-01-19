@@ -33,32 +33,27 @@ func _ready() -> void:
 		return
 	player_detector.area_entered.connect (room_entered)
 	get_parent().cleared.connect(unlock_door)
-	#get_parent().deactivate.connect(toggle_door)
-	#trigger.connect (toggle_door)
 	
 func room_entered(_b)->void:
-	lock_door()
+	#player_detector.area_entered.disconnect (room_entered)
 	if is_opened:
 		unlock_door()
-	
-func toggle_door()->void:
-	if is_opened:
-		lock_door()
-		is_opened=false
 	else:
-		unlock_door()
-		is_opened=true
+		lock_door()
 	
 func unlock_door()->void:
-	is_opened=true
+	#is_opened=true
 	sprite_2d.visible=false
 	collision_shape_2d.set_deferred("disabled",true)
 	#await get_tree().create_timer(.5).timeout
-	audio.play()
+	if is_inside_tree():
+		print("Unlocking Door")
+		audio.play()
 	pass
 
 func lock_door()->void:
 	sprite_2d.visible=true
 	collision_shape_2d.set_deferred("disabled",false)
+	print("Locking Door")
 	audio.play()
 	pass

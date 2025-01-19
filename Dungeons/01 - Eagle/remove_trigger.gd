@@ -6,11 +6,21 @@ signal cleared
 signal enemies_defeated
 
 func _ready() -> void:
+	get_parent().activate.connect(player_entered)
+	get_parent().deactivate.connect(player_exited)
+	
+func player_exited()->void:
+	if child_exiting_tree.is_connected( on_enemy_destroyed ):
+		child_exiting_tree.disconnect( on_enemy_destroyed )
+			
+func player_entered()->void:	
+	item_count=0
 	for i in get_children():
 		if i is not TriggerDoor:
 			item_count += 1
 	if item_count <=0:
 		cleared.emit()
+		return
 	print (item_count)
 
 	child_exiting_tree.connect( on_enemy_destroyed )

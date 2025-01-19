@@ -265,7 +265,7 @@ tile_map_data = PackedByteArray("AAADAAAAAAAaAAAAAAAHAAIAAAAaAAIAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="ItemDropper" parent="." instance=ExtResource("5_u8pds")]
+[node name="MapDropper" parent="." instance=ExtResource("5_u8pds")]
 position = Vector2(200, 88)
 item_data = ExtResource("6_6i2as")
 major_drop = true
@@ -289,4 +289,4 @@ position = Vector2(88, 120)
 [node name="Gel5" parent="RemoveTrigger" instance=ExtResource("8_cwira")]
 position = Vector2(168, 88)
 
-[connection signal="enemies_defeated" from="RemoveTrigger" to="ItemDropper" method="drop_item"]
+[connection signal="enemies_defeated" from="RemoveTrigger" to="MapDropper" method="drop_item"]

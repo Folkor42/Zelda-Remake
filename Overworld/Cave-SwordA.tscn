@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="4_efiur"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_ntd8r"]
 [ext_resource type="PackedScene" uid="uid://b3oxecarnbiir" path="res://Items/Item Pickup/item_pickup.tscn" id="6_0bxqn"]
-[ext_resource type="Resource" uid="uid://4sh8d5001njr" path="res://Items/boomerang.tres" id="7_1y6wv"]
+[ext_resource type="Resource" uid="uid://bdrqiutagyist" path="res://Items/bomb.tres" id="7_cc8av"]
 [ext_resource type="Resource" uid="uid://dvq4hasaw8tre" path="res://Items/wooden sword.tres" id="7_p4sof"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="8_jfowg"]
 [ext_resource type="Resource" uid="uid://cou22i0duwxoo" path="res://Items/arrows.tres" id="9_0tu12"]
@@ -93,7 +93,7 @@ position = Vector2(129, 140)
 
 [node name="ItemPickup2" parent="." instance=ExtResource("6_0bxqn")]
 position = Vector2(68, 105)
-item_data = ExtResource("7_1y6wv")
+item_data = ExtResource("7_cc8av")
 
 [node name="ItemPickup3" parent="." instance=ExtResource("6_0bxqn")]
 position = Vector2(185, 105)

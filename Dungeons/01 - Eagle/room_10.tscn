@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkroifdebunbs"]
+[gd_scene load_steps=20 format=3 uid="uid://dkroifdebunbs"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_i8ahx"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_6krji"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_ag13a"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_incja"]
+[ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="5_tb7wb"]
+[ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="6_qlapi"]
+[ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="7_03ejp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_6krji")
@@ -220,6 +223,54 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1i347")
 
+[sub_resource type="GDScript" id="GDScript_yc4be"]
+script/source = "extends Label
+
+func _ready()->void:
+	get_parent().activate.connect(show_text)
+	
+func show_text()->void:
+	$AnimationPlayer.play(\"Show Text\")
+"
+
+[sub_resource type="Animation" id="Animation_cedfc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
+[sub_resource type="Animation" id="Animation_ve2go"]
+resource_name = "Show Text"
+length = 10.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, -0.5),
+"update": 0,
+"values": [0, 100]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6cp2"]
+_data = {
+"RESET": SubResource("Animation_cedfc"),
+"Show Text": SubResource("Animation_ve2go")
+}
+
 [node name="Room10" type="Node2D"]
 script = ExtResource("1_i8ahx")
 
@@ -248,3 +299,30 @@ direction = 1
 tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 25, 0, 1, 0, 0, 0, 7, 0, 2, 0, 0, 0, 25, 0, 2, 0, 0, 0, 3, 0, 5, 0, 0, 0, 25, 0, 3, 0, 0, 0)
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 32.0
+offset_right = 215.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("5_tb7wb")
+text = "Eastmost Penninsula
+is the secret!"
+horizontal_alignment = 1
+autowrap_mode = 2
+visible_ratio = -0.0294118
+script = SubResource("GDScript_yc4be")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+"": SubResource("AnimationLibrary_j6cp2")
+}
+
+[node name="OldMan" parent="." instance=ExtResource("6_qlapi")]
+position = Vector2(128, 71)
+
+[node name="Fire" parent="." instance=ExtResource("7_03ejp")]
+position = Vector2(69, 71)
+
+[node name="Fire2" parent="." instance=ExtResource("7_03ejp")]
+position = Vector2(186, 72)

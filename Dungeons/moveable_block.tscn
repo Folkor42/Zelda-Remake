@@ -1,12 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://du1hkek41ut33"]
+[gd_scene load_steps=7 format=3 uid="uid://du1hkek41ut33"]
 
 [ext_resource type="Script" path="res://Dungeons/moveable_block.gd" id="1_tlhhg"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_kve6n"]
+[ext_resource type="Script" path="res://Dungeons/blockpusharea.gd" id="3_8ykwn"]
 
-[node name="MoveableBlock" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1m586"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihbuq"]
+size = Vector2(16, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7kuj"]
+size = Vector2(2, 16)
+
+[node name="MoveableBlock" type="StaticBody2D"]
 script = ExtResource("1_tlhhg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_kve6n")
 region_enabled = true
 region_rect = Rect2(1001, 11, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1m586")
+
+[node name="PushUp" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_8ykwn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushUp"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_ihbuq")
+
+[node name="PushDown" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_8ykwn")
+direction = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushDown"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_ihbuq")
+
+[node name="PushRight" type="Area2D" parent="."]
+position = Vector2(-18, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_8ykwn")
+direction = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushRight"]
+position = Vector2(9, 0)
+shape = SubResource("RectangleShape2D_e7kuj")
+
+[node name="PushLeft" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_8ykwn")
+direction = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushLeft"]
+position = Vector2(9, 0)
+shape = SubResource("RectangleShape2D_e7kuj")

@@ -8,8 +8,8 @@ var interact_handled : bool = true
 var player : Player
 var player_spawned : bool = false
 var inventory : InventoryData
-var rubies : int = 50
-var bombs : int = 4
+var rubies : int = 0
+var bombs : int = 0
 var max_bombs : int = 8
 var keys : int = 0
 var kill_count : int = 0
@@ -21,7 +21,7 @@ func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
-	update_sword ("Wooden Sword")
+	#update_sword ("Wooden Sword")
 	pass
 
 func update_sword( new_sword : String ) -> void:

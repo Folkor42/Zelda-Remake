@@ -268,11 +268,11 @@ position = Vector2(178, 79)
 [node name="TriggerDoor" parent="RemoveTrigger" instance=ExtResource("7_nlsr7")]
 position = Vector2(240, 88)
 
-[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("8_dqpqd")]
+[node name="HeartContainer" parent="." instance=ExtResource("8_dqpqd")]
 position = Vector2(200, 88)
 item_data = ExtResource("9_yt2sa")
 major_drop = true
 start_dropped = false
 
 [connection signal="enemies_defeated" from="RemoveTrigger" to="RemoveTrigger/TriggerDoor" method="unlock_door"]
-[connection signal="enemies_defeated" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]
+[connection signal="enemies_defeated" from="RemoveTrigger" to="HeartContainer" method="drop_item"]
