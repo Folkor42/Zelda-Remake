@@ -149,7 +149,7 @@ autoplay = "Move"
 target_position = Vector2(0, 8)
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 516
 monitoring = false
 script = ExtResource("3_2reyh")
 

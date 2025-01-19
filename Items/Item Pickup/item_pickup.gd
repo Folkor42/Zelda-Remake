@@ -22,6 +22,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	area_2d.body_entered.connect ( _on_body_entered )
+	area_2d.area_entered.connect ( _on_area_entered )
 	await get_tree().create_timer(1).timeout
 	#item_drop.set_drop_value(global_position,item_data)
 
@@ -49,16 +50,27 @@ func _set_item_data ( value : ItemData ) -> void:
 	_update_texture()
 	pass
 
+func _on_area_entered ( a ) -> void:
+	if a is Boomerang:
+		if item_data:
+			print ("Attempting to pick up with a flying drone!")
+			if PlayerManager.inventory.add_item ( item_data ) == true:
+				item_picked_up( item_data.name )
+				area_2d.area_entered.disconnect( _on_area_entered )
+	pass
+
+
 func _on_body_entered ( b ) -> void:
 	if b is Player:
 		if item_data:
-			print ("Attempting to pick up!")
+			print ("Picking up!")
 			if PlayerManager.inventory.add_item ( item_data ) == true:
 				item_picked_up( item_data.name )
+				area_2d.body_entered.disconnect( _on_body_entered )
 	pass
 	
 func item_picked_up ( _name : String ) -> void:
-	area_2d.body_entered.disconnect( _on_body_entered )
+	
 	if major_drop:
 		audio_stream_player_2d.stream=major_pickup_audio
 		PlayerManager.player.major_pickup()

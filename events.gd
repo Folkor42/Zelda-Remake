@@ -5,6 +5,7 @@ signal map_cords(x,y)
 signal item_used(item)
 signal bomb_used()
 signal bow_used()
+signal boomerang_used()
 signal candle_used()
 signal secret_revealed_sound
 
@@ -20,6 +21,8 @@ func item_signal(item)->void:
 		bomb_used.emit()
 	if item == "Bow":
 		bow_used.emit()
+	if item == "Boomerang":
+		boomerang_used.emit()
 	if item == "Candle":
 		candle_used.emit()
 	if item == "Blue Potion":

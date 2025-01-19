@@ -829,7 +829,7 @@ size = Vector2(16, 12)
 [sub_resource type="GDScript" id="GDScript_y7i33"]
 script/source = "extends Node
 
-const BOOMERANG : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
+const BOOMERANG : PackedScene = preload(\"res://Items/BoomerangEquipped.tscn\")
 const BOMB : PackedScene = preload(\"res://Items/BombEquipped.tscn\")
 const BOW : PackedScene = preload(\"res://Items/BowEquipped.tscn\")
 const CANDLE : PackedScene = preload (\"res://Items/CandleEquipped.tscn\")
@@ -855,6 +855,9 @@ func equip_item(item = \"\") -> void:
 	if item == \"Bow\":
 		var bow = BOW.instantiate()
 		add_child(bow)
+	if item == \"Boomerang\":
+		var boomerang = BOOMERANG.instantiate()
+		add_child(boomerang)
 	if item == \"Candle\":
 		var candle = CANDLE.instantiate()
 		add_child(candle)
