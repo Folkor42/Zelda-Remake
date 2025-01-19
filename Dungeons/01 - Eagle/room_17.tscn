@@ -262,7 +262,7 @@ direction = 2
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="ItemDropper2" parent="." instance=ExtResource("5_5dur3")]
+[node name="Triforce" parent="." instance=ExtResource("5_5dur3")]
 position = Vector2(128, 88)
 item_data = ExtResource("6_7i12x")
 major_drop = true

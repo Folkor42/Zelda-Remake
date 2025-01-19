@@ -28,8 +28,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func play_audio()->void:
-	print (item_data.name + " is playing Audio")
-	audio.play()
+	if is_inside_tree():
+		audio.play()
 	
 func drop_item() -> void:
 	if has_dropped:

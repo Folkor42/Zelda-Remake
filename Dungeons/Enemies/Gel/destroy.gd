@@ -13,6 +13,7 @@ func init() -> void:
 func enter() -> void:
 	enemy.invulnerable = true
 	enemy.velocity = Vector2.ZERO
+	enemy.visible=false
 	var death = DEATH_ANIM.instantiate()
 	death.position=enemy.position
 	enemy.get_parent().call_deferred( "add_child", death )

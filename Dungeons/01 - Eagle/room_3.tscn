@@ -251,7 +251,7 @@ tile_set = SubResource("TileSet_istjs")
 [node name="Stalfos" parent="." instance=ExtResource("5_vw6fv")]
 position = Vector2(152, 120)
 
-[node name="ItemDropper" parent="Stalfos" instance=ExtResource("6_go3gg")]
+[node name="Room3ItemDrop" parent="Stalfos" instance=ExtResource("6_go3gg")]
 item_data = ExtResource("7_vsttn")
 
 [node name="Stalfos2" parent="." instance=ExtResource("5_vw6fv")]

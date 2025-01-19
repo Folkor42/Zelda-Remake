@@ -271,7 +271,7 @@ position = Vector2(55, 56)
 [node name="Stalfos5" parent="." instance=ExtResource("5_j50p8")]
 position = Vector2(200, 56)
 
-[node name="ItemDropper" parent="Stalfos5" instance=ExtResource("6_a77hq")]
+[node name="Room11ItemDrop" parent="Stalfos5" instance=ExtResource("6_a77hq")]
 item_data = ExtResource("7_pl37x")
 
 [node name="Stalfos6" parent="." instance=ExtResource("5_j50p8")]

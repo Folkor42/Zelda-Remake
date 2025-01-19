@@ -255,7 +255,7 @@ position = Vector2(128, 23)
 [node name="RemoveTrigger" type="Node2D" parent="."]
 script = ExtResource("5_r5hc0")
 
-[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("5_6dtcm")]
+[node name="Room15ItemDrop" parent="RemoveTrigger" instance=ExtResource("5_6dtcm")]
 position = Vector2(169, 136)
 item_data = ExtResource("6_gef5x")
 start_dropped = false
@@ -263,4 +263,4 @@ start_dropped = false
 [node name="Gel" parent="RemoveTrigger" instance=ExtResource("8_i6bap")]
 position = Vector2(150, 102)
 
-[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]
+[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/Room15ItemDrop" method="drop_item"]

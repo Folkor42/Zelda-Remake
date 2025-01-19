@@ -256,7 +256,7 @@ tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0)
 enabled = false
 tile_set = SubResource("TileSet_j2brn")
 
-[node name="ItemDropper" parent="." instance=ExtResource("6_6h8xd")]
+[node name="CompassDropper" parent="." instance=ExtResource("6_6h8xd")]
 position = Vector2(200, 88)
 item_data = ExtResource("7_rwucg")
 

@@ -234,9 +234,9 @@ position = Vector2(72, 72)
 [node name="Keese3" parent="RemoveTrigger" instance=ExtResource("6_7m3bl")]
 position = Vector2(56, 56)
 
-[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("7_8t4ih")]
+[node name="Room2ItemDrop" parent="RemoveTrigger" instance=ExtResource("7_8t4ih")]
 position = Vector2(152, 136)
 item_data = ExtResource("8_qy3ha")
 start_dropped = false
 
-[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]
+[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/Room2ItemDrop" method="drop_item"]

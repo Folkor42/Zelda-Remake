@@ -274,9 +274,9 @@ position = Vector2(152, 40)
 [node name="Goriya3" parent="RemoveTrigger" instance=ExtResource("6_cg73s")]
 position = Vector2(152, 104)
 
-[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("5_wmuuk")]
+[node name="BoomerangDropper" parent="RemoveTrigger" instance=ExtResource("5_wmuuk")]
 position = Vector2(136, 56)
 item_data = ExtResource("6_4dlea")
 start_dropped = false
 
-[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]
+[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/BoomerangDropper" method="drop_item"]

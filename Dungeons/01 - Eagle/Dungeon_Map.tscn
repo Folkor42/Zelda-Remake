@@ -97,7 +97,7 @@ bus = &"Music"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("20_acy5b")]
 z_index = 1
-position = Vector2(128, 136)
+position = Vector2(128, 142)
 
 [node name="Stairs" parent="." instance=ExtResource("22_8jahd")]
 z_index = 1
