@@ -22,7 +22,8 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	area_2d.body_entered.connect ( _on_body_entered )
-	area_2d.area_entered.connect ( _on_area_entered )
+	if !major_drop:
+		area_2d.area_entered.connect ( _on_area_entered )
 	await get_tree().create_timer(1).timeout
 	#item_drop.set_drop_value(global_position,item_data)
 
@@ -39,10 +40,6 @@ func _process(delta: float) -> void:
 			blink=0
 	
 func _physics_process(_delta: float) -> void:
-	#var collision_info = move_and_collide( velocity * delta )
-	#if collision_info:
-		#velocity = velocity.bounce( collision_info.get_normal() )
-	#velocity -= velocity * delta * 4
 	pass
 
 func _set_item_data ( value : ItemData ) -> void:
