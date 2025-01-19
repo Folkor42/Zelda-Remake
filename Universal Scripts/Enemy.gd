@@ -2,7 +2,7 @@ class_name Enemy extends CharacterBody2D
 
 signal Enemy_Damaged ( hurt_box : HurtBox )
 signal Enemy_Destroyed ( hurt_box : HurtBox )
-signal Enemy_Stunned ( hurt_box : HurtBox )
+signal Enemy_Stunned ( stun_box : StunBox )
 
 @export var hp : int = 1
 @export var speed : float = 50.0

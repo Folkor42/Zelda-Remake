@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://fvnjgpwf3ror"]
+[gd_scene load_steps=22 format=3 uid="uid://fvnjgpwf3ror"]
 
 [ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/stalfos.gd" id="1_lbe8u"]
+[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="3_88mgi"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="4_jx7rv"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_bsb2e"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="6_kqltv"]
@@ -14,7 +15,7 @@
 [ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/attack.gd" id="11_wbcks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xcl"]
-size = Vector2(2, 2)
+size = Vector2(12, 12)
 
 [sub_resource type="Animation" id="Animation_mqpbc"]
 resource_name = "Move"
@@ -63,6 +64,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_7ptmo"]
 resource_name = "Stun"
+loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_ynpa2"]
 resource_name = "hit"
@@ -90,7 +92,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86i26"]
-size = Vector2(14, 16)
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4widy"]
+size = Vector2(16, 16)
 
 [node name="Stalfos" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector")]
 collision_layer = 0
@@ -135,6 +140,14 @@ script = ExtResource("6_kqltv")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_86i26")
+
+[node name="StunBox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+script = ExtResource("3_88mgi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StunBox"]
+shape = SubResource("RectangleShape2D_4widy")
 
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("7_xw33x")

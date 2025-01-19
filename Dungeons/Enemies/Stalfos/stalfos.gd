@@ -3,6 +3,7 @@ class_name Stalfos extends Enemy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_box: HitBox = $HitBox
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
+@onready var stun_box: StunBox = $StunBox
 
 @export var throw_swords : bool = false
 
@@ -13,6 +14,7 @@ func _ready() -> void:
 	animation_player.seek(start_time,true)
 	enemy_state_machine.initialize( self )
 	hit_box.Damaged.connect(enemy_damaged)
+	stun_box.Stunned.connect(enemy_stunned)
 	if get_parent().has_signal("activate"):
 		get_parent().activate.connect(activate)
 	else:
