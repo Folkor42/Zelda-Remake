@@ -50,13 +50,13 @@ func shoot()->void:
 	#shoot_audio.play()
 	var pos = enemy.global_position
 	var rot = enemy.rotation
-	if enemy.direction==Vector2.UP:
+	if enemy.current_direction==Vector2.UP:
 		rot = deg_to_rad(270)
-	elif enemy.direction==Vector2.DOWN:
+	elif enemy.current_direction==Vector2.DOWN:
 		rot = deg_to_rad(90)
-	elif enemy.direction==Vector2.RIGHT:
+	elif enemy.current_direction==Vector2.RIGHT:
 		rot = deg_to_rad(0)
-	elif enemy.direction==Vector2.LEFT:
+	elif enemy.current_direction==Vector2.LEFT:
 		rot = deg_to_rad(180)
 	_on_enemy_shoot( pos, rot)
 	pass

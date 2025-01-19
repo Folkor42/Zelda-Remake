@@ -5,6 +5,7 @@ class_name OctorokIdle extends EnemyState
 @export var state_duration_min : float = 0.4
 @export var state_duration_max : float = 1.5
 @export var after_idle_state : EnemyState
+@onready var sprite_2d: Sprite2D = $"../../Sprite2D"
 
 var _timer : float = 0.0
 
@@ -16,7 +17,11 @@ func init() -> void:
 func enter() -> void:
 	enemy.velocity = Vector2.ZERO
 	_timer = randf_range ( state_duration_min, state_duration_max )
+	print("Picking new Direction")
+	enemy.current_direction=enemy.change_direction(enemy.current_direction)
+	sprite_2d.scale.x = -1 if enemy.current_direction== Vector2.LEFT else 1
 	enemy.UpdateAnimation( anim_name )
+	print (enemy.current_direction)
 	pass
 	
 func exit() -> void:

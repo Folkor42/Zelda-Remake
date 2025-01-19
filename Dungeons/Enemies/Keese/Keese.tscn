@@ -120,7 +120,7 @@ size = Vector2(14, 9)
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tq4b"]
 radius = 5.0
 
-[node name="Keese" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "timer")]
+[node name="Keese" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "timer", "animation_player")]
 z_index = 1
 collision_layer = 4
 script = ExtResource("1_72yfl")
@@ -128,6 +128,7 @@ speed = 20.0
 drop_group = 4
 WallDetector = NodePath("WallDetector")
 timer = NodePath("EnemyStateMachine/Fly/Change Direction")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ojhv7")

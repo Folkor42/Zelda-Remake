@@ -23,8 +23,8 @@ func init() -> void:
 func enter() -> void:
 	enemy.invulnerable = true
 	_direction = enemy.global_position.direction_to (_damage_position )
-	enemy.SetDirection ( _direction )
-	enemy.velocity = _direction * -knockback_speed
+	#enemy.SetDirection ( _direction )
+	#enemy.velocity = _direction * -knockback_speed
 	enemy.UpdateAnimation( anim_name )
 	drop_items()
 	enemy.animation_player.animation_finished.connect( _on_animation_finished )

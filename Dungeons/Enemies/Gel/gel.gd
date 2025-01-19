@@ -2,7 +2,6 @@ class_name Gel extends Enemy
 
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
 @onready var hit_box: HitBox = $HitBox
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var active = false
 

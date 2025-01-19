@@ -1,7 +1,6 @@
 class_name Keese extends Enemy
 
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_box: HitBox = $HitBox
 
 var active : bool = false

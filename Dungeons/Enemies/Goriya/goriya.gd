@@ -1,6 +1,5 @@
 class_name Goriya extends Enemy
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_box: HitBox = $HitBox
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
 

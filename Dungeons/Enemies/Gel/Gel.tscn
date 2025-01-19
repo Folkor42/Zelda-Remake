@@ -87,10 +87,11 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_j7xrg"]
 radius = 8.0
 
-[node name="Gel" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector")]
+[node name="Gel" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
 script = ExtResource("1_xc42s")
 drop_group = 4
 WallDetector = NodePath("WallDetector")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nu05k")

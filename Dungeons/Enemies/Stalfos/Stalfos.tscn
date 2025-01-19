@@ -97,13 +97,14 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4widy"]
 size = Vector2(16, 16)
 
-[node name="Stalfos" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector")]
+[node name="Stalfos" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
 collision_layer = 0
 script = ExtResource("1_lbe8u")
 hp = 2
 speed = 20.0
 drop_group = 2
 WallDetector = NodePath("WallDetector")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_jx7rv")

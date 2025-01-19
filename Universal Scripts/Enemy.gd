@@ -4,12 +4,14 @@ signal Enemy_Damaged ( hurt_box : HurtBox )
 signal Enemy_Destroyed ( hurt_box : HurtBox )
 signal Enemy_Stunned ( stun_box : StunBox )
 
+const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
+
 @export var hp : int = 1
 @export var speed : float = 50.0
 @export_enum ("A", "B", "C", "D", "X") var drop_group
 @export var WallDetector : RayCast2D
 @export var timer : Timer
-#@export var animation_player: AnimationPlayer
+@export var animation_player: AnimationPlayer
 
 var current_direction : Vector2 = Vector2.ZERO
 var cardinal_direction : Vector2 = Vector2.DOWN
@@ -88,14 +90,14 @@ func enemy_stunned( stun_box ) -> void:
 	Enemy_Stunned.emit( stun_box )
 	pass
 
-#func UpdateAnimation( state : String ) -> void:
-	#animation_player.play( state + "_" + AnimDirection() )
-	#pass
+func UpdateAnimation( state : String ) -> void:
+	animation_player.play( state + "_" + AnimDirection() )
+	pass
 #
-#func AnimDirection() -> String:
-	#if cardinal_direction == Vector2.DOWN:
-		#return "down"
-	#elif cardinal_direction == Vector2.UP:
-		#return "up"
-	#else:
-		#return "side"
+func AnimDirection() -> String:
+	if current_direction == Vector2.DOWN:
+		return "down"
+	elif current_direction == Vector2.UP:
+		return "up"
+	else:
+		return "side"
