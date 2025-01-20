@@ -12,20 +12,35 @@ var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var player : Player
 var invulnerable : bool = false
+var active : bool = false
 
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var hit_box : HitBox = $HitBox
 @onready var state_machine : DungeonEnemyStateMachine = $EnemyStateMachine
 
-
-
-
 func _ready():
 	state_machine.initialize( self )
 	player = PlayerManager.player
 	hit_box.Damaged.connect( _take_damage )
 	cardinal_direction=Vector2.DOWN
+	
+	if get_parent().has_signal("activate"):
+		get_parent().activate.connect(activate)
+	else:
+		get_parent().get_parent().activate.connect(activate)
+	if get_parent().has_signal("deactivate"):
+		get_parent().deactivate.connect(deactivate)
+	else:
+		get_parent().get_parent().deactivate.connect(deactivate)
+
+func activate ()->void:
+	active = true
+	pass
+
+func deactivate ()->void:
+	active = false
+	velocity=Vector2.ZERO
 	pass
 	
 func _process(_delta):

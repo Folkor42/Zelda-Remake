@@ -32,9 +32,10 @@ func exit() -> void:
 	pass
 
 func process( _delta : float ) -> DungeonEnemyState:
-	_timer -= _delta
-	if _timer <= 0:
-		return next_state
+	if enemy.active:
+		_timer -= _delta
+		if _timer <= 0:
+			return next_state
 	return null
 
 func physics( _delta : float ) -> DungeonEnemyState:

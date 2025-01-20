@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://bmpudlfj8sjol"]
+[gd_scene load_steps=24 format=3 uid="uid://bmpudlfj8sjol"]
 
 [ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/goriya.gd" id="1_66bbc"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_we2s4"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_gnxs7"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_i8wfd"]
 [ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_63pfb"]
+[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="5_gud48"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/idle.gd" id="6_f0525"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/move.gd" id="7_lq3dx"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/damaged.gd" id="8_mptdq"]
@@ -166,6 +167,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86i26"]
 size = Vector2(14, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agul0"]
+size = Vector2(16, 16)
+
 [node name="Goriya" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
 collision_layer = 0
 script = ExtResource("1_66bbc")
@@ -210,6 +214,14 @@ script = ExtResource("4_i8wfd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_86i26")
+
+[node name="StunBox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+script = ExtResource("5_gud48")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StunBox"]
+shape = SubResource("RectangleShape2D_agul0")
 
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("5_63pfb")

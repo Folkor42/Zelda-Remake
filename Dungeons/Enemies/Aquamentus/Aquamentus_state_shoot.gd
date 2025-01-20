@@ -11,26 +11,19 @@ const ENEMYBULLET = preload("res://Dungeons/Enemies/fireball_bullet.tscn")
 @onready var parent : Node = get_parent().get_parent().get_parent()
 
 var shooting : bool = false
-var count : int = 0
-var shot_count = 1
+
 func enter() -> void:
-	print("Enemy Shooting")
 	enemy.velocity=Vector2.ZERO
-	shooting = true
-	count = 1
 	enemy.UpdateAnimation( anim_name )
 	animation_player.animation_finished.connect(stop_shooting)
-	shoot()
+	if enemy.active:
+		shooting = true
+		shoot()
 	pass
 
 func stop_shooting( _a )->void:
-	
-	if count < shot_count:
-		shooting = true
-		count+=1
-	else:
-		animation_player.animation_finished.disconnect(stop_shooting)
-		shooting = false
+	animation_player.animation_finished.disconnect(stop_shooting)
+	shooting = false
 	pass
 	
 func exit() -> void:
@@ -48,7 +41,6 @@ func physics( _delta : float ) -> DungeonEnemyState:
 	return null
 
 func shoot()->void:
-	print("SHOOT towards: "+str(enemy.direction))
 	#shoot_audio.play()
 	var pos = mouth.global_position
 	var dir = (PlayerManager.player.global_position - enemy.global_position).normalized()
