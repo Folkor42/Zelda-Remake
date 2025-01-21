@@ -1,47 +1,40 @@
 class_name OctorokStun extends EnemyState
 
-@export var anim_name : String = "stun"
-@export var knockback_speed : float = 100.0
-@export var decelerate_speed : float = 10.0
 
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
+@onready var stun_box: StunBox = $"../../StunBox"
+
+@export var anim_name : String = "stun"
 @export_category("AI")
 @export var next_state : EnemyState
 
-var _direction : Vector2
-var _animation_finished : bool = false
-var _damage_position : Vector2
+var timer : float = 3.0
+var timestopped : bool = false
 
 func init() -> void:
-	enemy.Enemy_Damaged.connect( _on_enemy_damaged )
-	pass # Replace with function body.
+	enemy.Enemy_Stunned.connect ( _on_enemy_stunned )
+	stun_box.Stunned.connect( _on_enemy_stunned )
 
-func enter() -> void:
-	enemy.invulnerable = true
-	_animation_finished = false
-	_direction = enemy.global_position.direction_to ( _damage_position )
-	enemy.SetDirection ( _direction )
-	enemy.velocity = _direction * -knockback_speed
-	enemy.UpdateAnimation( anim_name )
-	enemy.animation_player.animation_finished.connect( _on_animation_finished )
-	pass
-	
-func exit() -> void:
-	enemy.invulnerable = false
-	enemy.animation_player.animation_finished.disconnect ( _on_animation_finished )
-	pass
-
-func process( _delta : float ) -> EnemyState:
-	if _animation_finished == true :
-		return next_state
-	enemy.velocity -= enemy.velocity * decelerate_speed * _delta
-	return null
-
-func physics( _delta : float ) -> EnemyState:
-	return null
-	
-func _on_enemy_damaged ( hurt_box : HurtBox ) -> void:
-	_damage_position = hurt_box.global_position
+func timestop()->void:
+	timestopped = true
 	state_machine.ChangeState( self )
+		
+func enter() -> void:
+	# Stunned
+	timer=3.0
+	if timestopped:
+		timer=20.0
+	enemy.UpdateAnimation( anim_name )
+	enemy.velocity = Vector2.ZERO
+	await get_tree().create_timer(timer).timeout
+	enemy.UpdateAnimation( "idle" )
+	state_machine.ChangeState( next_state )
+pass
+
+func exit() -> void:
+	timestopped=false
 	
-func _on_animation_finished ( _a : String ) -> void:
-	_animation_finished = true
+func _on_enemy_stunned ( _hurt_box : HurtBox = null ) -> void:
+	timer=3.0
+	state_machine.ChangeState( self )
+	pass

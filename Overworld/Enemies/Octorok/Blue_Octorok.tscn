@@ -1,11 +1,13 @@
-[gd_scene load_steps=31 format=3 uid="uid://b4ymlo8lave5m"]
+[gd_scene load_steps=36 format=3 uid="uid://b4ymlo8lave5m"]
 
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_qwnmi"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_fgoay"]
+[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_fy2q6"]
 [ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="3_utir6"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="4_rga1r"]
 [ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_xm5wq"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="6_5gton"]
+[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_wrvcv"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="7_arc3e"]
 [ext_resource type="Resource" uid="uid://d1qkoch45h7oi" path="res://Items/Drop Table B.tres" id="8_soj48"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_r1dvx"]
@@ -13,6 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="12_8qnoa"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_stun.gd" id="13_1i3am"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="13_qbjnn"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/damaged.gd" id="14_w0s10"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dt50j"]
+shader = ExtResource("2_fy2q6")
+shader_parameter/blink_color = Color(0.84, 0.1092, 0.1092, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ddn"]
 size = Vector2(14, 14)
@@ -427,7 +435,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_okufh"]
 resource_name = "stun_down"
-length = 0.3
+length = 3.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -456,7 +464,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_8ari1"]
 resource_name = "stun_side"
-length = 0.3
+length = 3.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -485,7 +493,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_8rpp2"]
 resource_name = "stun_up"
-length = 0.3
+length = 3.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -535,15 +543,20 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnx0x"]
 size = Vector2(12, 12)
 
-[node name="Blue Octorok" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oukfr"]
+size = Vector2(16, 16)
+
+[node name="Blue Octorok" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
 top_level = true
 z_index = 1
-position = Vector2(121, 128)
 collision_layer = 4
 script = ExtResource("1_qwnmi")
 hp = 2
+WallDetector = NodePath("WallDetector")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dt50j")
 texture = ExtResource("2_fgoay")
 hframes = 4
 region_enabled = true
@@ -551,6 +564,9 @@ region_rect = Rect2(0, 16, 64, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_68ddn")
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -566,6 +582,22 @@ script = ExtResource("4_rga1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_i30tg")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("13_qbjnn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_wnx0x")
+
+[node name="StunBox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+script = ExtResource("6_wrvcv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StunBox"]
+shape = SubResource("RectangleShape2D_oukfr")
 
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("5_xm5wq")
@@ -590,17 +622,14 @@ after_idle_state = NodePath("../Idle")
 script = ExtResource("13_1i3am")
 next_state = NodePath("../Idle")
 
+[node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("14_w0s10")
+knock_back = 50.0
+next_state = NodePath("../Idle")
+
 [node name="DeathSprite" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("12_8qnoa")
 hframes = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
-[node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("13_qbjnn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("RectangleShape2D_wnx0x")

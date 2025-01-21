@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://shvn3y018out"]
+[gd_scene load_steps=33 format=3 uid="uid://shvn3y018out"]
 
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="1_jlsry"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_xn7lh"]
@@ -7,10 +7,12 @@
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="3_mhv6m"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_ngxr5"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="6_0aiel"]
+[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_813nn"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="10_7okah"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="10_grtm4"]
 [ext_resource type="Resource" uid="uid://cumbs2b7gq6bv" path="res://Items/Drop Table A.tres" id="10_u7g2u"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_2ale3"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_stun.gd" id="13_lh5sp"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="13_qt8eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ddn"]
@@ -426,7 +428,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ffkkb"]
 resource_name = "stun_down"
-length = 0.3
+length = 3.0
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -456,7 +458,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_bjn3v"]
 resource_name = "stun_side"
-length = 0.3
+length = 3.0
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -486,7 +488,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_s25hx"]
 resource_name = "stun_up"
-length = 0.3
+length = 3.0
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -537,6 +539,9 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcwkp"]
 size = Vector2(12, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bapwm"]
+size = Vector2(16, 16)
+
 [node name="Octorok" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
 top_level = true
 z_index = 1
@@ -574,6 +579,22 @@ script = ExtResource("5_ngxr5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_i30tg")
 
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("13_qt8eo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_lcwkp")
+
+[node name="StunBox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+script = ExtResource("6_813nn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StunBox"]
+shape = SubResource("RectangleShape2D_bapwm")
+
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("2_75drt")
 
@@ -595,17 +616,13 @@ next_state = NodePath("../Idle")
 script = ExtResource("11_2ale3")
 after_idle_state = NodePath("../Wander")
 
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("13_lh5sp")
+next_state = NodePath("../Idle")
+
 [node name="DeathSprite" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("10_7okah")
 hframes = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
-[node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("13_qt8eo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("RectangleShape2D_lcwkp")

@@ -32,6 +32,8 @@ func stop_shooting( _a )->void:
 	pass
 	
 func exit() -> void:
+	if animation_player.animation_finished.is_connected(stop_shooting):
+		animation_player.animation_finished.disconnect(stop_shooting)
 	pass
 	
 func process( _delta : float ) -> EnemyState:
