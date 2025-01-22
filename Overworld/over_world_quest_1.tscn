@@ -12,10 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://cn6moxk3u602t" path="res://Assets/Audio/Sounds/Sound Effect (21) - Secret Reveal.wav" id="12_eei64"]
 [ext_resource type="PackedScene" uid="uid://shvn3y018out" path="res://Overworld/Enemies/Octorok/Octorok.tscn" id="13_f8bql"]
 [ext_resource type="PackedScene" uid="uid://cxlqwcmp32abu" path="res://Dungeons/burnable_tree.tscn" id="13_iv2n7"]
-[ext_resource type="PackedScene" uid="uid://b4ymlo8lave5m" path="res://Overworld/Enemies/Octorok/Blue_Octorok.tscn" id="14_4j74c"]
 [ext_resource type="PackedScene" uid="uid://bm5kcyh6hfim2" path="res://Overworld/healing_pond.tscn" id="14_jfu83"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="15_joiq7"]
 [ext_resource type="Resource" uid="uid://4sh8d5001njr" path="res://Items/boomerang.tres" id="16_55fbv"]
+[ext_resource type="PackedScene" uid="uid://dsoxfgec6hq2v" path="res://Overworld/Enemies/Leever/Red_Leever.tscn" id="16_p3ami"]
 
 [node name="OverWorld_Quest1" type="Node2D"]
 script = ExtResource("1_abc4w")
@@ -335,9 +335,9 @@ position = Vector2(184, -376)
 [node name="HealingPond" parent="." instance=ExtResource("14_jfu83")]
 position = Vector2(640, -592)
 
-[node name="Blue Octorok" parent="." instance=ExtResource("14_4j74c")]
-position = Vector2(194, 146)
-
 [node name="ItemDropper" parent="." instance=ExtResource("15_joiq7")]
 position = Vector2(98, 79)
 item_data = ExtResource("16_55fbv")
+
+[node name="Red Leever" parent="." instance=ExtResource("16_p3ami")]
+position = Vector2(93, 132)
