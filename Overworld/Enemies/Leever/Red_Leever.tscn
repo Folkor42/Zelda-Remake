@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="5_2p438"]
 [ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_nacer"]
 [ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_mrqqr"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_idle.gd" id="8_dmsyl"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_underground.gd" id="8_dmsyl"]
 [ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="9_li4ga"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_destroy.gd" id="9_m3qfl"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_wander.gd" id="10_elx0x"]
@@ -150,9 +150,11 @@ shape = SubResource("RectangleShape2D_68ddn")
 target_position = Vector2(0, 10)
 hit_from_inside = true
 
-[node name="TargetPosition" type="Marker2D" parent="."]
+[node name="CurrentToTarget" type="RayCast2D" parent="."]
 
-[node name="PathToPlayer" type="RayCast2D" parent="TargetPosition"]
+[node name="TargetPosition" type="Marker2D" parent="CurrentToTarget"]
+
+[node name="TargetToPlayer" type="RayCast2D" parent="CurrentToTarget/TargetPosition"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
