@@ -17,11 +17,9 @@ func init() -> void:
 func enter() -> void:
 	enemy.velocity = Vector2.ZERO
 	_timer = randf_range ( state_duration_min, state_duration_max )
-	print("Picking new Direction")
 	enemy.current_direction=enemy.change_direction(enemy.current_direction)
 	sprite_2d.scale.x = -1 if enemy.current_direction== Vector2.LEFT else 1
 	enemy.UpdateAnimation( anim_name )
-	print (enemy.current_direction)
 	pass
 	
 func exit() -> void:

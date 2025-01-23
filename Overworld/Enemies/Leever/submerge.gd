@@ -21,7 +21,7 @@ func enter() -> void:
 	pass
 	
 func exit() -> void:
-	enemy.visible=false
+	#enemy.visible=false
 	enemy.change_conditions("UNDER")
 	pass
 
