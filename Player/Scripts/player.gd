@@ -128,7 +128,10 @@ func _unhandled_input(_event):
 	
 func show_menu()->void:
 	if menu_opened:
-		get_parent().get_node("InventoryScreen").queue_free()
+		var menu=get_parent().get_node("InventoryScreen")
+		menu.anim.play("roll_up")
+		await menu.anim.animation_finished
+		menu.queue_free()
 		menu_opened = false
 		return
 	var overlay = inv.instantiate()

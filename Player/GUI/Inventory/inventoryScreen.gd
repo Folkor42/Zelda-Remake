@@ -27,6 +27,9 @@ extends CanvasLayer
 @onready var master_key_sprite: Sprite2D = $Control/MasterKeySprite
 @onready var power_bracelet_sprite: Sprite2D = $Control/PowerBraceletSprite
 
+@onready var anim: AnimationPlayer = $AnimationPlayer
+
+
 func _ready() -> void:
 	equip(PlayerManager.active_item)
 	update_passive_items()

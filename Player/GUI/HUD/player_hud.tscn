@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjvndve0gt2lj"]
+[gd_scene load_steps=10 format=3 uid="uid://bjvndve0gt2lj"]
 
 [ext_resource type="Script" path="res://Player/GUI/HUD/player_hud.gd" id="1_q6v14"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_v3tc0"]
 [ext_resource type="PackedScene" uid="uid://37st6ky0w4is" path="res://Player/GUI/HUD/heart.tscn" id="3_433lj"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="5_jggjn"]
+[ext_resource type="Script" path="res://Player/GUI/HUD/over_world_map.gd" id="5_xi55x"]
 
 [sub_resource type="GDScript" id="GDScript_j4pyk"]
 script/source = "extends Label
@@ -178,8 +179,9 @@ offset_bottom = 48.0
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 16
+script = ExtResource("5_xi55x")
 
-[node name="ColorRect" type="ColorRect" parent="Control/OverWorldMap"]
+[node name="ColorRect1" type="ColorRect" parent="Control/OverWorldMap"]
 custom_minimum_size = Vector2(4, 4)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1005,6 +1007,7 @@ size_flags_vertical = 6
 color = Color(0, 0.658824, 0, 1)
 
 [node name="ColorRect120" type="ColorRect" parent="Control/OverWorldMap"]
+modulate = Color(2, 2, 2, 1)
 custom_minimum_size = Vector2(4, 4)
 layout_mode = 2
 size_flags_horizontal = 6

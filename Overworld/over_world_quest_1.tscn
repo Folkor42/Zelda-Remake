@@ -276,17 +276,17 @@ stream = ExtResource("12_eei64")
 
 [node name="Map Triggers" type="Node" parent="."]
 
-[node name="Player Detector - Overworld 8, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+[node name="Player Detector - Overworld 6, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false
-position = Vector2(128, 120)
-x = 8
-y = 8
+position = Vector2(-384, -232)
+x = 6
+y = 6
 
-[node name="Player Detector - Overworld 7, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+[node name="Player Detector - Overworld 6, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false
-position = Vector2(-128, 120)
-x = 7
-y = 8
+position = Vector2(-384, -56)
+x = 6
+y = 7
 
 [node name="Player Detector - Overworld 6, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false
@@ -294,17 +294,35 @@ position = Vector2(-384, 120)
 x = 6
 y = 8
 
-[node name="Player Detector - Overworld 8, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+[node name="Player Detector - Overworld 7, 5" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false
-position = Vector2(128, -56)
-x = 8
+position = Vector2(-128, -408)
+x = 7
+y = 5
+
+[node name="Player Detector - Overworld 7, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(-128, -232)
+x = 7
+y = 6
+
+[node name="Player Detector - Overworld 7, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(-128, -56)
+x = 7
 y = 7
 
-[node name="Player Detector - Overworld 8, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+[node name="Player Detector - Overworld 7, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false
-position = Vector2(128, -232)
+position = Vector2(-128, 120)
+x = 7
+y = 8
+
+[node name="Player Detector - Overworld 8, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(128, -584)
 x = 8
-y = 6
+y = 4
 
 [node name="Player Detector - Overworld 8, 5" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false
@@ -312,11 +330,113 @@ position = Vector2(128, -408)
 x = 8
 y = 5
 
-[node name="Player Detector - Overworld 8, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+[node name="Player Detector - Overworld 8, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false
-position = Vector2(128, -584)
+position = Vector2(128, -232)
 x = 8
+y = 6
+
+[node name="Player Detector - Overworld 8, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(128, -56)
+x = 8
+y = 7
+
+[node name="Player Detector - Overworld 8, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(128, 120)
+x = 8
+y = 8
+
+[node name="Player Detector - Overworld 9, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(384, -584)
+x = 9
 y = 4
+
+[node name="Player Detector - Overworld 9, 5" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(384, -408)
+x = 9
+y = 5
+
+[node name="Player Detector - Overworld 9, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(384, -232)
+x = 9
+y = 6
+
+[node name="Player Detector - Overworld 9, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(384, -56)
+x = 9
+y = 7
+
+[node name="Player Detector - Overworld 9, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(384, 120)
+x = 9
+y = 8
+
+[node name="Player Detector - Overworld 10, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(640, -584)
+x = 10
+y = 4
+
+[node name="Player Detector - Overworld 10, 5" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(640, -408)
+x = 10
+y = 5
+
+[node name="Player Detector - Overworld 10, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(640, -232)
+x = 10
+y = 6
+
+[node name="Player Detector - Overworld 10, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(640, -56)
+x = 10
+y = 7
+
+[node name="Player Detector - Overworld 10, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(640, 120)
+x = 10
+y = 8
+
+[node name="Player Detector - Overworld 11, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(896, -584)
+x = 11
+y = 4
+
+[node name="Player Detector - Overworld 11, 5" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(896, -408)
+x = 11
+y = 5
+
+[node name="Player Detector - Overworld 11, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(896, -232)
+x = 11
+y = 6
+
+[node name="Player Detector - Overworld 11, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(896, -56)
+x = 11
+y = 7
+
+[node name="Player Detector - Overworld 11, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
+position = Vector2(896, 120)
+x = 11
+y = 8
 
 [node name="Secrets" type="Node" parent="."]
 

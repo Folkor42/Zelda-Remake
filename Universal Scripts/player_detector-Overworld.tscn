@@ -12,6 +12,11 @@ func _ready() -> void:
 	
 func _on_player_detector_body_entered(_b) -> void:
 	Events.map_cords.emit(x,y)
+	body_exited.connect (_on_player_detector_body_exited)
+
+func _on_player_detector_body_exited(_b) -> void:
+	Events.map_cords_left.emit(x,y)
+	body_exited.disconnect (_on_player_detector_body_exited)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taytn"]
