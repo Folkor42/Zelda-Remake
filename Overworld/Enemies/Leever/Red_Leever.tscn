@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://dsoxfgec6hq2v"]
+[gd_scene load_steps=29 format=3 uid="uid://dsoxfgec6hq2v"]
 
 [ext_resource type="Script" path="res://Overworld/Enemies/Leever/leever.gd" id="1_17lqw"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_mecpy"]
+[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_n4kcu"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="4_gvnfe"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="5_2p438"]
 [ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_nacer"]
@@ -11,9 +12,16 @@
 [ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_destroy.gd" id="9_m3qfl"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_wander.gd" id="10_elx0x"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_attack.gd" id="11_8kv2q"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_damaged.gd" id="11_58ogd"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_stun.gd" id="12_3jh6t"]
 [ext_resource type="Script" path="res://Overworld/Enemies/Leever/submerge.gd" id="12_f5qvs"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="14_7mvcp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nteas"]
+resource_local_to_scene = true
+shader = ExtResource("2_n4kcu")
+shader_parameter/blink_color = Color(0.705546, 0.734648, 0, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ddn"]
 size = Vector2(12, 12)
@@ -133,11 +141,13 @@ z_index = 1
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_17lqw")
+hp = 2
 speed = 20.0
 WallDetector = NodePath("WallDetector")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nteas")
 texture = ExtResource("2_mecpy")
 hframes = 5
 region_enabled = true
@@ -194,6 +204,10 @@ shape = SubResource("RectangleShape2D_bapwm")
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("7_mrqqr")
 
+[node name="Submerge" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("12_f5qvs")
+next_state = NodePath("../Underground")
+
 [node name="Underground" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
 script = ExtResource("8_dmsyl")
 state_duration_max = 1.0
@@ -202,6 +216,10 @@ after_idle_state = NodePath("../Rise")
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("9_m3qfl")
 drop_table = ExtResource("9_li4ga")
+
+[node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("11_58ogd")
+next_state = NodePath("../Move")
 
 [node name="Move" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("10_elx0x")
@@ -214,10 +232,6 @@ after_idle_state = NodePath("../Move")
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("12_3jh6t")
 next_state = NodePath("../Move")
-
-[node name="Submerge" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("12_f5qvs")
-next_state = NodePath("../Underground")
 
 [node name="DeathSprite" type="Sprite2D" parent="."]
 visible = false

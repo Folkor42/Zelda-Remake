@@ -14,7 +14,7 @@ func init() -> void:
 func enter() -> void:
 	#knockback
 	var timer = get_tree().create_timer(0.2)
-	enemy.UpdateAnimation( anim_name )
+	animation_player.play( anim_name )
 	enemy.velocity = -(enemy.global_position.direction_to(PlayerManager.player.global_position) * knock_back)
 	await timer.timeout
 	state_machine.ChangeState( next_state )
