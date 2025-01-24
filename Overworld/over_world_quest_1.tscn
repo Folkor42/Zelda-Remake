@@ -340,4 +340,16 @@ position = Vector2(98, 79)
 item_data = ExtResource("16_55fbv")
 
 [node name="Red Leever" parent="." instance=ExtResource("16_p3ami")]
-position = Vector2(93, 132)
+position = Vector2(-448, 160)
+
+[node name="Red Leever2" parent="." instance=ExtResource("16_p3ami")]
+position = Vector2(384, -443)
+
+[node name="Red Leever3" parent="." instance=ExtResource("16_p3ami")]
+position = Vector2(357, -396)
+
+[node name="Red Leever4" parent="." instance=ExtResource("16_p3ami")]
+position = Vector2(432, -404)
+
+[node name="Red Leever5" parent="." instance=ExtResource("16_p3ami")]
+position = Vector2(328, -360)

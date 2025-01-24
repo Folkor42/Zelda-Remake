@@ -26,9 +26,10 @@ func enter() -> void:
 	enemy.velocity = Vector2.ZERO
 	_timer = randf_range ( state_duration_min, state_duration_max )
 	var player_distance = enemy.global_position.distance_to(PlayerManager.player.global_position)
-	print (player_distance)
+	#print (player_distance)
 	if player_distance > 100:
-		print ("Nah, too far!")
+		#print ("Nah, too far!")
+		pass
 	else:
 		find_new_location()
 	enemy.animation_player.play( anim_name )
@@ -43,8 +44,9 @@ func process( _delta : float ) -> EnemyState:
 	_timer -= _delta
 	if _timer <= 0:
 		if wall_detector.is_colliding():
-			print ("I'm in a wall!")
-			return $"../Submerge"
+			#print ("I'm in a wall!")
+			enter()
+			return null
 		return after_idle_state
 	return null
 
@@ -59,12 +61,12 @@ func find_new_location():
 
 	# NOTE 2. Check for obstacles between the monster's current position and the target position using raycasts or physics collision checks.
 	if current_to_target.is_colliding():
-		print("Can't move to new RISE spot safely")
+		#print("Can't move to new RISE spot safely")
 		move_target()
 
 	# NOTE 3. Adjust the position if needed to ensure it is valid and not inside a wall.
 	if wall_detector.is_colliding():
-		print ("I'm in a wall Dumbass!")
+		#print ("I'm in a wall Dumbass!")
 		move_target()
 
 	# NOTE 4. Move the monster to the target position.
