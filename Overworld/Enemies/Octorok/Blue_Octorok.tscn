@@ -552,6 +552,7 @@ z_index = 1
 collision_layer = 4
 script = ExtResource("1_qwnmi")
 hp = 2
+speed = 30.0
 WallDetector = NodePath("WallDetector")
 animation_player = NodePath("AnimationPlayer")
 

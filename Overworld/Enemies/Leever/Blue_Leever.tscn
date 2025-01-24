@@ -1,0 +1,240 @@
+[gd_scene load_steps=29 format=3 uid="uid://buwb31nlfewoa"]
+
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/leever.gd" id="1_r0lkf"]
+[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_js31y"]
+[ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="3_53gpx"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_dfjkb"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="6_4auc3"]
+[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="7_klnks"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/submerge.gd" id="7_nau67"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_underground.gd" id="8_n7f85"]
+[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="8_pp4sm"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_destroy.gd" id="9_g3jji"]
+[ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="10_xlc04"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_wander.gd" id="11_g1cee"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_damaged.gd" id="12_fgpmm"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_attack.gd" id="12_skwfi"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_stun.gd" id="13_uro5o"]
+[ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="16_4xkvo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuyh7"]
+shader = ExtResource("2_js31y")
+shader_parameter/blink_color = Color(0.972336, 0, 0.149257, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68ddn"]
+size = Vector2(12, 12)
+
+[sub_resource type="Animation" id="Animation_xmeog"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ipkpv"]
+resource_name = "idle"
+length = 2.0
+step = 0.1
+
+[sub_resource type="Animation" id="Animation_i4kcy"]
+resource_name = "move"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_bhwd8"]
+resource_name = "rise"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_covyu"]
+resource_name = "stun"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_3403i"]
+resource_name = "submerge"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eon5c"]
+_data = {
+"RESET": SubResource("Animation_xmeog"),
+"idle": SubResource("Animation_ipkpv"),
+"move": SubResource("Animation_i4kcy"),
+"rise": SubResource("Animation_bhwd8"),
+"stun": SubResource("Animation_covyu"),
+"submerge": SubResource("Animation_3403i")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i30tg"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcwkp"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bapwm"]
+size = Vector2(16, 16)
+
+[node name="Blue Leever" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
+top_level = true
+z_index = 1
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_r0lkf")
+hp = 4
+speed = 20.0
+WallDetector = NodePath("WallDetector")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xuyh7")
+texture = ExtResource("3_53gpx")
+hframes = 8
+region_enabled = true
+region_rect = Rect2(0, 32, 128, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_68ddn")
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 10)
+hit_from_inside = true
+
+[node name="CurrentToTarget" type="RayCast2D" parent="."]
+
+[node name="TargetPosition" type="Marker2D" parent="CurrentToTarget"]
+
+[node name="TargetToPlayer" type="RayCast2D" parent="CurrentToTarget/TargetPosition"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eon5c")
+}
+
+[node name="HitBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("5_dfjkb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_i30tg")
+
+[node name="HurtBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("6_4auc3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_lcwkp")
+
+[node name="StunBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 0
+monitoring = false
+script = ExtResource("7_klnks")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StunBox"]
+shape = SubResource("RectangleShape2D_bapwm")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("8_pp4sm")
+
+[node name="Submerge" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("7_nau67")
+next_state = NodePath("../Underground")
+
+[node name="Underground" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("8_n7f85")
+state_duration_max = 1.0
+after_idle_state = NodePath("../Rise")
+
+[node name="Destroy" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("9_g3jji")
+drop_table = ExtResource("10_xlc04")
+
+[node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("12_fgpmm")
+next_state = NodePath("../Move")
+
+[node name="Move" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("11_g1cee")
+next_state = NodePath("../Submerge")
+
+[node name="Rise" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("12_skwfi")
+after_idle_state = NodePath("../Move")
+
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("13_uro5o")
+next_state = NodePath("../Move")
+
+[node name="DeathSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("16_4xkvo")
+hframes = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

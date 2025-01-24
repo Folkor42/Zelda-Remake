@@ -12,10 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://cn6moxk3u602t" path="res://Assets/Audio/Sounds/Sound Effect (21) - Secret Reveal.wav" id="12_eei64"]
 [ext_resource type="PackedScene" uid="uid://shvn3y018out" path="res://Overworld/Enemies/Octorok/Octorok.tscn" id="13_f8bql"]
 [ext_resource type="PackedScene" uid="uid://cxlqwcmp32abu" path="res://Dungeons/burnable_tree.tscn" id="13_iv2n7"]
-[ext_resource type="PackedScene" uid="uid://b4ymlo8lave5m" path="res://Overworld/Enemies/Octorok/Blue_Octorok.tscn" id="14_4j74c"]
 [ext_resource type="PackedScene" uid="uid://bm5kcyh6hfim2" path="res://Overworld/healing_pond.tscn" id="14_jfu83"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="15_joiq7"]
 [ext_resource type="Resource" uid="uid://4sh8d5001njr" path="res://Items/boomerang.tres" id="16_55fbv"]
+[ext_resource type="PackedScene" uid="uid://dsoxfgec6hq2v" path="res://Overworld/Enemies/Leever/Red_Leever.tscn" id="16_p3ami"]
 
 [node name="OverWorld_Quest1" type="Node2D"]
 script = ExtResource("1_abc4w")
@@ -164,7 +164,7 @@ position = Vector2(-360, -8)
 position = Vector2(-328, -208)
 
 [node name="Octorok19" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(120, -568)
+position = Vector2(200, -540)
 
 [node name="Octorok20" parent="Enemies" instance=ExtResource("13_f8bql")]
 position = Vector2(376, -632)
@@ -250,6 +250,21 @@ position = Vector2(-488, -120)
 [node name="Octorok47" parent="Enemies" instance=ExtResource("13_f8bql")]
 position = Vector2(-464, -32)
 
+[node name="Red Leever" parent="Enemies" instance=ExtResource("16_p3ami")]
+position = Vector2(-448, 160)
+
+[node name="Red Leever2" parent="Enemies" instance=ExtResource("16_p3ami")]
+position = Vector2(384, -443)
+
+[node name="Red Leever3" parent="Enemies" instance=ExtResource("16_p3ami")]
+position = Vector2(357, -396)
+
+[node name="Red Leever4" parent="Enemies" instance=ExtResource("16_p3ami")]
+position = Vector2(432, -404)
+
+[node name="Red Leever5" parent="Enemies" instance=ExtResource("16_p3ami")]
+position = Vector2(328, -360)
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 color = Color(0.184306, 0.459203, 0.830396, 1)
@@ -334,9 +349,6 @@ position = Vector2(184, -376)
 
 [node name="HealingPond" parent="." instance=ExtResource("14_jfu83")]
 position = Vector2(640, -592)
-
-[node name="Blue Octorok" parent="." instance=ExtResource("14_4j74c")]
-position = Vector2(194, 146)
 
 [node name="ItemDropper" parent="." instance=ExtResource("15_joiq7")]
 position = Vector2(98, 79)
