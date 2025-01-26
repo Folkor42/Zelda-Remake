@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="16_4xkvo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xuyh7"]
+resource_local_to_scene = true
 shader = ExtResource("2_js31y")
 shader_parameter/blink_color = Color(0.972336, 0, 0.149257, 1)
 shader_parameter/blink_intensity = 0.0
@@ -186,6 +187,7 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("6_4auc3")
+damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_lcwkp")

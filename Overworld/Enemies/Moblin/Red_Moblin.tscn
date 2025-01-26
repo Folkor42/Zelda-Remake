@@ -1,30 +1,30 @@
-[gd_scene load_steps=36 format=3 uid="uid://b4ymlo8lave5m"]
+[gd_scene load_steps=36 format=3 uid="uid://is6dhaplv73w"]
 
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_qwnmi"]
-[ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_fgoay"]
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_fy2q6"]
-[ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="3_utir6"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="4_rga1r"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_xm5wq"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="6_5gton"]
-[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_wrvcv"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="7_arc3e"]
-[ext_resource type="Resource" uid="uid://d1qkoch45h7oi" path="res://Items/Drop Table B.tres" id="8_soj48"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_r1dvx"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="11_sa778"]
-[ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="12_8qnoa"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_stun.gd" id="13_1i3am"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="13_qbjnn"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/damaged.gd" id="14_w0s10"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/moblin.gd" id="1_0wqah"]
+[ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_hmolx"]
+[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_nch1j"]
+[ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="3_r7gyr"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="4_j0fxa"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="5_ura7a"]
+[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_pwdho"]
+[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_2dx5i"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_idle.gd" id="8_6tsse"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_destroy.gd" id="9_ph46l"]
+[ext_resource type="Resource" uid="uid://cumbs2b7gq6bv" path="res://Items/Drop Table A.tres" id="10_7k8rx"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_wander.gd" id="10_h2sga"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_attack.gd" id="11_o8yj6"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_stun.gd" id="12_orate"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_damaged.gd" id="14_ql2st"]
+[ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="14_utl5a"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dt50j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3foq"]
 resource_local_to_scene = true
-shader = ExtResource("2_fy2q6")
-shader_parameter/blink_color = Color(0.84, 0.1092, 0.1092, 1)
+shader = ExtResource("2_nch1j")
+shader_parameter/blink_color = Color(0.814725, 0.736205, 7.70092e-07, 1)
 shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ddn"]
-size = Vector2(14, 14)
+size = Vector2(12, 12)
 
 [sub_resource type="Animation" id="Animation_u2xrl"]
 length = 0.001
@@ -43,43 +43,43 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/path = NodePath("Sprite2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/path = NodePath("DeathSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("DeathSprite:frame")
+tracks/3/path = NodePath("DeathSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("DeathSprite:visible")
+tracks/4/path = NodePath("Sprite2D:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -100,22 +100,22 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 0, 1]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/path = NodePath("Sprite2D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_8gg04"]
@@ -129,22 +129,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 3, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
+"values": [2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_krru4"]
@@ -158,22 +146,22 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 0, 1]
+"values": [1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/path = NodePath("Sprite2D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_46ycf"]
@@ -226,7 +214,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 1.00778,
 "start_offset": 0.0,
-"stream": ExtResource("3_utir6")
+"stream": ExtResource("3_r7gyr")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -282,7 +270,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 1.00778,
 "start_offset": 0.0,
-"stream": ExtResource("3_utir6")
+"stream": ExtResource("3_r7gyr")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -338,7 +326,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 1.00778,
 "start_offset": 0.0,
-"stream": ExtResource("3_utir6")
+"stream": ExtResource("3_r7gyr")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -346,7 +334,7 @@ tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_a2ijn"]
 resource_name = "idle_down"
-length = 0.3
+length = 0.4
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -356,22 +344,22 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/path = NodePath("Sprite2D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_eucp1"]
@@ -391,52 +379,11 @@ tracks/0/keys = {
 "update": 1,
 "values": [2, 3]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
-}
 
 [sub_resource type="Animation" id="Animation_j18hg"]
 resource_name = "idle_up"
-length = 0.3
+length = 0.4
 loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
-}
-
-[sub_resource type="Animation" id="Animation_okufh"]
-resource_name = "stun_down"
-length = 3.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -453,19 +400,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/path = NodePath("Sprite2D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_8ari1"]
+[sub_resource type="Animation" id="Animation_ffkkb"]
+resource_name = "stun_down"
+length = 3.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_bjn3v"]
 resource_name = "stun_side"
 length = 3.0
+loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -479,22 +445,11 @@ tracks/0/keys = {
 "update": 1,
 "values": [3]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
-}
 
-[sub_resource type="Animation" id="Animation_8rpp2"]
+[sub_resource type="Animation" id="Animation_s25hx"]
 resource_name = "stun_up"
 length = 3.0
+loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -507,18 +462,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xse2c"]
@@ -533,36 +476,38 @@ _data = {
 "idle_down": SubResource("Animation_a2ijn"),
 "idle_side": SubResource("Animation_eucp1"),
 "idle_up": SubResource("Animation_j18hg"),
-"stun_down": SubResource("Animation_okufh"),
-"stun_side": SubResource("Animation_8ari1"),
-"stun_up": SubResource("Animation_8rpp2")
+"stun_down": SubResource("Animation_ffkkb"),
+"stun_side": SubResource("Animation_bjn3v"),
+"stun_up": SubResource("Animation_s25hx")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i30tg"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnx0x"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcwkp"]
 size = Vector2(12, 12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oukfr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bapwm"]
 size = Vector2(16, 16)
 
-[node name="Blue Octorok" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
+[node name="Red Moblin" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
 top_level = true
 z_index = 1
 collision_layer = 4
-script = ExtResource("1_qwnmi")
+collision_mask = 5
+script = ExtResource("1_0wqah")
 hp = 2
-speed = 30.0
+speed = 20.0
+drop_group = 0
 WallDetector = NodePath("WallDetector")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_dt50j")
-texture = ExtResource("2_fgoay")
+material = SubResource("ShaderMaterial_m3foq")
+texture = ExtResource("2_hmolx")
 hframes = 4
 region_enabled = true
-region_rect = Rect2(0, 16, 64, 16)
+region_rect = Rect2(80, 0, 64, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_68ddn")
@@ -580,7 +525,7 @@ autoplay = "idle_down"
 collision_layer = 4
 collision_mask = 0
 monitoring = false
-script = ExtResource("4_rga1r")
+script = ExtResource("4_j0fxa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_i30tg")
@@ -588,50 +533,51 @@ shape = SubResource("RectangleShape2D_i30tg")
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("13_qbjnn")
+script = ExtResource("5_ura7a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("RectangleShape2D_wnx0x")
+shape = SubResource("RectangleShape2D_lcwkp")
 
 [node name="StunBox" type="Area2D" parent="."]
 collision_layer = 512
 collision_mask = 512
-script = ExtResource("6_wrvcv")
+script = ExtResource("6_pwdho")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StunBox"]
-shape = SubResource("RectangleShape2D_oukfr")
+shape = SubResource("RectangleShape2D_bapwm")
 
 [node name="EnemyStateMachine" type="Node" parent="."]
-script = ExtResource("5_xm5wq")
+script = ExtResource("7_2dx5i")
 
 [node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
-script = ExtResource("6_5gton")
+script = ExtResource("8_6tsse")
+state_duration_min = 1.0
+state_duration_max = 1.0
 after_idle_state = NodePath("../Wander")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("7_arc3e")
-drop_table = ExtResource("8_soj48")
+script = ExtResource("9_ph46l")
+drop_table = ExtResource("10_7k8rx")
 
 [node name="Wander" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("11_sa778")
+script = ExtResource("10_h2sga")
 next_state = NodePath("../Attack")
 
 [node name="Attack" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
-script = ExtResource("11_r1dvx")
+script = ExtResource("11_o8yj6")
 after_idle_state = NodePath("../Idle")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("13_1i3am")
+script = ExtResource("12_orate")
 next_state = NodePath("../Idle")
 
 [node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("14_w0s10")
-knock_back = 50.0
+script = ExtResource("14_ql2st")
 next_state = NodePath("../Idle")
 
 [node name="DeathSprite" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("12_8qnoa")
+texture = ExtResource("14_utl5a")
 hframes = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

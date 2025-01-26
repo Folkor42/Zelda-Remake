@@ -33,6 +33,10 @@ window/size/window_width_override=768
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
 [input]
 
 ui_select={

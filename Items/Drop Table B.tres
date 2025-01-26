@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://Items/droptable.gd" id="2_umlno"]
 [ext_resource type="Resource" uid="uid://bdrqiutagyist" path="res://Items/bomb.tres" id="2_ya860"]
 [ext_resource type="Resource" uid="uid://da5nmokb43354" path="res://Items/Ruby.tres" id="3_sbq7c"]
-[ext_resource type="Resource" uid="uid://bjtq2ewvncewg" path="res://Items/triforce.tres" id="4_k13a1"]
+[ext_resource type="Resource" uid="uid://2p5kqt8x5sw8" path="res://Items/stop_watch.tres" id="4_iadx0"]
 [ext_resource type="Resource" uid="uid://bt4fmhs82xmd2" path="res://Items/heart.tres" id="5_13baa"]
 
 [resource]
 script = ExtResource("2_umlno")
 group = "B"
 drop_rate = 41
-drops = Array[ExtResource("1_aobpw")]([ExtResource("2_ya860"), ExtResource("3_sbq7c"), ExtResource("4_k13a1"), ExtResource("3_sbq7c"), ExtResource("5_13baa"), ExtResource("2_ya860"), ExtResource("3_sbq7c"), ExtResource("2_ya860"), ExtResource("5_13baa"), ExtResource("5_13baa")])
+drops = Array[ExtResource("1_aobpw")]([ExtResource("2_ya860"), ExtResource("3_sbq7c"), ExtResource("4_iadx0"), ExtResource("3_sbq7c"), ExtResource("5_13baa"), ExtResource("2_ya860"), ExtResource("3_sbq7c"), ExtResource("2_ya860"), ExtResource("5_13baa"), ExtResource("5_13baa")])

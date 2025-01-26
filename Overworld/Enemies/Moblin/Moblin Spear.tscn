@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds075gb3lsddp"]
+
+[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/rock_bullet.gd" id="1_m1d2i"]
+[ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_cjtfc"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="3_1s8o3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubnpi"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ksx8m"]
+radius = 5.0
+
+[node name="MoblinSpear" type="Area2D"]
+top_level = true
+collision_mask = 49
+script = ExtResource("1_m1d2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cjtfc")
+region_enabled = true
+region_rect = Rect2(160, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ubnpi")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_1s8o3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_ksx8m")

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://2p5kqt8x5sw8"]
+
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_kq5pc"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_6alqa"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_1tn71"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e6vx"]
+atlas = ExtResource("3_1tn71")
+region = Rect2(58, 0, 11, 16)
+
+[resource]
+script = ExtResource("2_6alqa")
+name = "Stop Watch"
+description = ""
+texture = SubResource("AtlasTexture_2e6vx")
+value = 0
+effects = Array[ExtResource("1_kq5pc")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1
