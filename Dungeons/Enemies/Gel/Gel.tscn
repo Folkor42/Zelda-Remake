@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8dk4ji4aa5fb"]
+[gd_scene load_steps=18 format=3 uid="uid://b8dk4ji4aa5fb"]
 
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="1_nu05k"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Gel/gel.gd" id="1_xc42s"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Dungeons/Enemies/Gel/move.gd" id="5_3qg33"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Gel/destroy.gd" id="8_gh4l4"]
 [ext_resource type="Resource" uid="uid://lt658aytnf23" path="res://Items/Drop Table X.tres" id="9_jdm7c"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Gel/stun.gd" id="10_4gi42"]
 
 [sub_resource type="Animation" id="Animation_k4hcu"]
 length = 0.001
@@ -146,6 +147,9 @@ one_shot = true
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("8_gh4l4")
 drop_table = ExtResource("9_jdm7c")
+
+[node name="Stun" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("10_4gi42")
 
 [node name="WallDetector" type="RayCast2D" parent="."]
 target_position = Vector2(0, 8)

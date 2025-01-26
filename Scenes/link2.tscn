@@ -552,7 +552,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 1.03,
 "start_offset": 0.0,
 "stream": ExtResource("5_tcaqw")
 }],

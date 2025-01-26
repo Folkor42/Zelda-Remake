@@ -14,6 +14,7 @@ var timestopped : bool = false
 func init() -> void:
 	enemy.Enemy_Stunned.connect ( _on_enemy_stunned )
 	stun_box.Stunned.connect( _on_enemy_stunned )
+	Events.stop_time.connect( timestop )
 
 func timestop()->void:
 	timestopped = true

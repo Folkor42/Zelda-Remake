@@ -1,12 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://bnwqkvxnroftf"]
+[gd_scene load_steps=14 format=4 uid="uid://bnwqkvxnroftf"]
 
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="1_c1jxx"]
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_d5m62"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_5ovls"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_8c6sk"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="5_e7c1j"]
-[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="6_buib0"]
-[ext_resource type="Resource" uid="uid://4sh8d5001njr" path="res://Items/boomerang.tres" id="7_xrngp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("1_c1jxx")
@@ -261,7 +259,3 @@ level = "res://Overworld/over_world_quest_1.tscn"
 target_transition_area = "EagleDungeonEntrance"
 center_player = true
 side = 1
-
-[node name="ItemDropper" parent="." instance=ExtResource("6_buib0")]
-position = Vector2(120, 104)
-item_data = ExtResource("7_xrngp")
