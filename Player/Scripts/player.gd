@@ -139,10 +139,19 @@ func show_menu()->void:
 	menu_opened=true
 
 func revive_player() -> void:
-	update_hp( 99 )
-	state_machine.ChangeState( $StateMachine/Idle )
+	update_hp( 6 )
+	var level = "res://Overworld/over_world_quest_1.tscn"
+	var target_transition_area = "Cave-SwordA"
+	var tween = get_tree().create_tween()
+	tween.tween_method(SetShader_BlinkIntensity,1.0,0.0,1.0)
+	state_machine.ChangeState( $"Player State Machine/Idle" )
+	LevelManager.load_new_level( level, target_transition_area, Vector2.ZERO )
 	pass
 
+func SetShader_BlinkIntensity( newvalue : float) -> void:
+	sprite.material.set_shader_parameter("blink_intensity", newvalue)	
+	pass	
+	
 #func pickup_item ( _t : Throwable ) -> void:
 	#state_machine.ChangeState(pickup)
 	##store throwable object

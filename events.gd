@@ -9,6 +9,7 @@ signal bow_used()
 signal boomerang_used()
 signal candle_used()
 signal secret_revealed_sound
+signal stop_time()
 
 func _ready() -> void:
 	item_used.connect(item_signal)	
@@ -37,3 +38,6 @@ func item_signal(item)->void:
 func secret_found () -> void:
 	print ("SECRET REVEALED")
 	secret_revealed_sound.emit()
+
+func stopwatch_pickedup()->void:
+	stop_time.emit()

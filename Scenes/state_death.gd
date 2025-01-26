@@ -17,6 +17,7 @@ func Enter() -> void:
 	#PlayerHud.show_game_over_screen()
 	#AudioManager.play_music( null )
 	await player.animation_player.animation_finished
+	player.animation_player.play( "RESET" )
 	PlayerManager.player.revive_player()
 	pass
 

@@ -16,6 +16,8 @@ func init() -> void:
 	pass # Replace with function body.
 
 func enter() -> void:
+	if !enemy.active:
+		return
 	_timer = randi_range( state_cycles_min, state_cycles_max ) * state_animation_duration
 	var rand = randi_range( 0, 1 )
 	if rand == 0:

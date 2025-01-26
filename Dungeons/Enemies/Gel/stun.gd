@@ -1,45 +1,36 @@
 class_name GelStun extends EnemyState
 
-@export var anim_name : String = "stun"
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 @export_category("AI")
 @export var next_state : EnemyState
 
-var _direction : Vector2
-var _animation_finished : bool = false
-var _damage_position : Vector2
+var timer : float = 3.0
+var timestopped : bool = false
 
 func init() -> void:
-	enemy.Enemy_Damaged.connect( _on_enemy_damaged )
-	pass # Replace with function body.
+	enemy.Enemy_Stunned.connect ( _on_enemy_stunned )
+	Events.stop_time.connect( timestop )
+
+func timestop()->void:
+	timestopped = true
+	state_machine.ChangeState( self )
 
 func enter() -> void:
-	enemy.invulnerable = true
-	_animation_finished = false
-	_direction = enemy.global_position.direction_to ( _damage_position )
-	enemy.SetDirection ( _direction )
-	enemy.velocity = _direction
-	enemy.UpdateAnimation( anim_name )
-	enemy.animation_player.animation_finished.connect( _on_animation_finished )
+	# Stunned
+	if timestopped:
+		timer=20.0
+	animation_player.play("stun")
+	enemy.velocity = Vector2.ZERO
+	await animation_player.animation_finished
+	animation_player.play("move")
+	state_machine.ChangeState( next_state )
 	pass
-	
+
 func exit() -> void:
-	enemy.invulnerable = false
-	enemy.animation_player.animation_finished.disconnect ( _on_animation_finished )
-	pass
+	timestopped=false
+	timer=3.0
 
-func process( _delta : float ) -> EnemyState:
-	if _animation_finished == true :
-		return next_state
-	enemy.velocity -= enemy.velocity * _delta
-	return null
-
-func physics( _delta : float ) -> EnemyState:
-	return null
-	
-func _on_enemy_damaged ( hurt_box : HurtBox ) -> void:
-	_damage_position = hurt_box.global_position
+func _on_enemy_stunned ( _hurt_box : HurtBox ) -> void:
 	state_machine.ChangeState( self )
-	
-func _on_animation_finished ( _a : String ) -> void:
-	_animation_finished = true
+	pass
