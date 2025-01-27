@@ -1,0 +1,200 @@
+[gd_scene load_steps=25 format=3 uid="uid://bngru7jyoh0rt"]
+
+[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/wallmaster.gd" id="1_r0j2q"]
+[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_3c8dy"]
+[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_4tmnr"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_c57hd"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_s13hl"]
+[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_on04e"]
+[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_nfj6b"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/idle.gd" id="6_npf0h"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/move.gd" id="7_krn5b"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/destroy.gd" id="8_i3b1q"]
+[ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="9_ph0ne"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/stun.gd" id="10_0ffm1"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/damaged.gd" id="12_unbq5"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/emerge.gd" id="13_yws5n"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/withdraw.gd" id="14_ief8e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03dmf"]
+resource_local_to_scene = true
+shader = ExtResource("2_4tmnr")
+shader_parameter/blink_color = Color(0.810636, 0.173327, 0, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="Animation" id="Animation_k4hcu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [78]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_nr0gm"]
+resource_name = "move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [78, 79]
+}
+
+[sub_resource type="Animation" id="Animation_sj84e"]
+resource_name = "stun"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [78]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t1nax"]
+_data = {
+"RESET": SubResource("Animation_k4hcu"),
+"move": SubResource("Animation_nr0gm"),
+"stun": SubResource("Animation_sj84e")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5mus"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88152"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c768l"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt56d"]
+size = Vector2(16, 16)
+
+[node name="Wallmaster" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
+z_index = -1
+collision_layer = 1024
+collision_mask = 1024
+script = ExtResource("1_r0j2q")
+hp = 3
+speed = 10.0
+WallDetector = NodePath("WallDetector")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_03dmf")
+texture = ExtResource("2_3c8dy")
+hframes = 12
+vframes = 14
+frame = 78
+region_rect = Rect2(0, 0, 78, 228)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t1nax")
+}
+autoplay = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i5mus")
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 8)
+collision_mask = 1024
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 900
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_c57hd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
+shape = SubResource("RectangleShape2D_88152")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_s13hl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
+shape = SubResource("RectangleShape2D_c768l")
+
+[node name="StunBox" type="Area2D" parent="."]
+script = ExtResource("6_nfj6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StunBox"]
+visible = false
+shape = SubResource("RectangleShape2D_nt56d")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("5_on04e")
+
+[node name="Emerge" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("move_state")]
+script = ExtResource("13_yws5n")
+move_state = NodePath("../Move")
+
+[node name="Move" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("7_krn5b")
+after_move_state = NodePath("../Withdraw")
+min_time = 1.0
+max_time = 5.0
+
+[node name="Timer" type="Timer" parent="EnemyStateMachine/Move"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("6_npf0h")
+after_idle_state = NodePath("../Move")
+
+[node name="Destroy" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("8_i3b1q")
+drop_table = ExtResource("9_ph0ne")
+
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("10_0ffm1")
+next_state = NodePath("../Idle")
+
+[node name="Withdraw" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("move_state")]
+script = ExtResource("14_ief8e")
+move_state = NodePath("../Emerge")
+
+[node name="Grab" type="Node" parent="EnemyStateMachine"]
+
+[node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("12_unbq5")
+knock_back = 0.0
+next_state = NodePath("../Idle")
