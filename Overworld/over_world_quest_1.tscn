@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bm5kcyh6hfim2" path="res://Overworld/healing_pond.tscn" id="14_jfu83"]
 [ext_resource type="PackedScene" uid="uid://dsoxfgec6hq2v" path="res://Overworld/Enemies/Leever/Red_Leever.tscn" id="16_p3ami"]
 [ext_resource type="PackedScene" uid="uid://is6dhaplv73w" path="res://Overworld/Enemies/Moblin/Red_Moblin.tscn" id="17_7sung"]
-[ext_resource type="PackedScene" uid="uid://jxn2lpyhmjdt" path="res://Overworld/Enemies/Moblin/Blue_Moblin.tscn" id="18_v6kjm"]
+[ext_resource type="PackedScene" uid="uid://cfn5scm4r2plf" path="res://Overworld/Enemies/Peahat/Peahat.tscn" id="19_lnibd"]
 
 [node name="OverWorld_Quest1" type="Node2D"]
 script = ExtResource("1_abc4w")
@@ -279,6 +279,27 @@ position = Vector2(424, -556)
 [node name="Blue Octorok2" parent="Enemies" instance=ExtResource("11_1jjbx")]
 position = Vector2(648, -416)
 
+[node name="Peahat" parent="Enemies" instance=ExtResource("19_lnibd")]
+position = Vector2(-472, 142)
+
+[node name="Peahat2" parent="Enemies" instance=ExtResource("19_lnibd")]
+position = Vector2(-431, 64)
+
+[node name="Peahat3" parent="Enemies" instance=ExtResource("19_lnibd")]
+position = Vector2(-272, 142)
+
+[node name="Peahat4" parent="Enemies" instance=ExtResource("19_lnibd")]
+position = Vector2(647, -254)
+
+[node name="Peahat5" parent="Enemies" instance=ExtResource("19_lnibd")]
+position = Vector2(681, -254)
+
+[node name="Peahat6" parent="Enemies" instance=ExtResource("19_lnibd")]
+position = Vector2(738, -234)
+
+[node name="Peahat7" parent="Enemies" instance=ExtResource("19_lnibd")]
+position = Vector2(645, -206)
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 color = Color(0.184306, 0.459203, 0.830396, 1)
@@ -483,18 +504,6 @@ position = Vector2(184, -376)
 
 [node name="HealingPond" parent="." instance=ExtResource("14_jfu83")]
 position = Vector2(640, -592)
-
-[node name="Red Moblin" parent="." instance=ExtResource("17_7sung")]
-position = Vector2(560, -244)
-
-[node name="Red Moblin2" parent="." instance=ExtResource("17_7sung")]
-position = Vector2(632, -167)
-
-[node name="Red Moblin3" parent="." instance=ExtResource("17_7sung")]
-position = Vector2(614, -215)
-
-[node name="Blue Moblin" parent="." instance=ExtResource("18_v6kjm")]
-position = Vector2(775, -249)
 
 [node name="Red Moblin4" parent="." instance=ExtResource("17_7sung")]
 position = Vector2(-191, 92)

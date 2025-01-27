@@ -1,0 +1,235 @@
+[gd_scene load_steps=28 format=3 uid="uid://cfn5scm4r2plf"]
+
+[ext_resource type="Script" path="res://Overworld/Enemies/Peahat/peahat.gd" id="1_08svo"]
+[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_4cagh"]
+[ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_5k6bp"]
+[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_qwi5x"]
+[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_dsuvb"]
+[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="5_hfwlf"]
+[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="6_8pfxw"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Peahat/idle.gd" id="7_lj0ot"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Peahat/land.gd" id="8_rin1d"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Peahat/take_off.gd" id="9_411lh"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Peahat/fly.gd" id="10_pj5ka"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Peahat/stun.gd" id="11_2j2ey"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Peahat/destroy.gd" id="12_33bxw"]
+[ext_resource type="Resource" uid="uid://csrd736k7a5iy" path="res://Items/Drop Table D.tres" id="13_we8ce"]
+[ext_resource type="Script" path="res://Overworld/Enemies/Peahat/damaged.gd" id="15_335kt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tghov"]
+resource_local_to_scene = true
+shader = ExtResource("2_4cagh")
+shader_parameter/blink_color = Color(0.766176, 0.000245082, 0.708347, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xcl"]
+size = Vector2(12, 12)
+
+[sub_resource type="Animation" id="Animation_mqpbc"]
+resource_name = "Move"
+length = 0.1
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_r08pl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [46]
+}
+
+[sub_resource type="Animation" id="Animation_852kc"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [46]
+}
+
+[sub_resource type="Animation" id="Animation_3nqs2"]
+resource_name = "slow_down"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.25, 0.35, 0.45, 0.6, 0.75, 0.95, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [47, 46, 47, 46, 47, 46, 47, 46, 47, 46]
+}
+
+[sub_resource type="Animation" id="Animation_b762f"]
+resource_name = "speed_up"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45, 0.6, 0.75, 0.85, 0.95, 1.05, 1.15, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [46, 47, 46, 47, 46, 47, 46, 47, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_7ptmo"]
+resource_name = "stun"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7mvr"]
+_data = {
+"Move": SubResource("Animation_mqpbc"),
+"RESET": SubResource("Animation_r08pl"),
+"idle": SubResource("Animation_852kc"),
+"slow_down": SubResource("Animation_3nqs2"),
+"speed_up": SubResource("Animation_b762f"),
+"stun": SubResource("Animation_7ptmo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86i26"]
+size = Vector2(14, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tq4b"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7att"]
+size = Vector2(14, 15)
+
+[node name="Peahat" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "timer", "animation_player")]
+z_index = 1
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_08svo")
+hp = 2
+speed = 30.0
+WallDetector = NodePath("WallDetector")
+timer = NodePath("EnemyStateMachine/Fly/Change Direction")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tghov")
+texture = ExtResource("2_5k6bp")
+hframes = 17
+vframes = 4
+frame = 46
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_d5xcl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a7mvr")
+}
+autoplay = "Move"
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 8)
+collision_mask = 0
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+monitoring = false
+script = ExtResource("3_qwi5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_86i26")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("4_dsuvb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+visible = false
+shape = SubResource("CircleShape2D_5tq4b")
+
+[node name="StunBox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("5_hfwlf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StunBox"]
+visible = false
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_h7att")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("6_8pfxw")
+
+[node name="Take Off" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("9_411lh")
+after_move_state = NodePath("../Fly")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("7_lj0ot")
+after_idle_state = NodePath("../Take Off")
+
+[node name="Fly" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("10_pj5ka")
+after_move_state = NodePath("../Land")
+
+[node name="Change Direction" type="Timer" parent="EnemyStateMachine/Fly"]
+wait_time = 2.0
+one_shot = true
+
+[node name="FlyTime" type="Timer" parent="EnemyStateMachine/Fly"]
+one_shot = true
+
+[node name="Land" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("8_rin1d")
+after_move_state = NodePath("../Idle")
+_decelerationRate = 0.5
+
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("11_2j2ey")
+next_state = NodePath("../Idle")
+
+[node name="Destroy" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("12_33bxw")
+drop_table = ExtResource("13_we8ce")
+
+[node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("15_335kt")
+knock_back = 10.0
+next_state = NodePath("../Idle")
