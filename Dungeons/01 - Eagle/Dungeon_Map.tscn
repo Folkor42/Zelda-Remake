@@ -31,6 +31,10 @@ script = ExtResource("1_gev80")
 music = ExtResource("20_bhtn0")
 dungeon_camera = NodePath("DungeonCamera")
 
+[node name="PlayerSpawn" parent="." instance=ExtResource("20_acy5b")]
+z_index = 1
+position = Vector2(128, 142)
+
 [node name="Rooms" type="Node" parent="."]
 
 [node name="Room1" parent="Rooms" instance=ExtResource("1_fxssn")]
@@ -94,10 +98,6 @@ script = ExtResource("19_wj6oy")
 stream = ExtResource("20_bhtn0")
 autoplay = true
 bus = &"Music"
-
-[node name="PlayerSpawn" parent="." instance=ExtResource("20_acy5b")]
-z_index = 1
-position = Vector2(128, 142)
 
 [node name="Stairs" parent="." instance=ExtResource("22_8jahd")]
 z_index = 1

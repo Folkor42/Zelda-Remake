@@ -148,8 +148,9 @@ one_shot = true
 script = ExtResource("8_gh4l4")
 drop_table = ExtResource("9_jdm7c")
 
-[node name="Stun" type="Node" parent="EnemyStateMachine"]
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("10_4gi42")
+next_state = NodePath("../Idle")
 
 [node name="WallDetector" type="RayCast2D" parent="."]
 target_position = Vector2(0, 8)
