@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bngru7jyoh0rt"]
+[gd_scene load_steps=26 format=3 uid="uid://bngru7jyoh0rt"]
 
 [ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/wallmaster.gd" id="1_r0j2q"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_3c8dy"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/damaged.gd" id="12_unbq5"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/emerge.gd" id="13_yws5n"]
 [ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/withdraw.gd" id="14_ief8e"]
+[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/grab.gd" id="15_jqfts"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03dmf"]
 resource_local_to_scene = true
@@ -69,7 +70,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_sj84e"]
 resource_name = "stun"
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -186,13 +186,15 @@ drop_table = ExtResource("9_ph0ne")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("10_0ffm1")
-next_state = NodePath("../Idle")
+next_state = NodePath("../Move")
 
 [node name="Withdraw" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("move_state")]
 script = ExtResource("14_ief8e")
 move_state = NodePath("../Emerge")
 
-[node name="Grab" type="Node" parent="EnemyStateMachine"]
+[node name="Grab" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("reset_state")]
+script = ExtResource("15_jqfts")
+reset_state = NodePath("../Emerge")
 
 [node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("12_unbq5")

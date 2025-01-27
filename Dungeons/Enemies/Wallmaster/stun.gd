@@ -22,11 +22,15 @@ func enter() -> void:
 		timer=20.0
 	animation_player.play("stun")
 	enemy.velocity = Vector2.ZERO
-	await animation_player.animation_finished
-	animation_player.play("move")
-	state_machine.ChangeState( next_state )
 	pass
 
+func process(delta: float) -> EnemyState:
+	timer -= delta
+	if timer <0:
+		animation_player.play("move")
+		return next_state
+	return null
+	
 func exit() -> void:
 	timestopped=false
 	timer=3.0

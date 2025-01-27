@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bb4ph6ftaw0is"]
+[gd_scene load_steps=18 format=4 uid="uid://bb4ph6ftaw0is"]
 
 [ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_f033o"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_e0p57"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="5_6dtcm"]
 [ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="5_r5hc0"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="6_gef5x"]
-[ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="9_1euqw"]
 [ext_resource type="PackedScene" uid="uid://bngru7jyoh0rt" path="res://Dungeons/Enemies/Wallmaster/Wallmaster.tscn" id="9_ojbfa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
@@ -275,19 +274,16 @@ start_dropped = false
 position = Vector2(104, 152)
 
 [node name="Wallmaster2" parent="RemoveTrigger" instance=ExtResource("9_ojbfa")]
-position = Vector2(232, 120)
+position = Vector2(232, 88)
 wall = 2
 
 [node name="Wallmaster3" parent="RemoveTrigger" instance=ExtResource("9_ojbfa")]
-position = Vector2(72, 24)
-wall = 1
-
-[node name="Wallmaster4" parent="RemoveTrigger" instance=ExtResource("9_ojbfa")]
 position = Vector2(24, 56)
 wall = 3
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("9_1euqw")]
-position = Vector2(72, 104)
+[node name="Wallmaster4" parent="RemoveTrigger" instance=ExtResource("9_ojbfa")]
+position = Vector2(173, 24)
+wall = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(56, 56)
@@ -298,8 +294,5 @@ collision_mask = 0
 z_index = 6
 position = Vector2(72, 32)
 shape = SubResource("RectangleShape2D_0x012")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(128, 56)
 
 [connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/Room15ItemDrop" method="drop_item"]
