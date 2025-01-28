@@ -1,8 +1,10 @@
-class_name PeahatStun extends EnemyState
+class_name TektiteStun extends EnemyState
+
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var stun_box: StunBox = $"../../StunBox"
 
+@export var anim_name : String = "stun"
 @export_category("AI")
 @export var next_state : EnemyState
 
@@ -17,22 +19,23 @@ func init() -> void:
 func timestop()->void:
 	timestopped = true
 	state_machine.ChangeState( self )
-	
+		
 func enter() -> void:
 	# Stunned
+	timer=3.0
 	if timestopped:
 		timer=20.0
-	animation_player.play("stun")
+	enemy.animation_player.play( anim_name )
 	enemy.velocity = Vector2.ZERO
-	await animation_player.animation_finished
-	animation_player.play("Move")
+	await get_tree().create_timer(timer).timeout
+	enemy.animation_player.play( "idle" )
 	state_machine.ChangeState( next_state )
-	pass
+pass
 
 func exit() -> void:
 	timestopped=false
+	
+func _on_enemy_stunned ( _hurt_box : HurtBox = null ) -> void:
 	timer=3.0
-
-func _on_enemy_stunned ( _hurt_box : HurtBox ) -> void:
 	state_machine.ChangeState( self )
 	pass
