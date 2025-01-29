@@ -106,7 +106,7 @@ pause={
 2d_physics/layer_8="Bombable"
 2d_physics/layer_9="Burnable"
 2d_physics/layer_10="Boomerang"
-2d_physics/layer_11="WallMaster Blocking"
+2d_physics/layer_11="Enemy Edge Blocking"
 
 [rendering]
 

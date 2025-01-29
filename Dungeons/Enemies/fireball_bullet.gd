@@ -1,5 +1,6 @@
 class_name fireballBullet extends Area2D
 
+@export var damage : int = 1
 var direction
 var vertical
 var travelled_distance : float = 0
@@ -14,6 +15,7 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	body_entered.connect(destroy)
 	hurt_box.hit.connect(destroy)
+	hurt_box.damage = damage
 	pass
 	
 func _process(delta: float) -> void:
