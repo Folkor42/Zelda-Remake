@@ -236,6 +236,8 @@ tile_map_data = PackedByteArray("AAACAAIAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
 
 [node name="Player Detector" parent="Floor" instance=ExtResource("3_7o2t0")]
+x = 3
+y = 4
 
 [node name="Placeables" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAADAAMAAAA6AAAAAAAEAAMAAAA6AAAAAAADAAcAAAA6AAAAAAAEAAcAAAA6AAAAAAAHAAUAAAA6AAAAAAAIAAUAAAA6AAAAAAALAAMAAAA6AAAAAAAMAAMAAAA6AAAAAAALAAcAAAA6AAAAAAAMAAcAAAA6AAAAAAA=")

@@ -19,10 +19,10 @@ func enter() -> void:
 	count = 1
 	enemy.UpdateAnimation( anim_name )
 	animation_player.animation_finished.connect(stop_shooting)
+	shoot()
 	pass
 
 func stop_shooting( _a )->void:
-	shoot()
 	if count < shot_count:
 		shooting = true
 		count+=1

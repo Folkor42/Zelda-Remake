@@ -18,6 +18,8 @@ func enter() -> void:
 	pass
 	
 func exit() -> void:
+	if enemy.animation_player.animation_finished.is_connected( landed ):
+		enemy.animation_player.animation_finished.disconnect ( landed )
 	pass
 
 func process( _delta : float ) -> EnemyState:

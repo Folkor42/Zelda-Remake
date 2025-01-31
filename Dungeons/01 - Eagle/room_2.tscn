@@ -221,6 +221,8 @@ tile_map_data = PackedByteArray(0, 0, 2, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_xbmq4")
 
 [node name="Player Detector" parent="Floor" instance=ExtResource("4_7ycqk")]
+x = 2
+y = 7
 
 [node name="RemoveTrigger" type="Node2D" parent="."]
 script = ExtResource("5_ojfej")

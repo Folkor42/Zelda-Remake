@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsff16rdwga6x"]
+[gd_scene load_steps=3 format=3 uid="uid://bsff16rdwga6x"]
+
+[ext_resource type="Script" path="res://Universal Scripts/player_detector.gd" id="1_i2lys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taytn"]
 size = Vector2(192, 110)
@@ -6,6 +8,7 @@ size = Vector2(192, 110)
 [node name="Player Detector - Dungeon" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("1_i2lys")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(128, 88)

@@ -15,13 +15,27 @@ var keys : int = 0
 var kill_count : int = 0
 var sword : String = ""
 var active_item : String = ""
+var grid = []
+var grid_width = 8
+var grid_height = 8
+var in_dungeon: bool = false
 
 func _ready() -> void:
+	Events.dungeon_map_cords.connect(_update_dungeon_map)
+	for i in grid_width:
+		grid.append([])
+		for j in grid_height:
+			grid[i].append(false) # Set a starter value for each position
 	inventory = InventoryData.new()
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
 	update_sword ("Wooden Sword")
+	pass
+
+func _update_dungeon_map ( x : int, y : int ) -> void:
+	grid[x][y]=true
+	print (grid)
 	pass
 
 func update_sword( new_sword : String ) -> void:

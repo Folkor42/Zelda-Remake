@@ -1,40 +1,46 @@
 extends CanvasLayer
+@onready var items_background: TextureRect = $VBoxContainer/ItemsBackground
+@onready var map_background: TextureRect = $VBoxContainer/MapBackground
+@onready var triforce_background: TextureRect = $VBoxContainer/TriforceBackground
 
-@onready var button: Button = $Control/Button
-@onready var button_2: Button = $Control/Button2
-@onready var button_3: Button = $Control/Button3
-@onready var button_4: Button = $Control/Button4
-@onready var button_5: Button = $Control/Button5
-@onready var button_6: Button = $Control/Button6
-@onready var button_7: Button = $Control/Button7
-@onready var button_8: Button = $Control/Button8
+@onready var button: Button = $VBoxContainer/ItemsBackground/Control/Button
+@onready var button_2: Button = $VBoxContainer/ItemsBackground/Control/Button2
+@onready var button_3: Button = $VBoxContainer/ItemsBackground/Control/Button3
+@onready var button_4: Button = $VBoxContainer/ItemsBackground/Control/Button4
+@onready var button_5: Button = $VBoxContainer/ItemsBackground/Control/Button5
+@onready var button_6: Button = $VBoxContainer/ItemsBackground/Control/Button6
+@onready var button_7: Button = $VBoxContainer/ItemsBackground/Control/Button7
+@onready var button_8: Button = $VBoxContainer/ItemsBackground/Control/Button8
 # Equipable Items
-@onready var selected_item_sprite: Sprite2D = $Control/SelectedItemSprite
-@onready var boomerang_sprite: Sprite2D = $Control/Button/BoomerangSprite
-@onready var bomb_sprite: Sprite2D = $Control/Button2/BombSprite
-@onready var arrow_sprite: Sprite2D = $Control/Button3/ArrowSprite
-@onready var bow_sprite: Sprite2D = $Control/Button3/BowSprite
-@onready var candle_sprite: Sprite2D = $Control/Button4/CandleSprite
-@onready var flute_sprite: Sprite2D = $Control/Button5/FluteSprite
-@onready var bait_sprite: Sprite2D = $Control/Button6/BaitSprite
-@onready var potion_sprite: Sprite2D = $Control/Button7/PotionSprite
-@onready var wand_sprite: Sprite2D = $Control/Button8/WandSprite
+@onready var selected_item_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/SelectedItemSprite
+@onready var boomerang_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/Button/BoomerangSprite
+@onready var bomb_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/Button2/BombSprite
+@onready var arrow_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/Button3/ArrowSprite
+@onready var bow_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/Button3/BowSprite
+@onready var candle_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/Button4/CandleSprite
+@onready var flute_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/Button5/FluteSprite
+@onready var bait_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/Button6/BaitSprite
+@onready var potion_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/Button7/PotionSprite
+@onready var wand_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/Button8/WandSprite
 # Non-Equipable Items
-@onready var raft_sprite: Sprite2D = $Control/RaftSprite
-@onready var magic_book_sprite: Sprite2D = $Control/MagicBookSprite
-@onready var ring_sprite: Sprite2D = $Control/RingSprite
-@onready var ladder_sprite: Sprite2D = $Control/LadderSprite
-@onready var master_key_sprite: Sprite2D = $Control/MasterKeySprite
-@onready var power_bracelet_sprite: Sprite2D = $Control/PowerBraceletSprite
+@onready var raft_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/RaftSprite
+@onready var magic_book_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/MagicBookSprite
+@onready var ring_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/RingSprite
+@onready var ladder_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/LadderSprite
+@onready var master_key_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/MasterKeySprite
+@onready var power_bracelet_sprite: Sprite2D = $VBoxContainer/ItemsBackground/Control/PowerBraceletSprite
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
-	equip(PlayerManager.active_item)
-	update_passive_items()
-	update_active_items()	
-	$Control/Button.grab_focus()
+	if PlayerManager.in_dungeon:
+		map_background.visible=true
+		triforce_background.visible=false
+	else:
+		map_background.visible=false
+		triforce_background.visible=true
+	pass
 
 func update_active_items()->void:
 	if PlayerManager.inventory.contents.has("Boomerang"):
@@ -157,3 +163,24 @@ func update_passive_items()->void:
 		power_bracelet_sprite.visible=true
 	else:
 		power_bracelet_sprite.visible=false
+
+func close_menu()->void:
+	anim.play("roll_up")
+	await anim.animation_finished
+	PlayerManager.player.menu_opened = false
+	get_tree().paused=false
+	queue_free()
+	return
+	
+func show_menu () -> void:
+	get_tree().paused=true
+	equip(PlayerManager.active_item)
+	update_passive_items()
+	update_active_items()	
+	$VBoxContainer/ItemsBackground/Control/Button.grab_focus()
+	PlayerManager.player.menu_opened = true
+
+func _unhandled_input(_event):
+	if _event.is_action_pressed("menu"):
+		close_menu()
+	

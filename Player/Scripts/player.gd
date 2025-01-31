@@ -127,16 +127,14 @@ func _unhandled_input(_event):
 	pass
 	
 func show_menu()->void:
-	if menu_opened:
-		var menu=get_parent().get_node("InventoryScreen")
-		menu.anim.play("roll_up")
-		await menu.anim.animation_finished
-		menu.queue_free()
-		menu_opened = false
+	var menu=get_parent().get_node_or_null("InventoryScreen")
+	if menu:
+		menu.close_menu()
 		return
-	var overlay = inv.instantiate()
-	get_parent().add_child(overlay)
-	menu_opened=true
+	else:
+		var overlay = inv.instantiate()
+		get_parent().add_child(overlay)
+		overlay.show_menu()
 
 func revive_player() -> void:
 	update_hp( 6 )

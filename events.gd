@@ -2,6 +2,7 @@ extends Node
 
 signal room_entered(room)
 signal map_cords(x,y)
+signal dungeon_map_cords(x,y)
 signal map_cords_left(x,y)
 signal item_used(item)
 signal bomb_used()
@@ -18,6 +19,7 @@ func ignore_me()->void:
 	room_entered.emit(null)
 	map_cords.emit(null,null)
 	map_cords_left.emit(null,null)
+	dungeon_map_cords.emit(null,null)
 	
 func item_signal(item)->void:
 	if item == "Bomb":

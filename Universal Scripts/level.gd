@@ -14,6 +14,7 @@ func _ready():
 	scene = get_tree().current_scene.scene_file_path
 	#check_for_previous_drops()
 	LevelManager.level_loaded.connect(level_ready)
+	PlayerManager.in_dungeon = true
 	pass
 
 func level_ready()->void:
