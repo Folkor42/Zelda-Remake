@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpsnau6j1s8jg"]
+[gd_scene load_steps=11 format=3 uid="uid://cpsnau6j1s8jg"]
 
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="1_cc0oe"]
-[ext_resource type="Texture2D" uid="uid://d2rtvqo3d5eqa" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - File Select.png" id="1_px7xr"]
+[ext_resource type="Script" path="res://Scenes/file_select.gd" id="1_fw3ir"]
 [ext_resource type="Script" path="res://Scenes/slot_labels.gd" id="3_b1ped"]
+[ext_resource type="Script" path="res://Scenes/FileSelectButton.gd" id="3_i0i2f"]
 
 [sub_resource type="Gradient" id="Gradient_epe5x"]
 offsets = PackedFloat32Array(1)
@@ -49,6 +50,7 @@ corner_radius_bottom_left = 1
 [sub_resource type="ButtonGroup" id="ButtonGroup_j4l1q"]
 
 [node name="FileSelect" type="CanvasLayer"]
+script = ExtResource("1_fw3ir")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -101,7 +103,7 @@ theme_override_constants/margin_bottom = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Button1" type="Button" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
 theme_override_colors/font_pressed_color = Color(1, 0.607075, 0.28127, 1)
@@ -109,29 +111,41 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_iknox")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bu3wd")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_j4l1q")
+script = ExtResource("3_i0i2f")
+slot_id = 1
+valid_game = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 5
 
-[node name="Label1" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button/HBoxContainer"]
+[node name="SlotLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button1/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
-text = " SLOT 1 - "
+theme_override_font_sizes/font_size = 0
+text = " SLOT 1"
 script = ExtResource("3_b1ped")
 
-[node name="Label2" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button/HBoxContainer"]
+[node name="NameLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button1/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
-text = "Name - "
+theme_override_font_sizes/font_size = 0
+text = "ABCDEFGH"
 script = ExtResource("3_b1ped")
 
-[node name="Label3" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button/HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button1/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
-text = "Time Played"
+theme_override_font_sizes/font_size = 0
+text = "00:24:15"
 script = ExtResource("3_b1ped")
 
 [node name="Button2" type="Button" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -142,23 +156,38 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_iknox")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bu3wd")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_j4l1q")
+script = ExtResource("3_i0i2f")
+slot_id = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label1" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button2/HBoxContainer"]
+[node name="SlotLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button2/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
-text = " SLOT 2 - "
+theme_override_font_sizes/font_size = 0
+text = " SLOT 2"
 script = ExtResource("3_b1ped")
 
-[node name="Label2" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button2/HBoxContainer"]
+[node name="NameLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button2/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_cc0oe")
-text = "Empty - "
-horizontal_alignment = 1
+text = "Empty"
+script = ExtResource("3_b1ped")
+
+[node name="TimeLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_cc0oe")
+theme_override_font_sizes/font_size = 0
+text = "00:00:00"
 script = ExtResource("3_b1ped")
 
 [node name="Button3" type="Button" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -169,29 +198,48 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_iknox")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bu3wd")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_j4l1q")
+script = ExtResource("3_i0i2f")
+slot_id = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -6.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label1" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button3/HBoxContainer"]
+[node name="SlotLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button3/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
-text = " SLOT 3 - "
+theme_override_font_sizes/font_size = 0
+text = " SLOT 3"
 script = ExtResource("3_b1ped")
 
-[node name="Label2" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button3/HBoxContainer"]
+[node name="NameLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button3/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_cc0oe")
-text = "Empty - "
-horizontal_alignment = 1
+text = "Empty"
+horizontal_alignment = 3
+script = ExtResource("3_b1ped")
+
+[node name="TimeLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_cc0oe")
+theme_override_font_sizes/font_size = 0
+text = "00:00:00"
+horizontal_alignment = 3
 script = ExtResource("3_b1ped")
 
 [node name="ButtonContinue" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
-disabled = true
 text = "Continue Game"
 
 [node name="ButtonStart" type="Button" parent="Control/VBoxContainer"]
@@ -202,11 +250,4 @@ text = "Start New Game"
 [node name="ButtonDelete" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
-disabled = true
 text = "Delete Save Slot Data"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(390, 117)
-texture = ExtResource("1_px7xr")
-region_enabled = true
-region_rect = Rect2(1, 1, 256, 224)
