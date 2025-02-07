@@ -3,7 +3,8 @@ extends Button
 @export var slot_id : int
 
 @export_category("Debug")
-@export var valid_game : bool = false
+#@export var valid_game : bool = false
+var valid_game : bool
 
 @onready var button_continue: Button = $"../../../../ButtonContinue"
 @onready var button_start: Button = $"../../../../ButtonStart"
@@ -13,7 +14,6 @@ extends Button
 
 func _ready() -> void:
 	toggled.connect(select_slot)
-	file_select.cancel_delete.connect(activate_slot)
 	
 func select_slot( _toggled ) -> void:	
 	if valid_game:
@@ -24,6 +24,3 @@ func select_slot( _toggled ) -> void:
 		button_continue.disabled = true
 		button_start.disabled = false
 		button_delete.disabled=true
-
-func activate_slot ()->void:
-	disabled=false

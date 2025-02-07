@@ -113,7 +113,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_j4l1q")
 script = ExtResource("3_i0i2f")
 slot_id = 1
-valid_game = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button1"]
 layout_mode = 1
@@ -240,14 +239,17 @@ script = ExtResource("3_b1ped")
 [node name="ButtonContinue" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
+disabled = true
 text = "Continue Game"
 
 [node name="ButtonStart" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
+disabled = true
 text = "Start New Game"
 
 [node name="ButtonDelete" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
+disabled = true
 text = "Delete Save Slot Data"
