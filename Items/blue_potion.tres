@@ -21,3 +21,7 @@ description = "Restores Link's Health"
 texture = SubResource("AtlasTexture_cvco4")
 value = 40
 effects = Array[ExtResource("1_ox1oy")]([SubResource("Resource_42o23")])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1

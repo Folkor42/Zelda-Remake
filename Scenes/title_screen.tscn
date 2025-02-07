@@ -1,0 +1,211 @@
+[gd_scene load_steps=13 format=3 uid="uid://ct6yuij7kyuta"]
+
+[ext_resource type="Script" path="res://Scenes/title_screen.gd" id="1_23och"]
+[ext_resource type="Texture2D" uid="uid://cxbe64uoosc6h" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Title Screen & Story All of Treasures.png" id="1_ohger"]
+[ext_resource type="Shader" path="res://Shaders/title_screen.gdshader" id="2_kolc2"]
+[ext_resource type="AudioStream" uid="uid://bawl1ibcvr2e3" path="res://Assets/Audio/Music/01 Title BGM.mp3" id="4_bobn0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_obgd8"]
+resource_local_to_scene = true
+shader = ExtResource("2_kolc2")
+shader_parameter/origin = Color(0.988235, 0.847059, 0.658824, 1)
+shader_parameter/new = Color(0.542594, 0.309132, 0.0334284, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o3ucc"]
+load_path = "res://.godot/imported/NES - The Legend of Zelda - Title Screen & Story All of Treasures.png-c3173011aa55f0ff3fa4b2340108bb0d.ctex"
+
+[sub_resource type="Animation" id="Animation_soy8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_taedi"]
+resource_name = "crest"
+length = 0.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gnj80"]
+_data = {
+"RESET": SubResource("Animation_soy8p"),
+"crest": SubResource("Animation_taedi")
+}
+
+[sub_resource type="Animation" id="Animation_nrbib"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32, 80)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hiq6b"]
+resource_name = "wave1"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-31, 70), Vector2(-31, 80), Vector2(-31, 100), Vector2(-31, 120)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujp43"]
+_data = {
+"RESET": SubResource("Animation_nrbib"),
+"wave1": SubResource("Animation_hiq6b")
+}
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_23och")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_obgd8")
+position = Vector2(0, 7.15256e-06)
+scale = Vector2(1, 1.07143)
+texture = ExtResource("1_ohger")
+region_enabled = true
+region_rect = Rect2(1, 11, 256, 224)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Top of Waterfall" type="Sprite2D" parent="."]
+position = Vector2(-32, 62)
+texture = SubResource("CompressedTexture2D_o3ucc")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(846, 11, 65, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Top of Waterfall"]
+libraries = {
+"": SubResource("AnimationLibrary_gnj80")
+}
+autoplay = "crest"
+
+[node name="Wave1" type="Sprite2D" parent="."]
+position = Vector2(-32, 80)
+texture = ExtResource("1_ohger")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(776, 28, 98, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wave1"]
+libraries = {
+"": SubResource("AnimationLibrary_ujp43")
+}
+autoplay = "wave1"
+
+[node name="Wave2" type="Sprite2D" parent="."]
+position = Vector2(-32, 80)
+texture = ExtResource("1_ohger")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(776, 28, 98, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wave2"]
+libraries = {
+"": SubResource("AnimationLibrary_ujp43")
+}
+autoplay = "wave1"
+
+[node name="Wave3" type="Sprite2D" parent="."]
+position = Vector2(-32, 80)
+texture = ExtResource("1_ohger")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(776, 28, 98, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wave3"]
+libraries = {
+"": SubResource("AnimationLibrary_ujp43")
+}
+autoplay = "wave1"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bobn0")
+autoplay = true
