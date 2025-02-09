@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpsnau6j1s8jg"]
+[gd_scene load_steps=15 format=3 uid="uid://cpsnau6j1s8jg"]
 
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="1_cc0oe"]
 [ext_resource type="Script" path="res://Scenes/file_select.gd" id="1_fw3ir"]
 [ext_resource type="Script" path="res://Scenes/slot_labels.gd" id="3_b1ped"]
 [ext_resource type="Script" path="res://Scenes/FileSelectButton.gd" id="3_i0i2f"]
+[ext_resource type="Script" path="res://Scenes/name_new_game.gd" id="5_pvvw2"]
+[ext_resource type="Script" path="res://Scenes/confirm_delete.gd" id="6_so2cq"]
 
 [sub_resource type="Gradient" id="Gradient_epe5x"]
 offsets = PackedFloat32Array(1)
@@ -48,6 +50,26 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_j4l1q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ef7f8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.184314, 0.247059, 1, 1)
+
+[sub_resource type="GDScript" id="GDScript_jta0x"]
+script/source = "extends Label
+@onready var file_select: CanvasLayer = $\"../../../../..\"
+
+
+func _ready() -> void:
+	file_select.slot_changed.connect(change_text)
+	
+func change_text (slot_id : int)->void:
+	text = \"Slot \"+str(slot_id)
+"
 
 [node name="FileSelect" type="CanvasLayer"]
 script = ExtResource("1_fw3ir")
@@ -136,7 +158,7 @@ layout_mode = 2
 size_flags_horizontal = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
 theme_override_font_sizes/font_size = 0
-text = "ABCDEFGH"
+text = "-"
 script = ExtResource("3_b1ped")
 
 [node name="TimeLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button1/HBoxContainer"]
@@ -178,7 +200,7 @@ script = ExtResource("3_b1ped")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_cc0oe")
-text = "Empty"
+text = "-"
 script = ExtResource("3_b1ped")
 
 [node name="TimeLabel" type="Label" parent="Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button2/HBoxContainer"]
@@ -223,7 +245,7 @@ script = ExtResource("3_b1ped")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_cc0oe")
-text = "Empty"
+text = "-"
 horizontal_alignment = 3
 script = ExtResource("3_b1ped")
 
@@ -253,3 +275,152 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cc0oe")
 disabled = true
 text = "Delete Save Slot Data"
+
+[node name="Name New Game" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+script = ExtResource("5_pvvw2")
+
+[node name="ColorRect" type="PanelContainer" parent="Name New Game"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_ef7f8")
+
+[node name="Control" type="Control" parent="Name New Game/ColorRect"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Name New Game/ColorRect/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -33.5
+offset_right = 66.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotLabel" type="Label" parent="Name New Game/ColorRect/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cc0oe")
+text = "Slot 2"
+horizontal_alignment = 1
+script = SubResource("GDScript_jta0x")
+
+[node name="TextEdit" type="LineEdit" parent="Name New Game/ColorRect/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cc0oe")
+placeholder_text = "Enter Name"
+alignment = 1
+max_length = 16
+context_menu_enabled = false
+shortcut_keys_enabled = false
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Name New Game/ColorRect/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="ButtonCreate" type="Button" parent="Name New Game/ColorRect/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_cc0oe")
+text = "Create Game"
+
+[node name="ButtonCancel" type="Button" parent="Name New Game/ColorRect/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_cc0oe")
+text = "Cancel"
+
+[node name="LoadingOverlay" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="LoadingOverlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="LoadingOverlay/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -11.5
+offset_right = 37.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+
+[node name="Confirm Delete" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+script = ExtResource("6_so2cq")
+
+[node name="ColorRect" type="ColorRect" parent="Confirm Delete"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Confirm Delete/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -42.0
+offset_right = 105.5
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="filename" type="Label" parent="Confirm Delete/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cc0oe")
+text = "Are you sure you want to 
+delete this save slot's data?"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Confirm Delete/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cc0oe")
+text = "Are you sure you want to 
+delete this save slot's data?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Confirm Delete/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="confirm" type="Button" parent="Confirm Delete/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cc0oe")
+text = "Confirm"
+
+[node name="cancel" type="Button" parent="Confirm Delete/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cc0oe")
+text = "Cancel"
