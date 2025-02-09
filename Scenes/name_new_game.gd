@@ -27,6 +27,9 @@ func attempt_new_game()->void:
 	if create_new_game():
 		print("Success")
 		loading_overlay.visible=true
+		PlayerHud.visible=true
+		PlayerManager.player.visible=true
+		PlayerManager.player_spawned=false
 		LevelManager.load_new_level("res://Overworld/over_world_quest_1.tscn","",Vector2.ZERO)
 	else:
 		print("Failed to create new file.")

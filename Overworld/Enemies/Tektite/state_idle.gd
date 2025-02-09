@@ -33,7 +33,7 @@ func process( _delta : float ) -> EnemyState:
 func physics( _delta : float ) -> EnemyState:
 	return null
 
-func change_direction (old_direction : Vector2) -> Vector2:
+func change_direction (_old_direction : Vector2) -> Vector2:
 	var new : int = randi_range(0,5)
 	var new_dir : Vector2
 	match new:

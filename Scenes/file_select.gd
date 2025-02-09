@@ -50,4 +50,7 @@ func start_pressed() -> void:
 
 func continue_pressed()->void:
 	loading_overlay.visible=true
-	LevelManager.load_new_level("res://Overworld/over_world_quest_1.tscn","Cave-SwordA",Vector2.ZERO)
+	PlayerHud.visible=true
+	PlayerManager.player.visible=true
+	PlayerManager.player_spawned=false
+	LevelManager.load_new_level("res://Overworld/over_world_quest_1.tscn","",Vector2.ZERO)

@@ -93,7 +93,6 @@ func offset_from_player( direction : Vector2 ) -> Vector2:
 		return Vector2(-50,0)
 	else:
 		return Vector2(0,50)
-	pass
 
 func move_target()->void:
 	var player_pos = PlayerManager.player.global_position

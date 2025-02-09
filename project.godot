@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Zelda Remake"
 config/tags=PackedStringArray("2d", "adventure")
-run/main_scene="res://Overworld/over_world_quest_1.tscn"
+run/main_scene="res://Scenes/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/Link.png"
 

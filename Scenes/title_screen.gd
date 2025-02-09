@@ -25,7 +25,4 @@ func SetShader_BlinkIntensity( newvalue : float) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		PlayerHud.visible=true
-		PlayerManager.player.visible=true
-		PlayerManager.player_spawned=false
-		LevelManager.load_new_level("res://Overworld/over_world_quest_1.tscn","",Vector2.ZERO)
+		LevelManager.load_new_level("res://Scenes/file_select.tscn","",Vector2.ZERO)
