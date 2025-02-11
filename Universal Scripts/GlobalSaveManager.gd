@@ -6,6 +6,9 @@ signal game_loaded
 signal game_saved
 
 var current_save : Dictionary = {
+	name = "",
+	time_played = 0.0,
+	active_item = "",
 	scene_path = "",
 	player = {
 		hp = 1,
@@ -13,20 +16,32 @@ var current_save : Dictionary = {
 		pos_x = 0,
 		pos_y = 0
 	},
-	items = [],
+	items = {},
 	drops = [],
 	saved_drops = [],
 	persistence = [],
 	locations= [],
 	quests = []
 }
+var filename : String
 
+func _ready() -> void:
+	Events.filename_set.connect (set_filename)
+	
+func set_filename(_file : String) -> void:
+	filename=_file
+	
+func update_time_played() -> void:
+	current_save.time_played = PlayerManager.time_played
+	
 func save_game() -> void:
+	update_player_name()
 	update_scene_path()
 	update_player_data()
 	update_item_data()
-	update_drop_data()
-	var file := FileAccess.open( SAVE_PATH + "save.sav", FileAccess.WRITE )
+	update_time_played()
+	#update_drop_data()
+	var file := FileAccess.open( filename, FileAccess.WRITE )
 	var save_json = JSON.stringify( current_save )
 	file.store_line( save_json )
 	game_saved.emit()
@@ -34,7 +49,7 @@ func save_game() -> void:
 	pass
 
 func get_save_file() -> FileAccess:
-	return FileAccess.open( SAVE_PATH + "save.sav", FileAccess.READ )
+	return FileAccess.open( filename, FileAccess.READ )
 
 func load_game() -> void:
 	var file := get_save_file()
@@ -43,15 +58,27 @@ func load_game() -> void:
 	var  save_dict := load_json.get_data() as Dictionary
 	current_save = save_dict
 	
-	LevelManager.load_new_level( current_save.scene_path, "", Vector2.ZERO )
+	LevelManager.load_new_level( "res://Overworld/over_world_quest_1.tscn", "", Vector2.ZERO )
 	await LevelManager.level_load_started
 	
-	PlayerManager.set_player_position( Vector2(current_save.player.pos_x, current_save.player.pos_y) )
+	#PlayerManager.set_player_position( Vector2(current_save.player.pos_x, current_save.player.pos_y) )
+	if current_save.player.hp < 6:
+		current_save.player.hp=6
 	PlayerManager.set_health( current_save.player.hp, current_save.player.max_hp )
 	print (current_save.items)
 	print (current_save.drops)
-	PlayerManager.INVENTORY_DATA.parse_save_data( current_save.items )
-	
+	PlayerManager.inventory.contents = current_save.items
+	if current_save.items.has("Magic Sword"):
+		PlayerManager.update_sword ("Magic Sword")
+	elif current_save.items.has("White Sword"):
+		PlayerManager.update_sword ("White Sword")
+	elif current_save.items.has("Wooden Sword"):
+		PlayerManager.update_sword ("Wooden Sword")
+	PlayerManager.update_rubies(current_save.items["rubies"])
+	PlayerManager.update_keys(current_save.items["keys"])
+	PlayerManager.update_bombs(current_save.items["bombs"])
+	#PlayerManager.update_active_item(current_save.active_item) # BUG Need to pass rect currently, should rewrite to use ITEM Texture
+	PlayerManager.time_played=current_save.time_played
 	await LevelManager.level_loaded
 	
 	game_loaded.emit()
@@ -74,13 +101,17 @@ func update_scene_path() -> void:
 	current_save.scene_path = p
 
 func update_item_data () -> void:
-	current_save.items = PlayerManager.INVENTORY_DATA.get_save_data()
+	current_save.items = PlayerManager.inventory.contents
+	current_save.items["rubies"]=PlayerManager.rubies
+	current_save.items["keys"]=PlayerManager.keys
+	current_save.items["bombs"]=PlayerManager.bombs
+	current_save.active_item = PlayerManager.active_item
 
-func update_drop_data() -> void:
-	var drops = get_drop_save_data()
-	current_save.saved_drops = drops
-	current_save.drops = []
-	#print (drops)
+#func update_drop_data() -> void:
+	#var drops = get_drop_save_data()
+	#current_save.saved_drops = drops
+	#current_save.drops = []
+	##print (drops)
 
 func add_persistant_value( value : String ) -> void:
 	if check_persistant_value( value ) == false:
@@ -158,3 +189,17 @@ func item_to_save ( drop : ItemData, pos_x, pos_y, _scene ) -> Dictionary:
 	if drop != null:
 		result.item = drop.resource_path
 	return result
+
+func update_player_name()->void:
+	var save_file = FileAccess.open(filename, FileAccess.READ)
+	var initial_save_info : Dictionary
+	var json = JSON.new()
+	while save_file.get_position() < save_file.get_length():
+		var json_string = save_file.get_line()
+		# Check if there is any error while parsing the JSON string, skip in case of failure.
+		var parse_result = json.parse(json_string)
+		if not parse_result == OK:
+			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+			continue
+		initial_save_info=JSON.parse_string(json_string)
+		current_save.name = str(initial_save_info["name"])

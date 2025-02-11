@@ -19,6 +19,7 @@ var grid = []
 var grid_width = 8
 var grid_height = 8
 var in_dungeon: bool = false
+var time_played : float = 0.0
 
 func _ready() -> void:
 	Events.dungeon_map_cords.connect(_update_dungeon_map)
@@ -30,7 +31,7 @@ func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
-	update_sword ("Wooden Sword")
+	#update_sword ("Wooden Sword")
 	pass
 
 func _update_dungeon_map ( x : int, y : int ) -> void:
@@ -126,3 +127,6 @@ func increase_kill_counter () -> void:
 func update_keys( _c : int ) ->void:
 	PlayerManager.keys = clampi( PlayerManager.keys + _c, 0, 255 )
 	PlayerHud.update_keys()
+
+func _process(delta: float) -> void:
+	time_played += delta

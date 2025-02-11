@@ -21,12 +21,12 @@ func add_item ( item : ItemData, count : int = 1 ) -> bool:
 		PlayerManager.update_keys(1)
 	elif item.name == "Stop Watch":
 		Events.stopwatch_pickedup()
-	elif item.name == "Wooden Sword" or item.name == "White Sword" or item.name == "Magic Sword" :
-		PlayerManager.update_sword (item.name)
 	#elif contents.has(item.name):
 		#contents[item.name]+=count
 	else:
 		contents[item.name]=count
+	if item.name == "Wooden Sword" or item.name == "White Sword" or item.name == "Magic Sword" :
+		PlayerManager.update_sword (item.name)
 	print (contents)
 	return true
 	
@@ -41,3 +41,18 @@ func use_potion ( _item : ItemData, _count : int = 1 ) -> bool:
 	else:
 		print ("NOT FOUND!")
 	return false
+
+func get_save_data () -> Array:
+	var item_save : Array = []
+	#print(contents)
+	for key in contents:
+		var keyValuePair: Array = [key, contents[key]]
+		item_save.append(keyValuePair)
+	return item_save
+	
+func item_to_save ( _item : ItemData ) -> Dictionary:
+	var result = { item = '', quantity = 0 }
+	if _item != null:
+		if _item.item_data != null:
+			result.item = _item.item_data.resource_path
+	return result

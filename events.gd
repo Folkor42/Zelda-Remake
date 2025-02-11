@@ -11,6 +11,7 @@ signal boomerang_used()
 signal candle_used()
 signal secret_revealed_sound
 signal stop_time()
+signal filename_set(filename)
 
 func _ready() -> void:
 	item_used.connect(item_signal)	
