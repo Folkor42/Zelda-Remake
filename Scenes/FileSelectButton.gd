@@ -22,10 +22,12 @@ func select_slot( _toggled ) -> void:
 		button_continue.disabled = false
 		button_start.disabled = true
 		button_delete.disabled=false
+		button_continue.grab_focus()
 	else:
 		button_continue.disabled = true
 		button_start.disabled = false
 		button_delete.disabled=true
+		button_start.grab_focus()
 
 func load_defaults()->void:
 	var initial_save_info : Dictionary 

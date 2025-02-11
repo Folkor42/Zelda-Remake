@@ -1,8 +1,7 @@
 extends CanvasLayer
 
-signal new_game_started
-signal delete_game(filename:String)
-signal slot_changed(slot_id:int)
+signal delete_game ( filename:String )
+signal slot_changed ( slot_id:int )
 
 @onready var button_1: Button = $Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button1
 @onready var button_2: Button = $Control/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Button2
@@ -46,11 +45,12 @@ func start_pressed() -> void:
 	if selected_slot == 0:
 		return
 	name_new_game.show_new_game_screen(selected_slot)
-	new_game_started.emit()
+	Events.filename_set.emit(filename)
 
 func continue_pressed()->void:
 	loading_overlay.visible=true
 	PlayerHud.visible=true
 	PlayerManager.player.visible=true
 	PlayerManager.player_spawned=false
-	LevelManager.load_new_level("res://Overworld/over_world_quest_1.tscn","",Vector2.ZERO)
+	Events.filename_set.emit(filename)
+	SaveManager.load_game()
