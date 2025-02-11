@@ -33,8 +33,14 @@ func slot_selected(slot_id)->void:
 
 func validate_slots()->void:
 	button_1.validate_save_slot(1,button_1)
+	button_1.set_pressed(false)
 	button_2.validate_save_slot(2,button_2)
+	button_2.set_pressed(false)
 	button_3.validate_save_slot(3,button_3)
+	button_3.set_pressed(false)
+	button_delete.disabled=true
+	button_start.disabled=true
+	button_continue.disabled=true
 	
 func delete_pressed() -> void:
 	if selected_slot == 0:

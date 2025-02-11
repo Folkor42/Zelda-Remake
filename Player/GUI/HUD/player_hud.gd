@@ -20,6 +20,9 @@ var hearts : Array[ HeartGUI ] = []
 @onready var kill_counter: Label = $DEBUG/HBoxContainer/KillCounter
 @onready var b_item: Sprite2D = $"Control/B-Item"
 @onready var a_item: Sprite2D = $"Control/A-Item"
+@onready var over_world_map: GridContainer = $Control/OverWorldMap
+
+
 
 
 func _ready():
@@ -32,7 +35,7 @@ func _ready():
 	update_rubies()
 	update_bombs()
 	update_keys()
-	
+	LevelManager.level_loaded.connect(map_select)
 	#hide_game_over_screen()
 	#continue_button.focus_entered.connect( play_audio.bind( button_focus_audio ))
 	#continue_button.pressed.connect( load_game )
@@ -163,3 +166,11 @@ func _unhandled_input(_event):
 			get_tree().paused=false
 		else:
 			get_tree().paused=true
+
+
+func map_select() -> void:
+	if PlayerManager.in_dungeon:
+		over_world_map.visible=false
+	else:
+		over_world_map.visible=true
+	pass

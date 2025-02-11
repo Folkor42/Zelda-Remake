@@ -21,6 +21,12 @@ func add_item ( item : ItemData, count : int = 1 ) -> bool:
 		PlayerManager.update_keys(1)
 	elif item.name == "Stop Watch":
 		Events.stopwatch_pickedup()
+	elif item.name == "Compass":
+		contents[item.name]=count
+		Events.dungeon_map_update.emit()
+	elif item.name == "Map":
+		contents[item.name]=count
+		Events.dungeon_map_update.emit()
 	#elif contents.has(item.name):
 		#contents[item.name]+=count
 	else:

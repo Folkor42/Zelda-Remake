@@ -12,6 +12,7 @@ signal candle_used()
 signal secret_revealed_sound
 signal stop_time()
 signal filename_set(filename)
+signal dungeon_map_update()
 
 func _ready() -> void:
 	item_used.connect(item_signal)	
@@ -21,6 +22,7 @@ func ignore_me()->void:
 	map_cords.emit(null,null)
 	map_cords_left.emit(null,null)
 	dungeon_map_cords.emit(null,null)
+	dungeon_map_update.emit()
 	
 func item_signal(item)->void:
 	if item == "Bomb":

@@ -100,13 +100,14 @@ func interact() -> void:
 	interact_handled=false
 	Events.item_used.emit(active_item)
 
-func update_rubies( _c : int ) ->void:
+func update_rubies( _c : int, slow : bool = true ) ->void:
 	if _c > 0:
 		for i in _c:
 			#print(i)
 			PlayerManager.rubies = clampi( PlayerManager.rubies + 1, 0, 255 )
 			PlayerHud.update_rubies()
-			await get_tree().create_timer(.05).timeout
+			if slow:
+				await get_tree().create_timer(.05).timeout
 	else:
 		_c *= -1
 		for i in _c:

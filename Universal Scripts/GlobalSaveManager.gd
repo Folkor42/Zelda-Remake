@@ -74,7 +74,7 @@ func load_game() -> void:
 		PlayerManager.update_sword ("White Sword")
 	elif current_save.items.has("Wooden Sword"):
 		PlayerManager.update_sword ("Wooden Sword")
-	PlayerManager.update_rubies(current_save.items["rubies"])
+	PlayerManager.update_rubies(current_save.items["rubies"], false)
 	PlayerManager.update_keys(current_save.items["keys"])
 	PlayerManager.update_bombs(current_save.items["bombs"])
 	#PlayerManager.update_active_item(current_save.active_item) # BUG Need to pass rect currently, should rewrite to use ITEM Texture
