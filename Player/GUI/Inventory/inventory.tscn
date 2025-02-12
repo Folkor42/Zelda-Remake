@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://e3m87fab8sjm"]
+[gd_scene load_steps=32 format=4 uid="uid://e3m87fab8sjm"]
 
 [ext_resource type="Script" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="1_cptov"]
@@ -111,10 +111,6 @@ region = Rect2(1, 112, 256, 88)
 [sub_resource type="AtlasTexture" id="AtlasTexture_he7ak"]
 atlas = ExtResource("1_cptov")
 region = Rect2(519, 42, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnl1f"]
-atlas = ExtResource("1_cptov")
-region = Rect2(256, 0, 256, 64)
 
 [sub_resource type="Animation" id="Animation_u2j2c"]
 length = 0.001
@@ -429,6 +425,7 @@ tile_map_data = PackedByteArray("AAADAAcAAABBAAsAAAACAAcAAABBAAsAAAAEAAcAAABBAAs
 tile_set = SubResource("TileSet_8g1ja")
 
 [node name="TriforceBackground" type="TextureRect" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_abo5a")
 
@@ -454,9 +451,10 @@ region_enabled = true
 region_rect = Rect2(519, 91, 16, 16)
 script = ExtResource("3_gkv1e")
 
-[node name="PLACEHOLDER" type="TextureRect" parent="VBoxContainer"]
+[node name="PLACEHOLDER" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-texture = SubResource("AtlasTexture_qnl1f")
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

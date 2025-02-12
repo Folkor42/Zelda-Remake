@@ -7,6 +7,7 @@ extends Node2D
 func _ready() -> void:
 	LevelManager.level_loaded.connect(level_ready)
 	Events.dungeon_map_update.connect (level_ready)
+	Events.dungeon_map_cords.connect (move_link)
 
 func level_ready()->void:	
 	if PlayerManager.in_dungeon:
@@ -24,3 +25,6 @@ func level_ready()->void:
 		map.visible=false
 		compass.visible=false
 		link.visible=false
+
+func move_link (x : int, y : int) -> void:
+	link.position=Vector2(x*8,y*4)

@@ -50,6 +50,7 @@ script/source = "extends Label
 
 func _ready() -> void:
 	Events.map_cords.connect(_update)
+	Events.dungeon_map_cords.connect(_update)
 	
 func _update(x : int, y: int)->void:
 	text = \"(\"+str(x)+\",\"+str(y)+\")\"
@@ -213,15 +214,13 @@ one_shot = true
 script = ExtResource("5_s20qa")
 
 [node name="Map" type="TileMapLayer" parent="Control/EagleDungeonMap"]
-visible = false
 position = Vector2(16, -16)
 tile_map_data = PackedByteArray("AAADAAcAAABLAAwAAAACAAcAAABKAAwAAAAEAAcAAABKAAwAAAADAAYAAABLAAwAAAADAAUAAABLAAwAAAACAAUAAABJAAwAAAABAAYAAABJAAwAAAACAAYAAABLAAwAAAAEAAYAAABLAAwAAAAFAAYAAABJAAwAAAAFAAUAAABKAAwAAAAGAAUAAABKAAwAAAA=")
 tile_set = SubResource("TileSet_1em2u")
 
 [node name="Link" type="TileMapLayer" parent="Control/EagleDungeonMap"]
 z_index = 1
-position = Vector2(16, -16)
-tile_map_data = PackedByteArray("AAADAAcAAABRAAwAAAA=")
+tile_map_data = PackedByteArray("AAACAAIAAABQAAwAAAA=")
 tile_set = SubResource("TileSet_1em2u")
 
 [node name="Compass" type="TileMapLayer" parent="Control/EagleDungeonMap"]

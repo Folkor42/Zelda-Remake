@@ -9,4 +9,4 @@ func _ready() -> void:
 	
 func _on_player_detector_body_entered(_b) -> void:
 	Events.dungeon_map_cords.emit(x,y)
-	body_entered.disconnect (_on_player_detector_body_entered)
+	#body_entered.disconnect (_on_player_detector_body_entered)
