@@ -24,7 +24,7 @@ func enter() -> void:
 		timer=20.0
 	animation_player.play("stun")
 	enemy.velocity = Vector2.ZERO
-	await animation_player.animation_finished
+	await get_tree().create_timer(timer).timeout
 	animation_player.play("Move")
 	state_machine.ChangeState( next_state )
 	pass

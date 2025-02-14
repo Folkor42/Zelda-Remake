@@ -2,6 +2,7 @@ class_name Wallmaster extends Enemy
 
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
 @onready var hit_box: HitBox = $HitBox
+
 enum direction {UP,DOWN,LEFT,RIGHT}
 @export var wall: direction
 

@@ -10,6 +10,8 @@ const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 var direction : Vector2 = Vector2.ZERO
 var terminal_velocity = 5000
 
+@onready var stop_watch: AudioStreamPlayer = $StopWatch
+
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine: Node = $"Player State Machine"
@@ -37,8 +39,17 @@ func _ready():
 	#PlayerManager.player = self
 	state_machine.Initialize( self )
 	hit_box.Damaged.connect ( _take_damage )
+	Events.stop_time.connect ( tick_tok )
 	update_hp( 99 )
 	pass
+func tick_tok () -> void:
+	var music_index= AudioServer.get_bus_index("Music")
+	var music_vol = AudioServer.get_bus_volume_db(music_index)
+	AudioServer.set_bus_volume_db(music_index, music_vol-10)
+	stop_watch.play()
+	await stop_watch.finished
+	AudioServer.set_bus_volume_db(music_index, music_vol)
+	pass	
 	
 func _process( _delta ):
 	direction = Vector2(

@@ -3,10 +3,12 @@ class_name WallmasterGrab extends EnemyState
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var hurt_box: HurtBox = $"../../HurtBox"
 @onready var wall_detector: RayCast2D = $"../../WallDetector"
+@onready var hit_box: HitBox = $"../../HitBox"
 
 @export var anim_name : String = "stun"
 @export_category("AI")
 @export var reset_state : EnemyState
+
 
 var store_z : int = 0
 var next_state : EnemyState
@@ -16,6 +18,7 @@ func init() -> void:
 	pass
 
 func enter() -> void:
+	hit_box.set_deferred("monitorable",false)
 	store_z = PlayerManager.player.z_index
 	#var timer = get_tree().create_timer(0.2)
 	enemy.animation_player.play( anim_name )
@@ -55,3 +58,4 @@ func pulled()->void:
 func exit() -> void:
 	PlayerManager.player.z_index=store_z
 	hurt_box.set_deferred("monitoring",true)
+	hit_box.set_deferred("monitorable",true)

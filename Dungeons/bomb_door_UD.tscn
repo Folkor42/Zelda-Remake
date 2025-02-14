@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://cn6moxk3u602t" path="res://Assets/Audio/Sounds/Sound Effect (21) - Secret Reveal.wav" id="4_76nxc"]
 
 [node name="Bomb Door UD" type="Node2D"]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_sjny1")
 

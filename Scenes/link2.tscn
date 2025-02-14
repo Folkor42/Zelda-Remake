@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://snh18otta0v2"]
+[gd_scene load_steps=50 format=3 uid="uid://snh18otta0v2"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_3vd0b"]
 [ext_resource type="Texture2D" uid="uid://bq5qvvqjtmk4b" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-3.png" id="2_7mmtp"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Scenes/state_pickup.gd" id="14_8hq8r"]
 [ext_resource type="AudioStream" uid="uid://djdl2m3ffg66f" path="res://Assets/Audio/Sounds/Sound Effect (4) - Pickup.wav" id="14_ukqfw"]
 [ext_resource type="PackedScene" uid="uid://1o61f24mk2r1" path="res://Items/BombEquipped.tscn" id="17_4fccm"]
+[ext_resource type="AudioStream" uid="uid://bcf8i225e8u5t" path="res://Assets/Audio/Sounds/ticking-clock_fast_at_end.mp3" id="18_55vlt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_khxb0"]
 shader = ExtResource("2_flq05")
@@ -968,3 +969,6 @@ stream = ExtResource("14_ukqfw")
 script = SubResource("GDScript_y7i33")
 
 [node name="BombEquipped" parent="EquippedItem" instance=ExtResource("17_4fccm")]
+
+[node name="StopWatch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_55vlt")

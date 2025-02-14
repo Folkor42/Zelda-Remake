@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c52mqag1as035"]
+[gd_scene load_steps=28 format=3 uid="uid://c52mqag1as035"]
 
 [ext_resource type="PackedScene" uid="uid://bnwqkvxnroftf" path="res://Dungeons/01 - Eagle/room_1.tscn" id="1_fxssn"]
 [ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_gev80"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://bp1k12fh1jdf5" path="res://Dungeons/key_door_ud.tscn" id="23_brg25"]
 [ext_resource type="PackedScene" uid="uid://cjtn46ftxd15f" path="res://Dungeons/key_door_LR.tscn" id="24_ll478"]
 [ext_resource type="PackedScene" uid="uid://dtme62ocn0g14" path="res://Dungeons/bomb_door_UD.tscn" id="25_h3vur"]
+[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="26_r34o7"]
+[ext_resource type="Resource" uid="uid://4sh8d5001njr" path="res://Items/boomerang.tres" id="27_4jgto"]
 
 [node name="01 - Eagle Dungeon" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
 script = ExtResource("1_gev80")
@@ -33,7 +35,7 @@ dungeon_camera = NodePath("DungeonCamera")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("20_acy5b")]
 z_index = 1
-position = Vector2(128, 142)
+position = Vector2(128, 136)
 
 [node name="Rooms" type="Node" parent="."]
 
@@ -131,3 +133,8 @@ position = Vector2(128, -352)
 
 [node name="Bomb Door LR2" parent="Doors" instance=ExtResource("25_h3vur")]
 position = Vector2(384, -352)
+
+[node name="ItemDropper" parent="." instance=ExtResource("26_r34o7")]
+z_index = 1
+position = Vector2(128, 104)
+item_data = ExtResource("27_4jgto")
