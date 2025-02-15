@@ -36,7 +36,7 @@ func enter() -> void:
 	pass
 pass
 
-func process(delta: float) -> EnemyState:
+func process(_delta: float) -> EnemyState:
 	PlayerManager.player.z_index=0
 	PlayerManager.player.global_position=enemy.global_position+Vector2(2,0)
 	enemy.velocity = enemy.current_direction * enemy.speed

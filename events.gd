@@ -23,6 +23,7 @@ func ignore_me()->void:
 	map_cords_left.emit(null,null)
 	dungeon_map_cords.emit(null,null)
 	dungeon_map_update.emit()
+	filename_set.emit (null)
 	
 func item_signal(item)->void:
 	if item == "Bomb":

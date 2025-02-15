@@ -11,6 +11,7 @@ var direction : Vector2 = Vector2.ZERO
 var terminal_velocity = 5000
 
 @onready var stop_watch: AudioStreamPlayer = $StopWatch
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D

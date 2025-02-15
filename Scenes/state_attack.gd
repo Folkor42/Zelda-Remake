@@ -41,6 +41,7 @@ func Enter() -> void:
 func Exit() -> void:
 	if animation_player.animation_finished.is_connected( EndAttack ):
 		animation_player.animation_finished.disconnect ( EndAttack )
+	attack_animation.call_deferred("stop")
 	attacking = false
 	hurt_box.monitoring = false
 	pass
