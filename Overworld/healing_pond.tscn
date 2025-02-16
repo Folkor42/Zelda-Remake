@@ -4,6 +4,21 @@
 [ext_resource type="Resource" uid="uid://bbdcvep6dq0tj" path="res://Items/fairy.tres" id="2_vfmgj"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_vcfv1"]
 
+[sub_resource type="Animation" id="Animation_7wmgr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_kljtp"]
 resource_name = "hover"
 length = 0.2
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_7wmgr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l3nvr"]
@@ -309,6 +309,7 @@ _data = {
 [node name="HealingPond" type="Node2D"]
 
 [node name="Fairy" type="Sprite2D" parent="."]
+z_index = 2
 texture = ExtResource("3_vcfv1")
 hframes = 2
 region_enabled = true
@@ -344,6 +345,7 @@ libraries = {
 }
 
 [node name="Hearts" type="Node2D" parent="."]
+z_index = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Hearts"]
 visible = false
