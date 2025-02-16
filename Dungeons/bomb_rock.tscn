@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dahanndq3tjn7"]
+[gd_scene load_steps=9 format=3 uid="uid://dahanndq3tjn7"]
 
 [ext_resource type="Script" path="res://Dungeons/bomb_rock.gd" id="1_b8hwk"]
 [ext_resource type="Texture2D" uid="uid://b0po442d4i62r" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Tileset.png" id="2_l48oc"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_fat8m"]
 [ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="4_1h27t"]
+[ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="5_s1lrt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kxyd"]
+atlas = ExtResource("5_s1lrt")
+region = Rect2(48, 48, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]
 size = Vector2(16, 16)
@@ -14,9 +19,13 @@ size = Vector2(16, 16)
 script = ExtResource("1_b8hwk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_l48oc")
 region_enabled = true
 region_rect = Rect2(304, 112, 16, 16)
+
+[node name="SNES Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6kxyd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_62mwj")
