@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://hbv6tv21efd"]
+[gd_scene load_steps=8 format=3 uid="uid://hbv6tv21efd"]
 
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="1_6cykp"]
+[ext_resource type="Script" path="res://Items/flicker.gd" id="2_3fob1"]
 
 [sub_resource type="Animation" id="Animation_pg1rm"]
 resource_name = "Flicker"
@@ -41,6 +42,17 @@ _data = {
 "RESET": SubResource("Animation_7urov")
 }
 
+[sub_resource type="Gradient" id="Gradient_aj3nl"]
+offsets = PackedFloat32Array(0, 0.710037)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0aia7"]
+gradient = SubResource("Gradient_aj3nl")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Fire" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -55,3 +67,8 @@ hframes = 6
 frame = 3
 region_enabled = true
 region_rect = Rect2(240, 63, 96, 17)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2.5, 2.09375)
+texture = SubResource("GradientTexture2D_0aia7")
+script = ExtResource("2_3fob1")
