@@ -47,6 +47,7 @@ func _on_enemy_destroyed ( hurt_box : HurtBox ) -> void:
 	state_machine.ChangeState( self )
 	
 func _on_animation_finished ( _a : String ) -> void:
+	enemy.animation_player.animation_finished.disconnect( _on_animation_finished )
 	enemy.queue_free()
 
 func drop_items() -> void:
