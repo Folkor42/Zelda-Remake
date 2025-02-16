@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://d3vi5vgdge1q0"]
+[gd_scene load_steps=27 format=4 uid="uid://d3vi5vgdge1q0"]
 
 [ext_resource type="Script" path="res://Overworld/over_world_quest_1.gd" id="1_abc4w"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_cwrbh"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cxlqwcmp32abu" path="res://Dungeons/burnable_tree.tscn" id="13_iv2n7"]
 [ext_resource type="PackedScene" uid="uid://bm5kcyh6hfim2" path="res://Overworld/healing_pond.tscn" id="14_jfu83"]
 [ext_resource type="PackedScene" uid="uid://dsoxfgec6hq2v" path="res://Overworld/Enemies/Leever/Red_Leever.tscn" id="16_p3ami"]
+[ext_resource type="Script" path="res://Overworld/DayNight.gd" id="17_yaohu"]
 [ext_resource type="PackedScene" uid="uid://dhr04causku4q" path="res://Overworld/Enemies/Zora/Zora.tscn" id="19_68jmo"]
 [ext_resource type="PackedScene" uid="uid://gp225e824jp1" path="res://Overworld/Enemies/Tektite/Red_Tektite.tscn" id="19_igoek"]
 [ext_resource type="PackedScene" uid="uid://cfn5scm4r2plf" path="res://Overworld/Enemies/Peahat/Peahat.tscn" id="19_lnibd"]
@@ -5507,10 +5508,11 @@ position = Vector2(309, -668)
 position = Vector2(-419, -157)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
+position = Vector2(1, 0)
 color = Color(0.184306, 0.459203, 0.830396, 1)
 blend_mode = 2
 shadow_color = Color(0, 0, 0, 1)
+script = ExtResource("17_yaohu")
 
 [node name="SecretFound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_eei64")
