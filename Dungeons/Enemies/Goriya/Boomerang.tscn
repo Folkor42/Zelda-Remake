@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://caxx3etp0rj2b"]
 
 [ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/boomerang.gd" id="1_w0pjs"]
-[ext_resource type="Texture2D" uid="uid://bq5qvvqjtmk4b" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-3.png" id="2_ttboc"]
+[ext_resource type="Texture2D" uid="uid://c0m8mrgxu8poh" path="res://Assets/SpriteSheets/SNES - Link.png" id="2_un24k"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="3_hhw2a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ollpb"]
@@ -104,7 +104,7 @@ collision_mask = 0
 script = ExtResource("1_w0pjs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ttboc")
+texture = ExtResource("2_un24k")
 hframes = 3
 region_enabled = true
 region_rect = Rect2(240, 0, 48, 16)

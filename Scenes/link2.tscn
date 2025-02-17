@@ -1,8 +1,8 @@
-[gd_scene load_steps=50 format=3 uid="uid://snh18otta0v2"]
+[gd_scene load_steps=49 format=3 uid="uid://snh18otta0v2"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_3vd0b"]
-[ext_resource type="Texture2D" uid="uid://bq5qvvqjtmk4b" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-3.png" id="2_7mmtp"]
 [ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_flq05"]
+[ext_resource type="Texture2D" uid="uid://c0m8mrgxu8poh" path="res://Assets/SpriteSheets/SNES - Link.png" id="3_dtcsw"]
 [ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="3_g3lxh"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_ggm60"]
 [ext_resource type="AudioStream" uid="uid://bev3yc6gf036r" path="res://Assets/Audio/Sounds/Sound Effect (6) - Sword Slash.wav" id="4_lpdj2"]
@@ -23,9 +23,6 @@
 shader = ExtResource("2_flq05")
 shader_parameter/blink_color = Color(1, 0.108923, 0.181227, 1)
 shader_parameter/blink_intensity = 0.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rc53s"]
-load_path = "res://.godot/imported/NES - The Legend of Zelda - Link-3.png-8dea1d8268b6d01ff6c4de76540b17cf.ctex"
 
 [sub_resource type="Animation" id="Animation_g5ilh"]
 resource_name = "RESET"
@@ -871,14 +868,14 @@ script = ExtResource("1_3vd0b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_khxb0")
-texture = ExtResource("2_7mmtp")
+texture = ExtResource("3_dtcsw")
 hframes = 23
 vframes = 17
 region_rect = Rect2(0, 10.8942, 102.118, 16.2263)
 
 [node name="Sword" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(0, -16)
-texture = SubResource("CompressedTexture2D_rc53s")
+texture = ExtResource("3_dtcsw")
 hframes = 23
 vframes = 17
 frame = 46

@@ -14,11 +14,13 @@ func Enter() -> void:
 	player.animation_player.play( "death" )
 	audio.stream = exhaust_audio
 	audio.play()
-	#PlayerHud.show_game_over_screen()
+	PlayerHud.show_game_over_screen()
 	#AudioManager.play_music( null )
 	await player.animation_player.animation_finished
-	player.animation_player.play( "RESET" )
-	PlayerManager.player.revive_player()
+	#player.animation_player.play( "RESET" )
+	get_tree().paused=true
+	#var level = ""
+	#PlayerManager.player.revive_player( level )
 	pass
 
 func Exit() -> void:

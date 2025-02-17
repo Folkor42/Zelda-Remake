@@ -148,12 +148,14 @@ func show_menu()->void:
 		get_parent().add_child(overlay)
 		overlay.show_menu()
 
-func revive_player() -> void:
+func revive_player( _level : String) -> void:
 	update_hp( 6 )
 	var level = "res://Overworld/over_world_quest_1.tscn"
 	var target_transition_area = "Cave-SwordA"
-	var tween = get_tree().create_tween()
-	tween.tween_method(SetShader_BlinkIntensity,1.0,0.0,1.0)
+	PlayerManager.player.animation_player.play("RESET")
+	PlayerHud.visible=true
+	#var tween = get_tree().create_tween()
+	#tween.tween_method(SetShader_BlinkIntensity,1.0,0.0,1.0)
 	state_machine.ChangeState( $"Player State Machine/Idle" )
 	LevelManager.load_new_level( level, target_transition_area, Vector2.ZERO )
 	pass

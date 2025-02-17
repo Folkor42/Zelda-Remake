@@ -9,9 +9,9 @@ var player : Player
 var player_spawned : bool = false
 var inventory : InventoryData
 var rubies : int = 0
-var bombs : int = 8
+var bombs : int = 0
 var max_bombs : int = 8
-var keys : int = 8
+var keys : int = 0
 var kill_count : int = 0
 var sword : String = ""
 var active_item : String = ""
@@ -31,7 +31,7 @@ func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
-	update_sword ("Wooden Sword")
+	#update_sword ("Wooden Sword")
 	pass
 
 func _update_dungeon_map ( x : int, y : int ) -> void:
