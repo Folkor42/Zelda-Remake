@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcfsharmal5w"]
+[gd_scene load_steps=6 format=4 uid="uid://dcfsharmal5w"]
 
 [ext_resource type="Script" path="res://Dungeons/trigger_door.gd" id="1_yjumm"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_ve7kg"]
 [ext_resource type="AudioStream" uid="uid://b4d1dhnyhfpwt" path="res://Assets/Audio/Sounds/Sound Effect (11) - Door.wav" id="3_td8r1"]
+[ext_resource type="PackedScene" uid="uid://c7snu8c7im0hm" path="res://TileMaps/SNES - Dungeon Tile Set.tscn" id="4_agfrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]
 size = Vector2(32, 32)
@@ -24,3 +25,7 @@ shape = SubResource("RectangleShape2D_62mwj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_td8r1")
+
+[node name="SNES" parent="." instance=ExtResource("4_agfrr")]
+position = Vector2(0, -8)
+tile_map_data = PackedByteArray("AAD/////BgA5AAUAAAD//wAABgA5AAYAAAD//wEABgA5AAcAAAAAAP//BgA6AAUAAAAAAAAABgA6AAYAAAAAAAEABgA6AAcAAAA=")
