@@ -5603,6 +5603,21 @@ texture = ExtResource("1_bh0s0")
 70:76/0 = 0
 71:76/0 = 0
 72:76/0 = 0
+61:3/0 = 0
+61:4/0 = 0
+62:4/0 = 0
+63:4/0 = 0
+64:4/0 = 0
+64:3/0 = 0
+63:3/0 = 0
+62:3/0 = 0
+63:2/0 = 0
+61:5/0 = 0
+62:5/0 = 0
+63:5/0 = 0
+64:5/0 = 0
+61:6/0 = 0
+62:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_vibd6"]
 sources/6 = SubResource("TileSetAtlasSource_8oif1")

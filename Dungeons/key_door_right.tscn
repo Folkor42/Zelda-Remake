@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctd1b5ksoxyvk"]
+[gd_scene load_steps=7 format=4 uid="uid://ctd1b5ksoxyvk"]
 
 [ext_resource type="Script" path="res://Dungeons/key_door.gd" id="1_6st2c"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_jieco"]
+[ext_resource type="PackedScene" uid="uid://c7snu8c7im0hm" path="res://TileMaps/SNES - Dungeon Tile Set.tscn" id="3_7ka7p"]
 [ext_resource type="Script" path="res://Dungeons/door_mat.gd" id="3_er1ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]
@@ -20,6 +21,10 @@ direction = 3
 texture = ExtResource("2_jieco")
 region_enabled = true
 region_rect = Rect2(881, 77, 32, 32)
+
+[node name="SNES" parent="." instance=ExtResource("3_7ka7p")]
+position = Vector2(0, -8)
+tile_map_data = PackedByteArray("AAD/////BgA3AAUAAAD//wAABgA3AAYAAAD//wEABgA3AAcAAAAAAP//BgA4AAUAAAAAAAAABgA4AAYAAAAAAAEABgA4AAcAAAA=")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

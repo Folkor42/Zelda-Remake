@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs3c4ywmnsw1e"]
+[gd_scene load_steps=7 format=3 uid="uid://bs3c4ywmnsw1e"]
 
 [ext_resource type="Script" path="res://Dungeons/bomb_door.gd" id="1_thyr4"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_pp826"]
+[ext_resource type="Texture2D" uid="uid://b8xdb0fdc1su" path="res://Assets/SpriteSheets/SNES - The Legend of Zelda - Dungeon Tileset.png" id="3_4ktjd"]
 [ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_tegpy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]
@@ -16,6 +17,11 @@ script = ExtResource("1_thyr4")
 texture = ExtResource("2_pp826")
 region_enabled = true
 region_rect = Rect2(1052, 11, 32, 32)
+
+[node name="SNES" type="Sprite2D" parent="."]
+texture = ExtResource("3_4ktjd")
+region_enabled = true
+region_rect = Rect2(1040, 96, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

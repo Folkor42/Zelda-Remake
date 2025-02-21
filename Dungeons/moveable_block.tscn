@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://du1hkek41ut33"]
+[gd_scene load_steps=8 format=3 uid="uid://du1hkek41ut33"]
 
 [ext_resource type="Script" path="res://Dungeons/moveable_block.gd" id="1_tlhhg"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_kve6n"]
 [ext_resource type="Script" path="res://Dungeons/blockpusharea.gd" id="3_8ykwn"]
+[ext_resource type="PackedScene" uid="uid://c7snu8c7im0hm" path="res://TileMaps/SNES - Dungeon Tile Set.tscn" id="3_ld081"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1m586"]
 size = Vector2(16, 16)
@@ -20,6 +21,10 @@ script = ExtResource("1_tlhhg")
 texture = ExtResource("2_kve6n")
 region_enabled = true
 region_rect = Rect2(1001, 11, 16, 16)
+
+[node name="SNES" parent="." instance=ExtResource("3_ld081")]
+position = Vector2(8, 8)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 6, 0, 62, 0, 0, 0, 0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1m586")
