@@ -218,6 +218,7 @@ position = Vector2(232, 87)
 direction = 1
 
 [node name="Floor" type="TileMapLayer" parent="."]
+z_index = -2
 tile_map_data = PackedByteArray("AAACAAIAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
 

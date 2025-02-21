@@ -280,6 +280,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAgAAAAAAAAAAIAAAAgAAIAAAAAAAkAAAAgAAk
 tile_set = SubResource("TileSet_va7gw")
 
 [node name="Floor" type="TileMapLayer" parent="."]
+z_index = -2
 tile_map_data = PackedByteArray("AAACAAIAAQAFAAYAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
 
@@ -312,11 +313,10 @@ offset_top = 32.0
 offset_right = 215.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("5_tb7wb")
-text = "Eastmost Penninsula
-is the secret!"
+text = "If you don't have money, you can't use arrows."
 horizontal_alignment = 1
 autowrap_mode = 2
-visible_ratio = -0.0294118
+visible_ratio = -0.0217391
 script = SubResource("GDScript_yc4be")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]

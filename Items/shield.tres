@@ -15,3 +15,7 @@ description = "Blocks Projectiles"
 texture = SubResource("AtlasTexture_a55n4")
 value = 160
 effects = Array[ExtResource("1_hpfdf")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1

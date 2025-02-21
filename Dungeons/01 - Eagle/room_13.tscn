@@ -231,6 +231,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAgAAAAAAAAAAIAAAAgAAIAAAAAAAkAAAAgAAk
 tile_set = SubResource("TileSet_va7gw")
 
 [node name="Floor" type="TileMapLayer" parent="."]
+z_index = -2
 tile_map_data = PackedByteArray("AAACAAIAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
 

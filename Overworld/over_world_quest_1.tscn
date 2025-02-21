@@ -5715,13 +5715,14 @@ position = Vector2(640, -592)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 40.0
-offset_top = 144.0
+offset_top = 128.0
 offset_right = 153.0
 offset_bottom = 173.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("20_hxd50")
 text = "Arrows to Move
-ESC to bring up Menu"
+ESC to bring up Menu
+T to Toggle Graphics"
 script = SubResource("GDScript_fec5g")
 
 [node name="Timer" type="Timer" parent="Label"]

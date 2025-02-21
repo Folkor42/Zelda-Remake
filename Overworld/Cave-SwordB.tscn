@@ -5265,10 +5265,10 @@ position = Vector2(129, 140)
 position = Vector2(128, 71)
 
 [node name="Fire" parent="." instance=ExtResource("14_ctylk")]
-position = Vector2(72, 56)
+position = Vector2(72, 58)
 
 [node name="Fire2" parent="." instance=ExtResource("14_ctylk")]
-position = Vector2(184, 56)
+position = Vector2(184, 58)
 
 [node name="OnlyOne" type="Node" parent="."]
 script = ExtResource("8_advpt")

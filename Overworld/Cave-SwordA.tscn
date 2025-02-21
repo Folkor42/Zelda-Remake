@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="13_tnoff"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="14_ybfs8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvqsj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1f1i7"]
 texture = ExtResource("3_hi20w")
 0:0/0 = 0
 1:0/0 = 0
@@ -5178,7 +5178,7 @@ texture = ExtResource("3_hi20w")
 85:59/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_uwvq0"]
-sources/0 = SubResource("TileSetAtlasSource_uvqsj")
+sources/0 = SubResource("TileSetAtlasSource_1f1i7")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0mtu8"]
 light_mode = 1
@@ -5274,10 +5274,10 @@ major_drop = true
 position = Vector2(128, 71)
 
 [node name="Fire" parent="." instance=ExtResource("14_ybfs8")]
-position = Vector2(73, 56)
+position = Vector2(72, 58)
 
 [node name="Fire2" parent="." instance=ExtResource("14_ybfs8")]
-position = Vector2(184, 56)
+position = Vector2(184, 58)
 
 [node name="ItemDropper" parent="." instance=ExtResource("9_mkajb")]
 position = Vector2(184, 104)

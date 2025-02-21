@@ -15,3 +15,7 @@ description = "Monsters love meat!"
 texture = SubResource("AtlasTexture_8qyeg")
 value = 100
 effects = Array[ExtResource("1_iaixp")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1
