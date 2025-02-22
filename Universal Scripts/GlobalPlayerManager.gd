@@ -20,6 +20,7 @@ var grid_width = 8
 var grid_height = 8
 var in_dungeon: bool = false
 var time_played : float = 0.0
+var upgraded_graphics : bool = true
 
 func _ready() -> void:
 	Events.dungeon_map_cords.connect(_update_dungeon_map)
@@ -31,13 +32,21 @@ func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
-	#update_sword ("Wooden Sword")
+	update_sword ("Wooden Sword")
 	pass
 
 func _update_dungeon_map ( x : int, y : int ) -> void:
 	grid[x][y]=true
 	print (grid)
 	pass
+
+func change_graphics ()->void:
+	upgraded_graphics = !upgraded_graphics
+	Events.toggle_graphics.emit(upgraded_graphics)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_graphics"):
+		change_graphics()
 
 func update_sword( new_sword : String ) -> void:
 	if new_sword == "Magic Sword" or sword == "Magic Sword":

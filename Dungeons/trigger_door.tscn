@@ -7,13 +7,18 @@
 
 [sub_resource type="GDScript" id="GDScript_uk45d"]
 script/source = "extends Sprite2D
+@onready var trigger_door: TriggerDoor = $\"..\"
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(\"toggle_graphics\"):
-		toggle_graphics()
+func _ready() -> void:
+	visible=PlayerManager.upgraded_graphics
+	Events.toggle_graphics.connect(toggle_graphics)
 		
-func toggle_graphics()->void:
-	visible=!visible
+func toggle_graphics( _new_value : bool )->void:
+	print (trigger_door.is_opened)
+	if trigger_door.sprite_2d.visible == false:
+		visible=false
+	else:
+		visible=PlayerManager.upgraded_graphics
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]

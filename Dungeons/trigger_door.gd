@@ -60,7 +60,7 @@ func unlock_door()->void:
 
 func lock_door()->void:
 	sprite_2d.visible=true
-	snes.visible=true
+	snes.visible=PlayerManager.upgraded_graphics
 	collision_shape_2d.set_deferred("disabled",false)
 	print("Locking Door")
 	audio.play()

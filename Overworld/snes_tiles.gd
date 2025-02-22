@@ -1,8 +1,8 @@
 extends TileMapLayer
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_graphics"):
-		toggle_graphics()
+func _ready() -> void:
+	enabled=PlayerManager.upgraded_graphics
+	Events.toggle_graphics.connect(toggle_graphics)
 		
-func toggle_graphics()->void:
-	enabled=!enabled	
+func toggle_graphics( _new_value : bool )->void:
+	enabled=_new_value

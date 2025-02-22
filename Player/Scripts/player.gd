@@ -3,6 +3,9 @@ class_name Player extends CharacterBody2D
 signal player_pickup
 
 const inv : PackedScene = preload ("res://Player/GUI/Inventory/inventory.tscn")
+const SNES_LINK : Texture = preload("res://Assets/SpriteSheets/SNES - Link.png")
+const NES_LINK : Texture = preload("res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-3.png")
+
 var menu_opened : bool = false
 
 var cardinal_direction : Vector2 = Vector2.DOWN
@@ -26,6 +29,7 @@ var terminal_velocity = 5000
 @onready var shield_block_sound: AudioStreamPlayer2D = $Shield/ShieldBlockSound
 @onready var hurt_box: HurtBox = $Sprite2D/Sword/HurtBox
 @onready var equipped_item: Node = $EquippedItem
+@onready var sword: Sprite2D = $Sprite2D/Sword
 
 signal DirectionChanged ( new_direction : Vector2 )
 signal player_damaged ( hurt_box : HurtBox )
@@ -42,7 +46,16 @@ func _ready():
 	hit_box.Damaged.connect ( _take_damage )
 	Events.stop_time.connect ( tick_tok )
 	update_hp( 99 )
-	pass
+	Events.toggle_graphics.connect(toggle_graphics)
+		
+func toggle_graphics( _new_value : bool )->void:
+	if _new_value:
+		sprite.texture=SNES_LINK
+		sword.texture=SNES_LINK
+	else:
+		sprite.texture=NES_LINK
+		sword.texture=NES_LINK
+	
 func tick_tok () -> void:
 	var music_index= AudioServer.get_bus_index("Music")
 	var music_vol = AudioServer.get_bus_volume_db(music_index)
