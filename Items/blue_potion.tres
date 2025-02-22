@@ -1,14 +1,19 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://crv3ixmnjghew"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=9 format=3 uid="uid://crv3ixmnjghew"]
 
 [ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_ox1oy"]
 [ext_resource type="Script" path="res://Items/Item Effects/item_effect_heal.gd" id="2_ep65h"]
 [ext_resource type="Script" path="res://Items/item_data.gd" id="2_uda7d"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="4_2cgfy"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="4_hethl"]
 
 [sub_resource type="Resource" id="Resource_42o23"]
 script = ExtResource("2_ep65h")
 heal_amount = 99
 use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed35x"]
+atlas = ExtResource("4_2cgfy")
+region = Rect2(80, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvco4"]
 atlas = ExtResource("4_hethl")
@@ -19,6 +24,7 @@ script = ExtResource("2_uda7d")
 name = "Blue Potion"
 description = "Restores Link's Health"
 texture = SubResource("AtlasTexture_cvco4")
+snes_texture = SubResource("AtlasTexture_ed35x")
 value = 40
 effects = Array[ExtResource("1_ox1oy")]([SubResource("Resource_42o23")])
 animated = false

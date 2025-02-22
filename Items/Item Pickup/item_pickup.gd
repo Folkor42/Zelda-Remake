@@ -26,6 +26,10 @@ func _ready() -> void:
 		area_2d.area_entered.connect ( _on_area_entered )
 	await get_tree().create_timer(1).timeout
 	#item_drop.set_drop_value(global_position,item_data)
+	Events.toggle_graphics.connect(toggle_graphics)
+		
+func toggle_graphics( _new_value : bool )->void:
+	_update_texture()
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -91,12 +95,18 @@ func item_picked_up ( _name : String ) -> void:
 	pass
 	
 func _update_texture() -> void:
-	if item_data and sprite_2d:
+	if item_data and sprite_2d and PlayerManager.upgraded_graphics == false:
 		if item_data.animated:
 			sprite_2d.hframes=item_data.h_frames
 			sprite_2d.vframes=item_data.v_frames
 			print("Animated")
 		sprite_2d.texture = item_data.texture
+	elif item_data and sprite_2d and PlayerManager.upgraded_graphics == true:
+		if item_data.animated:
+			sprite_2d.hframes=item_data.h_frames
+			sprite_2d.vframes=item_data.v_frames
+			print("Animated")
+		sprite_2d.texture = item_data.snes_texture
 	pass
 
 func bounce() -> void:

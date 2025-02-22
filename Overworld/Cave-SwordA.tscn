@@ -5269,6 +5269,7 @@ position = Vector2(129, 140)
 position = Vector2(128, 105)
 item_data = ExtResource("7_p4sof")
 major_drop = true
+start_dropped = true
 
 [node name="OldMan" parent="." instance=ExtResource("13_tnoff")]
 position = Vector2(128, 71)
@@ -5282,10 +5283,14 @@ position = Vector2(184, 58)
 [node name="ItemDropper" parent="." instance=ExtResource("9_mkajb")]
 position = Vector2(184, 104)
 item_data = ExtResource("9_0tu12")
+major_drop = false
+start_dropped = true
 
 [node name="ItemDropper2" parent="." instance=ExtResource("9_mkajb")]
 position = Vector2(69, 104)
 item_data = ExtResource("11_wdvea")
+major_drop = false
+start_dropped = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(6.37732e-07, 0.177196, 0.242465, 1)

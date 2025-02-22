@@ -1,21 +1,27 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bt4fmhs82xmd2"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://bt4fmhs82xmd2"]
 
-[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_kmk5v"]
-[ext_resource type="Script" path="res://Items/item_data.gd" id="2_66jen"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_0a12h"]
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_01wqr"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_x1rfo"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_rfdea"]
+[ext_resource type="Texture2D" uid="uid://dj3tolp4j3efp" path="res://Assets/SpriteSheets/NES - Items & Weapons.png" id="4_k1q8c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w46lt"]
+atlas = ExtResource("3_rfdea")
+region = Rect2(0, 32, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_617y8"]
-atlas = ExtResource("3_0a12h")
-region = Rect2(0, 0, 8, 16)
+atlas = ExtResource("4_k1q8c")
+region = Rect2(0, 32, 32, 16)
 
 [resource]
-script = ExtResource("2_66jen")
+script = ExtResource("2_x1rfo")
 name = "Heart"
 description = "A lovely Heart that heals."
 texture = SubResource("AtlasTexture_617y8")
+snes_texture = SubResource("AtlasTexture_w46lt")
 value = 10
-effects = Array[ExtResource("1_kmk5v")]([])
+effects = Array[ExtResource("1_01wqr")]([])
 animated = true
-h_frames = 1
-v_frames = 2
+h_frames = 2
+v_frames = 1
 frames = 2

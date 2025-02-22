@@ -1,18 +1,24 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dvq4hasaw8tre"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://dvq4hasaw8tre"]
 
 [ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_1prss"]
 [ext_resource type="Script" path="res://Items/item_data.gd" id="2_3fmfa"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_fhqn6"]
+[ext_resource type="Texture2D" uid="uid://dj3tolp4j3efp" path="res://Assets/SpriteSheets/NES - Items & Weapons.png" id="3_5v6na"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_w116v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_435pd"]
+atlas = ExtResource("3_w116v")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4hgs"]
-atlas = ExtResource("3_fhqn6")
-region = Rect2(104.2, 0, 7, 16)
+atlas = ExtResource("3_5v6na")
+region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_3fmfa")
 name = "Wooden Sword"
 description = "Good for "
 texture = SubResource("AtlasTexture_n4hgs")
+snes_texture = SubResource("AtlasTexture_435pd")
 value = 0
 effects = Array[ExtResource("1_1prss")]([])
 animated = false

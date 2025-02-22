@@ -70,6 +70,8 @@ func _set_item_data ( value : ItemData ) -> void:
 	
 func _update_texture() -> void:
 	if Engine.is_editor_hint()==true:
-		if item_data and sprite:
+		if item_data and sprite and PlayerManager.upgraded_graphics == false:
 			sprite.texture = item_data.texture
+		else:
+			sprite.texture = item_data.snes_texture
 	pass

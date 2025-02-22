@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dcff8imdai3cc"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://dcff8imdai3cc"]
 
 [ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_iaixp"]
 [ext_resource type="Script" path="res://Items/item_data.gd" id="2_nblxe"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_a74lr"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_cq8co"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pltg8"]
+atlas = ExtResource("3_a74lr")
+region = Rect2(240, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qyeg"]
 atlas = ExtResource("3_cq8co")
@@ -13,6 +18,7 @@ script = ExtResource("2_nblxe")
 name = "Bait"
 description = "Monsters love meat!"
 texture = SubResource("AtlasTexture_8qyeg")
+snes_texture = SubResource("AtlasTexture_pltg8")
 value = 100
 effects = Array[ExtResource("1_iaixp")]([])
 animated = false

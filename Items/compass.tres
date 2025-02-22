@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://drad24ak7ur3c"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://drad24ak7ur3c"]
 
 [ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_uji2u"]
 [ext_resource type="Script" path="res://Items/item_data.gd" id="2_4xg0k"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_dw4jd"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_x05ry"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8q8i"]
+atlas = ExtResource("3_x05ry")
+region = Rect2(256, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6w8i"]
 atlas = ExtResource("3_dw4jd")
@@ -13,6 +18,7 @@ script = ExtResource("2_4xg0k")
 name = "Compass"
 description = ""
 texture = SubResource("AtlasTexture_e6w8i")
+snes_texture = SubResource("AtlasTexture_f8q8i")
 value = 0
 effects = Array[ExtResource("1_uji2u")]([])
 animated = false

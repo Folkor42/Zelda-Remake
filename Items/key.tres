@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://daknvhywyt3vj"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://daknvhywyt3vj"]
 
 [ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_42vlp"]
 [ext_resource type="Script" path="res://Items/item_data.gd" id="2_xnxjv"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_oxtf8"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_vdptq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5b5q"]
+atlas = ExtResource("3_vdptq")
+region = Rect2(224, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsotc"]
 atlas = ExtResource("3_oxtf8")
@@ -13,6 +18,7 @@ script = ExtResource("2_xnxjv")
 name = "Key"
 description = "It unlocks stuff."
 texture = SubResource("AtlasTexture_bsotc")
+snes_texture = SubResource("AtlasTexture_r5b5q")
 value = 100
 effects = Array[ExtResource("1_42vlp")]([])
 animated = false

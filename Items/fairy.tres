@@ -1,20 +1,26 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bbdcvep6dq0tj"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://bbdcvep6dq0tj"]
 
-[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_avdd2"]
-[ext_resource type="Script" path="res://Items/item_data.gd" id="2_kvksg"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_mjti5"]
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_d1yqa"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_4233s"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_34u3r"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="4_3bx1o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdkxj"]
+atlas = ExtResource("3_34u3r")
+region = Rect2(128, 16, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrga4"]
-atlas = ExtResource("3_mjti5")
+atlas = ExtResource("4_3bx1o")
 region = Rect2(40, 0, 16, 16)
 
 [resource]
-script = ExtResource("2_kvksg")
+script = ExtResource("2_4233s")
 name = "Fairy"
 description = "A healing Fairy"
 texture = SubResource("AtlasTexture_rrga4")
+snes_texture = SubResource("AtlasTexture_sdkxj")
 value = 0
-effects = Array[ExtResource("1_avdd2")]([])
+effects = Array[ExtResource("1_d1yqa")]([])
 animated = true
 h_frames = 2
 v_frames = 1

@@ -1,20 +1,26 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bdrqiutagyist"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://bdrqiutagyist"]
 
-[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_edpkn"]
-[ext_resource type="Script" path="res://Items/item_data.gd" id="2_1kjac"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_wjpjj"]
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_kr5fy"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_u4x28"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_mso0y"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="4_5mmou"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53rur"]
+atlas = ExtResource("3_mso0y")
+region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60o33"]
-atlas = ExtResource("3_wjpjj")
+atlas = ExtResource("4_5mmou")
 region = Rect2(136, 0, 8, 14)
 
 [resource]
-script = ExtResource("2_1kjac")
+script = ExtResource("2_u4x28")
 name = "Bomb"
 description = "Blow up things!"
 texture = SubResource("AtlasTexture_60o33")
+snes_texture = SubResource("AtlasTexture_53rur")
 value = 0
-effects = Array[ExtResource("1_edpkn")]([])
+effects = Array[ExtResource("1_kr5fy")]([])
 animated = false
 h_frames = 1
 v_frames = 1

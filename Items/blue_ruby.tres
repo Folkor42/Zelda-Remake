@@ -1,20 +1,26 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://vcn5yobjf3vy"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://vcn5yobjf3vy"]
 
-[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_m4r88"]
-[ext_resource type="Script" path="res://Items/item_data.gd" id="2_h4rv7"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_vlcca"]
+[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_f65md"]
+[ext_resource type="Script" path="res://Items/item_data.gd" id="2_cn5xw"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_3mqsn"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="4_qj5gs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jina"]
+atlas = ExtResource("3_3mqsn")
+region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46tve"]
-atlas = ExtResource("3_vlcca")
+atlas = ExtResource("4_qj5gs")
 region = Rect2(72, 16, 8, 16)
 
 [resource]
-script = ExtResource("2_h4rv7")
+script = ExtResource("2_cn5xw")
 name = "Blue Ruby"
 description = "Worth 5 Monies!"
 texture = SubResource("AtlasTexture_46tve")
+snes_texture = SubResource("AtlasTexture_4jina")
 value = 5
-effects = Array[ExtResource("1_m4r88")]([])
+effects = Array[ExtResource("1_f65md")]([])
 animated = false
 h_frames = 1
 v_frames = 1

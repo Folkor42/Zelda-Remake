@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://umgkj2id0ol3"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://umgkj2id0ol3"]
 
 [ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="1_bxsih"]
 [ext_resource type="Script" path="res://Items/item_data.gd" id="2_ttf4n"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_8ahvf"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_q1ivd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv2uw"]
+atlas = ExtResource("3_8ahvf")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4hgs"]
 atlas = ExtResource("3_q1ivd")
@@ -13,6 +18,7 @@ script = ExtResource("2_ttf4n")
 name = "White Sword"
 description = "Good for "
 texture = SubResource("AtlasTexture_n4hgs")
+snes_texture = SubResource("AtlasTexture_bv2uw")
 value = 0
 effects = Array[ExtResource("1_bxsih")]([])
 animated = false

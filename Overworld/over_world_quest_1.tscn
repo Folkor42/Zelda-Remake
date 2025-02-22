@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cfn5scm4r2plf" path="res://Overworld/Enemies/Peahat/Peahat.tscn" id="19_lnibd"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="20_hxd50"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_78c46"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_woerk"]
 texture = ExtResource("5_2a52f")
 0:0/0 = 0
 1:0/0 = 0
@@ -5179,7 +5179,7 @@ texture = ExtResource("5_2a52f")
 85:59/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3px3g"]
-sources/0 = SubResource("TileSetAtlasSource_78c46")
+sources/0 = SubResource("TileSetAtlasSource_woerk")
 
 [sub_resource type="GDScript" id="GDScript_fec5g"]
 script/source = "extends Label
