@@ -19,6 +19,10 @@ var active : bool = false
 @onready var hit_box : HitBox = $HitBox
 @onready var state_machine : DungeonEnemyStateMachine = $EnemyStateMachine
 
+const SNES_BOSSES : Texture = preload("res://Assets/SpriteSheets/SNES - Bosses.png")
+const NES_BOSSES : Texture = preload("res://Assets/SpriteSheets/NES - The Legend of Zelda - Bosses.png")
+
+
 func _ready():
 	state_machine.initialize( self )
 	player = PlayerManager.player
@@ -33,6 +37,15 @@ func _ready():
 		get_parent().deactivate.connect(deactivate)
 	else:
 		get_parent().get_parent().deactivate.connect(deactivate)
+	Events.toggle_graphics.connect(toggle_graphics)
+	toggle_graphics(PlayerManager.upgraded_graphics)
+		
+func toggle_graphics( _new_value : bool )->void:
+	if _new_value:
+		sprite.texture=SNES_BOSSES
+	else:
+		sprite.texture=NES_BOSSES
+
 
 func activate ()->void:
 	active = true

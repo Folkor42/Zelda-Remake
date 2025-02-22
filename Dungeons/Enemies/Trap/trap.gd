@@ -15,13 +15,25 @@ class_name TrapEnemy extends CharacterBody2D
 @export var left : bool = false
 @export var speed : float = 120
 
+@onready var sprite: Sprite2D = $Sprite2D
+const SNES_MONSTERS : Texture = preload("res://Dungeons/Enemies/SNES - Dungeon Enemies.png")
+const NES_MONSTERS : Texture = preload("res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png")
+
 var home : Vector2
 var player_spotted : Vector2
 
 func _ready():
 	enemy_state_machine.initialize( self )
 	home = global_position
-	pass
+
+	Events.toggle_graphics.connect(toggle_graphics)
+	toggle_graphics(PlayerManager.upgraded_graphics)
+		
+func toggle_graphics( _new_value : bool )->void:
+	if _new_value:
+		sprite.texture=SNES_MONSTERS
+	else:
+		sprite.texture=NES_MONSTERS
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()

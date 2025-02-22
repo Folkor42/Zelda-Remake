@@ -414,7 +414,7 @@ tile_set = SubResource("TileSet_1em2u")
 visible = false
 z_index = 1
 position = Vector2(16, -16)
-tile_map_data = PackedByteArray("AAAFAAUAAABNAAwAAAA=")
+tile_map_data = PackedByteArray("AAAGAAUAAABNAAwAAAA=")
 tile_set = SubResource("TileSet_1em2u")
 
 [node name="OverWorldMap" type="GridContainer" parent="Control"]
@@ -1449,6 +1449,7 @@ theme_override_font_sizes/font_size = 16
 text = "0"
 
 [node name="GameOver" type="Control" parent="."]
+visible = false
 z_index = 100
 layout_mode = 3
 anchors_preset = 15

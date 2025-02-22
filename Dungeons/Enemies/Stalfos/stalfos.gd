@@ -6,6 +6,10 @@ class_name Stalfos extends Enemy
 
 @export var throw_swords : bool = false
 
+@onready var sprite: Sprite2D = $Sprite2D
+const SNES_MONSTERS : Texture = preload("res://Dungeons/Enemies/SNES - Dungeon Enemies.png")
+const NES_MONSTERS : Texture = preload("res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png")
+
 var active : bool = false
 
 func _ready() -> void:
@@ -22,6 +26,15 @@ func _ready() -> void:
 		get_parent().deactivate.connect(deactivate)
 	else:
 		get_parent().get_parent().deactivate.connect(deactivate)
+
+	Events.toggle_graphics.connect(toggle_graphics)
+	toggle_graphics(PlayerManager.upgraded_graphics)
+		
+func toggle_graphics( _new_value : bool )->void:
+	if _new_value:
+		sprite.texture=SNES_MONSTERS
+	else:
+		sprite.texture=NES_MONSTERS
 
 func activate ()->void:
 	active = true

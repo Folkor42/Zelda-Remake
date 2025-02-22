@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0tgajcndy5fi"]
+[gd_scene load_steps=4 format=3 uid="uid://c0tgajcndy5fi"]
 
-[ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="1_2t1gb"]
+[ext_resource type="Texture2D" uid="uid://ruy5c4prx26n" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - NPCs - 2.png" id="1_t0rid"]
+[ext_resource type="Script" path="res://NPCs/npc_sprite_2d.gd" id="2_gdygt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dn8k"]
 size = Vector2(16, 16)
@@ -8,9 +9,11 @@ size = Vector2(16, 16)
 [node name="OldMan1" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_2t1gb")
-region_enabled = true
+texture = ExtResource("1_t0rid")
+hframes = 8
+vframes = 3
 region_rect = Rect2(288, 16, 16, 16)
+script = ExtResource("2_gdygt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7dn8k")
