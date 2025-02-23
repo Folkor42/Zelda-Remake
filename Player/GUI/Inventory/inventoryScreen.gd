@@ -180,6 +180,15 @@ func show_menu () -> void:
 	$VBoxContainer/ItemsBackground/Control/Button.grab_focus()
 	PlayerManager.player.menu_opened = true
 
+func quick_open()->void:
+	equip(PlayerManager.active_item)
+	update_passive_items()
+	update_active_items()
+	PlayerManager.player.menu_opened = false
+	get_tree().paused=false
+	queue_free()
+	return
+
 func _unhandled_input(_event):
 	if _event.is_action_pressed("menu"):
 		close_menu()

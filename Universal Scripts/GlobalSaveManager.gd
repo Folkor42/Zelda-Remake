@@ -1,6 +1,7 @@
 extends Node
 
 const SAVE_PATH = "user://"
+const inv : PackedScene = preload ("res://Player/GUI/Inventory/inventory.tscn")
 
 signal game_loaded
 signal game_saved
@@ -77,7 +78,8 @@ func load_game() -> void:
 	PlayerManager.update_rubies(current_save.items["rubies"], false)
 	PlayerManager.update_keys(current_save.items["keys"])
 	PlayerManager.update_bombs(current_save.items["bombs"])
-	#PlayerManager.update_active_item(current_save.active_item) # BUG Need to pass rect currently, should rewrite to use ITEM Texture
+	# BUG Need to pass rect currently, should rewrite to use ITEM Texture
+	update_active_items()
 	PlayerManager.time_played=current_save.time_played
 	await LevelManager.level_loaded
 	
@@ -86,6 +88,12 @@ func load_game() -> void:
 	print ("Game Loaded")
 	pass
 
+func update_active_items()->void:
+	PlayerManager.update_active_item(current_save.active_item) 
+	var overlay = inv.instantiate()
+	get_parent().add_child(overlay)
+	overlay.quick_open()
+		
 func update_player_data() -> void:
 	var p : Player = PlayerManager.player
 	current_save.player.hp = p.hp

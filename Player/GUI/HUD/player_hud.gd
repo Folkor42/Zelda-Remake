@@ -77,6 +77,7 @@ func title_screen() -> void:
 	play_audio( button_select_audio )
 	SaveManager.save_game()
 	await fade_to_black()
+	PlayerManager.reset_values()
 	LevelManager.load_new_level("res://Scenes/title_screen.tscn","",Vector2.ZERO)	
 	pass
 

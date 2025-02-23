@@ -11,5 +11,5 @@ func _update(x : int, y: int)->void:
 	
 	
 func reset_block(x : int, y: int) -> void:
-	var reset_block = get_node("ColorRect" + str(x+(y-1)*16))
-	reset_block.modulate=Color(1, 1, 1, 1)
+	var block = get_node("ColorRect" + str(x+(y-1)*16))
+	block.modulate=Color(1, 1, 1, 1)
