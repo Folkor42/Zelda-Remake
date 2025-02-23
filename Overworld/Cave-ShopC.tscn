@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_nac1v"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_scgrx"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="6_6v8dp"]
-[ext_resource type="PackedScene" uid="uid://b57hdmdgfnpjj" path="res://NPCs/merchant.tscn" id="7_rjifj"]
+[ext_resource type="PackedScene" uid="uid://d1v3t4s83ym6t" path="res://NPCs/old_woman.tscn" id="7_iwu6e"]
 [ext_resource type="PackedScene" uid="uid://bxhw0ins77nc7" path="res://Items/item_buy.tscn" id="8_l776v"]
 [ext_resource type="Resource" uid="uid://crv3ixmnjghew" path="res://Items/blue_potion.tres" id="9_11x6q"]
 [ext_resource type="Resource" uid="uid://6mo6hhvcdohj" path="res://Items/red_potion.tres" id="10_ygl2s"]
@@ -5246,16 +5246,19 @@ offset_top = 32.0
 offset_right = 215.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("4_nac1v")
-text = "Buy somethin' will ya!"
+text = "Buy medicine before you go!"
 horizontal_alignment = 1
 autowrap_mode = 2
-visible_ratio = -0.0454545
+visible_ratio = -0.037037
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {
 "": SubResource("AnimationLibrary_j6cp2")
 }
 autoplay = "Show Text"
+
+[node name="OldWoman" parent="." instance=ExtResource("7_iwu6e")]
+position = Vector2(128, 72)
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_scgrx")]
 position = Vector2(129, 140)
@@ -5265,9 +5268,6 @@ position = Vector2(72, 58)
 
 [node name="Fire2" parent="." instance=ExtResource("6_6v8dp")]
 position = Vector2(184, 58)
-
-[node name="Merchant" parent="." instance=ExtResource("7_rjifj")]
-position = Vector2(128, 71)
 
 [node name="ItemBuy" parent="." instance=ExtResource("8_l776v")]
 position = Vector2(110, 90)

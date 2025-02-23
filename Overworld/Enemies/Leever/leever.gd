@@ -36,11 +36,15 @@ func change_conditions (new_state : String) -> void:
 		current_condition=STATE.ABOVE
 	elif new_state=="SINK":
 		current_condition=STATE.SINK
-	if current_condition==STATE.UNDER or current_condition == STATE.RISE:
+	if current_condition==STATE.UNDER:
 		hit_box.set_deferred("monitorable", false)
 		hurt_box.set_deferred("monitoring", false)
 		stun_box.set_deferred("monitorable", false)
-	else:
+	elif current_condition==STATE.RISE or current_condition==STATE.SINK:
+		hit_box.set_deferred("monitorable", true)
+		hurt_box.set_deferred("monitoring", false)
+		stun_box.set_deferred("monitorable", true)
+	elif current_condition==STATE.ABOVE:
 		hit_box.set_deferred("monitorable", true)
 		hurt_box.set_deferred("monitoring", true)
 		stun_box.set_deferred("monitorable", true)

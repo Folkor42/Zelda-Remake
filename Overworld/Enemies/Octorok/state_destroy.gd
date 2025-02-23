@@ -33,6 +33,7 @@ func enter() -> void:
 func exit() -> void:
 	#Just in case they aren't destroyed
 	enemy.invulnerable = false
+	enemy.queue_free()
 	pass
 
 func process( _delta : float ) -> EnemyState:

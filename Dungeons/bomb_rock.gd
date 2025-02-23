@@ -11,6 +11,8 @@ var is_opened : bool = false
 func _ready() -> void:
 	opened.data_loaded.connect( set_state )
 	bomb_area.Damaged.connect ( unlock_door )
+	Events.toggle_graphics.connect(toggle_graphics)
+	toggle_graphics(PlayerManager.upgraded_graphics)
 
 func unlock_door(_b)->void:
 	print ("BOOM!")
@@ -22,10 +24,6 @@ func set_state () -> void:
 	if opened.value:
 		queue_free()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_graphics"):
-		toggle_graphics()
-		
-func toggle_graphics()->void:
-	sprite_2d.visible=!sprite_2d.visible	
-	snes_sprite.visible=!snes_sprite.visible	
+func toggle_graphics( _value : bool )->void:
+	sprite_2d.visible=!_value
+	snes_sprite.visible=_value

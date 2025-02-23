@@ -18,7 +18,14 @@ func enter() -> void:
 	enemy.velocity = Vector2.ZERO
 	_timer = randf_range ( state_duration_min, state_duration_max )
 	enemy.current_direction=enemy.change_direction(enemy.current_direction)
-	sprite_2d.scale.x = -1 if enemy.current_direction== Vector2.LEFT else 1
+	if enemy.current_direction==Vector2.RIGHT:
+		sprite_2d.flip_h = true
+	else:
+		sprite_2d.flip_h = false
+	if enemy.current_direction==Vector2.UP:
+		sprite_2d.flip_v = true
+	else:
+		sprite_2d.flip_v = false
 	enemy.UpdateAnimation( anim_name )
 	pass
 	

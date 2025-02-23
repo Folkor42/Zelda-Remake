@@ -204,14 +204,14 @@ shape = SubResource("RectangleShape2D_bapwm")
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("7_mrqqr")
 
-[node name="Submerge" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("12_f5qvs")
-next_state = NodePath("../Underground")
-
 [node name="Underground" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
 script = ExtResource("8_dmsyl")
 state_duration_max = 1.0
 after_idle_state = NodePath("../Rise")
+
+[node name="Submerge" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("12_f5qvs")
+next_state = NodePath("../Underground")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("9_m3qfl")

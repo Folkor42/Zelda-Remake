@@ -135,11 +135,11 @@ func update_hp ( delta : int ) -> void:
 	
 func make_invulnerable ( _duration : float = 1.0 ) -> void:
 	invulnerable = true
-	hit_box.monitoring = false
+	#hit_box.monitoring = false
 	
 	await get_tree().create_timer( _duration ).timeout
 	invulnerable = false
-	hit_box.monitoring = true
+	#hit_box.monitoring = true
 	pass
 
 func _unhandled_input(_event):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://d4he8av8ec8ts"]
+[gd_scene load_steps=20 format=4 uid="uid://d4he8av8ec8ts"]
 
 [ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_kfe3k"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_5idui"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_bamc6"]
 [ext_resource type="PackedScene" uid="uid://bxhw0ins77nc7" path="res://Items/item_buy.tscn" id="8_bgyhh"]
 [ext_resource type="Resource" uid="uid://b1kn50p6vfcr2" path="res://Items/candle.tres" id="9_cgaxv"]
-[ext_resource type="Resource" uid="uid://pktp0jdaulx" path="res://Items/shield.tres" id="10_hdfbt"]
+[ext_resource type="Resource" uid="uid://bdrqiutagyist" path="res://Items/bomb.tres" id="11_ecfia"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="11_lnd4s"]
+[ext_resource type="Resource" uid="uid://cou22i0duwxoo" path="res://Items/arrows.tres" id="13_g3up5"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="14_2ijjg"]
 [ext_resource type="PackedScene" uid="uid://b57hdmdgfnpjj" path="res://NPCs/merchant.tscn" id="14_agq48"]
 
@@ -5271,6 +5272,7 @@ position = Vector2(128, 71)
 
 [node name="ItemBuy" parent="." instance=ExtResource("8_bgyhh")]
 position = Vector2(128, 90)
+item_data = ExtResource("11_ecfia")
 
 [node name="ItemBuy2" parent="." instance=ExtResource("8_bgyhh")]
 position = Vector2(160, 90)
@@ -5278,7 +5280,7 @@ item_data = ExtResource("9_cgaxv")
 
 [node name="ItemBuy3" parent="." instance=ExtResource("8_bgyhh")]
 position = Vector2(97, 90)
-item_data = ExtResource("10_hdfbt")
+item_data = ExtResource("13_g3up5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(65, 104)

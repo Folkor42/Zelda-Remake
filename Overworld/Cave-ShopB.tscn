@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bnkgk81x81cru"]
+[gd_scene load_steps=19 format=4 uid="uid://bnkgk81x81cru"]
 
 [ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_npukn"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_joqn4"]
@@ -10,10 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="6_6dvmn"]
 [ext_resource type="PackedScene" uid="uid://b57hdmdgfnpjj" path="res://NPCs/merchant.tscn" id="7_d4dqv"]
 [ext_resource type="PackedScene" uid="uid://bxhw0ins77nc7" path="res://Items/item_buy.tscn" id="8_j6yx3"]
-[ext_resource type="Resource" uid="uid://dcff8imdai3cc" path="res://Items/bait.tres" id="9_7ns43"]
-[ext_resource type="Resource" uid="uid://pktp0jdaulx" path="res://Items/shield.tres" id="10_a7vpw"]
-[ext_resource type="Resource" uid="uid://bt4fmhs82xmd2" path="res://Items/heart.tres" id="10_cnt73"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="11_6g0kj"]
+[ext_resource type="Resource" uid="uid://umgkj2id0ol3" path="res://Items/white sword.tres" id="12_sk4nn"]
+[ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="13_o11pu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8k3kd"]
 texture = ExtResource("3_1shlm")
@@ -5247,10 +5246,10 @@ offset_top = 32.0
 offset_right = 215.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("4_4ewlc")
-text = "Buy somethin' will ya!"
+text = "Boy these are really expensive!"
 horizontal_alignment = 1
 autowrap_mode = 2
-visible_ratio = -0.0454545
+visible_ratio = -0.0322581
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {
@@ -5272,15 +5271,14 @@ position = Vector2(128, 71)
 
 [node name="ItemBuy" parent="." instance=ExtResource("8_j6yx3")]
 position = Vector2(128, 90)
-item_data = ExtResource("9_7ns43")
 
 [node name="ItemBuy2" parent="." instance=ExtResource("8_j6yx3")]
 position = Vector2(160, 90)
-item_data = ExtResource("10_cnt73")
+item_data = ExtResource("12_sk4nn")
 
 [node name="ItemBuy3" parent="." instance=ExtResource("8_j6yx3")]
 position = Vector2(97, 90)
-item_data = ExtResource("10_a7vpw")
+item_data = ExtResource("13_o11pu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(65, 104)

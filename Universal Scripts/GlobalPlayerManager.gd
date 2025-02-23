@@ -22,6 +22,18 @@ var in_dungeon: bool = false
 var time_played : float = 0.0
 var upgraded_graphics : bool = true
 
+func reset_values()->void:
+	interact_handled = true
+	player_spawned = false
+	rubies = 0
+	bombs = 0
+	max_bombs = 8
+	keys = 0
+	kill_count = 0
+	sword = ""
+	active_item = ""
+	player.animation_player.play( "RESET" )
+	
 func _ready() -> void:
 	Events.dungeon_map_cords.connect(_update_dungeon_map)
 	for i in grid_width:
@@ -32,7 +44,7 @@ func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
-	update_sword ("Wooden Sword")
+	#update_sword ("Wooden Sword")
 	pass
 
 func _update_dungeon_map ( x : int, y : int ) -> void:

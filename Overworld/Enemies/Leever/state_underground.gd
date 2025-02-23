@@ -22,17 +22,15 @@ func init() -> void:
 	pass # Replace with function body.
 
 func enter() -> void:
+	enemy.change_conditions("UNDER")
 	sprite_2d.visible=false
 	enemy.velocity = Vector2.ZERO
 	_timer = randf_range ( state_duration_min, state_duration_max )
-	var player_distance = enemy.global_position.distance_to(PlayerManager.player.global_position)
 	#print (player_distance)
-	if player_distance > 100:
-		#print ("Nah, too far!")
-		pass
-	else:
-		find_new_location()
 	enemy.animation_player.play( anim_name )
+	var player_distance = enemy.global_position.distance_to(PlayerManager.player.global_position)
+	if player_distance <= 100:
+		find_new_location()
 	pass
 	
 func exit() -> void:
@@ -46,6 +44,10 @@ func process( _delta : float ) -> EnemyState:
 		if wall_detector.is_colliding():
 			#print ("I'm in a wall!")
 			enter()
+			return null
+		var player_distance = enemy.global_position.distance_to(PlayerManager.player.global_position)
+		if player_distance > 100:
+			#print ("Nah, too far!")
 			return null
 		return after_idle_state
 	return null

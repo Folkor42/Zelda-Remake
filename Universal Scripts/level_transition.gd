@@ -43,6 +43,7 @@ func _player_entered ( _p : Node2D ) -> void:
 func _place_player() -> void:
 	if name != LevelManager.target_transition:
 		return
+	
 	#PlayerManager.player.cardinal_direction = Vector2.UP
 	PlayerManager.set_player_position( exit.global_position )
 
