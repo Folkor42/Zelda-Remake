@@ -17,7 +17,7 @@ var count : int = 0
 var shot_count = 1
 func enter() -> void:
 	enemy.visible=true
-	enemy.velocity=Vector2.ZERO
+	#enemy.velocity=Vector2.ZERO
 	shooting = true
 	count = 1
 	enemy.animation_player.play( anim_name )

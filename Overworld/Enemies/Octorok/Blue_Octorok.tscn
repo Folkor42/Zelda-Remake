@@ -107,7 +107,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -136,7 +136,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -165,7 +165,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -363,7 +363,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -393,7 +393,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -423,7 +423,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -452,7 +452,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -481,7 +481,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -510,7 +510,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true

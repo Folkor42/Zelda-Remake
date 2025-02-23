@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Zelda Remake"
+config/name="Zelda: A Tribute"
+config/version="v0.75"
 config/tags=PackedStringArray("2d", "adventure")
 run/main_scene="res://Scenes/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
@@ -30,13 +31,9 @@ PM="*res://Scenes/performance_monitor.tscn"
 
 window/size/viewport_width=256
 window/size/viewport_height=240
-window/size/window_width_override=768
-window/size/window_height_override=720
+window/size/window_width_override=1280
+window/size/window_height_override=1200
 window/stretch/mode="canvas_items"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
 [input]
 

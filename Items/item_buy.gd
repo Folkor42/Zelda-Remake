@@ -21,7 +21,7 @@ func _ready() -> void:
 		return
 	area_2d.body_entered.connect ( check_for_purchase )
 	_on_data_loaded()
-	
+	Events.toggle_graphics.connect(toggle_graphics)
 	pass # Replace with function body.
 
 func check_for_purchase( _b )->void:
@@ -50,8 +50,21 @@ func _set_item_data ( value : ItemData ) -> void:
 	pass
 
 func _update_texture() -> void:
-	if item_data and sprite:
+	if Engine.is_editor_hint()==true:
 		sprite.texture = item_data.texture
+		return
+	if item_data and sprite and PlayerManager.upgraded_graphics == false:
+		if item_data.animated:
+			sprite.hframes=item_data.h_frames
+			sprite.vframes=item_data.v_frames
+			print("Animated")
+		sprite.texture = item_data.texture
+	elif item_data and sprite and PlayerManager.upgraded_graphics == true:
+		if item_data.animated:
+			sprite.hframes=item_data.h_frames
+			sprite.vframes=item_data.v_frames
+			print("Animated")
+		sprite.texture = item_data.snes_texture
 	pass
 	
 func _update_cost() -> void:
@@ -69,3 +82,6 @@ func _on_drop_pickup () -> void:
 func _on_data_loaded () -> void:
 	#has_dropped=has_dropped_data.value
 	pass
+
+func toggle_graphics( _new_value : bool )->void:
+	_update_texture()

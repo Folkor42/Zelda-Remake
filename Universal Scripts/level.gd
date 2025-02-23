@@ -6,6 +6,7 @@ class_name Level extends Node2D
 var scene : String
 
 func _ready():
+	PlayerManager.player.collision_shape_2d.disabled=true
 	PlayerManager.player.remove_camera()
 	self.y_sort_enabled = true
 	PlayerManager.set_as_parent( self )
@@ -20,6 +21,7 @@ func _ready():
 func level_ready()->void:
 	if dungeon_camera:
 		dungeon_camera.position_smoothing_enabled=true
+	PlayerManager.player.collision_shape_2d.disabled=false
 	pass
 func _free_level() -> void:
 	PlayerManager.unparent_player ( self )
