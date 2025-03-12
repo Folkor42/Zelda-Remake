@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://cwgdrij5bc8it"]
+
+[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_1wrd3"]
+[ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="2_bwojh"]
+[ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="3_w2bdo"]
+[ext_resource type="PackedScene" uid="uid://c5uv60a3dox7h" path="res://Dungeons/02 - Moon/room_2.tscn" id="5_jx0as"]
+[ext_resource type="PackedScene" uid="uid://mhp7hbna4m7f" path="res://Dungeons/02 - Moon/room_3.tscn" id="6_6u1uw"]
+[ext_resource type="PackedScene" uid="uid://cd6ymty5ai3gt" path="res://Dungeons/02 - Moon/room_4.tscn" id="7_727xk"]
+[ext_resource type="PackedScene" uid="uid://deqpf8h7xm564" path="res://Dungeons/02 - Moon/room_5.tscn" id="8_wsi5m"]
+[ext_resource type="PackedScene" uid="uid://dcr4755dylwgs" path="res://Dungeons/02 - Moon/room_6.tscn" id="9_se035"]
+[ext_resource type="Script" path="res://Scenes/camera.gd" id="21_c1l4f"]
+[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="22_48eel"]
+[ext_resource type="PackedScene" uid="uid://bchdbknbukviw" path="res://Dungeons/02 - Moon/room_1.tscn" id="23_ihdom"]
+
+[node name="02 - Moon Dungeon" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
+script = ExtResource("1_1wrd3")
+music = ExtResource("2_bwojh")
+dungeon_camera = NodePath("DungeonCamera")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_w2bdo")]
+z_index = 1
+position = Vector2(128, 136)
+
+[node name="Rooms" type="Node" parent="."]
+
+[node name="Room1" parent="Rooms" instance=ExtResource("23_ihdom")]
+
+[node name="Room2" parent="Rooms" instance=ExtResource("5_jx0as")]
+position = Vector2(256, 0)
+
+[node name="Room3" parent="Rooms" instance=ExtResource("6_6u1uw")]
+position = Vector2(-256, -176)
+
+[node name="Room4" parent="Rooms" instance=ExtResource("7_727xk")]
+position = Vector2(0, -176)
+
+[node name="Room5" parent="Rooms" instance=ExtResource("8_wsi5m")]
+position = Vector2(256, -176)
+
+[node name="Room6" parent="Rooms" instance=ExtResource("9_se035")]
+position = Vector2(512, -176)
+
+[node name="DungeonCamera" type="Camera2D" parent="."]
+position = Vector2(0, 256)
+offset = Vector2(0, -64)
+anchor_mode = 0
+position_smoothing_speed = 10.0
+script = ExtResource("21_c1l4f")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bwojh")
+autoplay = true
+bus = &"Music"
+
+[node name="Stairs" parent="." instance=ExtResource("22_48eel")]
+z_index = 1
+position = Vector2(-128, -792)
+level = "res://Dungeons/01 - Eagle/room_item.tscn"
+center_player = true
+side = 3
+
+[node name="Doors" type="Node" parent="."]
