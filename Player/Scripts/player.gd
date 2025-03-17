@@ -12,6 +12,7 @@ var cardinal_direction : Vector2 = Vector2.DOWN
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 var direction : Vector2 = Vector2.ZERO
 var terminal_velocity = 5000
+var last_input_type: String = "Keyboard"
 
 @onready var stop_watch: AudioStreamPlayer = $StopWatch
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -30,6 +31,7 @@ var terminal_velocity = 5000
 @onready var hurt_box: HurtBox = $Sprite2D/Sword/HurtBox
 @onready var equipped_item: Node = $EquippedItem
 @onready var sword: Sprite2D = $Sprite2D/Sword
+@onready var label: Label = $Label
 
 signal DirectionChanged ( new_direction : Vector2 )
 signal player_damaged ( hurt_box : HurtBox )
@@ -66,13 +68,36 @@ func tick_tok () -> void:
 	pass	
 	
 func _process( _delta ):
+	#detect_input()
 	direction = Vector2(
 		Input.get_axis("move_left","move_right"),
 		Input.get_axis("move_up","move_down")
 	).normalized()
 
+func detect_input():
+	# Detect joystick input
+	for i in range(Input.get_connected_joypads().size()):
+		var joystick_name = Input.get_joy_name(i)
+		if Input.is_joy_button_pressed(i, 0):  # Checking if any button is pressed on the controller
+			if "XInput" in joystick_name:
+				update_label("Xbox Controller")
+			elif "DualShock" in joystick_name:
+				update_label("PlayStation Controller")
+			elif "Switch" in joystick_name:
+				update_label("Switch Controller")
+			else:
+				update_label("Unknown Controller")
+			return
+		# Detect keyboard input
+		elif Input.is_anything_pressed():
+			update_label("Keyboard")
 
-	pass
+func update_label(new_input_type: String):
+	if last_input_type != new_input_type:
+		last_input_type = new_input_type
+		label.text = new_input_type  # Change this based on your UI element
+
+
 	
 func _physics_process( _delta ):
 	if gravity_active and !self.is_on_floor():
