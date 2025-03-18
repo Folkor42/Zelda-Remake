@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=4 uid="uid://e3m87fab8sjm"]
+[gd_scene load_steps=33 format=4 uid="uid://e3m87fab8sjm"]
 
 [ext_resource type="Script" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="1_cptov"]
 [ext_resource type="Script" path="res://Player/GUI/Inventory/triforce_of_wisdom.gd" id="3_gkv1e"]
 [ext_resource type="Script" path="res://Player/GUI/Inventory/dungeon_map.gd" id="3_q6a2o"]
+[ext_resource type="Script" path="res://Player/GUI/Inventory/map_background.gd" id="3_rmubm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_us4bt"]
 atlas = ExtResource("1_cptov")
@@ -392,6 +393,7 @@ region_rect = Rect2(590, 156, 8, 16)
 [node name="MapBackground" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_55jyx")
+script = ExtResource("3_rmubm")
 
 [node name="EagleDungeon" type="Control" parent="VBoxContainer/MapBackground"]
 layout_mode = 1
@@ -403,18 +405,21 @@ grow_vertical = 2
 script = ExtResource("3_q6a2o")
 
 [node name="MapPickupSprite" type="Sprite2D" parent="VBoxContainer/MapBackground/EagleDungeon"]
+visible = false
 position = Vector2(52, 30)
 texture = SubResource("CompressedTexture2D_h0avk")
 region_enabled = true
 region_rect = Rect2(601, 156, 8, 16)
 
 [node name="CompassPickupSprite" type="Sprite2D" parent="VBoxContainer/MapBackground/EagleDungeon"]
+visible = false
 position = Vector2(51, 68)
 texture = SubResource("CompressedTexture2D_c3gdr")
 region_enabled = true
 region_rect = Rect2(614, 158, 11, 12)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="VBoxContainer/MapBackground/EagleDungeon"]
+visible = false
 position = Vector2(128, 8)
 tile_map_data = PackedByteArray("AAADAAcAAABIAAwAAAACAAcAAAA6AAwAAAAEAAcAAAA7AAwAAAADAAYAAABFAAwAAAADAAUAAABAAAwAAAAEAAUAAAA7AAwAAAACAAUAAABCAAwAAAACAAQAAABAAAwAAAABAAQAAAA6AAwAAAADAAQAAABEAAwAAAAEAAQAAAA8AAwAAAAFAAQAAABDAAwAAAAFAAMAAAA+AAwAAAAGAAMAAAA7AAwAAAADAAMAAABFAAwAAAADAAIAAAA/AAwAAAACAAIAAAA6AAwAAAAAAAAAAABBAAsAAAAAAAEAAABBAAsAAAAAAAIAAABBAAsAAAAAAAMAAABBAAsAAAAAAAQAAABBAAsAAAAAAAUAAABBAAsAAAAAAAYAAABBAAsAAAAAAAcAAABBAAsAAAABAAUAAABBAAsAAAABAAYAAABBAAsAAAABAAcAAABBAAsAAAACAAYAAABBAAsAAAAEAAYAAABBAAsAAAAFAAYAAABBAAsAAAAGAAYAAABBAAsAAAAHAAYAAABBAAsAAAAFAAcAAABBAAsAAAAGAAcAAABBAAsAAAAHAAcAAABBAAsAAAAFAAUAAABBAAsAAAAGAAUAAABBAAsAAAAHAAUAAABBAAsAAAAGAAQAAABBAAsAAAAHAAQAAABBAAsAAAAHAAAAAABBAAsAAAAHAAEAAABBAAsAAAAHAAIAAABBAAsAAAAHAAMAAABBAAsAAAAEAAAAAABBAAsAAAAEAAEAAABBAAsAAAAEAAIAAABBAAsAAAAFAAAAAABBAAsAAAAFAAEAAABBAAsAAAAFAAIAAABBAAsAAAAGAAAAAABBAAsAAAAGAAEAAABBAAsAAAAGAAIAAABBAAsAAAAEAAMAAABBAAsAAAABAAAAAABBAAsAAAABAAEAAABBAAsAAAACAAAAAABBAAsAAAACAAEAAABBAAsAAAADAAAAAABBAAsAAAADAAEAAABBAAsAAAABAAIAAABBAAsAAAABAAMAAABBAAsAAAACAAMAAABBAAsAAAA=")
 tile_set = SubResource("TileSet_8g1ja")
