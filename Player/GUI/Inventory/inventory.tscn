@@ -255,7 +255,7 @@ flat = true
 position = Vector2(8, 8)
 texture = SubResource("CompressedTexture2D_ols0k")
 region_enabled = true
-region_rect = Rect2(604, 137, 8, 16)
+region_rect = Rect2(602, 137, 12, 16)
 
 [node name="Button3" type="Button" parent="VBoxContainer/ItemsBackground/Control"]
 layout_mode = 0
