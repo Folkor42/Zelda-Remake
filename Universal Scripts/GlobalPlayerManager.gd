@@ -45,7 +45,7 @@ func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
 	player_spawned = true
-	#update_sword ("Wooden Sword")
+	update_sword ("White Sword")
 	pass
 
 func _update_dungeon_map ( x : int, y : int ) -> void:

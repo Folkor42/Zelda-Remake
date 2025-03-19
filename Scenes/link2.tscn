@@ -969,3 +969,11 @@ script = SubResource("GDScript_y7i33")
 
 [node name="StopWatch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_55vlt")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -51.0
+offset_top = 5.0
+offset_right = 53.0
+offset_bottom = 28.0
+text = "CONTROLLER"
