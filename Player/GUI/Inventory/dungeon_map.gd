@@ -3,8 +3,17 @@ extends Control
 @onready var map_pickup_sprite: Sprite2D = $MapPickupSprite
 @onready var compass_pickup_sprite: Sprite2D = $CompassPickupSprite
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer2
+@export var dungeon_name : String = "01 - Eagle"
 
 func _ready() -> void:
+	if SaveManager.check_persistant_value("res://Dungeons/" + dungeon_name + "/Dungeon_Map.tscn/CompassDropper/PersistantHandler"):
+		print (dungeon_name + " Compass Found!")
+	else:
+		print ("No compass for " + dungeon_name)
+	if SaveManager.check_persistant_value("res://Dungeons/" + dungeon_name + "/Dungeon_Map.tscn/MapDropper/PersistantHandler"):
+		print (dungeon_name + " Map Found!")
+	else:
+		print ("No map for " + dungeon_name)
 	if PlayerManager.inventory.contents.has("Map"):
 		map_pickup_sprite.visible=true
 		tile_map_layer.visible=false

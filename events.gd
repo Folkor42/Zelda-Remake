@@ -14,6 +14,7 @@ signal stop_time()
 signal filename_set(filename)
 signal dungeon_map_update()
 signal toggle_graphics(upgraded_graphics)
+signal dungeon_entered
 
 func _ready() -> void:
 	item_used.connect(item_signal)	
@@ -26,6 +27,7 @@ func ignore_me()->void:
 	dungeon_map_update.emit()
 	filename_set.emit (null)
 	toggle_graphics.emit(null)
+	dungeon_entered.emit(null)
 	
 func item_signal(item)->void:
 	if item == "Bomb":

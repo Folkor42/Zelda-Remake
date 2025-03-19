@@ -1,8 +1,9 @@
-extends Node2D
+class_name HudMap extends Node2D
 
 @onready var map: TileMapLayer = $Map
 @onready var link: TileMapLayer = $Link
 @onready var compass: TileMapLayer = $Compass
+@export var dungeon_name : String = "01 - Eagle"
 
 func _ready() -> void:
 	LevelManager.level_loaded.connect(level_ready)

@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=4 uid="uid://savc5mfa0yoa"]
+
+[ext_resource type="Script" path="res://Player/GUI/HUD/hud_map.gd" id="1_6ymh7"]
+[ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_coh87"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6sdb"]
+texture = ExtResource("2_coh87")
+margins = Vector2i(6, 0)
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(8, 8)
+57:12/0 = 0
+58:12/0 = 0
+59:12/0 = 0
+60:12/0 = 0
+61:12/0 = 0
+62:12/0 = 0
+63:12/0 = 0
+64:12/0 = 0
+65:12/0 = 0
+66:12/0 = 0
+67:12/0 = 0
+68:12/0 = 0
+69:12/0 = 0
+70:12/0 = 0
+71:12/0 = 0
+72:12/0 = 0
+65:11/0 = 0
+59:14/0 = 0
+67:14/0 = 0
+73:12/0 = 0
+74:12/0 = 0
+75:12/0 = 0
+76:12/0 = 0
+77:12/0 = 0
+78:12/0 = 0
+79:12/0 = 0
+80:12/0 = 0
+81:12/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1em2u"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_l6sdb")
+
+[node name="EagleDungeonMap" type="Node2D"]
+script = ExtResource("1_6ymh7")
+
+[node name="Map" type="TileMapLayer" parent="."]
+position = Vector2(16, -16)
+tile_map_data = PackedByteArray("AAADAAcAAABLAAwAAAACAAcAAABKAAwAAAAEAAcAAABKAAwAAAADAAYAAABLAAwAAAADAAUAAABLAAwAAAACAAUAAABJAAwAAAABAAYAAABJAAwAAAACAAYAAABLAAwAAAAEAAYAAABLAAwAAAAFAAYAAABJAAwAAAAFAAUAAABKAAwAAAAGAAUAAABKAAwAAAA=")
+tile_set = SubResource("TileSet_1em2u")
+
+[node name="Link" type="TileMapLayer" parent="."]
+z_index = 1
+tile_map_data = PackedByteArray("AAACAAIAAABQAAwAAAA=")
+tile_set = SubResource("TileSet_1em2u")
+
+[node name="Compass" type="TileMapLayer" parent="."]
+z_index = 1
+position = Vector2(16, -16)
+tile_map_data = PackedByteArray("AAAGAAUAAABNAAwAAAA=")
+tile_set = SubResource("TileSet_1em2u")
