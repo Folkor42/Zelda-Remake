@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://blwq4ilwfpt55"]
+
+[ext_resource type="Script" uid="uid://c2r34e2l83phl" path="res://Dungeons/Enemies/Rope/rope.gd" id="1_4jmfg"]
+[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_i1d28"]
+[ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="3_7bv4i"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="4_eaddb"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="5_rudun"]
+[ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="6_kai6s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmg76"]
+radius = 8.0
+
+[node name="Rope" type="CharacterBody2D"]
+script = ExtResource("1_4jmfg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i1d28")
+hframes = 12
+vframes = 14
+frame = 46
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xmg76")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("3_7bv4i")
+metadata/_custom_type_script = "uid://bjsik6sblx81f"
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("4_eaddb")
+metadata/_custom_type_script = "uid://5d63nccbnc68"
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("5_rudun")
+metadata/_custom_type_script = "uid://furv363hxfgr"
+
+[node name="StunBox" type="Area2D" parent="."]
+script = ExtResource("6_kai6s")
+metadata/_custom_type_script = "uid://bde8l4lk8maxa"
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 8)
+
+[node name="PlayerDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 96)

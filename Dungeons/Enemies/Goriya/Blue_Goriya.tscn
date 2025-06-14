@@ -1,18 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://bmpudlfj8sjol"]
+[gd_scene load_steps=24 format=3 uid="uid://dtkxm6tkeaaim"]
 
-[ext_resource type="Script" uid="uid://nx3d6vfkfiu8" path="res://Dungeons/Enemies/Goriya/goriya.gd" id="1_66bbc"]
-[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_we2s4"]
-[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="3_gnxs7"]
-[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="4_i8wfd"]
-[ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_63pfb"]
-[ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="5_gud48"]
-[ext_resource type="Script" uid="uid://c6wldlx5jjgni" path="res://Dungeons/Enemies/Goriya/idle.gd" id="6_f0525"]
-[ext_resource type="Script" uid="uid://1h21gndj3qvv" path="res://Dungeons/Enemies/Goriya/move.gd" id="7_lq3dx"]
-[ext_resource type="Script" uid="uid://ckjmn0u5xbqmw" path="res://Dungeons/Enemies/Goriya/damaged.gd" id="8_mptdq"]
-[ext_resource type="Script" uid="uid://djbolx3c3nr0p" path="res://Dungeons/Enemies/Goriya/destroy.gd" id="9_dfl00"]
-[ext_resource type="Resource" uid="uid://d1qkoch45h7oi" path="res://Items/Drop Table B.tres" id="10_6ake8"]
-[ext_resource type="Script" uid="uid://chm3ltwtporqr" path="res://Dungeons/Enemies/Goriya/attack.gd" id="11_fi3kg"]
-[ext_resource type="Script" uid="uid://rb1xgl35046a" path="res://Dungeons/Enemies/Goriya/stun.gd" id="11_t7pt7"]
+[ext_resource type="Script" uid="uid://nx3d6vfkfiu8" path="res://Dungeons/Enemies/Goriya/goriya.gd" id="1_7gpkg"]
+[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_nmqo4"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="3_asap5"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="4_2bg3y"]
+[ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="5_erxx4"]
+[ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="6_3khc1"]
+[ext_resource type="Script" uid="uid://c6wldlx5jjgni" path="res://Dungeons/Enemies/Goriya/idle.gd" id="7_3331e"]
+[ext_resource type="Script" uid="uid://1h21gndj3qvv" path="res://Dungeons/Enemies/Goriya/move.gd" id="8_ah8do"]
+[ext_resource type="Script" uid="uid://ckjmn0u5xbqmw" path="res://Dungeons/Enemies/Goriya/damaged.gd" id="9_tfbjm"]
+[ext_resource type="Script" uid="uid://djbolx3c3nr0p" path="res://Dungeons/Enemies/Goriya/destroy.gd" id="10_tqo4n"]
+[ext_resource type="Resource" uid="uid://d1qkoch45h7oi" path="res://Items/Drop Table B.tres" id="11_hs7a2"]
+[ext_resource type="Script" uid="uid://chm3ltwtporqr" path="res://Dungeons/Enemies/Goriya/attack.gd" id="12_q002j"]
+[ext_resource type="Script" uid="uid://rb1xgl35046a" path="res://Dungeons/Enemies/Goriya/stun.gd" id="13_17osn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xcl"]
 size = Vector2(2, 2)
@@ -62,7 +62,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [122, 123]
+"values": [134, 135]
 }
 
 [sub_resource type="Animation" id="Animation_scy4d"]
@@ -92,7 +92,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [122, 123]
+"values": [134, 135]
 }
 
 [sub_resource type="Animation" id="Animation_r08pl"]
@@ -131,7 +131,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [120]
+"values": [132]
 }
 
 [sub_resource type="Animation" id="Animation_7ptmo"]
@@ -170,19 +170,20 @@ size = Vector2(14, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agul0"]
 size = Vector2(16, 16)
 
-[node name="Goriya" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
+[node name="Blue Goriya" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
 collision_layer = 0
-script = ExtResource("1_66bbc")
-hp = 2
+script = ExtResource("1_7gpkg")
+blue_version = true
+hp = 5
 speed = 20.0
 WallDetector = NodePath("WallDetector")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_we2s4")
+texture = ExtResource("2_nmqo4")
 hframes = 12
 vframes = 14
-frame = 120
+frame = 132
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_d5xcl")
@@ -200,7 +201,7 @@ target_position = Vector2(0, 8)
 collision_layer = 4
 collision_mask = 0
 monitoring = false
-script = ExtResource("3_gnxs7")
+script = ExtResource("3_asap5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_86i26")
@@ -209,7 +210,8 @@ shape = SubResource("RectangleShape2D_86i26")
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("4_i8wfd")
+script = ExtResource("4_2bg3y")
+damage = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_86i26")
@@ -217,21 +219,21 @@ shape = SubResource("RectangleShape2D_86i26")
 [node name="StunBox" type="Area2D" parent="."]
 collision_layer = 512
 collision_mask = 512
-script = ExtResource("5_gud48")
+script = ExtResource("5_erxx4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StunBox"]
 shape = SubResource("RectangleShape2D_agul0")
 
 [node name="EnemyStateMachine" type="Node" parent="."]
-script = ExtResource("5_63pfb")
+script = ExtResource("6_3khc1")
 
 [node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state", "attack_state")]
-script = ExtResource("6_f0525")
+script = ExtResource("7_3331e")
 after_idle_state = NodePath("../Move")
 attack_state = NodePath("../Attack")
 
 [node name="Move" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
-script = ExtResource("7_lq3dx")
+script = ExtResource("8_ah8do")
 after_move_state = NodePath("../Idle")
 
 [node name="Change Direction" type="Timer" parent="EnemyStateMachine/Move"]
@@ -239,17 +241,17 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Damaged" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("8_mptdq")
+script = ExtResource("9_tfbjm")
 next_state = NodePath("../Idle")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("9_dfl00")
-drop_table = ExtResource("10_6ake8")
+script = ExtResource("10_tqo4n")
+drop_table = ExtResource("11_hs7a2")
 
 [node name="Attack" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_attack_state")]
-script = ExtResource("11_fi3kg")
+script = ExtResource("12_q002j")
 after_attack_state = NodePath("../Move")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("11_t7pt7")
+script = ExtResource("13_17osn")
 next_state = NodePath("../Idle")

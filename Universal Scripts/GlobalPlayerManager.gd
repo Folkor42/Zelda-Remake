@@ -9,11 +9,11 @@ var player : Player
 var player_spawned : bool = false
 var inventory : InventoryData
 var rubies : int = 0
-var bombs : int = 0
+var bombs : int = 8
 var max_bombs : int = 8
-var keys : int = 0
+var keys : int = 8
 var kill_count : int = 0
-var sword : String = ""
+var sword : String = "White Sword"
 var active_item : String = ""
 var grid = []
 var grid_width = 8

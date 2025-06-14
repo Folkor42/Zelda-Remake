@@ -163,7 +163,7 @@ region_rect = Rect2(846, 11, 65, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Top of Waterfall"]
 libraries = {
-"": SubResource("AnimationLibrary_gnj80")
+&"": SubResource("AnimationLibrary_gnj80")
 }
 autoplay = "crest"
 
@@ -176,7 +176,7 @@ region_rect = Rect2(776, 28, 98, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Wave1"]
 libraries = {
-"": SubResource("AnimationLibrary_ujp43")
+&"": SubResource("AnimationLibrary_ujp43")
 }
 autoplay = "wave1"
 
@@ -189,7 +189,7 @@ region_rect = Rect2(776, 28, 98, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Wave2"]
 libraries = {
-"": SubResource("AnimationLibrary_ujp43")
+&"": SubResource("AnimationLibrary_ujp43")
 }
 autoplay = "wave1"
 
@@ -202,7 +202,7 @@ region_rect = Rect2(776, 28, 98, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Wave3"]
 libraries = {
-"": SubResource("AnimationLibrary_ujp43")
+&"": SubResource("AnimationLibrary_ujp43")
 }
 autoplay = "wave1"
 

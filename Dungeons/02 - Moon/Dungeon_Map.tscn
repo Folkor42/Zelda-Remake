@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwgdrij5bc8it"]
+[gd_scene load_steps=27 format=3 uid="uid://cwgdrij5bc8it"]
 
 [ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_1wrd3"]
 [ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="2_bwojh"]
@@ -8,9 +8,24 @@
 [ext_resource type="PackedScene" uid="uid://cd6ymty5ai3gt" path="res://Dungeons/02 - Moon/room_4.tscn" id="7_727xk"]
 [ext_resource type="PackedScene" uid="uid://deqpf8h7xm564" path="res://Dungeons/02 - Moon/room_5.tscn" id="8_wsi5m"]
 [ext_resource type="PackedScene" uid="uid://dcr4755dylwgs" path="res://Dungeons/02 - Moon/room_6.tscn" id="9_se035"]
+[ext_resource type="PackedScene" uid="uid://d37hdglmwqari" path="res://Dungeons/02 - Moon/room_7.tscn" id="10_5bprn"]
+[ext_resource type="PackedScene" uid="uid://litps2eyvr2g" path="res://Dungeons/02 - Moon/room_8.tscn" id="11_i8id3"]
+[ext_resource type="PackedScene" uid="uid://dph4p21c1028k" path="res://Dungeons/02 - Moon/room_9.tscn" id="12_tvevb"]
+[ext_resource type="PackedScene" uid="uid://2ar64qa1xaqj" path="res://Dungeons/02 - Moon/room_10.tscn" id="13_wo408"]
+[ext_resource type="PackedScene" uid="uid://cttmb34prs4cb" path="res://Dungeons/02 - Moon/room_11.tscn" id="14_bnwvh"]
+[ext_resource type="PackedScene" uid="uid://beiyofxmkkyfy" path="res://Dungeons/02 - Moon/room_12.tscn" id="15_qo8f1"]
+[ext_resource type="PackedScene" uid="uid://b5aeajo4ulroa" path="res://Dungeons/02 - Moon/room_13.tscn" id="16_k7xjq"]
+[ext_resource type="PackedScene" uid="uid://b2633kvvqldex" path="res://Dungeons/02 - Moon/room_14.tscn" id="17_a24hd"]
+[ext_resource type="PackedScene" uid="uid://crs3vgagc8f7x" path="res://Dungeons/02 - Moon/room_15.tscn" id="18_uy5bb"]
+[ext_resource type="PackedScene" uid="uid://kh2rhyaeeerg" path="res://Dungeons/02 - Moon/room_16.tscn" id="19_1p6x3"]
+[ext_resource type="PackedScene" uid="uid://4s6u0jt3o2ft" path="res://Dungeons/02 - Moon/room_17.tscn" id="20_eokpv"]
 [ext_resource type="Script" uid="uid://b2rtwvax0llxk" path="res://Scenes/camera.gd" id="21_c1l4f"]
+[ext_resource type="PackedScene" uid="uid://nkt58lftqdci" path="res://Dungeons/02 - Moon/room_18.tscn" id="21_eoxet"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="22_48eel"]
+[ext_resource type="PackedScene" uid="uid://cjtn46ftxd15f" path="res://Dungeons/key_door_LR.tscn" id="22_wo408"]
+[ext_resource type="PackedScene" uid="uid://dtme62ocn0g14" path="res://Dungeons/bomb_door_UD.tscn" id="23_bnwvh"]
 [ext_resource type="PackedScene" uid="uid://bchdbknbukviw" path="res://Dungeons/02 - Moon/room_1.tscn" id="23_ihdom"]
+[ext_resource type="PackedScene" uid="uid://d14ohki1nr37q" path="res://Dungeons/bomb_door_LR.tscn" id="24_qo8f1"]
 
 [node name="02 - Moon Dungeon" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
 script = ExtResource("1_1wrd3")
@@ -39,6 +54,66 @@ position = Vector2(256, -176)
 
 [node name="Room6" parent="Rooms" instance=ExtResource("9_se035")]
 position = Vector2(512, -176)
+
+[node name="Room7" parent="Rooms" instance=ExtResource("10_5bprn")]
+position = Vector2(512, -352)
+
+[node name="Room8" parent="Rooms" instance=ExtResource("11_i8id3")]
+position = Vector2(256, -352)
+
+[node name="Room9" parent="Rooms" instance=ExtResource("12_tvevb")]
+position = Vector2(512, -528)
+
+[node name="Room10" parent="Rooms" instance=ExtResource("13_wo408")]
+position = Vector2(256, -528)
+
+[node name="Room11" parent="Rooms" instance=ExtResource("14_bnwvh")]
+position = Vector2(512, -704)
+
+[node name="Room12" parent="Rooms" instance=ExtResource("15_qo8f1")]
+position = Vector2(256, -704)
+
+[node name="Room13" parent="Rooms" instance=ExtResource("16_k7xjq")]
+position = Vector2(512, -880)
+
+[node name="Room14" parent="Rooms" instance=ExtResource("17_a24hd")]
+position = Vector2(256, -880)
+
+[node name="Room15" parent="Rooms" instance=ExtResource("18_uy5bb")]
+position = Vector2(512, -1056)
+
+[node name="Room16" parent="Rooms" instance=ExtResource("19_1p6x3")]
+position = Vector2(256, -1056)
+
+[node name="Room17" parent="Rooms" instance=ExtResource("20_eokpv")]
+position = Vector2(256, -1232)
+
+[node name="Room18" parent="Rooms" instance=ExtResource("21_eoxet")]
+position = Vector2(0, -1232)
+
+[node name="Key Door LR" parent="Rooms" instance=ExtResource("22_wo408")]
+position = Vector2(512, -80)
+
+[node name="Key Door LR2" parent="Rooms" instance=ExtResource("22_wo408")]
+position = Vector2(512, -264)
+
+[node name="Key Door LR3" parent="Rooms" instance=ExtResource("22_wo408")]
+position = Vector2(512, -792)
+
+[node name="Bomb Door UD" parent="Rooms" instance=ExtResource("23_bnwvh")]
+position = Vector2(640, -528)
+
+[node name="Bomb Door UD2" parent="Rooms" instance=ExtResource("23_bnwvh")]
+position = Vector2(640, -176)
+
+[node name="Bomb Door UD3" parent="Rooms" instance=ExtResource("23_bnwvh")]
+position = Vector2(640, -352)
+
+[node name="Bomb Door UD4" parent="Rooms" instance=ExtResource("23_bnwvh")]
+position = Vector2(640, -704)
+
+[node name="Bomb Door LR" parent="Rooms" instance=ExtResource("24_qo8f1")]
+position = Vector2(512, -968)
 
 [node name="DungeonCamera" type="Camera2D" parent="."]
 position = Vector2(0, 256)
