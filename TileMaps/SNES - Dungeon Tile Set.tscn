@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7snu8c7im0hm"]
 
 [ext_resource type="Texture2D" uid="uid://b8xdb0fdc1su" path="res://Assets/SpriteSheets/SNES - The Legend of Zelda - Dungeon Tileset.png" id="1_bh0s0"]
-[ext_resource type="Script" path="res://Overworld/snes_tiles.gd" id="2_trla4"]
+[ext_resource type="Script" uid="uid://c6maa44yhqx14" path="res://Overworld/snes_tiles.gd" id="2_trla4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8oif1"]
 texture = ExtResource("1_bh0s0")

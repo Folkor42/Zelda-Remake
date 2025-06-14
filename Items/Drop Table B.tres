@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DropTable" load_steps=7 format=3 uid="uid://d1qkoch45h7oi"]
 
-[ext_resource type="Script" path="res://Items/item_data.gd" id="1_aobpw"]
-[ext_resource type="Script" path="res://Items/droptable.gd" id="2_umlno"]
+[ext_resource type="Script" uid="uid://cyaa0n3ef72cf" path="res://Items/item_data.gd" id="1_aobpw"]
+[ext_resource type="Script" uid="uid://br2t6vk0m2exj" path="res://Items/droptable.gd" id="2_umlno"]
 [ext_resource type="Resource" uid="uid://bdrqiutagyist" path="res://Items/bomb.tres" id="2_ya860"]
 [ext_resource type="Resource" uid="uid://da5nmokb43354" path="res://Items/Ruby.tres" id="3_sbq7c"]
 [ext_resource type="Resource" uid="uid://2p5kqt8x5sw8" path="res://Items/stop_watch.tres" id="4_iadx0"]

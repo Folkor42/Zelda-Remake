@@ -1,15 +1,15 @@
 [gd_scene load_steps=18 format=3 uid="uid://b8dk4ji4aa5fb"]
 
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="1_nu05k"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Gel/gel.gd" id="1_xc42s"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="2_610o6"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_nntwh"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="3_oa2op"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Gel/idle.gd" id="4_qftjl"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Gel/move.gd" id="5_3qg33"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Gel/destroy.gd" id="8_gh4l4"]
+[ext_resource type="Script" uid="uid://dwqhgqma7mqq4" path="res://Dungeons/Enemies/Gel/gel.gd" id="1_xc42s"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="2_610o6"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="3_nntwh"]
+[ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="3_oa2op"]
+[ext_resource type="Script" uid="uid://4pgu0vblqoqq" path="res://Dungeons/Enemies/Gel/idle.gd" id="4_qftjl"]
+[ext_resource type="Script" uid="uid://b43eu7d261wvc" path="res://Dungeons/Enemies/Gel/move.gd" id="5_3qg33"]
+[ext_resource type="Script" uid="uid://bud5cx23j0jfv" path="res://Dungeons/Enemies/Gel/destroy.gd" id="8_gh4l4"]
 [ext_resource type="Resource" uid="uid://lt658aytnf23" path="res://Items/Drop Table X.tres" id="9_jdm7c"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Gel/stun.gd" id="10_4gi42"]
+[ext_resource type="Script" uid="uid://vcoyd0y4gblq" path="res://Dungeons/Enemies/Gel/stun.gd" id="10_4gi42"]
 
 [sub_resource type="Animation" id="Animation_k4hcu"]
 length = 0.001
@@ -74,9 +74,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t1nax"]
 _data = {
-"RESET": SubResource("Animation_k4hcu"),
-"move": SubResource("Animation_nr0gm"),
-"stun": SubResource("Animation_sj84e")
+&"RESET": SubResource("Animation_k4hcu"),
+&"move": SubResource("Animation_nr0gm"),
+&"stun": SubResource("Animation_sj84e")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hyhxe"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://brtt6ka8eue1b"]
 
-[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/sword.gd" id="1_dwri2"]
+[ext_resource type="Script" uid="uid://wulk3o5jehsp" path="res://Dungeons/Enemies/Stalfos/sword.gd" id="1_dwri2"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_r5yfi"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="3_tdsyy"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="3_tdsyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ollpb"]
 size = Vector2(16, 8)
@@ -44,8 +44,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n5pvm"]
 _data = {
-"RESET": SubResource("Animation_0sx3k"),
-"blink": SubResource("Animation_ywnxf")
+&"RESET": SubResource("Animation_0sx3k"),
+&"blink": SubResource("Animation_ywnxf")
 }
 
 [node name="StalfosSword" type="Area2D"]

@@ -1,21 +1,21 @@
 [gd_scene load_steps=30 format=3 uid="uid://dhr04causku4q"]
 
-[ext_resource type="Script" path="res://Overworld/Enemies/Zora/zora.gd" id="1_b5y5r"]
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_wdbf5"]
+[ext_resource type="Script" uid="uid://br5rn44tsb3om" path="res://Overworld/Enemies/Zora/zora.gd" id="1_b5y5r"]
+[ext_resource type="Shader" uid="uid://c7bt4fog2gysv" path="res://Shaders/flash.gdshader" id="2_wdbf5"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="3_nrucb"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="4_wf2kx"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="5_cihgu"]
-[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_gjshc"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_4r6rj"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Zora/submerge.gd" id="8_214ca"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Zora/state_underwater.gd" id="9_4b0kd"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Zora/state_idle.gd" id="9_j5fxu"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Zora/state_destroy.gd" id="10_xvwe1"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="4_wf2kx"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="5_cihgu"]
+[ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="6_gjshc"]
+[ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_4r6rj"]
+[ext_resource type="Script" uid="uid://cwmu2w0nj3yq0" path="res://Overworld/Enemies/Zora/submerge.gd" id="8_214ca"]
+[ext_resource type="Script" uid="uid://dtl6kwr43kpm0" path="res://Overworld/Enemies/Zora/state_underwater.gd" id="9_4b0kd"]
+[ext_resource type="Script" uid="uid://weqmsu5dxxp" path="res://Overworld/Enemies/Zora/state_idle.gd" id="9_j5fxu"]
+[ext_resource type="Script" uid="uid://cnjwsyxem3hsn" path="res://Overworld/Enemies/Zora/state_destroy.gd" id="10_xvwe1"]
 [ext_resource type="Resource" uid="uid://csrd736k7a5iy" path="res://Items/Drop Table D.tres" id="11_gejff"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Zora/state_damaged.gd" id="11_yt30t"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Zora/state_rise.gd" id="12_plqr6"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Zora/state_stun.gd" id="13_764dh"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Zora/state_shoot.gd" id="14_bpevn"]
+[ext_resource type="Script" uid="uid://dvedwjpfg8633" path="res://Overworld/Enemies/Zora/state_damaged.gd" id="11_yt30t"]
+[ext_resource type="Script" uid="uid://dkwx0g3j8k5le" path="res://Overworld/Enemies/Zora/state_rise.gd" id="12_plqr6"]
+[ext_resource type="Script" uid="uid://bm8ii3na22l0e" path="res://Overworld/Enemies/Zora/state_stun.gd" id="13_764dh"]
+[ext_resource type="Script" uid="uid://bcnutfcwbf4ix" path="res://Overworld/Enemies/Zora/state_shoot.gd" id="14_bpevn"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="16_jdhy5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nteas"]
@@ -131,12 +131,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eon5c"]
 _data = {
-"RESET": SubResource("Animation_xmeog"),
-"idle": SubResource("Animation_ipkpv"),
-"move": SubResource("Animation_i4kcy"),
-"rise": SubResource("Animation_bhwd8"),
-"stun": SubResource("Animation_covyu"),
-"submerge": SubResource("Animation_3403i")
+&"RESET": SubResource("Animation_xmeog"),
+&"idle": SubResource("Animation_ipkpv"),
+&"move": SubResource("Animation_i4kcy"),
+&"rise": SubResource("Animation_bhwd8"),
+&"stun": SubResource("Animation_covyu"),
+&"submerge": SubResource("Animation_3403i")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i30tg"]

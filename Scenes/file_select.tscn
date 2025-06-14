@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://cpsnau6j1s8jg"]
 
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="1_cc0oe"]
-[ext_resource type="Script" path="res://Scenes/file_select.gd" id="1_fw3ir"]
-[ext_resource type="Script" path="res://Scenes/slot_labels.gd" id="3_b1ped"]
-[ext_resource type="Script" path="res://Scenes/FileSelectButton.gd" id="3_i0i2f"]
-[ext_resource type="Script" path="res://Scenes/name_new_game.gd" id="5_pvvw2"]
-[ext_resource type="Script" path="res://Scenes/confirm_delete.gd" id="6_so2cq"]
+[ext_resource type="Script" uid="uid://d4eiy0wq5p0n" path="res://Scenes/file_select.gd" id="1_fw3ir"]
+[ext_resource type="Script" uid="uid://j5bqebetynu3" path="res://Scenes/slot_labels.gd" id="3_b1ped"]
+[ext_resource type="Script" uid="uid://tajojfew8a1m" path="res://Scenes/FileSelectButton.gd" id="3_i0i2f"]
+[ext_resource type="Script" uid="uid://dv1raregvbq6q" path="res://Scenes/name_new_game.gd" id="5_pvvw2"]
+[ext_resource type="Script" uid="uid://c773tk1u82jf3" path="res://Scenes/confirm_delete.gd" id="6_so2cq"]
 
 [sub_resource type="Gradient" id="Gradient_epe5x"]
 offsets = PackedFloat32Array(1)

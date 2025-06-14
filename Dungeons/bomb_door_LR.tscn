@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://d14ohki1nr37q"]
 
-[ext_resource type="Script" path="res://Dungeons/bomb_door_pair.gd" id="1_tebsj"]
+[ext_resource type="Script" uid="uid://ct10ctgvhigrx" path="res://Dungeons/bomb_door_pair.gd" id="1_tebsj"]
 [ext_resource type="PackedScene" uid="uid://bs3c4ywmnsw1e" path="res://Dungeons/bomb_door.tscn" id="3_jn2gw"]
-[ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="4_w4shp"]
+[ext_resource type="Script" uid="uid://chj7wqhj2j46g" path="res://Universal Scripts/persistant_handler.gd" id="4_w4shp"]
 [ext_resource type="AudioStream" uid="uid://cn6moxk3u602t" path="res://Assets/Audio/Sounds/Sound Effect (21) - Secret Reveal.wav" id="4_wercx"]
 
 [node name="Bomb Door LR" type="Node2D"]

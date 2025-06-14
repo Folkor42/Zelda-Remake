@@ -1,13 +1,13 @@
 [gd_scene load_steps=19 format=4 uid="uid://imc01yc7nw2g"]
 
-[ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_vstep"]
+[ext_resource type="Script" uid="uid://cgr687y7twmty" path="res://Scenes/DungeonRoom.gd" id="1_vstep"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_j3r2e"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_78pcn"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_pwyhp"]
 [ext_resource type="PackedScene" uid="uid://c7snu8c7im0hm" path="res://TileMaps/SNES - Dungeon Tile Set.tscn" id="5_86hd1"]
 [ext_resource type="PackedScene" uid="uid://du1hkek41ut33" path="res://Dungeons/moveable_block.tscn" id="5_qvkbd"]
 [ext_resource type="PackedScene" uid="uid://dcfsharmal5w" path="res://Dungeons/trigger_door.tscn" id="6_ey31e"]
-[ext_resource type="Script" path="res://Dungeons/puzzle.gd" id="7_ol008"]
+[ext_resource type="Script" uid="uid://1uwkrjbmaodb" path="res://Dungeons/puzzle.gd" id="7_ol008"]
 [ext_resource type="PackedScene" uid="uid://b8dk4ji4aa5fb" path="res://Dungeons/Enemies/Gel/Gel.tscn" id="8_y8wf2"]
 [ext_resource type="PackedScene" uid="uid://bbeyh24euvevl" path="res://Dungeons/Enemies/Keese/Keese.tscn" id="9_pntek"]
 

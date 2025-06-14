@@ -1,18 +1,18 @@
 [gd_scene load_steps=22 format=4 uid="uid://c340ph5so74f1"]
 
-[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_2cypq"]
+[ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_2cypq"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_m2fgi"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="3_n8bf8"]
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="3_w5o7v"]
-[ext_resource type="Script" path="res://Overworld/snes_tiles.gd" id="4_37qi8"]
+[ext_resource type="Script" uid="uid://c6maa44yhqx14" path="res://Overworld/snes_tiles.gd" id="4_37qi8"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_qhv1m"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_iv0ga"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="6_cj7hw"]
 [ext_resource type="PackedScene" uid="uid://dq6cbkk4pfjkv" path="res://NPCs/moblin_npc.tscn" id="7_0eujq"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="8_0s4bn"]
-[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="9_3qpjk"]
-[ext_resource type="Script" path="res://Overworld/moneylabel.gd" id="10_as775"]
-[ext_resource type="Script" path="res://Items/item_data.gd" id="10_l3lso"]
+[ext_resource type="Script" uid="uid://bq3tughjlrxkt" path="res://Items/Item Effects/item_effect.gd" id="9_3qpjk"]
+[ext_resource type="Script" uid="uid://dmt4hrqiw7ttv" path="res://Overworld/moneylabel.gd" id="10_as775"]
+[ext_resource type="Script" uid="uid://cyaa0n3ef72cf" path="res://Items/item_data.gd" id="10_l3lso"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="11_ojb6x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srdpo"]
@@ -5215,8 +5215,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6cp2"]
 _data = {
-"RESET": SubResource("Animation_cedfc"),
-"Show Text": SubResource("Animation_ve2go")
+&"RESET": SubResource("Animation_cedfc"),
+&"Show Text": SubResource("Animation_ve2go")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6go35"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cwgdrij5bc8it"]
 
-[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_1wrd3"]
+[ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_1wrd3"]
 [ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="2_bwojh"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="3_w2bdo"]
 [ext_resource type="PackedScene" uid="uid://c5uv60a3dox7h" path="res://Dungeons/02 - Moon/room_2.tscn" id="5_jx0as"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cd6ymty5ai3gt" path="res://Dungeons/02 - Moon/room_4.tscn" id="7_727xk"]
 [ext_resource type="PackedScene" uid="uid://deqpf8h7xm564" path="res://Dungeons/02 - Moon/room_5.tscn" id="8_wsi5m"]
 [ext_resource type="PackedScene" uid="uid://dcr4755dylwgs" path="res://Dungeons/02 - Moon/room_6.tscn" id="9_se035"]
-[ext_resource type="Script" path="res://Scenes/camera.gd" id="21_c1l4f"]
+[ext_resource type="Script" uid="uid://b2rtwvax0llxk" path="res://Scenes/camera.gd" id="21_c1l4f"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="22_48eel"]
 [ext_resource type="PackedScene" uid="uid://bchdbknbukviw" path="res://Dungeons/02 - Moon/room_1.tscn" id="23_ihdom"]
 

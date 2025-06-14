@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcfsharmal5w"]
 
-[ext_resource type="Script" path="res://Dungeons/trigger_door.gd" id="1_yjumm"]
+[ext_resource type="Script" uid="uid://l8k6ovi3yt18" path="res://Dungeons/trigger_door.gd" id="1_yjumm"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_ve7kg"]
 [ext_resource type="Texture2D" uid="uid://b8xdb0fdc1su" path="res://Assets/SpriteSheets/SNES - The Legend of Zelda - Dungeon Tileset.png" id="3_clfkx"]
 [ext_resource type="AudioStream" uid="uid://b4d1dhnyhfpwt" path="res://Assets/Audio/Sounds/Sound Effect (11) - Door.wav" id="3_td8r1"]

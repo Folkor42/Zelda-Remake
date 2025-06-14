@@ -14,7 +14,7 @@ config/name="Zelda: A Tribute"
 config/version="v0.75"
 config/tags=PackedStringArray("2d", "adventure")
 run/main_scene="res://Scenes/title_screen.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/Link.png"
 
 [autoload]

@@ -1,18 +1,18 @@
 [gd_scene load_steps=22 format=3 uid="uid://fvnjgpwf3ror"]
 
-[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/stalfos.gd" id="1_lbe8u"]
-[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="3_88mgi"]
+[ext_resource type="Script" uid="uid://cs0p6qpmulpem" path="res://Dungeons/Enemies/Stalfos/stalfos.gd" id="1_lbe8u"]
+[ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="3_88mgi"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="4_jx7rv"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_bsb2e"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="6_kqltv"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_xw33x"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/damaged.gd" id="8_4wraq"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/idle.gd" id="8_x6y7j"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/move.gd" id="9_j6gq8"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/stun.gd" id="10_bu8ef"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/destroy.gd" id="10_iruwl"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="5_bsb2e"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="6_kqltv"]
+[ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_xw33x"]
+[ext_resource type="Script" uid="uid://op3qv1tr8id6" path="res://Dungeons/Enemies/Stalfos/damaged.gd" id="8_4wraq"]
+[ext_resource type="Script" uid="uid://cgae184napm0f" path="res://Dungeons/Enemies/Stalfos/idle.gd" id="8_x6y7j"]
+[ext_resource type="Script" uid="uid://dp3msgvhdow45" path="res://Dungeons/Enemies/Stalfos/move.gd" id="9_j6gq8"]
+[ext_resource type="Script" uid="uid://di6ll6d46ovig" path="res://Dungeons/Enemies/Stalfos/stun.gd" id="10_bu8ef"]
+[ext_resource type="Script" uid="uid://8npl2xa25cjg" path="res://Dungeons/Enemies/Stalfos/destroy.gd" id="10_iruwl"]
 [ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="11_bbqws"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Stalfos/attack.gd" id="11_wbcks"]
+[ext_resource type="Script" uid="uid://bereqyjrgsabk" path="res://Dungeons/Enemies/Stalfos/attack.gd" id="11_wbcks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xcl"]
 size = Vector2(12, 12)
@@ -86,10 +86,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7mvr"]
 _data = {
-"Move": SubResource("Animation_mqpbc"),
-"RESET": SubResource("Animation_r08pl"),
-"Stun": SubResource("Animation_7ptmo"),
-"hit": SubResource("Animation_ynpa2")
+&"Move": SubResource("Animation_mqpbc"),
+&"RESET": SubResource("Animation_r08pl"),
+&"Stun": SubResource("Animation_7ptmo"),
+&"hit": SubResource("Animation_ynpa2")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86i26"]

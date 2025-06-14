@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://42uh7lj7oybh"]
 
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="1_6rbhn"]
-[ext_resource type="Script" path="res://Dungeons/key_door.gd" id="2_lia3b"]
-[ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="4_0636y"]
-[ext_resource type="Script" path="res://Dungeons/door_mat.gd" id="4_yfwbd"]
+[ext_resource type="Script" uid="uid://bk6xc4k2y7egj" path="res://Dungeons/key_door.gd" id="2_lia3b"]
+[ext_resource type="Script" uid="uid://chj7wqhj2j46g" path="res://Universal Scripts/persistant_handler.gd" id="4_0636y"]
+[ext_resource type="Script" uid="uid://dvybv6l6p4j2a" path="res://Dungeons/door_mat.gd" id="4_yfwbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62mwj"]
 size = Vector2(32, 32)

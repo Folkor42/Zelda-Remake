@@ -1,11 +1,11 @@
 [gd_scene load_steps=18 format=4 uid="uid://nkt58lftqdci"]
 
-[ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_imavh"]
+[ext_resource type="Script" uid="uid://cgr687y7twmty" path="res://Scenes/DungeonRoom.gd" id="1_imavh"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_l8rwm"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_qjggi"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="4_3po8x"]
 [ext_resource type="PackedScene" uid="uid://c7snu8c7im0hm" path="res://TileMaps/SNES - Dungeon Tile Set.tscn" id="5_iucgp"]
-[ext_resource type="Script" path="res://Dungeons/01 - Eagle/dungeon_complete.gd" id="6_bp2fu"]
+[ext_resource type="Script" uid="uid://bqp3ql41cj4m3" path="res://Dungeons/01 - Eagle/dungeon_complete.gd" id="6_bp2fu"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="7_e857y"]
 [ext_resource type="Resource" uid="uid://bjtq2ewvncewg" path="res://Items/triforce.tres" id="8_pknf6"]
 [ext_resource type="AudioStream" uid="uid://c8jvqfwbae71d" path="res://Assets/Audio/Music/09 Catch Triforce Fanfare.mp3" id="9_3ckuo"]

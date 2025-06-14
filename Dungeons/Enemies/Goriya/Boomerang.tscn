@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://caxx3etp0rj2b"]
 
-[ext_resource type="Script" path="res://Dungeons/Enemies/Goriya/boomerang.gd" id="1_w0pjs"]
+[ext_resource type="Script" uid="uid://g48xd0ata230" path="res://Dungeons/Enemies/Goriya/boomerang.gd" id="1_w0pjs"]
 [ext_resource type="Texture2D" uid="uid://c0m8mrgxu8poh" path="res://Assets/SpriteSheets/SNES - Link.png" id="2_un24k"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="3_hhw2a"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="3_hhw2a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ollpb"]
 size = Vector2(16, 8)
@@ -93,8 +93,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n5pvm"]
 _data = {
-"RESET": SubResource("Animation_0sx3k"),
-"spin": SubResource("Animation_ywnxf")
+&"RESET": SubResource("Animation_0sx3k"),
+&"spin": SubResource("Animation_ywnxf")
 }
 
 [node name="GoriyaBoomerang" type="Area2D"]

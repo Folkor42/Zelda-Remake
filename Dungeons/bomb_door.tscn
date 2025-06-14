@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bs3c4ywmnsw1e"]
 
-[ext_resource type="Script" path="res://Dungeons/bomb_door.gd" id="1_thyr4"]
+[ext_resource type="Script" uid="uid://cgmobfuon4st3" path="res://Dungeons/bomb_door.gd" id="1_thyr4"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_pp826"]
 [ext_resource type="Texture2D" uid="uid://b8xdb0fdc1su" path="res://Assets/SpriteSheets/SNES - The Legend of Zelda - Dungeon Tileset.png" id="3_4ktjd"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_tegpy"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="3_tegpy"]
 
 [sub_resource type="GDScript" id="GDScript_1hxvi"]
 script/source = "extends Sprite2D

@@ -1,17 +1,17 @@
 [gd_scene load_steps=20 format=4 uid="uid://wqnpfwb82oxn"]
 
-[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_w083l"]
+[ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_w083l"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_t2xxp"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="3_hbmht"]
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="3_wa2vw"]
-[ext_resource type="Script" path="res://Overworld/snes_tiles.gd" id="4_1xkhs"]
+[ext_resource type="Script" uid="uid://c6maa44yhqx14" path="res://Overworld/snes_tiles.gd" id="4_1xkhs"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_nntlh"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_k707q"]
-[ext_resource type="Script" path="res://Overworld/Choice.gd" id="8_advpt"]
+[ext_resource type="Script" uid="uid://cecjs4w7apy8f" path="res://Overworld/Choice.gd" id="8_advpt"]
 [ext_resource type="Resource" uid="uid://6mo6hhvcdohj" path="res://Items/red_potion.tres" id="10_5c3fk"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="10_p2hh2"]
 [ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="12_2et6f"]
-[ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="12_v6iyk"]
+[ext_resource type="Script" uid="uid://chj7wqhj2j46g" path="res://Universal Scripts/persistant_handler.gd" id="12_v6iyk"]
 [ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="13_a4tep"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="14_ctylk"]
 
@@ -5215,8 +5215,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6cp2"]
 _data = {
-"RESET": SubResource("Animation_cedfc"),
-"Show Text": SubResource("Animation_ve2go")
+&"RESET": SubResource("Animation_cedfc"),
+&"Show Text": SubResource("Animation_ve2go")
 }
 
 [node name="Cave-SwordB" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]

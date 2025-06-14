@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b3oxecarnbiir"]
 
-[ext_resource type="Script" path="res://Items/Item Pickup/item_pickup.gd" id="1_n28cw"]
+[ext_resource type="Script" uid="uid://cyhwmgj3ief81" path="res://Items/Item Pickup/item_pickup.gd" id="1_n28cw"]
 [ext_resource type="PackedScene" uid="uid://dto0oqk85ctld" path="res://Universal Scripts/persistant_handler.tscn" id="2_f30rl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_byvnq"]
@@ -70,9 +70,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k1xkb"]
 _data = {
-"Pickup": SubResource("Animation_4fhov"),
-"RESET": SubResource("Animation_gu3ym"),
-"bounce": SubResource("Animation_6xbh8")
+&"Pickup": SubResource("Animation_4fhov"),
+&"RESET": SubResource("Animation_gu3ym"),
+&"bounce": SubResource("Animation_6xbh8")
 }
 
 [node name="ItemPickup" type="CharacterBody2D"]

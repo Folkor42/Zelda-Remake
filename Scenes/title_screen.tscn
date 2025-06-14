@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://ct6yuij7kyuta"]
 
-[ext_resource type="Script" path="res://Scenes/title_screen.gd" id="1_23och"]
+[ext_resource type="Script" uid="uid://dniuj303dcirf" path="res://Scenes/title_screen.gd" id="1_23och"]
 [ext_resource type="Texture2D" uid="uid://cxbe64uoosc6h" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Title Screen & Story All of Treasures.png" id="1_ohger"]
-[ext_resource type="Shader" path="res://Shaders/title_screen.gdshader" id="2_kolc2"]
+[ext_resource type="Shader" uid="uid://niknll7tlfth" path="res://Shaders/title_screen.gdshader" id="2_kolc2"]
 [ext_resource type="AudioStream" uid="uid://bawl1ibcvr2e3" path="res://Assets/Audio/Music/01 Title BGM.mp3" id="4_bobn0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_obgd8"]
@@ -50,8 +50,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gnj80"]
 _data = {
-"RESET": SubResource("Animation_soy8p"),
-"crest": SubResource("Animation_taedi")
+&"RESET": SubResource("Animation_soy8p"),
+&"crest": SubResource("Animation_taedi")
 }
 
 [sub_resource type="Animation" id="Animation_nrbib"]
@@ -137,8 +137,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ujp43"]
 _data = {
-"RESET": SubResource("Animation_nrbib"),
-"wave1": SubResource("Animation_hiq6b")
+&"RESET": SubResource("Animation_nrbib"),
+&"wave1": SubResource("Animation_hiq6b")
 }
 
 [node name="TitleScreen" type="Node2D"]

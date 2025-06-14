@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=4 uid="uid://wov67x3so3i1"]
 
-[ext_resource type="Script" path="res://Dungeons/room_item.gd" id="1_m550o"]
+[ext_resource type="Script" uid="uid://buppa1myxcgov" path="res://Dungeons/room_item.gd" id="1_m550o"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_v1eus"]
-[ext_resource type="Script" path="res://TileMaps/level_tile_map.gd" id="3_drydk"]
+[ext_resource type="Script" uid="uid://bqhi17n6o13bo" path="res://TileMaps/level_tile_map.gd" id="3_drydk"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="4_akrxn"]
 [ext_resource type="PackedScene" uid="uid://c7snu8c7im0hm" path="res://TileMaps/SNES - Dungeon Tile Set.tscn" id="5_ti2mp"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="6_lwyxm"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_hx3vr"]
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="2_w57ab"]
-[ext_resource type="Script" path="res://Overworld/snes_tiles.gd" id="3_geov8"]
+[ext_resource type="Script" uid="uid://c6maa44yhqx14" path="res://Overworld/snes_tiles.gd" id="3_geov8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ro3ue"]
 texture = ExtResource("2_w57ab")

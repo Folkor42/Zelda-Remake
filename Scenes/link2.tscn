@@ -1,20 +1,20 @@
 [gd_scene load_steps=49 format=3 uid="uid://snh18otta0v2"]
 
-[ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_3vd0b"]
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_flq05"]
+[ext_resource type="Script" uid="uid://dw2xwas87n44a" path="res://Player/Scripts/player.gd" id="1_3vd0b"]
+[ext_resource type="Shader" uid="uid://c7bt4fog2gysv" path="res://Shaders/flash.gdshader" id="2_flq05"]
 [ext_resource type="Texture2D" uid="uid://c0m8mrgxu8poh" path="res://Assets/SpriteSheets/SNES - Link.png" id="3_dtcsw"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="3_g3lxh"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_ggm60"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="3_g3lxh"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="3_ggm60"]
 [ext_resource type="AudioStream" uid="uid://bev3yc6gf036r" path="res://Assets/Audio/Sounds/Sound Effect (6) - Sword Slash.wav" id="4_lpdj2"]
 [ext_resource type="AudioStream" uid="uid://gfwsqbiabco3" path="res://Assets/Audio/Sounds/Sound Effect (22) - Death.wav" id="5_tcaqw"]
-[ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="6_o7pmt"]
-[ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="7_og0ji"]
-[ext_resource type="Script" path="res://Scenes/state_walk.gd" id="8_scqkn"]
-[ext_resource type="Script" path="res://Scenes/state_attack.gd" id="9_2oeid"]
-[ext_resource type="Script" path="res://Scenes/state_stun.gd" id="10_d3poa"]
-[ext_resource type="Script" path="res://Scenes/state_death.gd" id="11_53ap7"]
+[ext_resource type="Script" uid="uid://cm1nas81rx0dy" path="res://Player/Scripts/player_state_machine.gd" id="6_o7pmt"]
+[ext_resource type="Script" uid="uid://dixpw4d0k436w" path="res://Player/Scripts/state_idle.gd" id="7_og0ji"]
+[ext_resource type="Script" uid="uid://cq6r63lyayhx1" path="res://Scenes/state_walk.gd" id="8_scqkn"]
+[ext_resource type="Script" uid="uid://cv2suor8xb8d4" path="res://Scenes/state_attack.gd" id="9_2oeid"]
+[ext_resource type="Script" uid="uid://18mn4keicvhn" path="res://Scenes/state_stun.gd" id="10_d3poa"]
+[ext_resource type="Script" uid="uid://cayv81jjlsiwt" path="res://Scenes/state_death.gd" id="11_53ap7"]
 [ext_resource type="AudioStream" uid="uid://wgj1taaooup4" path="res://Assets/Audio/Sounds/Sound Effect (1) - Hurt.wav" id="12_rnvxf"]
-[ext_resource type="Script" path="res://Scenes/state_pickup.gd" id="14_8hq8r"]
+[ext_resource type="Script" uid="uid://d2qqtdjfsaikp" path="res://Scenes/state_pickup.gd" id="14_8hq8r"]
 [ext_resource type="AudioStream" uid="uid://djdl2m3ffg66f" path="res://Assets/Audio/Sounds/Sound Effect (4) - Pickup.wav" id="14_ukqfw"]
 [ext_resource type="PackedScene" uid="uid://1o61f24mk2r1" path="res://Items/BombEquipped.tscn" id="17_4fccm"]
 [ext_resource type="AudioStream" uid="uid://bcf8i225e8u5t" path="res://Assets/Audio/Sounds/ticking-clock_fast_at_end.mp3" id="18_55vlt"]
@@ -278,10 +278,10 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ni5fy"]
 _data = {
-"RESET": SubResource("Animation_g5ilh"),
-"attack_down": SubResource("Animation_wgkep"),
-"attack_side": SubResource("Animation_gd0tm"),
-"attack_up": SubResource("Animation_7e71i")
+&"RESET": SubResource("Animation_g5ilh"),
+&"attack_down": SubResource("Animation_wgkep"),
+&"attack_side": SubResource("Animation_gd0tm"),
+&"attack_up": SubResource("Animation_7e71i")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1b7rk"]
@@ -795,24 +795,24 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nb75v"]
 _data = {
-"RESET": SubResource("Animation_tlw8f"),
-"attack_2": SubResource("Animation_agch4"),
-"attack_bow": SubResource("Animation_rxu27"),
-"attack_down": SubResource("Animation_n7a4d"),
-"attack_left": SubResource("Animation_y7cx0"),
-"attack_side": SubResource("Animation_tgrf2"),
-"attack_up": SubResource("Animation_hs0ww"),
-"death": SubResource("Animation_ibxhg"),
-"idle_down": SubResource("Animation_0b7rr"),
-"idle_side": SubResource("Animation_mp1sm"),
-"idle_up": SubResource("Animation_g4g0l"),
-"pickup": SubResource("Animation_r8ygj"),
-"stun_down": SubResource("Animation_ockx1"),
-"stun_side": SubResource("Animation_l201e"),
-"stun_up": SubResource("Animation_rybjc"),
-"walk_down": SubResource("Animation_qgscg"),
-"walk_side": SubResource("Animation_qg5xo"),
-"walk_up": SubResource("Animation_vdbsm")
+&"RESET": SubResource("Animation_tlw8f"),
+&"attack_2": SubResource("Animation_agch4"),
+&"attack_bow": SubResource("Animation_rxu27"),
+&"attack_down": SubResource("Animation_n7a4d"),
+&"attack_left": SubResource("Animation_y7cx0"),
+&"attack_side": SubResource("Animation_tgrf2"),
+&"attack_up": SubResource("Animation_hs0ww"),
+&"death": SubResource("Animation_ibxhg"),
+&"idle_down": SubResource("Animation_0b7rr"),
+&"idle_side": SubResource("Animation_mp1sm"),
+&"idle_up": SubResource("Animation_g4g0l"),
+&"pickup": SubResource("Animation_r8ygj"),
+&"stun_down": SubResource("Animation_ockx1"),
+&"stun_side": SubResource("Animation_l201e"),
+&"stun_up": SubResource("Animation_rybjc"),
+&"walk_down": SubResource("Animation_qgscg"),
+&"walk_side": SubResource("Animation_qg5xo"),
+&"walk_up": SubResource("Animation_vdbsm")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqvdx"]

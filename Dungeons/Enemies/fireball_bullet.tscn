@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bgayq5k8v18s8"]
 
-[ext_resource type="Script" path="res://Dungeons/Enemies/fireball_bullet.gd" id="1_wd3se"]
+[ext_resource type="Script" uid="uid://nnxb8lq2bxat" path="res://Dungeons/Enemies/fireball_bullet.gd" id="1_wd3se"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_4jcj6"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="3_rmhr3"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="3_rmhr3"]
 
 [sub_resource type="Animation" id="Animation_e22wt"]
 length = 0.001
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mp6su"]
 _data = {
-"RESET": SubResource("Animation_e22wt"),
-"default": SubResource("Animation_1u5ev")
+&"RESET": SubResource("Animation_e22wt"),
+&"default": SubResource("Animation_1u5ev")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ubnpi"]

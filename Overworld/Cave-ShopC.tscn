@@ -1,10 +1,10 @@
 [gd_scene load_steps=19 format=4 uid="uid://depd1dymqdo5p"]
 
-[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_35i41"]
+[ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_35i41"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_tl6xo"]
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="3_g88bw"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="3_iedk8"]
-[ext_resource type="Script" path="res://Overworld/snes_tiles.gd" id="4_71fdd"]
+[ext_resource type="Script" uid="uid://c6maa44yhqx14" path="res://Overworld/snes_tiles.gd" id="4_71fdd"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_nac1v"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_scgrx"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="6_6v8dp"]
@@ -5214,8 +5214,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6cp2"]
 _data = {
-"RESET": SubResource("Animation_cedfc"),
-"Show Text": SubResource("Animation_ve2go")
+&"RESET": SubResource("Animation_cedfc"),
+&"Show Text": SubResource("Animation_ve2go")
 }
 
 [node name="Cave-ShopC" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]

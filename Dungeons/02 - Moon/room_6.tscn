@@ -1,11 +1,11 @@
 [gd_scene load_steps=18 format=4 uid="uid://dcr4755dylwgs"]
 
-[ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_yof8m"]
+[ext_resource type="Script" uid="uid://cgr687y7twmty" path="res://Scenes/DungeonRoom.gd" id="1_yof8m"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_iffbc"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_f7m7v"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="4_sxw3r"]
 [ext_resource type="PackedScene" uid="uid://c7snu8c7im0hm" path="res://TileMaps/SNES - Dungeon Tile Set.tscn" id="5_6bug5"]
-[ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="6_4vcqg"]
+[ext_resource type="Script" uid="uid://cajnapq01a4r5" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="6_4vcqg"]
 [ext_resource type="PackedScene" uid="uid://b8dk4ji4aa5fb" path="res://Dungeons/Enemies/Gel/Gel.tscn" id="7_tvpur"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="8_ati1j"]
 [ext_resource type="Resource" uid="uid://drad24ak7ur3c" path="res://Items/compass.tres" id="9_kocv2"]

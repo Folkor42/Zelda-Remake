@@ -1,19 +1,19 @@
 [gd_scene load_steps=27 format=3 uid="uid://gp225e824jp1"]
 
-[ext_resource type="Script" path="res://Overworld/Enemies/Tektite/tektite.gd" id="1_rs58w"]
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_34enj"]
+[ext_resource type="Script" uid="uid://8dfeqc8qxdxk" path="res://Overworld/Enemies/Tektite/tektite.gd" id="1_rs58w"]
+[ext_resource type="Shader" uid="uid://c7bt4fog2gysv" path="res://Shaders/flash.gdshader" id="2_34enj"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="3_uywqt"]
 [ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="4_co5jv"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_g1w0m"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="6_chkgo"]
-[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="7_74xwl"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="8_gsuvy"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Tektite/state_idle.gd" id="9_cdelm"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Tektite/state_destroy.gd" id="10_m5bsg"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="5_g1w0m"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="6_chkgo"]
+[ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="7_74xwl"]
+[ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="8_gsuvy"]
+[ext_resource type="Script" uid="uid://4bcg2uh1gwn1" path="res://Overworld/Enemies/Tektite/state_idle.gd" id="9_cdelm"]
+[ext_resource type="Script" uid="uid://7qwpxj6t6ub3" path="res://Overworld/Enemies/Tektite/state_destroy.gd" id="10_m5bsg"]
 [ext_resource type="Resource" uid="uid://cumbs2b7gq6bv" path="res://Items/Drop Table A.tres" id="11_83igf"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Tektite/state_jump.gd" id="11_x2s1q"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Tektite/state_stun.gd" id="12_5j5wq"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Tektite/state_damaged.gd" id="13_4rfc5"]
+[ext_resource type="Script" uid="uid://cponcnr173k8i" path="res://Overworld/Enemies/Tektite/state_jump.gd" id="11_x2s1q"]
+[ext_resource type="Script" uid="uid://bowrmgq42tqer" path="res://Overworld/Enemies/Tektite/state_stun.gd" id="12_5j5wq"]
+[ext_resource type="Script" uid="uid://cjoroeqxckqwd" path="res://Overworld/Enemies/Tektite/state_damaged.gd" id="13_4rfc5"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="16_0cb0n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m3foq"]
@@ -211,11 +211,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xse2c"]
 _data = {
-"RESET": SubResource("Animation_u2xrl"),
-"destroy": SubResource("Animation_1c7nn"),
-"idle": SubResource("Animation_a2ijn"),
-"jump": SubResource("Animation_8uosr"),
-"stun": SubResource("Animation_ffkkb")
+&"RESET": SubResource("Animation_u2xrl"),
+&"destroy": SubResource("Animation_1c7nn"),
+&"idle": SubResource("Animation_a2ijn"),
+&"jump": SubResource("Animation_8uosr"),
+&"stun": SubResource("Animation_ffkkb")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i30tg"]

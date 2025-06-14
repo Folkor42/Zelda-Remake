@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=4 uid="uid://dkroifdebunbs"]
 
-[ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_i8ahx"]
+[ext_resource type="Script" uid="uid://cgr687y7twmty" path="res://Scenes/DungeonRoom.gd" id="1_i8ahx"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_6krji"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_ag13a"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_incja"]
@@ -268,8 +268,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6cp2"]
 _data = {
-"RESET": SubResource("Animation_cedfc"),
-"Show Text": SubResource("Animation_ve2go")
+&"RESET": SubResource("Animation_cedfc"),
+&"Show Text": SubResource("Animation_ve2go")
 }
 
 [node name="Room10" type="Node2D"]

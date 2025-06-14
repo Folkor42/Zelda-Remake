@@ -1,21 +1,21 @@
 [gd_scene load_steps=26 format=3 uid="uid://bngru7jyoh0rt"]
 
-[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/wallmaster.gd" id="1_r0j2q"]
+[ext_resource type="Script" uid="uid://cggwunkk30t5i" path="res://Dungeons/Enemies/Wallmaster/wallmaster.gd" id="1_r0j2q"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_3c8dy"]
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_4tmnr"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_c57hd"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_s13hl"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_on04e"]
-[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_nfj6b"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/idle.gd" id="6_npf0h"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/move.gd" id="7_krn5b"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/destroy.gd" id="8_i3b1q"]
+[ext_resource type="Shader" uid="uid://c7bt4fog2gysv" path="res://Shaders/flash.gdshader" id="2_4tmnr"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="3_c57hd"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="4_s13hl"]
+[ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_on04e"]
+[ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="6_nfj6b"]
+[ext_resource type="Script" uid="uid://coqw55a83ldkj" path="res://Dungeons/Enemies/Wallmaster/idle.gd" id="6_npf0h"]
+[ext_resource type="Script" uid="uid://fr1vy15k4lx1" path="res://Dungeons/Enemies/Wallmaster/move.gd" id="7_krn5b"]
+[ext_resource type="Script" uid="uid://d1ctcgody46tc" path="res://Dungeons/Enemies/Wallmaster/destroy.gd" id="8_i3b1q"]
 [ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="9_ph0ne"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/stun.gd" id="10_0ffm1"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/damaged.gd" id="12_unbq5"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/emerge.gd" id="13_yws5n"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/withdraw.gd" id="14_ief8e"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Wallmaster/grab.gd" id="15_jqfts"]
+[ext_resource type="Script" uid="uid://blyrjr4ujxjec" path="res://Dungeons/Enemies/Wallmaster/stun.gd" id="10_0ffm1"]
+[ext_resource type="Script" uid="uid://b4w5mdwr6eeo0" path="res://Dungeons/Enemies/Wallmaster/damaged.gd" id="12_unbq5"]
+[ext_resource type="Script" uid="uid://jwx0vyu3h5xb" path="res://Dungeons/Enemies/Wallmaster/emerge.gd" id="13_yws5n"]
+[ext_resource type="Script" uid="uid://dur7jky1te8si" path="res://Dungeons/Enemies/Wallmaster/withdraw.gd" id="14_ief8e"]
+[ext_resource type="Script" uid="uid://c0p7hdl7k8c56" path="res://Dungeons/Enemies/Wallmaster/grab.gd" id="15_jqfts"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03dmf"]
 resource_local_to_scene = true
@@ -85,9 +85,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t1nax"]
 _data = {
-"RESET": SubResource("Animation_k4hcu"),
-"move": SubResource("Animation_nr0gm"),
-"stun": SubResource("Animation_sj84e")
+&"RESET": SubResource("Animation_k4hcu"),
+&"move": SubResource("Animation_nr0gm"),
+&"stun": SubResource("Animation_sj84e")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5mus"]

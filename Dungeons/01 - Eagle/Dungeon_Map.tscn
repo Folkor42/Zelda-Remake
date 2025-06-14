@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://c52mqag1as035"]
 
 [ext_resource type="PackedScene" uid="uid://bnwqkvxnroftf" path="res://Dungeons/01 - Eagle/room_1.tscn" id="1_fxssn"]
-[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_gev80"]
+[ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_gev80"]
 [ext_resource type="PackedScene" uid="uid://dp8v4a8jjk75f" path="res://Dungeons/01 - Eagle/room_2.tscn" id="2_tiasm"]
 [ext_resource type="PackedScene" uid="uid://bs4msomqsmexe" path="res://Dungeons/01 - Eagle/room_3.tscn" id="3_j8ybl"]
 [ext_resource type="PackedScene" uid="uid://b3ull75bbs50p" path="res://Dungeons/01 - Eagle/room_4.tscn" id="4_g0u4q"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bb4ph6ftaw0is" path="res://Dungeons/01 - Eagle/room_15.tscn" id="15_l8ajq"]
 [ext_resource type="PackedScene" uid="uid://00rfsax5jltg" path="res://Dungeons/01 - Eagle/room_16.tscn" id="16_bak2b"]
 [ext_resource type="PackedScene" uid="uid://ctf8pfjxaq427" path="res://Dungeons/01 - Eagle/room_17.tscn" id="17_g78wu"]
-[ext_resource type="Script" path="res://Scenes/camera.gd" id="19_wj6oy"]
+[ext_resource type="Script" uid="uid://b2rtwvax0llxk" path="res://Scenes/camera.gd" id="19_wj6oy"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="20_acy5b"]
 [ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="20_bhtn0"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="22_8jahd"]
