@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blwq4ilwfpt55"]
+[gd_scene load_steps=11 format=3 uid="uid://blwq4ilwfpt55"]
 
 [ext_resource type="Script" uid="uid://c2r34e2l83phl" path="res://Dungeons/Enemies/Rope/rope.gd" id="1_4jmfg"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_i1d28"]
@@ -6,6 +6,45 @@
 [ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="4_eaddb"]
 [ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="5_rudun"]
 [ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="6_kai6s"]
+
+[sub_resource type="Animation" id="Animation_7bv4i"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [46, 45]
+}
+
+[sub_resource type="Animation" id="Animation_eaddb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [46]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rudun"]
+_data = {
+&"RESET": SubResource("Animation_eaddb"),
+&"idle": SubResource("Animation_7bv4i")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmg76"]
 radius = 8.0
@@ -20,6 +59,10 @@ vframes = 14
 frame = 46
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rudun")
+}
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xmg76")

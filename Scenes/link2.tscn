@@ -883,7 +883,7 @@ region_rect = Rect2(0, 10.8942, 102.118, 16.2263)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/Sword"]
 libraries = {
-"": SubResource("AnimationLibrary_ni5fy")
+&"": SubResource("AnimationLibrary_ni5fy")
 }
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D/Sword"]
@@ -898,7 +898,7 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_nb75v")
+&"": SubResource("AnimationLibrary_nb75v")
 }
 autoplay = "idle_down"
 
