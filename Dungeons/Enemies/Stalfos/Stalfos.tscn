@@ -118,7 +118,7 @@ shape = SubResource("RectangleShape2D_d5xcl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a7mvr")
+&"": SubResource("AnimationLibrary_a7mvr")
 }
 autoplay = "Move"
 

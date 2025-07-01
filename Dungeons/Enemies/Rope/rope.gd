@@ -9,6 +9,7 @@ const SNES_MONSTERS : Texture = preload("res://Dungeons/Enemies/SNES - Dungeon E
 const NES_MONSTERS : Texture = preload("res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png")
 
 var active : bool = false
+var facing_left : bool = false
 
 func toggle_graphics( _new_value : bool )->void:
 	if _new_value:
@@ -40,3 +41,12 @@ func deactivate ()->void:
 	active = false
 	velocity=Vector2.ZERO
 	pass
+
+func _process(delta: float) -> void:
+	$Sprite2D.flip_h=facing_left
+	if facing_left:
+		$PlayerDetectorRight.enabled=false
+		$PlayerDetectorLeft.enabled=true
+	else:
+		$PlayerDetectorRight.enabled=true
+		$PlayerDetectorLeft.enabled=false

@@ -1,11 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://blwq4ilwfpt55"]
+[gd_scene load_steps=19 format=3 uid="uid://blwq4ilwfpt55"]
 
 [ext_resource type="Script" uid="uid://c2r34e2l83phl" path="res://Dungeons/Enemies/Rope/rope.gd" id="1_4jmfg"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_i1d28"]
 [ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="3_7bv4i"]
 [ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="4_eaddb"]
+[ext_resource type="Script" uid="uid://qr8q0kig13vx" path="res://Dungeons/Enemies/Rope/idle.gd" id="4_rudun"]
+[ext_resource type="Script" uid="uid://dspvbf2jx64nu" path="res://Dungeons/Enemies/Rope/move.gd" id="5_kai6s"]
 [ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="5_rudun"]
 [ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="6_kai6s"]
+[ext_resource type="Script" uid="uid://8aif77gcg8xk" path="res://Dungeons/Enemies/Rope/charge.gd" id="6_xmg76"]
+[ext_resource type="Script" uid="uid://hppsuc3ugj2v" path="res://Dungeons/Enemies/Rope/destroy.gd" id="7_xmg76"]
+[ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="8_xfd5c"]
+
+[sub_resource type="Animation" id="Animation_eaddb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [46]
+}
 
 [sub_resource type="Animation" id="Animation_7bv4i"]
 resource_name = "idle"
@@ -25,21 +45,6 @@ tracks/0/keys = {
 "values": [46, 45]
 }
 
-[sub_resource type="Animation" id="Animation_eaddb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [46]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rudun"]
 _data = {
 &"RESET": SubResource("Animation_eaddb"),
@@ -49,8 +54,22 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmg76"]
 radius = 8.0
 
-[node name="Rope" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kai6s"]
+size = Vector2(16, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfd5c"]
+radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwq77"]
+size = Vector2(16, 14)
+
+[node name="Rope" type="CharacterBody2D" node_paths=PackedStringArray("WallDetector", "animation_player")]
+collision_layer = 0
+motion_mode = 1
 script = ExtResource("1_4jmfg")
+speed = 25.0
+WallDetector = NodePath("WallDetector")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_i1d28")
@@ -71,20 +90,70 @@ shape = SubResource("CircleShape2D_xmg76")
 script = ExtResource("3_7bv4i")
 metadata/_custom_type_script = "uid://bjsik6sblx81f"
 
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("4_rudun")
+after_idle_state = NodePath("../Move")
+
+[node name="Move" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("5_kai6s")
+after_move_state = NodePath("../Idle")
+
+[node name="Change Direction" type="Timer" parent="EnemyStateMachine/Move"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Charge" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_charge_state")]
+script = ExtResource("6_xmg76")
+after_charge_state = NodePath("../Move")
+
+[node name="Destroy" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_xmg76")
+drop_table = ExtResource("8_xfd5c")
+
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
 script = ExtResource("4_eaddb")
 metadata/_custom_type_script = "uid://5d63nccbnc68"
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_kai6s")
+
 [node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 script = ExtResource("5_rudun")
 metadata/_custom_type_script = "uid://furv363hxfgr"
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_xfd5c")
+
 [node name="StunBox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
 script = ExtResource("6_kai6s")
 metadata/_custom_type_script = "uid://bde8l4lk8maxa"
 
-[node name="WallDetector" type="RayCast2D" parent="."]
-target_position = Vector2(0, 8)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StunBox"]
+shape = SubResource("RectangleShape2D_dwq77")
 
-[node name="PlayerDetector" type="RayCast2D" parent="."]
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 10)
+
+[node name="PlayerDetectorDown" type="RayCast2D" parent="."]
 target_position = Vector2(0, 96)
+collision_mask = 3
+
+[node name="PlayerDetectorUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -96)
+collision_mask = 2
+
+[node name="PlayerDetectorRight" type="RayCast2D" parent="."]
+target_position = Vector2(96, 0)
+collision_mask = 2
+
+[node name="PlayerDetectorLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-96, 0)
+collision_mask = 2

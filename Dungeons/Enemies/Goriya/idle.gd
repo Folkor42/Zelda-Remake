@@ -24,10 +24,10 @@ func enter() -> void:
 		sprite_2d.frame=120
 		animation_player.play("Move")
 	await get_tree().create_timer(delay).timeout
-	if enemy.throw_swords:
-		next_state = attack_state
-	else:
-		next_state = after_idle_state
+	#if enemy.throw_swords:
+		#next_state = attack_state
+	#else:
+	next_state = after_idle_state
 	pass
 	
 func exit() -> void:

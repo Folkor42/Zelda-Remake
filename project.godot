@@ -31,8 +31,8 @@ PM="*res://Scenes/performance_monitor.tscn"
 
 window/size/viewport_width=256
 window/size/viewport_height=240
-window/size/window_width_override=1280
-window/size/window_height_override=1200
+window/size/window_width_override=768
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
 [input]
