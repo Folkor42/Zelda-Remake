@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c5uv60a3dox7h"]
+[gd_scene load_steps=16 format=4 uid="uid://c5uv60a3dox7h"]
 
 [ext_resource type="Script" uid="uid://cgr687y7twmty" path="res://Scenes/DungeonRoom.gd" id="1_ibikq"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_1qisv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cajnapq01a4r5" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="6_7jmcv"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="8_v8af2"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="9_k6ma3"]
+[ext_resource type="PackedScene" uid="uid://blwq4ilwfpt55" path="res://Dungeons/Enemies/Rope/Rope.tscn" id="9_uxdrl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_1qisv")
@@ -238,5 +239,20 @@ script = ExtResource("6_7jmcv")
 position = Vector2(136, 88)
 item_data = ExtResource("9_k6ma3")
 start_dropped = false
+
+[node name="Rope" parent="RemoveTrigger" instance=ExtResource("9_uxdrl")]
+position = Vector2(75, 41)
+
+[node name="Rope2" parent="RemoveTrigger" instance=ExtResource("9_uxdrl")]
+position = Vector2(153, 57)
+
+[node name="Rope3" parent="RemoveTrigger" instance=ExtResource("9_uxdrl")]
+position = Vector2(200, 73)
+
+[node name="Rope4" parent="RemoveTrigger" instance=ExtResource("9_uxdrl")]
+position = Vector2(183, 121)
+
+[node name="Rope5" parent="RemoveTrigger" instance=ExtResource("9_uxdrl")]
+position = Vector2(89, 137)
 
 [connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/Room2ItemDrop" method="drop_item"]

@@ -1,4 +1,4 @@
-class_name GoriyaStun extends EnemyState
+class_name RopeStun extends EnemyState
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var stun_box: StunBox = $"../../StunBox"
@@ -22,9 +22,10 @@ func enter() -> void:
 	# Stunned
 	if timestopped:
 		timer=20.0
-	animation_player.play("Stun")
+	animation_player.play("RESET")
 	enemy.velocity = Vector2.ZERO
 	await get_tree().create_timer(timer).timeout
+	animation_player.play("idle")
 	state_machine.ChangeState( next_state )
 	pass
 

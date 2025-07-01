@@ -283,4 +283,3 @@ position = Vector2(200, 104)
 [node name="Room6ItemDrop" parent="RemoveTriggerRoom16" instance=ExtResource("8_ati1j")]
 position = Vector2(216, 40)
 item_data = ExtResource("9_kocv2")
-start_dropped = false

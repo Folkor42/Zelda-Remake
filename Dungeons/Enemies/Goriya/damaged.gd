@@ -17,7 +17,6 @@ func enter() -> void:
 	animation_player.play("hit")
 	enemy.velocity = -(enemy.global_position.direction_to(PlayerManager.player.global_position) * 100)
 	await animation_player.animation_finished
-	animation_player.play("Move")
 	state_machine.ChangeState( next_state )
 pass
 	

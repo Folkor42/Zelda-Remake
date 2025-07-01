@@ -270,15 +270,23 @@ tile_map_data = PackedByteArray("AAAAAAAABgAhAAAAAAAAAAEABgAhAAEAAAABAAAABgAiAAA
 
 [node name="Trap" parent="." instance=ExtResource("6_2vdt3")]
 position = Vector2(40, 40)
+up = false
+right = true
+down = true
 
 [node name="Trap2" parent="." instance=ExtResource("6_2vdt3")]
 position = Vector2(40, 136)
+right = true
 
 [node name="Trap3" parent="." instance=ExtResource("6_2vdt3")]
 position = Vector2(216, 40)
+up = false
+down = true
+left = true
 
 [node name="Trap4" parent="." instance=ExtResource("6_2vdt3")]
 position = Vector2(216, 136)
+left = true
 
 [node name="RemoveTrigger" type="Node2D" parent="."]
 script = ExtResource("7_7urs3")

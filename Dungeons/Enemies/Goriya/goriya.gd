@@ -7,7 +7,7 @@ class_name Goriya extends Enemy
 const SNES_MONSTERS : Texture = preload("res://Dungeons/Enemies/SNES - Dungeon Enemies.png")
 const NES_MONSTERS : Texture = preload("res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png")
 
-@export var blue_version : bool = false
+@export var throw_swords : bool = false
 
 var active : bool = false
 

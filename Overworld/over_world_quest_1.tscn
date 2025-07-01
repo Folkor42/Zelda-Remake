@@ -5241,9 +5241,15 @@ shape = SubResource("WorldBoundaryShape2D_8tjb5")
 
 [node name="EagleDungeonEntrance" parent="Dungeons" instance=ExtResource("4_e5f6w")]
 position = Vector2(120, -592)
-level = "res://Dungeons/01 - Eagle/Dungeon_Map.tscn"
+level = "uid://c52mqag1as035"
 target_transition_area = "EagleDungeonEntrance"
 center_player = true
+side = 0
+
+[node name="MoonDungeonEntrance" parent="Dungeons" instance=ExtResource("4_e5f6w")]
+position = Vector2(1400, -592)
+level = "uid://cwgdrij5bc8it"
+target_transition_area = "MoonDungeonEntrance"
 side = 0
 
 [node name="Caves" type="Node" parent="."]
@@ -5306,7 +5312,7 @@ level = "res://Overworld/Cave-GambleA.tscn"
 side = 0
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("6_441e8")]
-position = Vector2(71, 78)
+position = Vector2(1400, -548)
 
 [node name="OverworldCamera" type="Camera2D" parent="."]
 offset = Vector2(0, -15)

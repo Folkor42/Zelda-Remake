@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://mhp7hbna4m7f"]
+[gd_scene load_steps=18 format=4 uid="uid://mhp7hbna4m7f"]
 
 [ext_resource type="Script" uid="uid://cgr687y7twmty" path="res://Scenes/DungeonRoom.gd" id="1_s7box"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_mucqh"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="4_k5kf8"]
 [ext_resource type="PackedScene" uid="uid://c7snu8c7im0hm" path="res://TileMaps/SNES - Dungeon Tile Set.tscn" id="5_tjc13"]
 [ext_resource type="PackedScene" uid="uid://blwq4ilwfpt55" path="res://Dungeons/Enemies/Rope/Rope.tscn" id="6_2qs70"]
+[ext_resource type="Script" uid="uid://cajnapq01a4r5" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="6_wcnys"]
+[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="9_bp53g"]
+[ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="10_35eka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_mucqh")
@@ -252,20 +255,30 @@ tile_set = SubResource("TileSet_istjs")
 [node name="SNES" parent="." instance=ExtResource("5_tjc13")]
 tile_map_data = PackedByteArray("AAAAAAAABgAhAAAAAAAAAAEABgAhAAEAAAABAAAABgAiAAAAAAABAAEABgAiAAEAAAACAAAABgAjAAAAAAACAAEABgAjAAEAAAADAAAABgAkAAAAAAADAAEABgAkAAEAAAAEAAAABgAlAAAAAAAEAAEABgAlAAEAAAAFAAAABgAmAAAAAAAFAAEABgAmAAEAAAAGAAAABgAnAAAAAAAGAAEABgAnAAEAAAAHAAAABgAzAAAAAAAHAAEABgAzAAEAAAAIAAAABgA0AAAAAAAIAAEABgA0AAEAAAAJAAAABgAqAAAAAAAJAAEABgAqAAEAAAAKAAAABgArAAAAAAAKAAEABgArAAEAAAALAAAABgAsAAAAAAALAAEABgAsAAEAAAAMAAAABgAtAAAAAAAMAAEABgAtAAEAAAANAAAABgAuAAAAAAANAAEABgAuAAEAAAAOAAAABgAvAAAAAAAOAAEABgAvAAEAAAAPAAAABgAwAAAAAAAPAAEABgAwAAEAAAAAAAkABgAhAAkAAAAAAAoABgAhAAoAAAABAAkABgAiAAkAAAABAAoABgAiAAoAAAACAAkABgAjAAkAAAACAAoABgAjAAoAAAADAAkABgAkAAkAAAADAAoABgAkAAoAAAAEAAkABgAlAAkAAAAEAAoABgAlAAoAAAAFAAkABgAmAAkAAAAFAAoABgAmAAoAAAAGAAkABgAnAAkAAAAGAAoABgAnAAoAAAAHAAkABgAzAAgAAAAHAAoABgAzAAkAAAAIAAkABgA0AAgAAAAIAAoABgA0AAkAAAAJAAkABgAqAAkAAAAJAAoABgAqAAoAAAAKAAkABgArAAkAAAAKAAoABgArAAoAAAALAAkABgAsAAkAAAALAAoABgAsAAoAAAAMAAkABgAtAAkAAAAMAAoABgAtAAoAAAANAAkABgAuAAkAAAANAAoABgAuAAoAAAAOAAkABgAvAAkAAAAOAAoABgAvAAoAAAAPAAkABgAwAAkAAAAPAAoABgAwAAoAAAAJAAcABgA9AAAAAAAMAAcABgA9AAAAAAAMAAUABgA9AAAAAAAMAAMABgA9AAAAAAAJAAUABgA9AAAAAAAJAAMABgA9AAAAAAAGAAMABgA9AAAAAAADAAMABgA9AAAAAAADAAUABgA9AAAAAAADAAcABgA9AAAAAAAGAAcABgA9AAAAAAAGAAUABgA9AAAAAAAFAAcABgA9AAAAAAAFAAgABgA9AAAAAAAGAAgABgA9AAAAAAAHAAgABgA9AAAAAAAIAAgABgA9AAAAAAAJAAgABgA9AAAAAAAKAAgABgA9AAAAAAAKAAcABgA9AAAAAAAHAAcABgA9AAAAAAAIAAcABgA9AAAAAAAEAAgABgA9AAAAAAADAAgABgA9AAAAAAACAAgABgA9AAAAAAACAAcABgA9AAAAAAACAAYABgA9AAAAAAADAAYABgA9AAAAAAAEAAcABgA9AAAAAAAMAAYABgA9AAAAAAANAAYABgA9AAAAAAANAAcABgA9AAAAAAANAAgABgA9AAAAAAAMAAgABgA9AAAAAAALAAgABgA9AAAAAAALAAcABgA9AAAAAAACAAIABgA9AAAAAAACAAMABgA9AAAAAAACAAQABgA9AAAAAAACAAUABgA9AAAAAAADAAQABgA9AAAAAAAEAAMABgA9AAAAAAAEAAIABgA9AAAAAAADAAIABgA9AAAAAAAFAAIABgA9AAAAAAAGAAIABgA9AAAAAAAFAAMABgA9AAAAAAAGAAQABgA9AAAAAAAHAAQABgA9AAAAAAAIAAQABgA9AAAAAAAJAAQABgA9AAAAAAAHAAIABgA9AAAAAAAHAAMABgA9AAAAAAAHAAUABgA9AAAAAAAIAAUABgA9AAAAAAAIAAMABgA9AAAAAAAIAAIABgA9AAAAAAAJAAIABgA9AAAAAAAKAAIABgA9AAAAAAAKAAMABgA9AAAAAAALAAMABgA9AAAAAAALAAIABgA9AAAAAAAMAAIABgA9AAAAAAANAAIABgA9AAAAAAANAAMABgA9AAAAAAANAAQABgA9AAAAAAANAAUABgA9AAAAAAAMAAQABgA9AAAAAAAAAAIABgAhAAIAAAAAAAMABgAhAAMAAAAAAAQABgAzAAIAAAAAAAUABgAzAAMAAAAAAAYABgAzAAQAAAAAAAcABgAhAAcAAAAAAAgABgAhAAgAAAABAAIABgAiAAIAAAABAAMABgAiAAMAAAABAAQABgA0AAIAAAABAAUABgA0AAMAAAABAAYABgA0AAQAAAABAAcABgAiAAcAAAABAAgABgAiAAgAAAAOAAIABgAvAAIAAAAOAAMABgAvAAMAAAAOAAQABgA1AAUAAAAOAAUABgA1AAYAAAAOAAYABgA1AAcAAAAOAAcABgAvAAcAAAAOAAgABgAvAAgAAAAPAAIABgAwAAIAAAAPAAMABgAwAAMAAAAPAAQABgA2AAUAAAAPAAUABgA2AAYAAAAPAAYABgA2AAcAAAAPAAcABgAwAAcAAAAPAAgABgAwAAgAAAAEAAQABgA9AAAAAAAEAAUABgA9AAAAAAAEAAYABgA9AAAAAAAFAAUABgA9AAAAAAAFAAQABgA9AAAAAAALAAQABgA9AAAAAAAKAAQABgA9AAAAAAAKAAUABgA9AAAAAAALAAYABgA9AAAAAAALAAUABgA9AAAAAAAFAAYABgA9AAAAAAAGAAYABgA9AAAAAAAHAAYABgA9AAAAAAAIAAYABgA9AAAAAAAJAAYABgA9AAAAAAAKAAYABgA9AAAAAAA=")
 
-[node name="Rope" parent="." instance=ExtResource("6_2qs70")]
+[node name="RemoveTrigger" type="Node2D" parent="."]
+script = ExtResource("6_wcnys")
+metadata/_custom_type_script = "uid://cajnapq01a4r5"
+
+[node name="Rope" parent="RemoveTrigger" instance=ExtResource("6_2qs70")]
 position = Vector2(71, 137)
 
-[node name="Rope2" parent="." instance=ExtResource("6_2qs70")]
+[node name="Rope2" parent="RemoveTrigger" instance=ExtResource("6_2qs70")]
 position = Vector2(169, 43)
 
-[node name="Rope3" parent="." instance=ExtResource("6_2qs70")]
+[node name="Rope3" parent="RemoveTrigger" instance=ExtResource("6_2qs70")]
 position = Vector2(50, 116)
 
-[node name="Rope4" parent="." instance=ExtResource("6_2qs70")]
+[node name="Rope4" parent="RemoveTrigger" instance=ExtResource("6_2qs70")]
 position = Vector2(117, 134)
 
-[node name="Rope5" parent="." instance=ExtResource("6_2qs70")]
+[node name="Rope5" parent="RemoveTrigger" instance=ExtResource("6_2qs70")]
 position = Vector2(96, 64)
 
-[node name="Rope6" parent="." instance=ExtResource("6_2qs70")]
+[node name="Rope6" parent="RemoveTrigger" instance=ExtResource("6_2qs70")]
 position = Vector2(50, 56)
+
+[node name="ItemDropper" parent="RemoveTrigger" instance=ExtResource("9_bp53g")]
+position = Vector2(136, 88)
+item_data = ExtResource("10_35eka")
+
+[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]

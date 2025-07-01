@@ -91,30 +91,6 @@ position = Vector2(256, -1232)
 [node name="Room18" parent="Rooms" instance=ExtResource("21_eoxet")]
 position = Vector2(0, -1232)
 
-[node name="Key Door LR" parent="Rooms" instance=ExtResource("22_wo408")]
-position = Vector2(512, -80)
-
-[node name="Key Door LR2" parent="Rooms" instance=ExtResource("22_wo408")]
-position = Vector2(512, -264)
-
-[node name="Key Door LR3" parent="Rooms" instance=ExtResource("22_wo408")]
-position = Vector2(512, -792)
-
-[node name="Bomb Door UD" parent="Rooms" instance=ExtResource("23_bnwvh")]
-position = Vector2(640, -528)
-
-[node name="Bomb Door UD2" parent="Rooms" instance=ExtResource("23_bnwvh")]
-position = Vector2(640, -176)
-
-[node name="Bomb Door UD3" parent="Rooms" instance=ExtResource("23_bnwvh")]
-position = Vector2(640, -352)
-
-[node name="Bomb Door UD4" parent="Rooms" instance=ExtResource("23_bnwvh")]
-position = Vector2(640, -704)
-
-[node name="Bomb Door LR" parent="Rooms" instance=ExtResource("24_qo8f1")]
-position = Vector2(512, -968)
-
 [node name="DungeonCamera" type="Camera2D" parent="."]
 position = Vector2(0, 256)
 offset = Vector2(0, -64)
@@ -135,3 +111,27 @@ center_player = true
 side = 3
 
 [node name="Doors" type="Node" parent="."]
+
+[node name="Bomb Door UD" parent="Doors" instance=ExtResource("23_bnwvh")]
+position = Vector2(640, -528)
+
+[node name="Bomb Door UD2" parent="Doors" instance=ExtResource("23_bnwvh")]
+position = Vector2(640, -176)
+
+[node name="Bomb Door UD3" parent="Doors" instance=ExtResource("23_bnwvh")]
+position = Vector2(640, -352)
+
+[node name="Bomb Door UD4" parent="Doors" instance=ExtResource("23_bnwvh")]
+position = Vector2(640, -704)
+
+[node name="Bomb Door LR" parent="Doors" instance=ExtResource("24_qo8f1")]
+position = Vector2(512, -968)
+
+[node name="Key Door LR" parent="Doors" instance=ExtResource("22_wo408")]
+position = Vector2(512, -88)
+
+[node name="Key Door LR2" parent="Doors" instance=ExtResource("22_wo408")]
+position = Vector2(512, -264)
+
+[node name="Key Door LR3" parent="Doors" instance=ExtResource("22_wo408")]
+position = Vector2(512, -792)

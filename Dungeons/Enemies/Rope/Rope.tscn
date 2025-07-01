@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://blwq4ilwfpt55"]
+[gd_scene load_steps=20 format=3 uid="uid://blwq4ilwfpt55"]
 
 [ext_resource type="Script" uid="uid://c2r34e2l83phl" path="res://Dungeons/Enemies/Rope/rope.gd" id="1_4jmfg"]
 [ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="2_i1d28"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://8aif77gcg8xk" path="res://Dungeons/Enemies/Rope/charge.gd" id="6_xmg76"]
 [ext_resource type="Script" uid="uid://hppsuc3ugj2v" path="res://Dungeons/Enemies/Rope/destroy.gd" id="7_xmg76"]
 [ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="8_xfd5c"]
+[ext_resource type="Script" uid="uid://dsflmgcmf1pff" path="res://Dungeons/Enemies/Rope/stun.gd" id="9_dwq77"]
 
 [sub_resource type="Animation" id="Animation_eaddb"]
 length = 0.001
@@ -52,7 +53,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmg76"]
-radius = 8.0
+radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kai6s"]
 size = Vector2(16, 14)
@@ -110,6 +111,10 @@ after_charge_state = NodePath("../Move")
 script = ExtResource("7_xmg76")
 drop_table = ExtResource("8_xfd5c")
 
+[node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("9_dwq77")
+next_state = NodePath("../Idle")
+
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
@@ -118,6 +123,7 @@ script = ExtResource("4_eaddb")
 metadata/_custom_type_script = "uid://5d63nccbnc68"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
 shape = SubResource("RectangleShape2D_kai6s")
 
 [node name="HurtBox" type="Area2D" parent="."]
@@ -128,6 +134,7 @@ script = ExtResource("5_rudun")
 metadata/_custom_type_script = "uid://furv363hxfgr"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
 shape = SubResource("CircleShape2D_xfd5c")
 
 [node name="StunBox" type="Area2D" parent="."]
@@ -137,6 +144,7 @@ script = ExtResource("6_kai6s")
 metadata/_custom_type_script = "uid://bde8l4lk8maxa"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StunBox"]
+visible = false
 shape = SubResource("RectangleShape2D_dwq77")
 
 [node name="WallDetector" type="RayCast2D" parent="."]

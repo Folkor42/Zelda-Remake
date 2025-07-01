@@ -42,6 +42,6 @@ func _on_enemy_shoot( pos,rot):
 	bullet.position = pos
 	bullet.rotation = rot
 	bullet.direction=enemy.current_direction
-	enemy.get_parent().add_child (bullet)
+	enemy.add_child (bullet)
 	next_state=after_attack_state
 	pass

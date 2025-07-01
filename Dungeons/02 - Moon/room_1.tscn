@@ -255,7 +255,7 @@ position = Vector2(128, 23)
 
 [node name="MoonDungeonEntrance" parent="Doors" instance=ExtResource("5_owfrb")]
 position = Vector2(128, 152)
-level = "res://Overworld/over_world_quest_1.tscn"
+level = "uid://d3vi5vgdge1q0"
 target_transition_area = "MoonDungeonEntrance"
 center_player = true
 side = 1
