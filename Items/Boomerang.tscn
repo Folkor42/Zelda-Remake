@@ -122,6 +122,6 @@ shape = SubResource("RectangleShape2D_rsnbm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_n5pvm")
+&"": SubResource("AnimationLibrary_n5pvm")
 }
 autoplay = "spin"

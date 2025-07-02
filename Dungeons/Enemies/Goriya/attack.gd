@@ -5,6 +5,7 @@ const ENEMYBULLET = preload("res://Dungeons/Enemies/Goriya/Boomerang.tscn")
 @export var after_attack_state : EnemyState
 
 var next_state : EnemyState = null
+var thrown : bool = false
 
 func enter() -> void:
 	enemy.velocity = Vector2.ZERO
@@ -21,6 +22,13 @@ func process( _delta : float ) -> EnemyState:
 	return next_state
 
 func physics( _delta : float ) -> EnemyState:
+	if thrown:
+		var found : bool = false
+		for child in enemy.get_children():
+			if child is GoriyaBoomerang:
+				found = true
+		if !found:
+			next_state=after_attack_state
 	return null
 
 func throw_sword()->void:
@@ -43,5 +51,5 @@ func _on_enemy_shoot( pos,rot):
 	bullet.rotation = rot
 	bullet.direction=enemy.current_direction
 	enemy.add_child (bullet)
-	next_state=after_attack_state
+	thrown = true
 	pass

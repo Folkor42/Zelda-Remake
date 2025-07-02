@@ -146,7 +146,7 @@ shape = SubResource("RectangleShape2D_d5xcl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a7mvr")
+&"": SubResource("AnimationLibrary_a7mvr")
 }
 autoplay = "Move"
 
@@ -155,6 +155,7 @@ target_position = Vector2(0, 8)
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 516
+collision_mask = 0
 monitoring = false
 script = ExtResource("3_2reyh")
 
