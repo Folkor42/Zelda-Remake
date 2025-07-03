@@ -22,10 +22,10 @@ func _update_texture() -> void:
 		print ("Orienting Door")
 		if direction == SIDE.TOP:
 			sprite_2d.region_rect = Rect2(914,11,32,32)
-			snes.region_rect = Rect2(914,11,32,32)
+			snes.region_rect = Rect2(912,0,32,32)
 		elif direction == SIDE.BOTTOM:
 			sprite_2d.region_rect = Rect2(914,110,32,32)
-			snes.region_rect = Rect2(914,110,32,32)
+			snes.region_rect = Rect2(912,128,32,32)
 		elif direction == SIDE.LEFT:
 			sprite_2d.region_rect = Rect2(914,44,32,32)
 			snes.region_rect = Rect2(912,32,32,48)

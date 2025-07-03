@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dph4p21c1028k"]
+[gd_scene load_steps=19 format=4 uid="uid://dph4p21c1028k"]
 
 [ext_resource type="Script" uid="uid://cgr687y7twmty" path="res://Scenes/DungeonRoom.gd" id="1_elfoy"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_gigem"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="7_de6tw"]
 [ext_resource type="Resource" uid="uid://4sh8d5001njr" path="res://Items/boomerang.tres" id="8_eh3gs"]
 [ext_resource type="PackedScene" uid="uid://dtkxm6tkeaaim" path="res://Dungeons/Enemies/Goriya/Blue_Goriya.tscn" id="9_j1f73"]
+[ext_resource type="PackedScene" uid="uid://ce3tmo2sdmoj5" path="res://Dungeons/Enemies/Statue/FireballStatue.tscn" id="10_de6tw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_gigem")
@@ -283,5 +284,19 @@ position = Vector2(216, 72)
 
 [node name="Blue Goriya3" parent="RemoveTrigger" instance=ExtResource("9_j1f73")]
 position = Vector2(184, 136)
+
+[node name="FireballStatue" parent="." instance=ExtResource("10_de6tw")]
+position = Vector2(216, 136)
+
+[node name="FireballStatue2" parent="." instance=ExtResource("10_de6tw")]
+position = Vector2(216, 40)
+
+[node name="FireballStatue3" parent="." instance=ExtResource("10_de6tw")]
+position = Vector2(40, 40)
+right = true
+
+[node name="FireballStatue4" parent="." instance=ExtResource("10_de6tw")]
+position = Vector2(40, 136)
+right = true
 
 [connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/BoomerangDropper" method="drop_item"]

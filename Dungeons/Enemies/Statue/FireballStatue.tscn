@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce3tmo2sdmoj5"]
+
+[ext_resource type="Script" uid="uid://cj6rcvhw4qo8v" path="res://Dungeons/Enemies/Statue/fireball_statue.gd" id="1_ntr0q"]
+[ext_resource type="Texture2D" uid="uid://bt7bjxfpwi8il" path="res://Dungeons/Enemies/SNES - Dungeon Enemies.png" id="2_6cmqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntr0q"]
+size = Vector2(16, 16)
+
+[node name="FireballStatue" type="Node2D"]
+script = ExtResource("1_ntr0q")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ntr0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6cmqo")
+hframes = 2
+frame = 1
+region_enabled = true
+region_rect = Rect2(144, 64, 32, 16)
+
+[node name="Mouth" type="Marker2D" parent="."]
+position = Vector2(-3, 0)
+
+[node name="Timer" type="Timer" parent="."]

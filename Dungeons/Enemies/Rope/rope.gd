@@ -19,7 +19,7 @@ func toggle_graphics( _new_value : bool )->void:
 
 func _ready() -> void:
 	var start_time = randf_range(0,0.4)
-	#animation_player.seek(start_time,true)
+	animation_player.seek(start_time,true)
 	enemy_state_machine.initialize( self )
 	hit_box.Damaged.connect(enemy_damaged)
 	if get_parent().has_signal("activate"):
@@ -42,7 +42,7 @@ func deactivate ()->void:
 	velocity=Vector2.ZERO
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Sprite2D.flip_h=facing_left
 	if facing_left:
 		$PlayerDetectorRight.enabled=false

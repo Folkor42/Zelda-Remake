@@ -38,7 +38,7 @@ region_rect = Rect2(914, 77, 32, 32)
 [node name="SNES" type="Sprite2D" parent="."]
 texture = ExtResource("3_clfkx")
 region_enabled = true
-region_rect = Rect2(912, 80, 32, 48)
+region_rect = Rect2(912, 0, 32, 32)
 script = SubResource("GDScript_uk45d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
