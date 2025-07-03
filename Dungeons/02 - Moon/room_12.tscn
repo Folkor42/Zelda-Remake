@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://beiyofxmkkyfy"]
+[gd_scene load_steps=18 format=4 uid="uid://beiyofxmkkyfy"]
 
 [ext_resource type="Script" uid="uid://cgr687y7twmty" path="res://Scenes/DungeonRoom.gd" id="1_n7ubp"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_3jjno"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cajnapq01a4r5" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="6_bawrf"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="8_wsl1h"]
 [ext_resource type="Resource" uid="uid://daknvhywyt3vj" path="res://Items/key.tres" id="9_66amp"]
+[ext_resource type="PackedScene" uid="uid://b1agbi1ufl4a7" path="res://Dungeons/Enemies/Moldorm/Moldorm.tscn" id="9_v1j5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_3jjno")
@@ -278,5 +279,11 @@ script = ExtResource("6_bawrf")
 position = Vector2(128, 86)
 item_data = ExtResource("9_66amp")
 start_dropped = false
+
+[node name="Moldorm" parent="RemoveTrigger" instance=ExtResource("9_v1j5h")]
+position = Vector2(68, 60)
+
+[node name="Moldorm2" parent="RemoveTrigger" instance=ExtResource("9_v1j5h")]
+position = Vector2(169, 103)
 
 [connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/Room12ItemDrop" method="drop_item"]

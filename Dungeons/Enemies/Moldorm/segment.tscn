@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjg6w54txkrgy"]
+
+[ext_resource type="Script" uid="uid://cgxlxw2pxalkm" path="res://Dungeons/Enemies/Moldorm/segment.gd" id="1_mmj12"]
+[ext_resource type="Texture2D" uid="uid://djbaubw3ev8fe" path="res://Dungeons/Enemies/NES - The Legend of Zelda - Dungeon Enemies.png" id="1_p14p3"]
+[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="3_02njm"]
+[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="4_86pm2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sxei"]
+radius = 4.0
+
+[node name="Segment" type="Node2D"]
+script = ExtResource("1_mmj12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p14p3")
+region_enabled = true
+region_rect = Rect2(96, 192, 16, 16)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_02njm")
+metadata/_custom_type_script = "uid://5d63nccbnc68"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_6sxei")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("4_86pm2")
+metadata/_custom_type_script = "uid://furv363hxfgr"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_6sxei")
