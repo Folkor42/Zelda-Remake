@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://d3vi5vgdge1q0"]
+[gd_scene load_steps=31 format=4 uid="uid://d3vi5vgdge1q0"]
 
 [ext_resource type="Script" uid="uid://r6yewmva4uxs" path="res://Overworld/over_world_quest_1.gd" id="1_abc4w"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_cwrbh"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://gp225e824jp1" path="res://Overworld/Enemies/Tektite/Red_Tektite.tscn" id="19_igoek"]
 [ext_resource type="PackedScene" uid="uid://cfn5scm4r2plf" path="res://Overworld/Enemies/Peahat/Peahat.tscn" id="19_lnibd"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="20_hxd50"]
+[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="25_4v6vx"]
+[ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="26_aqjpe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_woerk"]
 texture = ExtResource("5_2a52f")
@@ -5943,3 +5945,7 @@ script = SubResource("GDScript_fec5g")
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="ItemDropper" parent="." instance=ExtResource("25_4v6vx")]
+position = Vector2(2248, -232)
+item_data = ExtResource("26_aqjpe")
