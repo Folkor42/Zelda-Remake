@@ -1,19 +1,19 @@
 [gd_scene load_steps=22 format=4 uid="uid://ba676xfs1lidb"]
 
-[ext_resource type="Script" path="res://Universal Scripts/level.gd" id="1_lsp8i"]
+[ext_resource type="Script" uid="uid://codtmnyklvtyd" path="res://Universal Scripts/level.gd" id="1_lsp8i"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_qk6cm"]
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="3_8nofr"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="3_of6co"]
-[ext_resource type="Script" path="res://Overworld/snes_tiles.gd" id="4_ndmw2"]
+[ext_resource type="Script" uid="uid://b2d5c3hlu1tmk" path="res://Overworld/snes_tiles.gd" id="4_ndmw2"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_ydmid"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_i0xdp"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="6_njiii"]
 [ext_resource type="PackedScene" uid="uid://dq6cbkk4pfjkv" path="res://NPCs/moblin_npc.tscn" id="7_6cpmr"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="8_nmecg"]
-[ext_resource type="Script" path="res://Items/Item Effects/item_effect.gd" id="9_hpx7v"]
-[ext_resource type="Script" path="res://Items/item_data.gd" id="10_v300o"]
+[ext_resource type="Script" uid="uid://bekgkkrbtm1v" path="res://Items/Item Effects/item_effect.gd" id="9_hpx7v"]
+[ext_resource type="Script" uid="uid://dn6tmuletmhk7" path="res://Items/item_data.gd" id="10_v300o"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="11_x1m7h"]
-[ext_resource type="Script" path="res://Overworld/moneylabel.gd" id="12_brqex"]
+[ext_resource type="Script" uid="uid://dswfnkjwjegrv" path="res://Overworld/moneylabel.gd" id="12_brqex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_327r7"]
 texture = ExtResource("3_8nofr")
@@ -5215,8 +5215,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6cp2"]
 _data = {
-"RESET": SubResource("Animation_cedfc"),
-"Show Text": SubResource("Animation_ve2go")
+&"RESET": SubResource("Animation_cedfc"),
+&"Show Text": SubResource("Animation_ve2go")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6go35"]

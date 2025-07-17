@@ -1,19 +1,19 @@
 [gd_scene load_steps=33 format=3 uid="uid://shvn3y018out"]
 
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="1_jlsry"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_xn7lh"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="2_75drt"]
+[ext_resource type="Script" uid="uid://oicgjo4y5l3y" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_xn7lh"]
+[ext_resource type="Script" uid="uid://b846p17sdxu4t" path="res://Overworld/Enemies/enemy_state_machine.gd" id="2_75drt"]
 [ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="3_2ptap"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="3_mhv6m"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="5_ngxr5"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="6_0aiel"]
-[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_813nn"]
+[ext_resource type="Script" uid="uid://6ixpcmqu0stp" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="3_mhv6m"]
+[ext_resource type="Script" uid="uid://pdxmuctqg7li" path="res://Universal Scripts/hit_box.gd" id="5_ngxr5"]
+[ext_resource type="Script" uid="uid://japqom4jan4r" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="6_0aiel"]
+[ext_resource type="Script" uid="uid://c8l2kvb7ddpbw" path="res://Universal Scripts/stun_box.gd" id="6_813nn"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="10_7okah"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="10_grtm4"]
+[ext_resource type="Script" uid="uid://bopq8m71v6xni" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="10_grtm4"]
 [ext_resource type="Resource" uid="uid://cumbs2b7gq6bv" path="res://Items/Drop Table A.tres" id="10_u7g2u"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_2ale3"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_stun.gd" id="13_lh5sp"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="13_qt8eo"]
+[ext_resource type="Script" uid="uid://cdfxsoossmbnf" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_2ale3"]
+[ext_resource type="Script" uid="uid://doptnjiqjw6iw" path="res://Overworld/Enemies/Octorok/state_stun.gd" id="13_lh5sp"]
+[ext_resource type="Script" uid="uid://co7elefr57nom" path="res://Universal Scripts/hurt_box.gd" id="13_qt8eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ddn"]
 size = Vector2(12, 12)
@@ -518,19 +518,19 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xse2c"]
 _data = {
-"RESET": SubResource("Animation_u2xrl"),
-"attack_down": SubResource("Animation_8uosr"),
-"attack_side": SubResource("Animation_8gg04"),
-"attack_up": SubResource("Animation_krru4"),
-"destroy_down": SubResource("Animation_46ycf"),
-"destroy_side": SubResource("Animation_oglhd"),
-"destroy_up": SubResource("Animation_1c7nn"),
-"idle_down": SubResource("Animation_a2ijn"),
-"idle_side": SubResource("Animation_eucp1"),
-"idle_up": SubResource("Animation_j18hg"),
-"stun_down": SubResource("Animation_ffkkb"),
-"stun_side": SubResource("Animation_bjn3v"),
-"stun_up": SubResource("Animation_s25hx")
+&"RESET": SubResource("Animation_u2xrl"),
+&"attack_down": SubResource("Animation_8uosr"),
+&"attack_side": SubResource("Animation_8gg04"),
+&"attack_up": SubResource("Animation_krru4"),
+&"destroy_down": SubResource("Animation_46ycf"),
+&"destroy_side": SubResource("Animation_oglhd"),
+&"destroy_up": SubResource("Animation_1c7nn"),
+&"idle_down": SubResource("Animation_a2ijn"),
+&"idle_side": SubResource("Animation_eucp1"),
+&"idle_up": SubResource("Animation_j18hg"),
+&"stun_down": SubResource("Animation_ffkkb"),
+&"stun_side": SubResource("Animation_bjn3v"),
+&"stun_up": SubResource("Animation_s25hx")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i30tg"]

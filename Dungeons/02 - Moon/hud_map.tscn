@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://dwrglpjbb1m77"]
 
-[ext_resource type="Script" path="res://Player/GUI/HUD/hud_map.gd" id="1_pvoy2"]
+[ext_resource type="Script" uid="uid://sreytg3xp2a3" path="res://Player/GUI/HUD/hud_map.gd" id="1_pvoy2"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_5ayja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6sdb"]

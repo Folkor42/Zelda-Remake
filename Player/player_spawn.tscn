@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctsnowjve7avk"]
 
-[ext_resource type="Script" path="res://Universal Scripts/player_spawn.gd" id="1_m0iw2"]
+[ext_resource type="Script" uid="uid://ck0i5md1l77ln" path="res://Universal Scripts/player_spawn.gd" id="1_m0iw2"]
 [ext_resource type="Texture2D" uid="uid://bq5qvvqjtmk4b" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-3.png" id="2_t8k7l"]
 
 [node name="PlayerSpawn" type="Node2D"]

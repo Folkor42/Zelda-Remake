@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6hb4awpctgfe"]
 
-[ext_resource type="Script" path="res://Items/arrow.gd" id="1_0dyw4"]
+[ext_resource type="Script" uid="uid://bqo7lcdpi710i" path="res://Items/arrow.gd" id="1_0dyw4"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="1_51tpm"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="4_nnlsa"]
+[ext_resource type="Script" uid="uid://co7elefr57nom" path="res://Universal Scripts/hurt_box.gd" id="4_nnlsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gv77"]
 size = Vector2(16, 6)

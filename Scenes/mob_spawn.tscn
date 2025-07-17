@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dk7ahk4o27lqo"]
 
-[ext_resource type="Script" path="res://Scenes/mob_spawn.gd" id="1_xsffi"]
+[ext_resource type="Script" uid="uid://6jnh7ydksjl2" path="res://Scenes/mob_spawn.gd" id="1_xsffi"]
 [ext_resource type="Texture2D" uid="uid://c0m8mrgxu8poh" path="res://Assets/SpriteSheets/SNES - Link.png" id="2_ow75g"]
 
 [sub_resource type="Animation" id="Animation_yd72l"]
@@ -60,8 +60,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1j3bj"]
 _data = {
-"RESET": SubResource("Animation_yd72l"),
-"reveal": SubResource("Animation_odt4h")
+&"RESET": SubResource("Animation_yd72l"),
+&"reveal": SubResource("Animation_odt4h")
 }
 
 [node name="MobSpawner" type="Node2D"]

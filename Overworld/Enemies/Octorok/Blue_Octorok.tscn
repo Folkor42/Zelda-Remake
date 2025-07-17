@@ -1,21 +1,21 @@
 [gd_scene load_steps=36 format=3 uid="uid://b4ymlo8lave5m"]
 
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_qwnmi"]
+[ext_resource type="Script" uid="uid://oicgjo4y5l3y" path="res://Overworld/Enemies/Octorok/octorok.gd" id="1_qwnmi"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_fgoay"]
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_fy2q6"]
+[ext_resource type="Shader" uid="uid://vnfdsekvtig5" path="res://Shaders/flash.gdshader" id="2_fy2q6"]
 [ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="3_utir6"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="4_rga1r"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_xm5wq"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="6_5gton"]
-[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_wrvcv"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="7_arc3e"]
+[ext_resource type="Script" uid="uid://pdxmuctqg7li" path="res://Universal Scripts/hit_box.gd" id="4_rga1r"]
+[ext_resource type="Script" uid="uid://b846p17sdxu4t" path="res://Overworld/Enemies/enemy_state_machine.gd" id="5_xm5wq"]
+[ext_resource type="Script" uid="uid://6ixpcmqu0stp" path="res://Overworld/Enemies/Octorok/state_idle.gd" id="6_5gton"]
+[ext_resource type="Script" uid="uid://c8l2kvb7ddpbw" path="res://Universal Scripts/stun_box.gd" id="6_wrvcv"]
+[ext_resource type="Script" uid="uid://japqom4jan4r" path="res://Overworld/Enemies/Octorok/state_destroy.gd" id="7_arc3e"]
 [ext_resource type="Resource" uid="uid://d1qkoch45h7oi" path="res://Items/Drop Table B.tres" id="8_soj48"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_r1dvx"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="11_sa778"]
+[ext_resource type="Script" uid="uid://cdfxsoossmbnf" path="res://Overworld/Enemies/Octorok/state_attack.gd" id="11_r1dvx"]
+[ext_resource type="Script" uid="uid://bopq8m71v6xni" path="res://Overworld/Enemies/Octorok/State_wander.gd" id="11_sa778"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="12_8qnoa"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/state_stun.gd" id="13_1i3am"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="13_qbjnn"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/damaged.gd" id="14_w0s10"]
+[ext_resource type="Script" uid="uid://doptnjiqjw6iw" path="res://Overworld/Enemies/Octorok/state_stun.gd" id="13_1i3am"]
+[ext_resource type="Script" uid="uid://co7elefr57nom" path="res://Universal Scripts/hurt_box.gd" id="13_qbjnn"]
+[ext_resource type="Script" uid="uid://dkcueejno845k" path="res://Overworld/Enemies/Octorok/damaged.gd" id="14_w0s10"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dt50j"]
 resource_local_to_scene = true
@@ -523,19 +523,19 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xse2c"]
 _data = {
-"RESET": SubResource("Animation_u2xrl"),
-"attack_down": SubResource("Animation_8uosr"),
-"attack_side": SubResource("Animation_8gg04"),
-"attack_up": SubResource("Animation_krru4"),
-"destroy_down": SubResource("Animation_46ycf"),
-"destroy_side": SubResource("Animation_oglhd"),
-"destroy_up": SubResource("Animation_1c7nn"),
-"idle_down": SubResource("Animation_a2ijn"),
-"idle_side": SubResource("Animation_eucp1"),
-"idle_up": SubResource("Animation_j18hg"),
-"stun_down": SubResource("Animation_okufh"),
-"stun_side": SubResource("Animation_8ari1"),
-"stun_up": SubResource("Animation_8rpp2")
+&"RESET": SubResource("Animation_u2xrl"),
+&"attack_down": SubResource("Animation_8uosr"),
+&"attack_side": SubResource("Animation_8gg04"),
+&"attack_up": SubResource("Animation_krru4"),
+&"destroy_down": SubResource("Animation_46ycf"),
+&"destroy_side": SubResource("Animation_oglhd"),
+&"destroy_up": SubResource("Animation_1c7nn"),
+&"idle_down": SubResource("Animation_a2ijn"),
+&"idle_side": SubResource("Animation_eucp1"),
+&"idle_up": SubResource("Animation_j18hg"),
+&"stun_down": SubResource("Animation_okufh"),
+&"stun_side": SubResource("Animation_8ari1"),
+&"stun_up": SubResource("Animation_8rpp2")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i30tg"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6ey8ynrgpv1i"]
 
-[ext_resource type="Script" path="res://Overworld/Enemies/Octorok/rock_bullet.gd" id="1_k5pi1"]
+[ext_resource type="Script" uid="uid://d0deq24cujvxb" path="res://Overworld/Enemies/Octorok/rock_bullet.gd" id="1_k5pi1"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="1_w43cn"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="2_bpm2m"]
+[ext_resource type="Script" uid="uid://co7elefr57nom" path="res://Universal Scripts/hurt_box.gd" id="2_bpm2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ubnpi"]
 radius = 5.0

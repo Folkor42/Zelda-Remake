@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://db88ohu4wr6ic"]
 
-[ext_resource type="Script" path="res://Player/GUI/Inventory/dungeon_map.gd" id="1_5tdlq"]
+[ext_resource type="Script" uid="uid://bbrfhh684su7d" path="res://Player/GUI/Inventory/dungeon_map.gd" id="1_5tdlq"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_3xjh0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0avk"]

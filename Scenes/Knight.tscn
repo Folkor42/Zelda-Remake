@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bk3qvxrr2ydgh"]
 
-[ext_resource type="Script" path="res://Scenes/knight.gd" id="1_cb843"]
+[ext_resource type="Script" uid="uid://cl7ajk8pyetg3" path="res://Scenes/knight.gd" id="1_cb843"]
 [ext_resource type="Texture2D" uid="uid://brl788tgrik6o" path="res://Scenes/_Idle.png" id="2_5j0td"]
 [ext_resource type="Texture2D" uid="uid://urdcsyqkw5hc" path="res://Scenes/_Run.png" id="3_bslmm"]
 
@@ -164,14 +164,14 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nb75v"]
 _data = {
-"RESET": SubResource("Animation_tlw8f"),
-"attack_1": SubResource("Animation_6wfpi"),
-"attack_2": SubResource("Animation_agch4"),
-"attack_bow": SubResource("Animation_rxu27"),
-"death": SubResource("Animation_ibxhg"),
-"hurt": SubResource("Animation_ockx1"),
-"idle_side": SubResource("Animation_mp1sm"),
-"walk_side": SubResource("Animation_qg5xo")
+&"RESET": SubResource("Animation_tlw8f"),
+&"attack_1": SubResource("Animation_6wfpi"),
+&"attack_2": SubResource("Animation_agch4"),
+&"attack_bow": SubResource("Animation_rxu27"),
+&"death": SubResource("Animation_ibxhg"),
+&"hurt": SubResource("Animation_ockx1"),
+&"idle_side": SubResource("Animation_mp1sm"),
+&"walk_side": SubResource("Animation_qg5xo")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j8og6"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp1k12fh1jdf5"]
 
 [ext_resource type="PackedScene" uid="uid://dy671ichhmllv" path="res://Dungeons/key_door_down.tscn" id="1_nkj30"]
-[ext_resource type="Script" path="res://Dungeons/key_door_pair.gd" id="1_r1vei"]
+[ext_resource type="Script" uid="uid://cub3gtkp5xmt3" path="res://Dungeons/key_door_pair.gd" id="1_r1vei"]
 [ext_resource type="PackedScene" uid="uid://bhmgoglo3xyag" path="res://Dungeons/key_door_up.tscn" id="2_g8lnq"]
-[ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="4_iqvbp"]
+[ext_resource type="Script" uid="uid://bmcrvnha53g72" path="res://Universal Scripts/persistant_handler.gd" id="4_iqvbp"]
 [ext_resource type="AudioStream" uid="uid://b4d1dhnyhfpwt" path="res://Assets/Audio/Sounds/Sound Effect (11) - Door.wav" id="5_hgs0n"]
 
 [node name="Key Door UD" type="Node2D"]

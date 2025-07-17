@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://b1eumef4huiqn"]
 
-[ext_resource type="Script" path="res://Scenes/DungeonRoom.gd" id="1_3ivwi"]
-[ext_resource type="Script" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="1_lf64s"]
+[ext_resource type="Script" uid="uid://dftj5rxox0ahx" path="res://Scenes/DungeonRoom.gd" id="1_3ivwi"]
+[ext_resource type="Script" uid="uid://da2mphgyp3d5k" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="1_lf64s"]
 [ext_resource type="Texture2D" uid="uid://crnuhmcv46s0v" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Dungeon Tileset.png" id="2_qcmm1"]
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="3_068nl"]
 [ext_resource type="PackedScene" uid="uid://bsff16rdwga6x" path="res://Universal Scripts/player_detector.tscn" id="3_buuiv"]

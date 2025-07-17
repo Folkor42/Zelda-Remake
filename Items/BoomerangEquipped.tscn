@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cth8levp8hf4o"]
 
-[ext_resource type="Script" path="res://Items/boomerang_equipped.gd" id="1_daqjj"]
+[ext_resource type="Script" uid="uid://bb0l64sl55457" path="res://Items/boomerang_equipped.gd" id="1_daqjj"]
 
 [node name="BooomerangEquipped" type="Node2D"]
 script = ExtResource("1_daqjj")

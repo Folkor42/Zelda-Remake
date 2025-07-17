@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcek2wyaieivc"]
 
-[ext_resource type="Script" path="res://Items/bow.gd" id="1_k8fmj"]
+[ext_resource type="Script" uid="uid://cx6xns7se8owc" path="res://Items/bow.gd" id="1_k8fmj"]
 
 [node name="BowEquipped" type="Node2D"]
 script = ExtResource("1_k8fmj")

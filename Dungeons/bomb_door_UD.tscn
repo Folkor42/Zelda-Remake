@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtme62ocn0g14"]
 
-[ext_resource type="Script" path="res://Dungeons/bomb_door_pair.gd" id="1_sjny1"]
-[ext_resource type="Script" path="res://Universal Scripts/persistant_handler.gd" id="2_xajrd"]
+[ext_resource type="Script" uid="uid://bfp36sebmwq2d" path="res://Dungeons/bomb_door_pair.gd" id="1_sjny1"]
+[ext_resource type="Script" uid="uid://bmcrvnha53g72" path="res://Universal Scripts/persistant_handler.gd" id="2_xajrd"]
 [ext_resource type="PackedScene" uid="uid://bs3c4ywmnsw1e" path="res://Dungeons/bomb_door.tscn" id="3_ry3wr"]
 [ext_resource type="AudioStream" uid="uid://cn6moxk3u602t" path="res://Assets/Audio/Sounds/Sound Effect (21) - Secret Reveal.wav" id="4_76nxc"]
 

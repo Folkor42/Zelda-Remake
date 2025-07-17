@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cxn1aaxm4h54f"]
 
-[ext_resource type="Script" path="res://Scenes/enemy_death.gd" id="1_4vlu7"]
+[ext_resource type="Script" uid="uid://ckihv0fpslxph" path="res://Scenes/enemy_death.gd" id="1_4vlu7"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="1_py2rg"]
 [ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="2_6pld7"]
 
@@ -67,8 +67,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lphlq"]
 _data = {
-"RESET": SubResource("Animation_s72tq"),
-"default": SubResource("Animation_v1hwh")
+&"RESET": SubResource("Animation_s72tq"),
+&"default": SubResource("Animation_v1hwh")
 }
 
 [node name="Enemy Death" type="Node2D"]

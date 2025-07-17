@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b6ke4hv20mfdc"]
 
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="2_qeaiy"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="3_daa8f"]
+[ext_resource type="Script" uid="uid://co7elefr57nom" path="res://Universal Scripts/hurt_box.gd" id="3_daa8f"]
 [ext_resource type="AudioStream" uid="uid://coup4lifr117a" path="res://Assets/Audio/Sounds/Sound Effect (3) - Bomb placement.wav" id="3_g1ylu"]
 [ext_resource type="AudioStream" uid="uid://bh842wvxkg24n" path="res://Assets/Audio/Sounds/Sound Effect (10) - Bomb Explode.wav" id="4_trfjk"]
 [ext_resource type="Texture2D" uid="uid://c0m8mrgxu8poh" path="res://Assets/SpriteSheets/SNES - Link.png" id="5_qdavn"]
@@ -169,8 +169,8 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_61m12"]
 _data = {
-"RESET": SubResource("Animation_qonfg"),
-"countdown": SubResource("Animation_eclre")
+&"RESET": SubResource("Animation_qonfg"),
+&"countdown": SubResource("Animation_eclre")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpgby"]

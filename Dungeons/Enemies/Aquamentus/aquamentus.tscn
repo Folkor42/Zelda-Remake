@@ -1,17 +1,17 @@
 [gd_scene load_steps=29 format=3 uid="uid://cl8s7yqr4dg0u"]
 
 [ext_resource type="Texture2D" uid="uid://dkh34tunmk2co" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Bosses.png" id="1_7uov6"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/dungeon_enemy.gd" id="1_ugv32"]
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_k3i4b"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/dunegon_enemy_state_machine.gd" id="3_emi47"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Aquamentus/Aquamentus_state_wander.gd" id="4_7xw3y"]
+[ext_resource type="Script" uid="uid://c6y2sksxfvb6g" path="res://Dungeons/Enemies/dungeon_enemy.gd" id="1_ugv32"]
+[ext_resource type="Shader" uid="uid://vnfdsekvtig5" path="res://Shaders/flash.gdshader" id="2_k3i4b"]
+[ext_resource type="Script" uid="uid://013goiwsf6kt" path="res://Dungeons/Enemies/dunegon_enemy_state_machine.gd" id="3_emi47"]
+[ext_resource type="Script" uid="uid://chlqt648vvnbk" path="res://Dungeons/Enemies/Aquamentus/Aquamentus_state_wander.gd" id="4_7xw3y"]
 [ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="4_obrlt"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Aquamentus/Aquamentus_state_shoot.gd" id="5_ivqjd"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/Aquamentus/Aquamentus_state_stun.gd" id="7_c81u8"]
-[ext_resource type="Script" path="res://Dungeons/Enemies/dunegon_enemy_state_destroy.gd" id="8_uoq5w"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="8_ururu"]
+[ext_resource type="Script" uid="uid://bsy2l2l0njyjf" path="res://Dungeons/Enemies/Aquamentus/Aquamentus_state_shoot.gd" id="5_ivqjd"]
+[ext_resource type="Script" uid="uid://d0w3irbwfo2fq" path="res://Dungeons/Enemies/Aquamentus/Aquamentus_state_stun.gd" id="7_c81u8"]
+[ext_resource type="Script" uid="uid://b0rgrp3ty732y" path="res://Dungeons/Enemies/dunegon_enemy_state_destroy.gd" id="8_uoq5w"]
+[ext_resource type="Script" uid="uid://pdxmuctqg7li" path="res://Universal Scripts/hit_box.gd" id="8_ururu"]
 [ext_resource type="Resource" uid="uid://csrd736k7a5iy" path="res://Items/Drop Table D.tres" id="9_ngexf"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="10_2kk5u"]
+[ext_resource type="Script" uid="uid://co7elefr57nom" path="res://Universal Scripts/hurt_box.gd" id="10_2kk5u"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="13_bkcxw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ecsxl"]
@@ -336,16 +336,16 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rgpew"]
 _data = {
-"RESET": SubResource("Animation_gvd8w"),
-"attack_down": SubResource("Animation_28tmx"),
-"attack_side": SubResource("Animation_tlnl8"),
-"attack_up": SubResource("Animation_wrde2"),
-"destroy_down": SubResource("Animation_iuril"),
-"destroy_side": SubResource("Animation_w6mwr"),
-"destroy_up": SubResource("Animation_vasut"),
-"move_down": SubResource("Animation_ikvhm"),
-"move_side": SubResource("Animation_g3pq0"),
-"move_up": SubResource("Animation_tsbyb")
+&"RESET": SubResource("Animation_gvd8w"),
+&"attack_down": SubResource("Animation_28tmx"),
+&"attack_side": SubResource("Animation_tlnl8"),
+&"attack_up": SubResource("Animation_wrde2"),
+&"destroy_down": SubResource("Animation_iuril"),
+&"destroy_side": SubResource("Animation_w6mwr"),
+&"destroy_up": SubResource("Animation_vasut"),
+&"move_down": SubResource("Animation_ikvhm"),
+&"move_side": SubResource("Animation_g3pq0"),
+&"move_up": SubResource("Animation_tsbyb")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlgw1"]

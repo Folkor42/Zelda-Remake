@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://t32kfpctgl4h"]
 
-[ext_resource type="Script" path="res://Scenes/link.gd" id="1_6m654"]
+[ext_resource type="Script" uid="uid://fqj44g5dqiot" path="res://Scenes/link.gd" id="1_6m654"]
 [ext_resource type="Texture2D" uid="uid://43nr4vtn4al2" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-2.png" id="2_3k256"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="3_iejdd"]
+[ext_resource type="Script" uid="uid://pdxmuctqg7li" path="res://Universal Scripts/hit_box.gd" id="3_iejdd"]
 
 [sub_resource type="Animation" id="Animation_tlw8f"]
 length = 0.001
@@ -213,18 +213,18 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nb75v"]
 _data = {
-"RESET": SubResource("Animation_tlw8f"),
-"attack_1": SubResource("Animation_6wfpi"),
-"attack_2": SubResource("Animation_agch4"),
-"attack_bow": SubResource("Animation_rxu27"),
-"death": SubResource("Animation_ibxhg"),
-"hurt": SubResource("Animation_ockx1"),
-"idle_down": SubResource("Animation_0b7rr"),
-"idle_side": SubResource("Animation_mp1sm"),
-"idle_up": SubResource("Animation_g4g0l"),
-"walk_down": SubResource("Animation_qgscg"),
-"walk_side": SubResource("Animation_qg5xo"),
-"walk_up": SubResource("Animation_vdbsm")
+&"RESET": SubResource("Animation_tlw8f"),
+&"attack_1": SubResource("Animation_6wfpi"),
+&"attack_2": SubResource("Animation_agch4"),
+&"attack_bow": SubResource("Animation_rxu27"),
+&"death": SubResource("Animation_ibxhg"),
+&"hurt": SubResource("Animation_ockx1"),
+&"idle_down": SubResource("Animation_0b7rr"),
+&"idle_side": SubResource("Animation_mp1sm"),
+&"idle_up": SubResource("Animation_g4g0l"),
+&"walk_down": SubResource("Animation_qgscg"),
+&"walk_side": SubResource("Animation_qg5xo"),
+&"walk_up": SubResource("Animation_vdbsm")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j8og6"]

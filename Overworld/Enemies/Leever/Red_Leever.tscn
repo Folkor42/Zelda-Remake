@@ -1,20 +1,20 @@
 [gd_scene load_steps=29 format=3 uid="uid://dsoxfgec6hq2v"]
 
-[ext_resource type="Script" path="res://Overworld/Enemies/Leever/leever.gd" id="1_17lqw"]
+[ext_resource type="Script" uid="uid://cw43cr3imrmlx" path="res://Overworld/Enemies/Leever/leever.gd" id="1_17lqw"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_mecpy"]
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_n4kcu"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="4_gvnfe"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="5_2p438"]
-[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_nacer"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_mrqqr"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_underground.gd" id="8_dmsyl"]
+[ext_resource type="Shader" uid="uid://vnfdsekvtig5" path="res://Shaders/flash.gdshader" id="2_n4kcu"]
+[ext_resource type="Script" uid="uid://pdxmuctqg7li" path="res://Universal Scripts/hit_box.gd" id="4_gvnfe"]
+[ext_resource type="Script" uid="uid://co7elefr57nom" path="res://Universal Scripts/hurt_box.gd" id="5_2p438"]
+[ext_resource type="Script" uid="uid://c8l2kvb7ddpbw" path="res://Universal Scripts/stun_box.gd" id="6_nacer"]
+[ext_resource type="Script" uid="uid://b846p17sdxu4t" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_mrqqr"]
+[ext_resource type="Script" uid="uid://cfwaw3rpfhgnw" path="res://Overworld/Enemies/Leever/state_underground.gd" id="8_dmsyl"]
 [ext_resource type="Resource" uid="uid://njt4b0027rec" path="res://Items/Drop Table C.tres" id="9_li4ga"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_destroy.gd" id="9_m3qfl"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_wander.gd" id="10_elx0x"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_attack.gd" id="11_8kv2q"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_damaged.gd" id="11_58ogd"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Leever/state_stun.gd" id="12_3jh6t"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Leever/submerge.gd" id="12_f5qvs"]
+[ext_resource type="Script" uid="uid://ckk1exjeefhvj" path="res://Overworld/Enemies/Leever/state_destroy.gd" id="9_m3qfl"]
+[ext_resource type="Script" uid="uid://colrlcgbglt38" path="res://Overworld/Enemies/Leever/state_wander.gd" id="10_elx0x"]
+[ext_resource type="Script" uid="uid://1u8j5csdwdeb" path="res://Overworld/Enemies/Leever/state_attack.gd" id="11_8kv2q"]
+[ext_resource type="Script" uid="uid://h162s0gp5tby" path="res://Overworld/Enemies/Leever/state_damaged.gd" id="11_58ogd"]
+[ext_resource type="Script" uid="uid://3emsycbjkf14" path="res://Overworld/Enemies/Leever/state_stun.gd" id="12_3jh6t"]
+[ext_resource type="Script" uid="uid://byftsi3vcy2ke" path="res://Overworld/Enemies/Leever/submerge.gd" id="12_f5qvs"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="14_7mvcp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nteas"]
@@ -118,12 +118,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eon5c"]
 _data = {
-"RESET": SubResource("Animation_xmeog"),
-"idle": SubResource("Animation_ipkpv"),
-"move": SubResource("Animation_i4kcy"),
-"rise": SubResource("Animation_bhwd8"),
-"stun": SubResource("Animation_covyu"),
-"submerge": SubResource("Animation_3403i")
+&"RESET": SubResource("Animation_xmeog"),
+&"idle": SubResource("Animation_ipkpv"),
+&"move": SubResource("Animation_i4kcy"),
+&"rise": SubResource("Animation_bhwd8"),
+&"stun": SubResource("Animation_covyu"),
+&"submerge": SubResource("Animation_3403i")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i30tg"]

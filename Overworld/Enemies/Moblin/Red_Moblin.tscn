@@ -1,20 +1,20 @@
 [gd_scene load_steps=36 format=3 uid="uid://is6dhaplv73w"]
 
-[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/moblin.gd" id="1_0wqah"]
+[ext_resource type="Script" uid="uid://bdsax6l65a1ft" path="res://Overworld/Enemies/Moblin/moblin.gd" id="1_0wqah"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_hmolx"]
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="2_nch1j"]
+[ext_resource type="Shader" uid="uid://vnfdsekvtig5" path="res://Shaders/flash.gdshader" id="2_nch1j"]
 [ext_resource type="AudioStream" uid="uid://gsflspgvs3rm" path="res://Assets/Audio/Sounds/Sound Effect (8) - Enemy Death.wav" id="3_r7gyr"]
-[ext_resource type="Script" path="res://Universal Scripts/hit_box.gd" id="4_j0fxa"]
-[ext_resource type="Script" path="res://Universal Scripts/hurt_box.gd" id="5_ura7a"]
-[ext_resource type="Script" path="res://Universal Scripts/stun_box.gd" id="6_pwdho"]
-[ext_resource type="Script" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_2dx5i"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_idle.gd" id="8_6tsse"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_destroy.gd" id="9_ph46l"]
+[ext_resource type="Script" uid="uid://pdxmuctqg7li" path="res://Universal Scripts/hit_box.gd" id="4_j0fxa"]
+[ext_resource type="Script" uid="uid://co7elefr57nom" path="res://Universal Scripts/hurt_box.gd" id="5_ura7a"]
+[ext_resource type="Script" uid="uid://c8l2kvb7ddpbw" path="res://Universal Scripts/stun_box.gd" id="6_pwdho"]
+[ext_resource type="Script" uid="uid://b846p17sdxu4t" path="res://Overworld/Enemies/enemy_state_machine.gd" id="7_2dx5i"]
+[ext_resource type="Script" uid="uid://ckkulcktn7423" path="res://Overworld/Enemies/Moblin/state_idle.gd" id="8_6tsse"]
+[ext_resource type="Script" uid="uid://dk7ybbehtnuuu" path="res://Overworld/Enemies/Moblin/state_destroy.gd" id="9_ph46l"]
 [ext_resource type="Resource" uid="uid://cumbs2b7gq6bv" path="res://Items/Drop Table A.tres" id="10_7k8rx"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_wander.gd" id="10_h2sga"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_attack.gd" id="11_o8yj6"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_stun.gd" id="12_orate"]
-[ext_resource type="Script" path="res://Overworld/Enemies/Moblin/state_damaged.gd" id="14_ql2st"]
+[ext_resource type="Script" uid="uid://b3ovdu5eleueo" path="res://Overworld/Enemies/Moblin/state_wander.gd" id="10_h2sga"]
+[ext_resource type="Script" uid="uid://dj3griwjpqg82" path="res://Overworld/Enemies/Moblin/state_attack.gd" id="11_o8yj6"]
+[ext_resource type="Script" uid="uid://c52l2705qo6u7" path="res://Overworld/Enemies/Moblin/state_stun.gd" id="12_orate"]
+[ext_resource type="Script" uid="uid://cy56kjsvdbk8w" path="res://Overworld/Enemies/Moblin/state_damaged.gd" id="14_ql2st"]
 [ext_resource type="Texture2D" uid="uid://bwyyq7myoxwbn" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Enemy Death.png" id="14_utl5a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m3foq"]
@@ -466,19 +466,19 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xse2c"]
 _data = {
-"RESET": SubResource("Animation_u2xrl"),
-"attack_down": SubResource("Animation_8uosr"),
-"attack_side": SubResource("Animation_8gg04"),
-"attack_up": SubResource("Animation_krru4"),
-"destroy_down": SubResource("Animation_46ycf"),
-"destroy_side": SubResource("Animation_oglhd"),
-"destroy_up": SubResource("Animation_1c7nn"),
-"idle_down": SubResource("Animation_a2ijn"),
-"idle_side": SubResource("Animation_eucp1"),
-"idle_up": SubResource("Animation_j18hg"),
-"stun_down": SubResource("Animation_ffkkb"),
-"stun_side": SubResource("Animation_bjn3v"),
-"stun_up": SubResource("Animation_s25hx")
+&"RESET": SubResource("Animation_u2xrl"),
+&"attack_down": SubResource("Animation_8uosr"),
+&"attack_side": SubResource("Animation_8gg04"),
+&"attack_up": SubResource("Animation_krru4"),
+&"destroy_down": SubResource("Animation_46ycf"),
+&"destroy_side": SubResource("Animation_oglhd"),
+&"destroy_up": SubResource("Animation_1c7nn"),
+&"idle_down": SubResource("Animation_a2ijn"),
+&"idle_side": SubResource("Animation_eucp1"),
+&"idle_up": SubResource("Animation_j18hg"),
+&"stun_down": SubResource("Animation_ffkkb"),
+&"stun_side": SubResource("Animation_bjn3v"),
+&"stun_up": SubResource("Animation_s25hx")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i30tg"]

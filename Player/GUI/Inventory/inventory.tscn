@@ -1,10 +1,10 @@
 [gd_scene load_steps=33 format=4 uid="uid://e3m87fab8sjm"]
 
-[ext_resource type="Script" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
+[ext_resource type="Script" uid="uid://bkgqe1wxci4v7" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="1_cptov"]
-[ext_resource type="Script" path="res://Player/GUI/Inventory/triforce_of_wisdom.gd" id="3_gkv1e"]
-[ext_resource type="Script" path="res://Player/GUI/Inventory/dungeon_map.gd" id="3_q6a2o"]
-[ext_resource type="Script" path="res://Player/GUI/Inventory/map_background.gd" id="3_rmubm"]
+[ext_resource type="Script" uid="uid://bt22kvvssvvt1" path="res://Player/GUI/Inventory/triforce_of_wisdom.gd" id="3_gkv1e"]
+[ext_resource type="Script" uid="uid://bbrfhh684su7d" path="res://Player/GUI/Inventory/dungeon_map.gd" id="3_q6a2o"]
+[ext_resource type="Script" uid="uid://dync03a14unge" path="res://Player/GUI/Inventory/map_background.gd" id="3_rmubm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_us4bt"]
 atlas = ExtResource("1_cptov")
@@ -198,9 +198,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyv23"]
 _data = {
-"RESET": SubResource("Animation_u2j2c"),
-"roll_down": SubResource("Animation_ukigd"),
-"roll_up": SubResource("Animation_4x82x")
+&"RESET": SubResource("Animation_u2j2c"),
+&"roll_down": SubResource("Animation_ukigd"),
+&"roll_up": SubResource("Animation_4x82x")
 }
 
 [node name="InventoryScreen" type="CanvasLayer"]
@@ -463,6 +463,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hyv23")
+&"": SubResource("AnimationLibrary_hyv23")
 }
 autoplay = "roll_down"
