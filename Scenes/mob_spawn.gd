@@ -9,12 +9,20 @@ var spawned : bool = false
 
 func _ready() -> void:
 	get_parent().body_entered.connect(spawn)
+	get_parent().body_exited.connect(clean_up)
 	timer.timeout.connect (reset)
 	spawned=false
-	
+
+func clean_up(_b) -> void:
+	for c in get_children():
+		if c is Enemy:
+			c.queue_free()
+			reset()
+	pass
+
 func spawn(_b)->void:
 	if !spawned:
-		await get_tree().create_timer(randf_range(0.2,1.0))
+		await get_tree().create_timer(randf_range(0.2,1.0)).timeout
 		animation_player.play("reveal")
 		await animation_player.animation_finished
 		var mob = mob_to_spawn.instantiate()

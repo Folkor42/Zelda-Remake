@@ -5321,18 +5321,6 @@ bus = &"Music"
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Octorok" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(344, 75)
-
-[node name="Octorok2" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(424, 72)
-
-[node name="Octorok3" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(424, 136)
-
-[node name="Octorok4" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(504, 168)
-
 [node name="Octorok5" parent="Enemies" instance=ExtResource("13_f8bql")]
 position = Vector2(408, -104)
 
@@ -5640,13 +5628,10 @@ x = 8
 y = 7
 
 [node name="Player Detector - Overworld 8, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
+visible = false
 position = Vector2(128, 120)
 x = 8
 y = 8
-
-[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 8, 8" instance=ExtResource("25_qqexg")]
-position = Vector2(-8, 36)
-mob_to_spawn = ExtResource("13_f8bql")
 
 [node name="Player Detector - Overworld 9, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false
@@ -5673,10 +5658,25 @@ x = 9
 y = 7
 
 [node name="Player Detector - Overworld 9, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(384, 120)
 x = 9
 y = 8
+
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 9, 8" instance=ExtResource("25_qqexg")]
+position = Vector2(40, 16)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 9, 8" instance=ExtResource("25_qqexg")]
+position = Vector2(-40, -45)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 9, 8" instance=ExtResource("25_qqexg")]
+position = Vector2(40, -48)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 9, 8" instance=ExtResource("25_qqexg")]
+position = Vector2(120, 48)
+mob_to_spawn = ExtResource("13_f8bql")
 
 [node name="Player Detector - Overworld 10, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false

@@ -4,16 +4,16 @@ signal Direction_Changed ( new_direction : Vector2 )
 #signal Enemy_Damaged ( hurt_box : HurtBox )
 signal enemy_destroyed ( hurt_box : HurtBox )
 
-const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
+#const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 
 #@export var hp : int = 3
 
-var cardinal_direction : Vector2 = Vector2.DOWN
-#var direction : Vector2 = Vector2.ZERO
+#var cardinal_direction : Vector2 = Vector2.DOWN
+var direction : Vector2 = Vector2.ZERO
 var player : Player
 #var invulnerable : bool = false
 
-@onready var animation_player = $AnimationPlayer
+#@onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var hit_box : HitBox = $HitBox
 @onready var state_machine : EnemyStateMachine = $EnemyStateMachine
