@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://d3vi5vgdge1q0"]
+[gd_scene load_steps=32 format=4 uid="uid://d3vi5vgdge1q0"]
 
 [ext_resource type="Script" uid="uid://r6yewmva4uxs" path="res://Overworld/over_world_quest_1.gd" id="1_abc4w"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_cwrbh"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://gp225e824jp1" path="res://Overworld/Enemies/Tektite/Red_Tektite.tscn" id="19_igoek"]
 [ext_resource type="PackedScene" uid="uid://cfn5scm4r2plf" path="res://Overworld/Enemies/Peahat/Peahat.tscn" id="19_lnibd"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="20_hxd50"]
+[ext_resource type="PackedScene" uid="uid://dk7ahk4o27lqo" path="res://Scenes/mob_spawn.tscn" id="21_aqjpe"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="25_4v6vx"]
 [ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="26_aqjpe"]
 
@@ -5314,7 +5315,7 @@ level = "res://Overworld/Cave-GambleA.tscn"
 side = 0
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("6_441e8")]
-position = Vector2(1400, -548)
+position = Vector2(72, 96)
 
 [node name="OverworldCamera" type="Camera2D" parent="."]
 offset = Vector2(0, -15)
@@ -5327,18 +5328,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="Octorok" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(344, 75)
-
-[node name="Octorok2" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(424, 72)
-
-[node name="Octorok3" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(424, 136)
-
-[node name="Octorok4" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(504, 168)
 
 [node name="Octorok5" parent="Enemies" instance=ExtResource("13_f8bql")]
 position = Vector2(408, -104)
@@ -5678,10 +5667,25 @@ x = 9
 y = 7
 
 [node name="Player Detector - Overworld 9, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(384, 120)
 x = 9
 y = 8
+
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 9, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(40, 16)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 9, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(120, 48)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 9, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(40, -48)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 9, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-40, -45)
+mob_to_spawn = ExtResource("13_f8bql")
 
 [node name="Player Detector - Overworld 10, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false

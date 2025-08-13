@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk7ahk4o27lqo"]
+
+[ext_resource type="Script" uid="uid://d3b2dejurknum" path="res://Scenes/mob_spawn.gd" id="1_xsffi"]
+[ext_resource type="Texture2D" uid="uid://c0m8mrgxu8poh" path="res://Assets/SpriteSheets/SNES - Link.png" id="2_ow75g"]
+
+[sub_resource type="Animation" id="Animation_yd72l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cloud:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_odt4h"]
+resource_name = "reveal"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cloud:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1j3bj"]
+_data = {
+&"RESET": SubResource("Animation_yd72l"),
+&"reveal": SubResource("Animation_odt4h")
+}
+
+[node name="MobSpawner" type="Node2D"]
+script = ExtResource("1_xsffi")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+texture = ExtResource("2_ow75g")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(144, 176, 48, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1j3bj")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
