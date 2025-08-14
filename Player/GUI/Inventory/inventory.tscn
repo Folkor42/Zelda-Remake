@@ -1,8 +1,8 @@
 [gd_scene load_steps=32 format=4 uid="uid://e3m87fab8sjm"]
 
-[ext_resource type="Script" uid="uid://43iv625m25jn" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
+[ext_resource type="Script" uid="uid://bkgqe1wxci4v7" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="1_cptov"]
-[ext_resource type="Script" uid="uid://dk4cu0dv2hxxm" path="res://Player/GUI/Inventory/triforce_of_wisdom.gd" id="3_gkv1e"]
+[ext_resource type="Script" uid="uid://bt22kvvssvvt1" path="res://Player/GUI/Inventory/triforce_of_wisdom.gd" id="3_gkv1e"]
 [ext_resource type="Script" uid="uid://cd7cw40f02qpu" path="res://Player/GUI/Inventory/dungeon_map.gd" id="3_q6a2o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_us4bt"]
@@ -458,6 +458,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hyv23")
+&"": SubResource("AnimationLibrary_hyv23")
 }
 autoplay = "roll_down"

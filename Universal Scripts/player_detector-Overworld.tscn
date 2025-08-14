@@ -17,6 +17,14 @@ func _on_player_detector_body_entered(_b) -> void:
 func _on_player_detector_body_exited(_b) -> void:
 	Events.map_cords_left.emit(x,y)
 	body_exited.disconnect (_on_player_detector_body_exited)
+
+func check_for_player()->bool:
+	var bodies = get_overlapping_bodies()
+	for body in bodies:
+		if body is Player:
+			return true
+	return false
+		
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taytn"]

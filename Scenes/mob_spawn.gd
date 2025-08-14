@@ -14,10 +14,12 @@ func _ready() -> void:
 	spawned=false
 
 func clean_up(_b) -> void:
-	for c in get_children():
-		if c is Enemy:
-			c.queue_free()
-			spawned=false
+	await get_tree().create_timer(5).timeout
+	if !get_parent().check_for_player():
+		for c in get_children():
+			if c is Enemy:
+				c.queue_free()
+				reset()
 	pass
 
 func spawn(_b)->void:
@@ -40,7 +42,6 @@ func defeated() -> void:
 	timer.start()
 	
 func reset () -> void:
-	print ("Resetting")
 	spawned=false
 	animation_player.play("RESET")
 	

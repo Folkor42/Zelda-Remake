@@ -1,20 +1,20 @@
 [gd_scene load_steps=28 format=3 uid="uid://cfn5scm4r2plf"]
 
-[ext_resource type="Script" uid="uid://cu64au2w12upl" path="res://Overworld/Enemies/Peahat/peahat.gd" id="1_08svo"]
+[ext_resource type="Script" uid="uid://dt7ohfknfvl4i" path="res://Overworld/Enemies/Peahat/peahat.gd" id="1_08svo"]
 [ext_resource type="Shader" uid="uid://c7bt4fog2gysv" path="res://Shaders/flash.gdshader" id="2_4cagh"]
 [ext_resource type="Texture2D" uid="uid://obwov40ppspq" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Overworld Enemies.png" id="2_5k6bp"]
-[ext_resource type="Script" uid="uid://5d63nccbnc68" path="res://Universal Scripts/hit_box.gd" id="3_qwi5x"]
-[ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="4_dsuvb"]
-[ext_resource type="Script" uid="uid://bde8l4lk8maxa" path="res://Universal Scripts/stun_box.gd" id="5_hfwlf"]
-[ext_resource type="Script" uid="uid://bjsik6sblx81f" path="res://Overworld/Enemies/enemy_state_machine.gd" id="6_8pfxw"]
-[ext_resource type="Script" uid="uid://djmnh1yclb3tg" path="res://Overworld/Enemies/Peahat/idle.gd" id="7_lj0ot"]
-[ext_resource type="Script" uid="uid://dq7co3neogy8i" path="res://Overworld/Enemies/Peahat/land.gd" id="8_rin1d"]
-[ext_resource type="Script" uid="uid://bt88xtmqwgvmt" path="res://Overworld/Enemies/Peahat/take_off.gd" id="9_411lh"]
-[ext_resource type="Script" uid="uid://dib8cn4xrgy1d" path="res://Overworld/Enemies/Peahat/fly.gd" id="10_pj5ka"]
-[ext_resource type="Script" uid="uid://dylhdqyoucenb" path="res://Overworld/Enemies/Peahat/stun.gd" id="11_2j2ey"]
-[ext_resource type="Script" uid="uid://jlkr71uxfcgy" path="res://Overworld/Enemies/Peahat/destroy.gd" id="12_33bxw"]
+[ext_resource type="Script" uid="uid://pdxmuctqg7li" path="res://Universal Scripts/hit_box.gd" id="3_qwi5x"]
+[ext_resource type="Script" uid="uid://co7elefr57nom" path="res://Universal Scripts/hurt_box.gd" id="4_dsuvb"]
+[ext_resource type="Script" uid="uid://c8l2kvb7ddpbw" path="res://Universal Scripts/stun_box.gd" id="5_hfwlf"]
+[ext_resource type="Script" uid="uid://b846p17sdxu4t" path="res://Overworld/Enemies/enemy_state_machine.gd" id="6_8pfxw"]
+[ext_resource type="Script" uid="uid://xq4v7t4vhvgt" path="res://Overworld/Enemies/Peahat/idle.gd" id="7_lj0ot"]
+[ext_resource type="Script" uid="uid://cwvsqqt6p527w" path="res://Overworld/Enemies/Peahat/land.gd" id="8_rin1d"]
+[ext_resource type="Script" uid="uid://civttfrboc42m" path="res://Overworld/Enemies/Peahat/take_off.gd" id="9_411lh"]
+[ext_resource type="Script" uid="uid://cmxmj8qbv4s2u" path="res://Overworld/Enemies/Peahat/fly.gd" id="10_pj5ka"]
+[ext_resource type="Script" uid="uid://dut7crpifc0vg" path="res://Overworld/Enemies/Peahat/stun.gd" id="11_2j2ey"]
+[ext_resource type="Script" uid="uid://bcyiifa27qi8i" path="res://Overworld/Enemies/Peahat/destroy.gd" id="12_33bxw"]
 [ext_resource type="Resource" uid="uid://csrd736k7a5iy" path="res://Items/Drop Table D.tres" id="13_we8ce"]
-[ext_resource type="Script" uid="uid://c7ycto4nqdug6" path="res://Overworld/Enemies/Peahat/damaged.gd" id="15_335kt"]
+[ext_resource type="Script" uid="uid://dma5ptgsb8jx4" path="res://Overworld/Enemies/Peahat/damaged.gd" id="15_335kt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tghov"]
 resource_local_to_scene = true
@@ -156,7 +156,7 @@ shape = SubResource("RectangleShape2D_d5xcl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a7mvr")
+&"": SubResource("AnimationLibrary_a7mvr")
 }
 autoplay = "Move"
 
@@ -198,13 +198,13 @@ shape = SubResource("RectangleShape2D_h7att")
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("6_8pfxw")
 
-[node name="Take Off" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
-script = ExtResource("9_411lh")
-after_move_state = NodePath("../Fly")
-
 [node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
 script = ExtResource("7_lj0ot")
 after_idle_state = NodePath("../Take Off")
+
+[node name="Take Off" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
+script = ExtResource("9_411lh")
+after_move_state = NodePath("../Fly")
 
 [node name="Fly" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
 script = ExtResource("10_pj5ka")

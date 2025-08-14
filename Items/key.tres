@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://daknvhywyt3vj"]
 
-[ext_resource type="Script" uid="uid://bq3tughjlrxkt" path="res://Items/Item Effects/item_effect.gd" id="1_42vlp"]
-[ext_resource type="Script" uid="uid://cyaa0n3ef72cf" path="res://Items/item_data.gd" id="2_xnxjv"]
+[ext_resource type="Script" uid="uid://bekgkkrbtm1v" path="res://Items/Item Effects/item_effect.gd" id="1_42vlp"]
+[ext_resource type="Script" uid="uid://dn6tmuletmhk7" path="res://Items/item_data.gd" id="2_xnxjv"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_oxtf8"]
 [ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_vdptq"]
 

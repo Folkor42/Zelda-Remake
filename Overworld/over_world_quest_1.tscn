@@ -1,14 +1,14 @@
 [gd_scene load_steps=32 format=4 uid="uid://d3vi5vgdge1q0"]
 
-[ext_resource type="Script" uid="uid://r6yewmva4uxs" path="res://Overworld/over_world_quest_1.gd" id="1_abc4w"]
+[ext_resource type="Script" uid="uid://bo4sooe7nhbj8" path="res://Overworld/over_world_quest_1.gd" id="1_abc4w"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_cwrbh"]
 [ext_resource type="AudioStream" uid="uid://bnhobrk0a52bg" path="res://Assets/Audio/Music/1-07. The Legend of Zelda Medley.mp3" id="2_pvmm2"]
-[ext_resource type="Script" uid="uid://bqhi17n6o13bo" path="res://TileMaps/level_tile_map.gd" id="3_dc1l6"]
+[ext_resource type="Script" uid="uid://r1ynkfvxi4oy" path="res://TileMaps/level_tile_map.gd" id="3_dc1l6"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="4_e5f6w"]
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="5_2a52f"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="6_441e8"]
-[ext_resource type="Script" uid="uid://bmne50rapbp8n" path="res://Overworld/player_camera.gd" id="6_dbj6b"]
-[ext_resource type="Script" uid="uid://c6maa44yhqx14" path="res://Overworld/snes_tiles.gd" id="6_wi5d5"]
+[ext_resource type="Script" uid="uid://d1sar5npxmkwl" path="res://Overworld/player_camera.gd" id="6_dbj6b"]
+[ext_resource type="Script" uid="uid://b2d5c3hlu1tmk" path="res://Overworld/snes_tiles.gd" id="6_wi5d5"]
 [ext_resource type="PackedScene" uid="uid://buwb31nlfewoa" path="res://Overworld/Enemies/Leever/Blue_Leever.tscn" id="10_5tkcb"]
 [ext_resource type="PackedScene" uid="uid://b4ymlo8lave5m" path="res://Overworld/Enemies/Octorok/Blue_Octorok.tscn" id="11_1jjbx"]
 [ext_resource type="PackedScene" uid="uid://b1uwg4vrjhhel" path="res://Universal Scripts/player_detector-Overworld.tscn" id="11_3jt7p"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bm5kcyh6hfim2" path="res://Overworld/healing_pond.tscn" id="14_jfu83"]
 [ext_resource type="PackedScene" uid="uid://dsoxfgec6hq2v" path="res://Overworld/Enemies/Leever/Red_Leever.tscn" id="16_p3ami"]
 [ext_resource type="PackedScene" uid="uid://hgrfdd841wtx" path="res://Overworld/Enemies/Tektite/Blue_Tektite.tscn" id="17_y4rcx"]
-[ext_resource type="Script" uid="uid://cklm68rw31pyr" path="res://Overworld/DayNight.gd" id="17_yaohu"]
+[ext_resource type="Script" uid="uid://co38gi858y30i" path="res://Overworld/DayNight.gd" id="17_yaohu"]
 [ext_resource type="PackedScene" uid="uid://dhr04causku4q" path="res://Overworld/Enemies/Zora/Zora.tscn" id="19_68jmo"]
 [ext_resource type="PackedScene" uid="uid://gp225e824jp1" path="res://Overworld/Enemies/Tektite/Red_Tektite.tscn" id="19_igoek"]
 [ext_resource type="PackedScene" uid="uid://cfn5scm4r2plf" path="res://Overworld/Enemies/Peahat/Peahat.tscn" id="19_lnibd"]
@@ -5329,42 +5329,6 @@ bus = &"Music"
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Octorok13" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-56, -56)
-
-[node name="Octorok14" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-104, -88)
-
-[node name="Octorok15" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-216, -88)
-
-[node name="Octorok16" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-136, -40)
-
-[node name="Octorok17" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-360, -8)
-
-[node name="Octorok18" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-328, -208)
-
-[node name="Octorok19" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(200, -540)
-
-[node name="Octorok20" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(376, -632)
-
-[node name="Octorok21" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(464, -632)
-
-[node name="Octorok22" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(401, -584)
-
-[node name="Octorok23" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(456, -536)
-
-[node name="Octorok24" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(377, -504)
-
 [node name="Octorok25" parent="Enemies" instance=ExtResource("13_f8bql")]
 position = Vector2(552, -424)
 
@@ -5389,86 +5353,8 @@ position = Vector2(672, -32)
 [node name="Octorok32" parent="Enemies" instance=ExtResource("13_f8bql")]
 position = Vector2(800, -16)
 
-[node name="Octorok33" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(424, -216)
-
-[node name="Octorok34" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(392, -248)
-
-[node name="Octorok35" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(296, -216)
-
-[node name="Octorok36" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(280, -248)
-
-[node name="Octorok37" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(200, -216)
-
-[node name="Octorok38" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(152, -280)
-
-[node name="Octorok39" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(104, -248)
-
-[node name="Octorok40" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(40, -248)
-
-[node name="Octorok41" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-104, -280)
-
-[node name="Octorok42" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-40, -280)
-
-[node name="Octorok43" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-72, -232)
-
-[node name="Octorok44" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-160, -224)
-
-[node name="Octorok45" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-456, -200)
-
-[node name="Octorok46" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-488, -120)
-
-[node name="Octorok47" parent="Enemies" instance=ExtResource("13_f8bql")]
-position = Vector2(-464, -32)
-
-[node name="Red Leever" parent="Enemies" instance=ExtResource("16_p3ami")]
-position = Vector2(-448, 160)
-
-[node name="Red Leever2" parent="Enemies" instance=ExtResource("16_p3ami")]
-position = Vector2(384, -443)
-
-[node name="Red Leever3" parent="Enemies" instance=ExtResource("16_p3ami")]
-position = Vector2(357, -396)
-
-[node name="Red Leever4" parent="Enemies" instance=ExtResource("16_p3ami")]
-position = Vector2(432, -404)
-
-[node name="Red Leever5" parent="Enemies" instance=ExtResource("16_p3ami")]
-position = Vector2(328, -360)
-
-[node name="Blue Leever" parent="Enemies" instance=ExtResource("10_5tkcb")]
-position = Vector2(-360, 104)
-
-[node name="Blue Leever2" parent="Enemies" instance=ExtResource("10_5tkcb")]
-position = Vector2(-296, 104)
-
-[node name="Blue Octorok" parent="Enemies" instance=ExtResource("11_1jjbx")]
-position = Vector2(424, -556)
-
 [node name="Blue Octorok2" parent="Enemies" instance=ExtResource("11_1jjbx")]
 position = Vector2(648, -416)
-
-[node name="Peahat" parent="Enemies" instance=ExtResource("19_lnibd")]
-position = Vector2(-472, 142)
-
-[node name="Peahat2" parent="Enemies" instance=ExtResource("19_lnibd")]
-position = Vector2(-431, 64)
-
-[node name="Peahat3" parent="Enemies" instance=ExtResource("19_lnibd")]
-position = Vector2(-272, 142)
 
 [node name="Peahat4" parent="Enemies" instance=ExtResource("19_lnibd")]
 position = Vector2(647, -254)
@@ -5481,54 +5367,6 @@ position = Vector2(738, -234)
 
 [node name="Peahat7" parent="Enemies" instance=ExtResource("19_lnibd")]
 position = Vector2(645, -206)
-
-[node name="Red Tektite" parent="Enemies" instance=ExtResource("19_igoek")]
-position = Vector2(-152, 96)
-
-[node name="Red Tektite2" parent="Enemies" instance=ExtResource("19_igoek")]
-position = Vector2(-75, 77)
-
-[node name="Red Tektite3" parent="Enemies" instance=ExtResource("19_igoek")]
-position = Vector2(-157, 148)
-
-[node name="Red Tektite4" parent="Enemies" instance=ExtResource("19_igoek")]
-position = Vector2(-75, 156)
-
-[node name="Zora2" parent="Enemies" instance=ExtResource("19_68jmo")]
-position = Vector2(-193, -288)
-
-[node name="Zora4" parent="Enemies" instance=ExtResource("19_68jmo")]
-position = Vector2(292, -454)
-
-[node name="Zora6" parent="Enemies" instance=ExtResource("19_68jmo")]
-position = Vector2(-419, -157)
-
-[node name="Blue Tektite" parent="Enemies" instance=ExtResource("17_y4rcx")]
-position = Vector2(535, 104)
-
-[node name="Blue Tektite2" parent="Enemies" instance=ExtResource("17_y4rcx")]
-position = Vector2(622, 120)
-
-[node name="Blue Tektite3" parent="Enemies" instance=ExtResource("17_y4rcx")]
-position = Vector2(665, 77)
-
-[node name="Blue Tektite4" parent="Enemies" instance=ExtResource("17_y4rcx")]
-position = Vector2(704, 120)
-
-[node name="Blue Tektite5" parent="Enemies" instance=ExtResource("17_y4rcx")]
-position = Vector2(689, 160)
-
-[node name="Blue Tektite6" parent="Enemies" instance=ExtResource("17_y4rcx")]
-position = Vector2(845, 78)
-
-[node name="Blue Tektite7" parent="Enemies" instance=ExtResource("17_y4rcx")]
-position = Vector2(887, 67)
-
-[node name="Blue Tektite8" parent="Enemies" instance=ExtResource("17_y4rcx")]
-position = Vector2(845, 156)
-
-[node name="Blue Tektite9" parent="Enemies" instance=ExtResource("17_y4rcx")]
-position = Vector2(896, 142)
 
 [node name="Zora" parent="Enemies" instance=ExtResource("19_68jmo")]
 position = Vector2(728, -139)
@@ -5547,64 +5385,174 @@ stream = ExtResource("12_eei64")
 [node name="Map Triggers" type="Node" parent="."]
 
 [node name="Player Detector - Overworld 6, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(-384, -232)
 x = 6
 y = 6
 
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 6, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(-72, 32)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 6, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(56, 24)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 6, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(-35, 75)
+mob_to_spawn = ExtResource("19_68jmo")
+
 [node name="Player Detector - Overworld 6, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(-384, -56)
 x = 6
 y = 7
 
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 6, 7" instance=ExtResource("21_aqjpe")]
+position = Vector2(-104, -64)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 6, 7" instance=ExtResource("21_aqjpe")]
+position = Vector2(-80, 24)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 6, 7" instance=ExtResource("21_aqjpe")]
+position = Vector2(24, 48)
+mob_to_spawn = ExtResource("13_f8bql")
+
 [node name="Player Detector - Overworld 6, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(-384, 120)
 x = 6
 y = 8
 
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 6, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(24, -16)
+mob_to_spawn = ExtResource("10_5tkcb")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 6, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(88, -16)
+mob_to_spawn = ExtResource("10_5tkcb")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 6, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-64, 40)
+mob_to_spawn = ExtResource("16_p3ami")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 6, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-88, 23)
+mob_to_spawn = ExtResource("19_lnibd")
+
+[node name="MobSpawner5" parent="Map Triggers/Player Detector - Overworld 6, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-47, -55)
+mob_to_spawn = ExtResource("19_lnibd")
+
+[node name="MobSpawner6" parent="Map Triggers/Player Detector - Overworld 6, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(112, 23)
+mob_to_spawn = ExtResource("19_lnibd")
+
 [node name="Player Detector - Overworld 7, 5" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(-128, -408)
 x = 7
 y = 5
 
 [node name="Player Detector - Overworld 7, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(-128, -232)
 x = 7
 y = 6
 
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 7, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(-32, 8)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 7, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(24, -48)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 7, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(88, -48)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 7, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(56, -1)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner5" parent="Map Triggers/Player Detector - Overworld 7, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(-65, -56)
+mob_to_spawn = ExtResource("19_68jmo")
+
 [node name="Player Detector - Overworld 7, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(-128, -56)
 x = 7
 y = 7
 
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 7, 7" instance=ExtResource("21_aqjpe")]
+position = Vector2(-88, -32)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 7, 7" instance=ExtResource("21_aqjpe")]
+position = Vector2(24, -32)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 7, 7" instance=ExtResource("21_aqjpe")]
+position = Vector2(-8, 16)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 7, 7" instance=ExtResource("21_aqjpe")]
+position = Vector2(73, 0)
+mob_to_spawn = ExtResource("13_f8bql")
+
 [node name="Player Detector - Overworld 7, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(-128, 120)
 x = 7
 y = 8
 
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 7, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-24, -24)
+mob_to_spawn = ExtResource("19_igoek")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 7, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(53, -43)
+mob_to_spawn = ExtResource("19_igoek")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 7, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(81, -64)
+mob_to_spawn = ExtResource("19_lnibd")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 7, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-29, 28)
+mob_to_spawn = ExtResource("19_igoek")
+
 [node name="Player Detector - Overworld 8, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(128, -584)
 x = 8
 y = 4
 
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 8, 4" instance=ExtResource("21_aqjpe")]
+position = Vector2(72, 44)
+mob_to_spawn = ExtResource("13_f8bql")
+
 [node name="Player Detector - Overworld 8, 5" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(128, -408)
 x = 8
 y = 5
 
 [node name="Player Detector - Overworld 8, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(128, -232)
 x = 8
 y = 6
+
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 8, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(-88, -16)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 8, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(-24, -14)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 8, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(24, -48)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 8, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(72, 16)
+mob_to_spawn = ExtResource("13_f8bql")
 
 [node name="Player Detector - Overworld 8, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 position = Vector2(128, -56)
@@ -5628,28 +5576,84 @@ position = Vector2(32, 0)
 mob_to_spawn = ExtResource("13_f8bql")
 
 [node name="Player Detector - Overworld 8, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(128, 120)
 x = 8
 y = 8
 
 [node name="Player Detector - Overworld 9, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(384, -584)
 x = 9
 y = 4
 
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 9, 4" instance=ExtResource("21_aqjpe")]
+position = Vector2(41, 28)
+mob_to_spawn = ExtResource("11_1jjbx")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 9, 4" instance=ExtResource("21_aqjpe")]
+position = Vector2(17, 0)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 9, 4" instance=ExtResource("21_aqjpe")]
+position = Vector2(80, -48)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 9, 4" instance=ExtResource("21_aqjpe")]
+position = Vector2(-8, -48)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner5" parent="Map Triggers/Player Detector - Overworld 9, 4" instance=ExtResource("21_aqjpe")]
+position = Vector2(-8, 80)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner6" parent="Map Triggers/Player Detector - Overworld 9, 4" instance=ExtResource("21_aqjpe")]
+position = Vector2(72, 48)
+mob_to_spawn = ExtResource("13_f8bql")
+
 [node name="Player Detector - Overworld 9, 5" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(384, -408)
 x = 9
 y = 5
 
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 9, 5" instance=ExtResource("21_aqjpe")]
+position = Vector2(-92, -46)
+mob_to_spawn = ExtResource("19_68jmo")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 9, 5" instance=ExtResource("21_aqjpe")]
+position = Vector2(-56, 48)
+mob_to_spawn = ExtResource("16_p3ami")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 9, 5" instance=ExtResource("21_aqjpe")]
+position = Vector2(-27, 12)
+mob_to_spawn = ExtResource("16_p3ami")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 9, 5" instance=ExtResource("21_aqjpe")]
+position = Vector2(0, -35)
+mob_to_spawn = ExtResource("16_p3ami")
+
+[node name="MobSpawner5" parent="Map Triggers/Player Detector - Overworld 9, 5" instance=ExtResource("21_aqjpe")]
+position = Vector2(48, 4)
+mob_to_spawn = ExtResource("16_p3ami")
+
 [node name="Player Detector - Overworld 9, 6" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(384, -232)
 x = 9
 y = 6
+
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 9, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(-104, -16)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 9, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(-88, 16)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 9, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(8, -16)
+mob_to_spawn = ExtResource("13_f8bql")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 9, 6" instance=ExtResource("21_aqjpe")]
+position = Vector2(41, 16)
+mob_to_spawn = ExtResource("13_f8bql")
 
 [node name="Player Detector - Overworld 9, 7" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 position = Vector2(384, -56)
@@ -5694,7 +5698,6 @@ position = Vector2(-40, -45)
 mob_to_spawn = ExtResource("13_f8bql")
 
 [node name="Player Detector - Overworld 10, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(640, -584)
 x = 10
 y = 4
@@ -5718,10 +5721,29 @@ x = 10
 y = 7
 
 [node name="Player Detector - Overworld 10, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(640, 120)
 x = 10
 y = 8
+
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 10, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-18, 0)
+mob_to_spawn = ExtResource("17_y4rcx")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 10, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(24, -43)
+mob_to_spawn = ExtResource("17_y4rcx")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 10, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(65, 0)
+mob_to_spawn = ExtResource("17_y4rcx")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 10, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-105, -16)
+mob_to_spawn = ExtResource("17_y4rcx")
+
+[node name="MobSpawner5" parent="Map Triggers/Player Detector - Overworld 10, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(49, 40)
+mob_to_spawn = ExtResource("17_y4rcx")
 
 [node name="Player Detector - Overworld 11, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false
@@ -5748,10 +5770,25 @@ x = 11
 y = 7
 
 [node name="Player Detector - Overworld 11, 8" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
-visible = false
 position = Vector2(896, 120)
 x = 11
 y = 8
+
+[node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 11, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-51, -42)
+mob_to_spawn = ExtResource("17_y4rcx")
+
+[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 11, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-9, -53)
+mob_to_spawn = ExtResource("17_y4rcx")
+
+[node name="MobSpawner3" parent="Map Triggers/Player Detector - Overworld 11, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(0, 22)
+mob_to_spawn = ExtResource("17_y4rcx")
+
+[node name="MobSpawner4" parent="Map Triggers/Player Detector - Overworld 11, 8" instance=ExtResource("21_aqjpe")]
+position = Vector2(-51, 36)
+mob_to_spawn = ExtResource("17_y4rcx")
 
 [node name="Player Detector - Overworld 12, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 visible = false

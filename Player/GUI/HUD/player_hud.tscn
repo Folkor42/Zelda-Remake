@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=4 uid="uid://bjvndve0gt2lj"]
 
-[ext_resource type="Script" uid="uid://b353hjh8aji68" path="res://Player/GUI/HUD/player_hud.gd" id="1_q6v14"]
+[ext_resource type="Script" uid="uid://c432i66vt8ljc" path="res://Player/GUI/HUD/player_hud.gd" id="1_q6v14"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_v3tc0"]
 [ext_resource type="PackedScene" uid="uid://37st6ky0w4is" path="res://Player/GUI/HUD/heart.tscn" id="3_433lj"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="5_jggjn"]
 [ext_resource type="Script" uid="uid://bw54db61f5fjd" path="res://Player/GUI/HUD/hud_map.gd" id="5_s20qa"]
-[ext_resource type="Script" uid="uid://brquh35tp14xr" path="res://Player/GUI/HUD/over_world_map.gd" id="5_xi55x"]
+[ext_resource type="Script" uid="uid://bu2scqgiymuen" path="res://Player/GUI/HUD/over_world_map.gd" id="5_xi55x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6sdb"]
 texture = ExtResource("2_v3tc0")
@@ -1536,5 +1536,5 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver"]
 libraries = {
-"": SubResource("AnimationLibrary_jca18")
+&"": SubResource("AnimationLibrary_jca18")
 }
