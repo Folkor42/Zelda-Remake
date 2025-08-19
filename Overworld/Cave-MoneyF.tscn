@@ -1,22 +1,23 @@
-[gd_scene load_steps=20 format=4 uid="uid://wqnpfwb82oxn"]
+[gd_scene load_steps=24 format=4 uid="uid://xpfeq2ixi0sb"]
 
-[ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_w083l"]
-[ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_t2xxp"]
-[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="3_hbmht"]
-[ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="3_wa2vw"]
-[ext_resource type="Script" uid="uid://b2d5c3hlu1tmk" path="res://Overworld/snes_tiles.gd" id="4_1xkhs"]
-[ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_nntlh"]
-[ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="5_k707q"]
-[ext_resource type="Script" uid="uid://xw5g8ge1btql" path="res://Overworld/Choice.gd" id="8_advpt"]
-[ext_resource type="Resource" uid="uid://6mo6hhvcdohj" path="res://Items/red_potion.tres" id="10_5c3fk"]
-[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="10_p2hh2"]
-[ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="12_2et6f"]
-[ext_resource type="Script" uid="uid://bmcrvnha53g72" path="res://Universal Scripts/persistant_handler.gd" id="12_v6iyk"]
-[ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="13_a4tep"]
-[ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="14_ctylk"]
+[ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_ye1ma"]
+[ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_qes7p"]
+[ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="3_7lyu0"]
+[ext_resource type="Script" uid="uid://b2d5c3hlu1tmk" path="res://Overworld/snes_tiles.gd" id="4_xgjek"]
+[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="5_jalvy"]
+[ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="6_kdkdo"]
+[ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="7_0b2qj"]
+[ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="8_kaxqb"]
+[ext_resource type="PackedScene" uid="uid://dq6cbkk4pfjkv" path="res://NPCs/moblin_npc.tscn" id="9_6ad7q"]
+[ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="10_c0y5v"]
+[ext_resource type="Script" uid="uid://bekgkkrbtm1v" path="res://Items/Item Effects/item_effect.gd" id="11_wvoot"]
+[ext_resource type="Script" uid="uid://dn6tmuletmhk7" path="res://Items/item_data.gd" id="12_xjnlv"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="13_q8mfy"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="13_qes7p"]
+[ext_resource type="Script" uid="uid://dswfnkjwjegrv" path="res://Overworld/moneylabel.gd" id="14_yghcy"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0gsvk"]
-texture = ExtResource("3_wa2vw")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srdpo"]
+texture = ExtResource("3_7lyu0")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -5178,8 +5179,8 @@ texture = ExtResource("3_wa2vw")
 84:59/0 = 0
 85:59/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_lne0p"]
-sources/0 = SubResource("TileSetAtlasSource_0gsvk")
+[sub_resource type="TileSet" id="TileSet_wx1c6"]
+sources/0 = SubResource("TileSetAtlasSource_srdpo")
 
 [sub_resource type="Animation" id="Animation_cedfc"]
 length = 0.001
@@ -5219,22 +5220,43 @@ _data = {
 &"Show Text": SubResource("Animation_ve2go")
 }
 
-[node name="Cave-SwordB" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
-script = ExtResource("1_w083l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lyu0"]
+atlas = ExtResource("13_qes7p")
+region = Rect2(144, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6go35"]
+atlas = ExtResource("13_q8mfy")
+region = Rect2(72, 0, 8, 16)
+
+[sub_resource type="Resource" id="Resource_l8oq3"]
+script = ExtResource("12_xjnlv")
+name = "Transaction"
+description = ""
+texture = SubResource("AtlasTexture_6go35")
+snes_texture = SubResource("AtlasTexture_7lyu0")
+value = 10
+effects = Array[ExtResource("11_wvoot")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1
+
+[node name="Cave-MoneyF" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
+script = ExtResource("1_ye1ma")
 dungeon_camera = NodePath("Camera2D")
 
-[node name="OverWorldMapTiles" parent="." instance=ExtResource("2_t2xxp")]
+[node name="OverWorldMapTiles" parent="." instance=ExtResource("2_qes7p")]
 tile_map_data = PackedByteArray("AAAAAAAAAAAeAAYAAAABAAAAAAAeAAYAAAACAAAAAAAeAAYAAAADAAAAAAAeAAYAAAAEAAAAAAAeAAYAAAAFAAAAAAAeAAYAAAAGAAAAAAAeAAYAAAAHAAAAAAAeAAYAAAAIAAAAAAAeAAYAAAAJAAAAAAAeAAYAAAAKAAAAAAAeAAYAAAALAAAAAAAeAAYAAAAMAAAAAAAeAAYAAAANAAAAAAAeAAYAAAAOAAAAAAAeAAYAAAAPAAAAAAAeAAYAAAAAAAEAAAAeAAYAAAABAAEAAAAeAAYAAAACAAEAAAAeAAYAAAADAAEAAAAeAAYAAAAEAAEAAAAeAAYAAAAFAAEAAAAeAAYAAAAGAAEAAAAeAAYAAAAHAAEAAAAeAAYAAAAIAAEAAAAeAAYAAAAJAAEAAAAeAAYAAAAKAAEAAAAeAAYAAAALAAEAAAAeAAYAAAAMAAEAAAAeAAYAAAANAAEAAAAeAAYAAAAOAAEAAAAeAAYAAAAPAAEAAAAeAAYAAAAAAAIAAAAeAAYAAAAAAAMAAAAeAAYAAAAAAAQAAAAeAAYAAAAAAAUAAAAeAAYAAAAAAAYAAAAeAAYAAAAAAAcAAAAeAAYAAAAAAAgAAAAeAAYAAAAPAAIAAAAeAAYAAAAPAAMAAAAeAAYAAAAPAAQAAAAeAAYAAAAPAAUAAAAeAAYAAAAPAAYAAAAeAAYAAAAPAAcAAAAeAAYAAAAPAAgAAAAeAAYAAAAAAAkAAAAeAAYAAAABAAkAAAAeAAYAAAACAAkAAAACAAkAAAADAAkAAAAeAAYAAAAEAAkAAAAeAAYAAAAFAAkAAAAeAAYAAAAAAAoAAAAeAAYAAAABAAoAAAAeAAYAAAACAAoAAAAeAAYAAAADAAoAAAAeAAYAAAAEAAoAAAAeAAYAAAAFAAoAAAAeAAYAAAAPAAkAAAAeAAYAAAAOAAkAAAAeAAYAAAANAAkAAAAeAAYAAAAMAAkAAAAeAAYAAAALAAkAAAAeAAYAAAAKAAkAAAAeAAYAAAAGAAkAAAAeAAYAAAAGAAoAAAAeAAYAAAABAAcAAAAeAAYAAAABAAIAAAAeAAYAAAABAAMAAAAeAAYAAAABAAQAAAAeAAYAAAABAAUAAAAeAAYAAAABAAYAAAAeAAYAAAABAAgAAAAeAAYAAAAOAAIAAAAeAAYAAAAOAAMAAAAeAAYAAAAOAAQAAAAeAAYAAAAOAAUAAAAeAAYAAAAOAAYAAAAeAAYAAAAOAAcAAAAeAAYAAAAOAAgAAAAeAAYAAAAKAAoAAAAeAAYAAAALAAoAAAAeAAYAAAAMAAoAAAAeAAYAAAANAAoAAAAeAAYAAAAOAAoAAAAeAAYAAAAPAAoAAAAeAAYAAAAJAAkAAAAeAAYAAAAJAAoAAAAeAAYAAAACAAIAAAAIAAsAAAACAAMAAAAIAAsAAAACAAQAAAAIAAsAAAACAAUAAAAIAAsAAAACAAYAAAAIAAsAAAACAAcAAAAIAAsAAAACAAgAAAAIAAsAAAADAAIAAAAIAAsAAAADAAMAAAAIAAsAAAADAAQAAAAIAAsAAAADAAUAAAAIAAsAAAADAAYAAAAIAAsAAAADAAcAAAAIAAsAAAADAAgAAAAIAAsAAAAEAAIAAAAIAAsAAAAEAAMAAAAIAAsAAAAEAAQAAAAIAAsAAAAEAAUAAAAIAAsAAAAEAAYAAAAIAAsAAAAEAAcAAAAIAAsAAAAEAAgAAAAIAAsAAAAFAAIAAAAIAAsAAAAFAAMAAAAIAAsAAAAFAAQAAAAIAAsAAAAFAAUAAAAIAAsAAAAFAAYAAAAIAAsAAAAFAAcAAAAIAAsAAAAFAAgAAAAIAAsAAAAGAAIAAAAIAAsAAAAGAAMAAAAIAAsAAAAGAAQAAAAIAAsAAAAGAAUAAAAIAAsAAAAGAAYAAAAIAAsAAAAGAAcAAAAIAAsAAAAGAAgAAAAIAAsAAAAHAAIAAAAIAAsAAAAHAAMAAAAIAAsAAAAHAAQAAAAIAAsAAAAHAAUAAAAIAAsAAAAHAAYAAAAIAAsAAAAHAAcAAAAIAAsAAAAHAAgAAAAIAAsAAAAIAAIAAAAIAAsAAAAIAAMAAAAIAAsAAAAIAAQAAAAIAAsAAAAIAAUAAAAIAAsAAAAIAAYAAAAIAAsAAAAIAAcAAAAIAAsAAAAIAAgAAAAIAAsAAAAJAAIAAAAIAAsAAAAJAAMAAAAIAAsAAAAJAAQAAAAIAAsAAAAJAAUAAAAIAAsAAAAJAAYAAAAIAAsAAAAJAAcAAAAIAAsAAAAJAAgAAAAIAAsAAAAKAAIAAAAIAAsAAAAKAAMAAAAIAAsAAAAKAAQAAAAIAAsAAAAKAAUAAAAIAAsAAAAKAAYAAAAIAAsAAAAKAAcAAAAIAAsAAAAKAAgAAAAIAAsAAAALAAIAAAAIAAsAAAALAAMAAAAIAAsAAAALAAQAAAAIAAsAAAALAAUAAAAIAAsAAAALAAYAAAAIAAsAAAALAAcAAAAIAAsAAAALAAgAAAAIAAsAAAAMAAIAAAAIAAsAAAAMAAMAAAAIAAsAAAAMAAQAAAAIAAsAAAAMAAUAAAAIAAsAAAAMAAYAAAAIAAsAAAAMAAcAAAAIAAsAAAAMAAgAAAAIAAsAAAANAAIAAAAIAAsAAAANAAMAAAAIAAsAAAANAAQAAAAIAAsAAAANAAUAAAAIAAsAAAANAAYAAAAIAAsAAAANAAcAAAAIAAsAAAANAAgAAAAIAAsAAAAHAAkAAAAIAAsAAAAHAAoAAAAIAAsAAAAIAAkAAAAIAAsAAAAIAAoAAAAIAAsAAAA=")
 
 [node name="SNES Tiles" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAABAAAAAAAWAAEAAAACAAAAAAAXAAEAAAADAAAAAAAYAAEAAAAEAAAAAAAXAAEAAAAFAAAAAAAYAAEAAAAGAAAAAAAYAAEAAAAHAAAAAAAXAAEAAAAIAAAAAAAXAAEAAAAJAAAAAAAXAAEAAAAKAAAAAAAXAAEAAAALAAAAAAAXAAEAAAAMAAAAAAAXAAEAAAANAAAAAAAYAAEAAAAOAAAAAAAZAAEAAAABAAEAAAAWAAIAAAACAAEAAAAXAAIAAAADAAEAAAAYAAIAAAAEAAEAAAAXAAIAAAAFAAEAAAAXAAIAAAAGAAEAAAAXAAIAAAAHAAEAAAAYAAIAAAAIAAEAAAAXAAIAAAAJAAEAAAAXAAIAAAAKAAEAAAAXAAIAAAALAAEAAAAYAAIAAAAMAAEAAAAXAAIAAAANAAEAAAAYAAIAAAAOAAEAAAAZAAIAAAACAAIAAAAXAAMAAAADAAIAAAAXAAMAAAAEAAIAAAAXAAMAAAAGAAIAAAAVAAEAAAAHAAIAAAAVAAEAAAAIAAIAAAAVAAEAAAAJAAIAAAAVAAEAAAALAAIAAAAXAAMAAAAMAAIAAAAXAAMAAAANAAIAAAAXAAMAAAACAAMAAAAXAAMAAAADAAMAAAAXAAMAAAAEAAMAAAAXAAMAAAAGAAMAAAAVAAEAAAAHAAMAAAAYAAAAAAAIAAMAAAAZAAAAAAAJAAMAAAAVAAEAAAALAAMAAAAXAAMAAAAMAAMAAAAXAAMAAAANAAMAAAAXAAMAAAACAAQAAAAXAAMAAAADAAQAAAAXAAMAAAAEAAQAAAAYAAMAAAAJAAQAAAAVAAEAAAALAAQAAAAYAAMAAAAMAAQAAAAXAAMAAAANAAQAAAAXAAMAAAACAAUAAAAXAAMAAAACAAYAAAAXAAMAAAACAAcAAAAXAAMAAAACAAgAAAAXAAMAAAADAAUAAAAXAAMAAAADAAYAAAAXAAMAAAADAAcAAAAXAAMAAAADAAgAAAAXAAMAAAAEAAUAAAAXAAMAAAAEAAYAAAAXAAMAAAAEAAcAAAAXAAMAAAAEAAgAAAAXAAMAAAAFAAgAAAAVAAAAAAAGAAgAAAAVAAEAAAAHAAgAAAAVAAEAAAAIAAgAAAAVAAEAAAAJAAYAAAAXAAAAAAAJAAcAAAAVAAEAAAAJAAgAAAAVAAEAAAAKAAgAAAAaAAAAAAALAAUAAAAXAAMAAAALAAYAAAAXAAMAAAALAAcAAAAXAAMAAAALAAgAAAAXAAMAAAAMAAUAAAAXAAMAAAAMAAYAAAAXAAMAAAAMAAcAAAAXAAMAAAAMAAgAAAAXAAMAAAANAAUAAAAXAAMAAAANAAYAAAAXAAMAAAANAAcAAAAXAAMAAAANAAgAAAAXAAMAAAAHAAkAAAAXAAMAAAAHAAoAAAAXAAMAAAAIAAkAAAAXAAMAAAAIAAoAAAAXAAMAAAABAAIAAAAWAAMAAAABAAMAAAAWAAIAAAABAAcAAAAWAAIAAAABAAYAAAAWAAIAAAABAAUAAAAWAAIAAAABAAQAAAAWAAMAAAABAAgAAAAWAAMAAAAOAAgAAAAZAAMAAAAOAAcAAAAZAAMAAAAOAAYAAAAZAAMAAAAOAAUAAAAZAAMAAAAOAAQAAAAZAAMAAAAOAAMAAAAZAAMAAAAOAAIAAAAZAAMAAAADAAkAAAAXAAQAAAAOAAkAAAAZAAQAAAANAAkAAAAXAAQAAAAMAAkAAAAXAAQAAAALAAkAAAAXAAQAAAAKAAkAAAAZAAUAAAAJAAkAAAAYAAUAAAABAAkAAAAWAAQAAAACAAkAAAAXAAQAAAAEAAkAAAAXAAQAAAAFAAkAAAAWAAUAAAAGAAkAAAAXAAUAAAAJAAoAAAAZAAMAAAAGAAoAAAAWAAMAAAABAAoAAAAVAAEAAAACAAoAAAAVAAEAAAADAAoAAAAVAAEAAAAEAAoAAAAVAAEAAAAFAAoAAAAVAAMAAAAKAAoAAAAaAAMAAAALAAoAAAAVAAEAAAAMAAoAAAAVAAEAAAANAAoAAAAVAAEAAAAOAAoAAAAVAAEAAAAGAAUAAAAYAAAAAAAGAAYAAAAWAAAAAAAHAAQAAAAWAAAAAAAHAAUAAAAZAAAAAAAHAAYAAAAXAAAAAAAIAAQAAAAXAAAAAAAIAAYAAAAWAAAAAAAIAAUAAAAYAAAAAAAJAAUAAAAZAAAAAAAFAAcAAAAVAAAAAAAGAAcAAAAVAAEAAAAHAAcAAAAVAAEAAAAIAAcAAAAVAAEAAAAKAAcAAAAaAAAAAAAKAAYAAAAaAAAAAAAKAAUAAAAaAAAAAAAKAAQAAAAaAAAAAAAKAAMAAAAaAAAAAAAKAAIAAAAaAAAAAAAFAAIAAAAVAAAAAAAFAAMAAAAVAAAAAAAFAAQAAAAVAAAAAAAFAAUAAAAVAAAAAAAFAAYAAAAVAAAAAAAGAAQAAAAVAAEAAAAPAAAAAAAaAAMAAAAPAAEAAAAaAAMAAAAPAAIAAAAaAAMAAAAPAAMAAAAaAAMAAAAPAAQAAAAaAAMAAAAPAAUAAAAaAAMAAAAPAAYAAAAaAAMAAAAPAAcAAAAaAAMAAAAPAAgAAAAaAAMAAAAPAAkAAAAaAAQAAAAPAAoAAAAVAAEAAAAAAAAAAAAVAAMAAAAAAAEAAAAVAAMAAAAAAAIAAAAVAAMAAAAAAAMAAAAVAAMAAAAAAAQAAAAVAAMAAAAAAAUAAAAVAAMAAAAAAAYAAAAVAAMAAAAAAAcAAAAVAAMAAAAAAAgAAAAVAAMAAAAAAAkAAAAVAAQAAAAAAAoAAAAVAAEAAAA=")
-tile_set = SubResource("TileSet_lne0p")
-script = ExtResource("4_1xkhs")
+tile_set = SubResource("TileSet_wx1c6")
+script = ExtResource("4_xgjek")
 
-[node name="Entrance" parent="." instance=ExtResource("3_hbmht")]
+[node name="Entrance" parent="." instance=ExtResource("5_jalvy")]
 position = Vector2(128, 160)
 level = "res://Overworld/over_world_quest_1.tscn"
-target_transition_area = "Cave-SwordB"
+target_transition_area = "Cave-MoneyF"
 center_player = true
 side = 1
 
@@ -5246,11 +5268,12 @@ offset_left = 37.0
 offset_top = 32.0
 offset_right = 215.0
 offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("4_nntlh")
-text = "You may choose only one."
+theme_override_fonts/font = ExtResource("6_kdkdo")
+text = "It's a secret
+to everybody."
 horizontal_alignment = 1
 autowrap_mode = 2
-visible_ratio = -0.0416667
+visible_ratio = -0.037037
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {
@@ -5258,30 +5281,30 @@ libraries = {
 }
 autoplay = "Show Text"
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("5_k707q")]
+[node name="PlayerSpawn" parent="." instance=ExtResource("7_0b2qj")]
 position = Vector2(129, 140)
 
-[node name="OldMan" parent="." instance=ExtResource("13_a4tep")]
-position = Vector2(128, 71)
-
-[node name="Fire" parent="." instance=ExtResource("14_ctylk")]
+[node name="Fire" parent="." instance=ExtResource("8_kaxqb")]
 position = Vector2(72, 58)
 
-[node name="Fire2" parent="." instance=ExtResource("14_ctylk")]
+[node name="Fire2" parent="." instance=ExtResource("8_kaxqb")]
 position = Vector2(184, 58)
 
-[node name="OnlyOne" type="Node" parent="."]
-script = ExtResource("8_advpt")
+[node name="Moblin" parent="." instance=ExtResource("9_6ad7q")]
+position = Vector2(128, 71)
 
-[node name="ItemDropper1" parent="OnlyOne" instance=ExtResource("10_p2hh2")]
-position = Vector2(104, 105)
-item_data = ExtResource("10_5c3fk")
+[node name="ItemDropper" parent="." instance=ExtResource("10_c0y5v")]
+position = Vector2(129, 101)
+item_data = SubResource("Resource_l8oq3")
 major_drop = true
 
-[node name="ItemDropper2" parent="OnlyOne" instance=ExtResource("10_p2hh2")]
-position = Vector2(152, 105)
-item_data = ExtResource("12_2et6f")
-major_drop = true
-
-[node name="ItemChosen" type="Node" parent="OnlyOne"]
-script = ExtResource("12_v6iyk")
+[node name="Value" type="Label" parent="."]
+visible = false
+offset_left = 115.0
+offset_top = 126.0
+offset_right = 143.0
+offset_bottom = 139.0
+theme_override_fonts/font = ExtResource("6_kdkdo")
+text = "+30"
+horizontal_alignment = 1
+script = ExtResource("14_yghcy")
