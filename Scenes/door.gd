@@ -31,5 +31,5 @@ func _ready() -> void:
 	
 func use_door(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		print("DOOR")
+		#print("DOOR")
 		body.global_position = marker_2d.global_position

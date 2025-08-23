@@ -549,6 +549,7 @@ collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_xn7lh")
 speed = 20.0
+drop_group = 0
 WallDetector = NodePath("WallDetector")
 animation_player = NodePath("AnimationPlayer")
 
@@ -566,7 +567,7 @@ target_position = Vector2(0, 10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xse2c")
+&"": SubResource("AnimationLibrary_xse2c")
 }
 autoplay = "idle_down"
 

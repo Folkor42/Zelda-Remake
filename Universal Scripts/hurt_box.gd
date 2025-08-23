@@ -14,7 +14,7 @@ func AreaEntered( a : Area2D ) -> void:
 		hit.emit()
 		a.TakeDamage ( self )
 	elif a is StunBox:
-		print ("STUNNING!")
+		#print ("STUNNING!")
 		stun.emit()
 		a.TakeDamage ()
 	pass

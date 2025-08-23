@@ -12,7 +12,7 @@ func _ready() -> void:
 	pass
 	
 func set_value() -> void:
-	print("Checking Value")
+	#print("Checking Value")
 	SaveManager.add_persistant_value( _get_name() )
 	pass
 
@@ -22,12 +22,12 @@ func clear_drop_value() -> void:
 	
 func set_drop_value(global_position,item_data : ItemData) -> void:
 	SaveManager.add_persistant_item( _get_name() , scene , global_position, item_data )
-	print (item_data.resource_name)
+	#print (item_data.resource_name)
 	pass
 
 func set_coords( global_position : Vector2 ) -> void:
 	SaveManager.add_persistant_location( _get_name() , global_position )
-	print (SaveManager.current_save)
+	#print (SaveManager.current_save)
 	pass
 	
 func get_value() -> void:

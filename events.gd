@@ -44,7 +44,7 @@ func item_signal(item)->void:
 		PlayerManager.inventory.use_potion(load("res://Items/red_potion.tres"),1)
 	
 func secret_found () -> void:
-	print ("SECRET REVEALED")
+	#print ("SECRET REVEALED")
 	secret_revealed_sound.emit()
 
 func stopwatch_pickedup()->void:

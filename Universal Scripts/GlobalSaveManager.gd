@@ -66,8 +66,8 @@ func load_game() -> void:
 	if current_save.player.hp < 6:
 		current_save.player.hp=6
 	PlayerManager.set_health( current_save.player.hp, current_save.player.max_hp )
-	print (current_save.items)
-	print (current_save.drops)
+	#print (current_save.items)
+	#print (current_save.drops)
 	PlayerManager.inventory.contents = current_save.items
 	if current_save.items.has("Magic Sword"):
 		PlayerManager.update_sword ("Magic Sword")
@@ -124,13 +124,13 @@ func update_item_data () -> void:
 func add_persistant_value( value : String ) -> void:
 	if check_persistant_value( value ) == false:
 		current_save.persistence.append( value )
-		print ("added: "+ str(value))
+		#print ("added: "+ str(value))
 	pass
 	
 func remove_persistant_value( value : String ) -> void:
 	if check_persistant_value( value ) == true:
 		current_save.persistence.erase ( value )
-		print ("removed: "+ str(value))
+		#print ("removed: "+ str(value))
 	pass
 	
 func check_persistant_value( value: String ) -> bool:
@@ -156,21 +156,21 @@ func add_persistant_item( value : String, scene : String, coords : Vector2, item
 func check_persistant_locations( value: String ) -> bool:
 	for i in current_save.locations:
 		if i["name"] == value:
-			print ("Match")
+			#print ("Match")
 			return true
 	return false
 	
 func check_persistant_drops( value: String ) -> bool:
 	for i in current_save.drops:
 		if i["name"] == value:
-			print ("Match")
+			#print ("Match")
 			return true
 	return false
 
 func get_persistant_location( value: String ) -> Vector2:
 	for i in current_save.locations:
 		if i["name"] == value:
-			print (i["pos_x"],i["pos_y"])
+			#print (i["pos_x"],i["pos_y"])
 			return Vector2(i["pos_x"],i["pos_y"])
 	return Vector2.ZERO
 

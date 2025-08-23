@@ -9,11 +9,6 @@ class_name OctorokIdle extends EnemyState
 
 var _timer : float = 0.0
 
-
-
-func init() -> void:
-	pass # Replace with function body.
-
 func enter() -> void:
 	enemy.velocity = Vector2.ZERO
 	_timer = randf_range ( state_duration_min, state_duration_max )

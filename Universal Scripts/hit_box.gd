@@ -9,5 +9,5 @@ func _process( _delta ):
 	pass
 	
 func TakeDamage ( hurt_box : HurtBox ) -> void:
-	print ("OW!!!")
+	#print ("OW!!!")
 	Damaged.emit( hurt_box )

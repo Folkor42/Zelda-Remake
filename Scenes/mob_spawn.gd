@@ -8,6 +8,7 @@ class_name MobSpawner extends Node2D
 var spawned : bool = false
 
 func _ready() -> void:
+	await get_tree().physics_frame
 	get_parent().body_entered.connect(spawn)
 	get_parent().body_exited.connect(clean_up)
 	timer.timeout.connect (reset)
@@ -23,20 +24,24 @@ func clean_up(_b) -> void:
 	pass
 
 func spawn(_b)->void:
-	print("Spawn")
+	#print("Spawn")
 	if !spawned:
+		spawned = true
 		await get_tree().create_timer(randf_range(0.2,1.0)).timeout
 		animation_player.play("reveal")
 		await animation_player.animation_finished
 		var mob = mob_to_spawn.instantiate()
+		print(mob_to_spawn)
+		print ("Mob before: ",mob.global_position)
 		mob.global_position = global_position
+		print ("Mob after: ",mob.global_position)
 		mob.tree_exited.connect(defeated)
 		add_child(mob)
-		spawned = true
+		
 		
 		#timer.start()
 	else:
-		pass
+		return
 			
 func defeated() -> void:
 	timer.start()

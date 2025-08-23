@@ -58,7 +58,7 @@ func get_offset() -> Vector2:
 	offset.y = 8
 	if side == SIDE.TOP:
 		offset.y *= -1
-	print(offset)
+	#print(offset)
 	return offset
 	
 func _update_area() -> void:
@@ -85,7 +85,7 @@ func _update_area() -> void:
 		collision_shape_2d.position = new_position
 	if exit != null:
 		exit.position=new_exit_position	
-		print(exit.position)
+		#print(exit.position)
 	
 func _snap_to_grid () -> void:
 	position.x=round( position.x/16 ) * 16

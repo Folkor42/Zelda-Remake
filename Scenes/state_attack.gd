@@ -71,7 +71,7 @@ func EndAttack( _newAnimName : String ) -> void:
 	pass
 
 func shoot_sword () -> void:
-	print ("PEW")
+	#print ("PEW")
 	var bullet = SWORD.instantiate()
 	var parent : Node = get_parent().get_parent()
 	var rot = deg_to_rad(0)

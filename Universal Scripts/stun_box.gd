@@ -9,5 +9,5 @@ func _process( _delta ):
 	pass
 	
 func TakeDamage ( ) -> void:
-	print ("Ooof!!!")
+	#print ("Ooof!!!")
 	Stunned.emit( null )

@@ -21,10 +21,10 @@ func _process(delta: float) -> void:
 		queue_free()
 	
 func _on_area_entered(_area):
-	print("HIT SHIELD")
+	#print("HIT SHIELD")
 	PlayerManager.player.shield_block_sound.play()
 	queue_free()
 
 func destroy( _a = null )->void:
-	print ("HIT!")
+	#print ("HIT!")
 	queue_free()

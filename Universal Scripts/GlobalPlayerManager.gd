@@ -49,7 +49,7 @@ func _ready() -> void:
 
 func _update_dungeon_map ( x : int, y : int ) -> void:
 	grid[x][y]=true
-	print (grid)
+	#print (grid)
 	pass
 
 func change_graphics ()->void:

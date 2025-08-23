@@ -56,23 +56,10 @@ func drop_items() -> void:
 	if turn_drop:
 		var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
 		drop.item_data = turn_drop
-		enemy.get_parent().call_deferred( "add_child", drop )
-		drop.global_position = enemy.global_position
+		enemy.call_deferred( "add_sibling", drop )
+		drop.global_position = enemy.global_position - enemy.get_parent().global_position
 		drop.velocity = enemy.velocity.rotated( randf_range(-1.5, 1.5) ) * randf_range( 0.9, 1.5)
 		drop.bounce()
 		drop.start_timer()
-	#if drops.size() == 0:
-		#return
-	#for i in drops.size():
-		#if drops[ i ] == null or drops[ i ].item == null:
-			#continue
-		#var drop_count : int = drops[ i ].get_drop_count()
-		#for j in drop_count:
-			#var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
-			#drop.item_data = drops[ i ].item
-			#enemy.get_parent().call_deferred( "add_child", drop )
-			#drop.global_position = enemy.global_position
-			#drop.velocity = enemy.velocity.rotated( randf_range(-1.5, 1.5) ) * randf_range( 0.9, 1.5)
-			#drop.bounce()
-			#drop.start_timer()
+		print(drop.item_data.name)
 	pass

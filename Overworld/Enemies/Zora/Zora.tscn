@@ -176,7 +176,7 @@ hit_from_inside = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_eon5c")
+&"": SubResource("AnimationLibrary_eon5c")
 }
 
 [node name="HitBox" type="Area2D" parent="."]
