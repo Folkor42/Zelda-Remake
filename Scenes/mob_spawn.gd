@@ -31,20 +31,14 @@ func spawn(_b)->void:
 		animation_player.play("reveal")
 		await animation_player.animation_finished
 		var mob = mob_to_spawn.instantiate()
-		print(mob_to_spawn)
-		print ("Mob before: ",mob.global_position)
-		mob.global_position = global_position
-		print ("Mob after: ",mob.global_position)
-		mob.tree_exited.connect(defeated)
 		add_child(mob)
-		
-		
-		#timer.start()
+		mob.global_position = global_position
+		mob.tree_exited.connect(defeated)
 	else:
 		return
 			
 func defeated() -> void:
-	timer.start()
+	timer.call_deferred("start")
 	
 func reset () -> void:
 	spawned=false

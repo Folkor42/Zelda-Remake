@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bb4ph6ftaw0is" path="res://Dungeons/01 - Eagle/room_15.tscn" id="15_l8ajq"]
 [ext_resource type="PackedScene" uid="uid://00rfsax5jltg" path="res://Dungeons/01 - Eagle/room_16.tscn" id="16_bak2b"]
 [ext_resource type="PackedScene" uid="uid://ctf8pfjxaq427" path="res://Dungeons/01 - Eagle/room_17.tscn" id="17_g78wu"]
-[ext_resource type="Script" uid="uid://bd5n2yswgadr7" path="res://Scenes/camera.gd" id="19_wj6oy"]
+[ext_resource type="Script" uid="uid://b2rtwvax0llxk" path="res://Scenes/camera.gd" id="19_wj6oy"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="20_acy5b"]
 [ext_resource type="AudioStream" uid="uid://dvmmm2r5qyhv4" path="res://Assets/Audio/Music/372183_Heavy_Dungeon.mp3" id="20_bhtn0"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="22_8jahd"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://d3vi5vgdge1q0"]
+[gd_scene load_steps=34 format=4 uid="uid://d3vi5vgdge1q0"]
 
 [ext_resource type="Script" uid="uid://r6yewmva4uxs" path="res://Overworld/over_world_quest_1.gd" id="1_abc4w"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="1_cwrbh"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://gp225e824jp1" path="res://Overworld/Enemies/Tektite/Red_Tektite.tscn" id="19_igoek"]
 [ext_resource type="PackedScene" uid="uid://cfn5scm4r2plf" path="res://Overworld/Enemies/Peahat/Peahat.tscn" id="19_lnibd"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="20_hxd50"]
-[ext_resource type="PackedScene" uid="uid://d1v3t4s83ym6t" path="res://NPCs/old_woman.tscn" id="21_4hvt0"]
 [ext_resource type="PackedScene" uid="uid://dk7ahk4o27lqo" path="res://Scenes/mob_spawn.tscn" id="21_aqjpe"]
 [ext_resource type="PackedScene" uid="uid://is6dhaplv73w" path="res://Overworld/Enemies/Moblin/Red_Moblin.tscn" id="22_q8anj"]
 [ext_resource type="PackedScene" uid="uid://jxn2lpyhmjdt" path="res://Overworld/Enemies/Moblin/Blue_Moblin.tscn" id="23_w3hju"]
@@ -5595,11 +5594,7 @@ x = 8
 y = 8
 
 [node name="MobSpawner" parent="Map Triggers/Player Detector - Overworld 8, 8" instance=ExtResource("21_aqjpe")]
-position = Vector2(16, 0)
-mob_to_spawn = ExtResource("11_1jjbx")
-
-[node name="MobSpawner2" parent="Map Triggers/Player Detector - Overworld 8, 8" instance=ExtResource("21_aqjpe")]
-mob_to_spawn = ExtResource("21_4hvt0")
+mob_to_spawn = ExtResource("16_p3ami")
 
 [node name="Player Detector - Overworld 9, 4" parent="Map Triggers" instance=ExtResource("11_3jt7p")]
 position = Vector2(384, -584)

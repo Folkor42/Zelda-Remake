@@ -39,6 +39,7 @@ func drop_item() -> void:
 	drop.major_drop=major_drop
 	drop.item_data = item_data
 	add_child( drop )
+	drop.global_position=global_position
 	drop.picked_up.connect( _on_drop_pickup )
 	play_audio()
 	pass

@@ -374,7 +374,7 @@ shape = SubResource("RectangleShape2D_uqeqc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_rgpew")
+&"": SubResource("AnimationLibrary_rgpew")
 }
 autoplay = "move_side"
 
@@ -429,6 +429,5 @@ shape = SubResource("RectangleShape2D_77rk5")
 visible = false
 texture = ExtResource("13_bkcxw")
 hframes = 4
-frame = 3
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

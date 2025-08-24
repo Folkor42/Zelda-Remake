@@ -15,6 +15,7 @@ enum STATE {UNDER,RISE,ABOVE,SINK}
 var current_condition : STATE = STATE.ABOVE
 
 func _ready() -> void:
+	current_direction=change_direction(current_direction)
 	enemy_state_machine.initialize( self )
 	hit_box.Damaged.connect(enemy_damaged)
 	Events.toggle_graphics.connect(toggle_graphics)

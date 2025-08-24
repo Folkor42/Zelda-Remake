@@ -72,6 +72,8 @@ _data = {
 }
 
 [node name="Enemy Death" type="Node2D"]
+top_level = true
+z_index = 2
 script = ExtResource("1_4vlu7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -80,7 +82,7 @@ hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lphlq")
+&"": SubResource("AnimationLibrary_lphlq")
 }
 autoplay = "default"
 

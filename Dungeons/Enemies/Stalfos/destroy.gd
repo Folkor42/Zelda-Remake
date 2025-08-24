@@ -15,8 +15,8 @@ func enter() -> void:
 	enemy.velocity = Vector2.ZERO
 	enemy.visible=false
 	var death = DEATH_ANIM.instantiate()
-	death.position=enemy.position
 	enemy.get_parent().call_deferred( "add_child", death )
+	death.global_position=enemy.global_position
 	await get_tree().create_timer(0.2).timeout
 	drop_items()
 	enemy.queue_free()
@@ -27,13 +27,15 @@ func _on_enemy_destroyed ( _hurt_box : HurtBox ) -> void:
 
 func drop_carried()->bool:
 	for i in enemy.get_children():
+		print (i)
 		if i is ItemDropper:
-			i.call_deferred("reparent",enemy.get_parent())
+			i.reparent(enemy.get_parent(),true)
 			return true
 	return false
 		
 func drop_items() -> void:
 	if drop_carried():
+		print("DROPPED")
 		return
 	var turn_drop = drop_table.get_drop(PlayerManager.kill_count)
 	PlayerManager.increase_kill_counter()

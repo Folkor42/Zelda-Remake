@@ -118,3 +118,4 @@ func start_timer()->void:
 	
 func clear_drop ()->void:
 	queue_free()
+	pass

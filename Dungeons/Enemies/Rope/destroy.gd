@@ -15,8 +15,8 @@ func enter() -> void:
 	enemy.velocity = Vector2.ZERO
 	enemy.visible=false
 	var death = DEATH_ANIM.instantiate()
-	death.position=enemy.position
 	enemy.get_parent().call_deferred( "add_child", death )
+	death.global_position=enemy.global_position
 	await get_tree().create_timer(0.2).timeout
 	drop_items()
 	enemy.queue_free()

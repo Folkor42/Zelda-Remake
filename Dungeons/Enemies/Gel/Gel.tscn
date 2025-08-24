@@ -102,7 +102,7 @@ region_rect = Rect2(0, 0, 78, 228)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_t1nax")
+&"": SubResource("AnimationLibrary_t1nax")
 }
 autoplay = "move"
 
