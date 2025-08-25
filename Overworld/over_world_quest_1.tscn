@@ -5309,6 +5309,16 @@ position = Vector2(1904, -296)
 level = "uid://dwg4s5lhhfc0x"
 side = 3
 
+[node name="Cave-ShopG" parent="Caves" instance=ExtResource("4_e5f6w")]
+position = Vector2(1744, -392)
+level = "res://Overworld/Cave-ShopG.tscn"
+side = 3
+
+[node name="Cave-ShopH" parent="Caves" instance=ExtResource("4_e5f6w")]
+position = Vector2(2096, -120)
+level = "res://Overworld/Cave-ShopH.tscn"
+side = 3
+
 [node name="Cave-MoneyA" parent="Caves" instance=ExtResource("4_e5f6w")]
 position = Vector2(120, -112)
 level = "res://Overworld/Cave-MoneyA.tscn"
@@ -5348,6 +5358,12 @@ side = 0
 [node name="Cave-MoneyG" parent="Caves" instance=ExtResource("4_e5f6w")]
 position = Vector2(967, -32)
 level = "res://Overworld/Cave-MoneyG.tscn"
+center_player = true
+side = 0
+
+[node name="Cave-MoneyH" parent="Caves" instance=ExtResource("4_e5f6w")]
+position = Vector2(1192, -16)
+level = "res://Overworld/Cave-MoneyH.tscn"
 center_player = true
 side = 0
 
@@ -6520,6 +6536,18 @@ position = Vector2(-152, 56)
 [node name="BombRock2" parent="Secrets" instance=ExtResource("11_c01ak")]
 position = Vector2(120, -120)
 
+[node name="BombRock3" parent="Secrets" instance=ExtResource("11_c01ak")]
+position = Vector2(1176, 56)
+
+[node name="BombRock4" parent="Secrets" instance=ExtResource("11_c01ak")]
+position = Vector2(1384, 56)
+
+[node name="BombRock5" parent="Secrets" instance=ExtResource("11_c01ak")]
+position = Vector2(1641, 56)
+
+[node name="BombRock6" parent="Secrets" instance=ExtResource("11_c01ak")]
+position = Vector2(2104, -120)
+
 [node name="BurnableTree" parent="Secrets" instance=ExtResource("13_iv2n7")]
 position = Vector2(328, 136)
 
@@ -6549,7 +6577,7 @@ position = Vector2(1704, -104)
 snes_grass = false
 
 [node name="BurnableTree10" parent="Secrets" instance=ExtResource("13_iv2n7")]
-position = Vector2(1751, -392)
+position = Vector2(1752, -392)
 snes_grass = false
 
 [node name="BurnableTree11" parent="Secrets" instance=ExtResource("13_iv2n7")]
@@ -6558,19 +6586,11 @@ snes_grass = false
 
 [node name="BurnableTree12" parent="Secrets" instance=ExtResource("13_iv2n7")]
 position = Vector2(1192, -24)
+snes_grass = false
 
-[node name="BombRock3" parent="Secrets" instance=ExtResource("11_c01ak")]
-position = Vector2(1176, 56)
-
-[node name="BombRock4" parent="Secrets" instance=ExtResource("11_c01ak")]
-position = Vector2(1384, 56)
-
-[node name="BombRock5" parent="Secrets" instance=ExtResource("11_c01ak")]
-position = Vector2(1641, 56)
-
-[node name="BombRock6" parent="Secrets" instance=ExtResource("11_c01ak")]
-visible = false
-position = Vector2(2104, -120)
+[node name="BurnableTree13" parent="Secrets" instance=ExtResource("13_iv2n7")]
+position = Vector2(1208, -456)
+snes_grass = false
 
 [node name="HealingPond" parent="." instance=ExtResource("14_jfu83")]
 position = Vector2(640, -592)

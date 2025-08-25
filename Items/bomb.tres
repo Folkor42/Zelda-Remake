@@ -15,7 +15,7 @@ region = Rect2(136, 0, 8, 14)
 
 [resource]
 script = ExtResource("2_u4x28")
-name = "Bomb"
+name = ""
 description = "Blow up things!"
 texture = SubResource("AtlasTexture_60o33")
 snes_texture = SubResource("AtlasTexture_53rur")

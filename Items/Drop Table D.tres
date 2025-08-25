@@ -9,5 +9,5 @@
 [resource]
 script = ExtResource("2_pfo2f")
 group = "D"
-drop_rate = 100
+drop_rate = 41
 drops = Array[ExtResource("1_ab81e")]([ExtResource("2_qv13u"), ExtResource("3_r0so3"), ExtResource("4_u7hal"), ExtResource("2_qv13u"), ExtResource("3_r0so3"), ExtResource("2_qv13u"), ExtResource("2_qv13u"), ExtResource("2_qv13u"), ExtResource("4_u7hal"), ExtResource("2_qv13u")])
