@@ -34,9 +34,9 @@ dungeon_camera = NodePath("DungeonCamera")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_w2bdo")]
 z_index = 1
-position = Vector2(128, 136)
+position = Vector2(640, -614)
 
-[node name="Rooms" type="Node" parent="."]
+[node name="Rooms" type="Node2D" parent="."]
 
 [node name="Room1" parent="Rooms" instance=ExtResource("23_ihdom")]
 

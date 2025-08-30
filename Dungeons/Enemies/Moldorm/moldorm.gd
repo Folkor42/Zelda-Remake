@@ -22,17 +22,10 @@ func take_damage(_hb:HurtBox):
 			last_segment.queue_free()
 		else:
 			var last_segment = segments.pop_back()
-			last_segment.queue_free()
+			if last_segment:
+				last_segment.queue_free()
 			die()
 			return
-	if get_parent().has_signal("activate"):
-		get_parent().activate.connect(activate)
-	else:
-		get_parent().get_parent().activate.connect(activate)
-	if get_parent().has_signal("deactivate"):
-		get_parent().deactivate.connect(deactivate)
-	else:
-		get_parent().get_parent().deactivate.connect(deactivate)
 
 func activate ()->void:
 	active = true
@@ -58,7 +51,15 @@ func _ready():
 			segments[i].follow_target = segments[i-1]
 		elif i == 0:
 			segments[i].follow_target = self
-			
+	if get_parent().has_signal("activate"):
+		get_parent().activate.connect(activate)
+	else:
+		get_parent().get_parent().activate.connect(activate)
+	if get_parent().has_signal("deactivate"):
+		get_parent().deactivate.connect(deactivate)
+	else:
+		get_parent().get_parent().deactivate.connect(deactivate)
+
 func _process(delta):
 	move_and_bounce(delta)
 	
@@ -85,7 +86,7 @@ func update_ray_direction():
 		
 func update_segments(delta : float):
 	for i in range(1, segments.size()):
-		var leader = segments[i - 1]
+		var leader = segments[0]
 		var follower = segments[i]
 		var to_leader = leader.global_position - follower.global_position
 		follower.global_position += to_leader.normalized() * speed * 0.8 * delta

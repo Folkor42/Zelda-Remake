@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6ke4hv20mfdc"]
+[gd_scene load_steps=12 format=3 uid="uid://b6ke4hv20mfdc"]
 
+[ext_resource type="Script" uid="uid://wchjyave2njs" path="res://Items/bombPlanted.gd" id="1_r8stn"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="2_qeaiy"]
 [ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="3_daa8f"]
 [ext_resource type="AudioStream" uid="uid://coup4lifr117a" path="res://Assets/Audio/Sounds/Sound Effect (3) - Bomb placement.wav" id="3_g1ylu"]
@@ -175,8 +176,11 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpgby"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e2ie"]
+
 [node name="BombPlanted" type="Node2D"]
 z_index = 5
+script = ExtResource("1_r8stn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_qeaiy")
@@ -185,7 +189,7 @@ region_rect = Rect2(136, 0, 8, 14)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_61m12")
+&"": SubResource("AnimationLibrary_61m12")
 }
 autoplay = "countdown"
 
@@ -208,3 +212,11 @@ texture = ExtResource("5_qdavn")
 hframes = 3
 region_enabled = true
 region_rect = Rect2(144, 176, 48, 16)
+
+[node name="BombFinder" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BombFinder"]
+shape = SubResource("RectangleShape2D_7e2ie")

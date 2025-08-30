@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="7_hpf2u"]
 [ext_resource type="Resource" uid="uid://mq2bph2hid1y" path="res://Items/heart_container.tres" id="8_thm2s"]
 [ext_resource type="PackedScene" uid="uid://dcfsharmal5w" path="res://Dungeons/trigger_door.tscn" id="9_pc4ke"]
-[ext_resource type="PackedScene" uid="uid://b1agbi1ufl4a7" path="res://Dungeons/Enemies/Moldorm/Moldorm.tscn" id="10_hpf2u"]
+[ext_resource type="PackedScene" uid="uid://cpa2fvhmedxbc" path="res://Dungeons/Enemies/Dodongo/dodongo.tscn" id="10_hpf2u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_4a41y")
@@ -285,7 +285,7 @@ direction = 1
 position = Vector2(16, 88)
 direction = 2
 
-[node name="Moldorm" parent="RemoveTrigger" instance=ExtResource("10_hpf2u")]
-position = Vector2(102, 68)
+[node name="Dodongo" parent="RemoveTrigger" instance=ExtResource("10_hpf2u")]
+position = Vector2(125, 82)
 
 [connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/ItemDropper" method="drop_item"]
