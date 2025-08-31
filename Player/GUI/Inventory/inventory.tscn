@@ -1,12 +1,16 @@
-[gd_scene load_steps=32 format=4 uid="uid://e3m87fab8sjm"]
+[gd_scene load_steps=38 format=4 uid="uid://e3m87fab8sjm"]
 
-[ext_resource type="Script" uid="uid://bkgqe1wxci4v7" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
+[ext_resource type="Script" uid="uid://43iv625m25jn" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="1_cptov"]
-[ext_resource type="Script" uid="uid://bt22kvvssvvt1" path="res://Player/GUI/Inventory/triforce_of_wisdom.gd" id="3_gkv1e"]
+[ext_resource type="Texture2D" uid="uid://dt0s1y0488h03" path="res://Assets/SpriteSheets/SNES - HUD & Pause Screen.png" id="2_g0203"]
+[ext_resource type="Script" uid="uid://dk4cu0dv2hxxm" path="res://Player/GUI/Inventory/triforce_of_wisdom.gd" id="3_gkv1e"]
+[ext_resource type="Script" uid="uid://biixo7tgjivvo" path="res://Player/GUI/Inventory/background.gd" id="3_llx3h"]
 [ext_resource type="Script" uid="uid://cd7cw40f02qpu" path="res://Player/GUI/Inventory/dungeon_map.gd" id="3_q6a2o"]
+[ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_4nv32"]
+[ext_resource type="Script" uid="uid://w5idauso0ot2" path="res://Player/GUI/Inventory/item_sprite.gd" id="5_76lvl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_us4bt"]
-atlas = ExtResource("1_cptov")
+atlas = ExtResource("2_g0203")
 region = Rect2(0, 0, 256, 96)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ols0k"]
@@ -33,7 +37,12 @@ load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Scree
 [sub_resource type="GDScript" id="GDScript_pshon"]
 script/source = "extends Sprite2D
 
+const NES_HUD : Texture = preload(\"res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png\")
+const SNES_HUD : Texture = preload(\"res://Assets/SpriteSheets/SNES - HUD & Pause Screen.png\")
+
 func _ready()->void:
+	toggle_graphics(PlayerManager.upgraded_graphics)
+	Events.toggle_graphics.connect(toggle_graphics)
 	if PlayerManager.inventory.contents.has(\"Red Potion\"):
 		print (\"Red Potion found\")
 		region_rect = Rect2(704,137,8,16)
@@ -42,6 +51,12 @@ func _ready()->void:
 		print (\"Blue Potion found\")
 	else:
 		region_rect = Rect2(0,0,0,0)
+
+func toggle_graphics( _new_value : bool )->void:
+	if _new_value:
+		texture=SNES_HUD
+	else:
+		texture=NES_HUD
 "
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhern"]
@@ -64,6 +79,15 @@ load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Scree
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jyxnx"]
 load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
+
+[sub_resource type="GDScript" id="GDScript_llx3h"]
+script/source = "extends Label
+
+func _process(_delta: float) -> void:
+	# Get the time dictionary
+	var time = Time.get_time_dict_from_system()
+	text=str(\"%02d:%02d:%02d\" % [time.hour, time.minute, time.second]) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55jyx"]
 atlas = ExtResource("1_cptov")
@@ -100,9 +124,33 @@ texture_region_size = Vector2i(8, 8)
 59:14/0 = 0
 67:14/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_llx3h"]
+texture = ExtResource("2_g0203")
+margins = Vector2i(6, 0)
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(8, 8)
+57:12/0 = 0
+58:12/0 = 0
+59:12/0 = 0
+60:12/0 = 0
+61:12/0 = 0
+62:12/0 = 0
+63:12/0 = 0
+64:12/0 = 0
+65:12/0 = 0
+66:12/0 = 0
+67:12/0 = 0
+68:12/0 = 0
+69:12/0 = 0
+70:12/0 = 0
+71:12/0 = 0
+72:12/0 = 0
+48:15/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_8g1ja"]
 tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_7age1")
+sources/1 = SubResource("TileSetAtlasSource_llx3h")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abo5a"]
 atlas = ExtResource("1_cptov")
@@ -219,6 +267,7 @@ theme_override_constants/separation = 0
 [node name="ItemsBackground" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_us4bt")
+script = ExtResource("3_llx3h")
 
 [node name="Control" type="Control" parent="VBoxContainer/ItemsBackground"]
 layout_mode = 1
@@ -241,6 +290,7 @@ position = Vector2(8, 8)
 texture = ExtResource("1_cptov")
 region_enabled = true
 region_rect = Rect2(584, 137, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="Button2" type="Button" parent="VBoxContainer/ItemsBackground/Control"]
 layout_mode = 0
@@ -254,7 +304,8 @@ flat = true
 position = Vector2(8, 8)
 texture = SubResource("CompressedTexture2D_ols0k")
 region_enabled = true
-region_rect = Rect2(604, 137, 8, 16)
+region_rect = Rect2(602, 137, 12, 16)
+script = ExtResource("5_76lvl")
 
 [node name="Button3" type="Button" parent="VBoxContainer/ItemsBackground/Control"]
 layout_mode = 0
@@ -269,12 +320,14 @@ position = Vector2(4, 8)
 texture = SubResource("CompressedTexture2D_frxmw")
 region_enabled = true
 region_rect = Rect2(615, 137, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="BowSprite" type="Sprite2D" parent="VBoxContainer/ItemsBackground/Control/Button3"]
 position = Vector2(12, 8)
 texture = SubResource("CompressedTexture2D_qboup")
 region_enabled = true
 region_rect = Rect2(633, 137, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="Button4" type="Button" parent="VBoxContainer/ItemsBackground/Control"]
 layout_mode = 0
@@ -289,6 +342,7 @@ position = Vector2(8, 8)
 texture = SubResource("CompressedTexture2D_jafsc")
 region_enabled = true
 region_rect = Rect2(644, 137, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="Button5" type="Button" parent="VBoxContainer/ItemsBackground/Control"]
 layout_mode = 0
@@ -303,6 +357,7 @@ position = Vector2(8, 8)
 texture = SubResource("CompressedTexture2D_5mdun")
 region_enabled = true
 region_rect = Rect2(664, 137, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="Button6" type="Button" parent="VBoxContainer/ItemsBackground/Control"]
 layout_mode = 0
@@ -317,6 +372,7 @@ position = Vector2(8, 8)
 texture = SubResource("CompressedTexture2D_u8xte")
 region_enabled = true
 region_rect = Rect2(675, 137, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="Button7" type="Button" parent="VBoxContainer/ItemsBackground/Control"]
 layout_mode = 0
@@ -346,52 +402,75 @@ position = Vector2(8, 8)
 texture = SubResource("CompressedTexture2D_qhern")
 region_enabled = true
 region_rect = Rect2(715, 137, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="SelectedItemSprite" type="Sprite2D" parent="VBoxContainer/ItemsBackground/Control"]
 position = Vector2(72, 61)
 texture = SubResource("CompressedTexture2D_0vbgh")
 region_enabled = true
 region_rect = Rect2(584, 137, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="RaftSprite" type="Sprite2D" parent="VBoxContainer/ItemsBackground/Control"]
 position = Vector2(136, 35)
 texture = ExtResource("1_cptov")
 region_enabled = true
 region_rect = Rect2(519, 156, 16, 16)
+script = ExtResource("5_76lvl")
 
 [node name="MagicBookSprite" type="Sprite2D" parent="VBoxContainer/ItemsBackground/Control"]
 position = Vector2(156, 35)
 texture = SubResource("CompressedTexture2D_yw881")
 region_enabled = true
 region_rect = Rect2(538, 156, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="RingSprite" type="Sprite2D" parent="VBoxContainer/ItemsBackground/Control"]
 position = Vector2(168, 35)
 texture = SubResource("CompressedTexture2D_2f3qh")
 region_enabled = true
 region_rect = Rect2(549, 156, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="LadderSprite" type="Sprite2D" parent="VBoxContainer/ItemsBackground/Control"]
 position = Vector2(184, 35)
 texture = SubResource("CompressedTexture2D_pgco5")
 region_enabled = true
 region_rect = Rect2(560, 156, 16, 16)
+script = ExtResource("5_76lvl")
 
 [node name="MasterKeySprite" type="Sprite2D" parent="VBoxContainer/ItemsBackground/Control"]
 position = Vector2(200, 35)
 texture = SubResource("CompressedTexture2D_rcwe7")
 region_enabled = true
 region_rect = Rect2(579, 156, 8, 16)
+script = ExtResource("5_76lvl")
 
 [node name="PowerBraceletSprite" type="Sprite2D" parent="VBoxContainer/ItemsBackground/Control"]
 position = Vector2(212, 36)
 texture = SubResource("CompressedTexture2D_jyxnx")
 region_enabled = true
 region_rect = Rect2(590, 156, 8, 16)
+script = ExtResource("5_76lvl")
+
+[node name="Clock" type="Label" parent="VBoxContainer/ItemsBackground/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 3.0
+offset_right = -8.0
+offset_bottom = 26.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("4_4nv32")
+text = "12:38:40"
+script = SubResource("GDScript_llx3h")
 
 [node name="MapBackground" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_55jyx")
+script = ExtResource("3_llx3h")
 
 [node name="EagleDungeon" type="Control" parent="VBoxContainer/MapBackground"]
 layout_mode = 1
@@ -414,22 +493,34 @@ texture = SubResource("CompressedTexture2D_c3gdr")
 region_enabled = true
 region_rect = Rect2(614, 158, 11, 12)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="VBoxContainer/MapBackground/EagleDungeon"]
+[node name="NESTileMapLayer" type="TileMapLayer" parent="VBoxContainer/MapBackground/EagleDungeon"]
 position = Vector2(128, 8)
 tile_map_data = PackedByteArray("AAADAAcAAABIAAwAAAACAAcAAAA6AAwAAAAEAAcAAAA7AAwAAAADAAYAAABFAAwAAAADAAUAAABAAAwAAAAEAAUAAAA7AAwAAAACAAUAAABCAAwAAAACAAQAAABAAAwAAAABAAQAAAA6AAwAAAADAAQAAABEAAwAAAAEAAQAAAA8AAwAAAAFAAQAAABDAAwAAAAFAAMAAAA+AAwAAAAGAAMAAAA7AAwAAAADAAMAAABFAAwAAAADAAIAAAA/AAwAAAACAAIAAAA6AAwAAAAAAAAAAABBAAsAAAAAAAEAAABBAAsAAAAAAAIAAABBAAsAAAAAAAMAAABBAAsAAAAAAAQAAABBAAsAAAAAAAUAAABBAAsAAAAAAAYAAABBAAsAAAAAAAcAAABBAAsAAAABAAUAAABBAAsAAAABAAYAAABBAAsAAAABAAcAAABBAAsAAAACAAYAAABBAAsAAAAEAAYAAABBAAsAAAAFAAYAAABBAAsAAAAGAAYAAABBAAsAAAAHAAYAAABBAAsAAAAFAAcAAABBAAsAAAAGAAcAAABBAAsAAAAHAAcAAABBAAsAAAAFAAUAAABBAAsAAAAGAAUAAABBAAsAAAAHAAUAAABBAAsAAAAGAAQAAABBAAsAAAAHAAQAAABBAAsAAAAHAAAAAABBAAsAAAAHAAEAAABBAAsAAAAHAAIAAABBAAsAAAAHAAMAAABBAAsAAAAEAAAAAABBAAsAAAAEAAEAAABBAAsAAAAEAAIAAABBAAsAAAAFAAAAAABBAAsAAAAFAAEAAABBAAsAAAAFAAIAAABBAAsAAAAGAAAAAABBAAsAAAAGAAEAAABBAAsAAAAGAAIAAABBAAsAAAAEAAMAAABBAAsAAAABAAAAAABBAAsAAAABAAEAAABBAAsAAAACAAAAAABBAAsAAAACAAEAAABBAAsAAAADAAAAAABBAAsAAAADAAEAAABBAAsAAAABAAIAAABBAAsAAAABAAMAAABBAAsAAAACAAMAAABBAAsAAAA=")
 tile_set = SubResource("TileSet_8g1ja")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="VBoxContainer/MapBackground/EagleDungeon"]
+[node name="NESTileMapLayerCover" type="TileMapLayer" parent="VBoxContainer/MapBackground/EagleDungeon"]
 position = Vector2(128, 8)
 tile_map_data = PackedByteArray("AAADAAcAAABBAAsAAAACAAcAAABBAAsAAAAEAAcAAABBAAsAAAADAAYAAABBAAsAAAADAAUAAABBAAsAAAAEAAUAAABBAAsAAAACAAUAAABBAAsAAAACAAQAAABBAAsAAAABAAQAAABBAAsAAAADAAQAAABBAAsAAAAEAAQAAABBAAsAAAAFAAQAAABBAAsAAAAFAAMAAABBAAsAAAAGAAMAAABBAAsAAAADAAMAAABBAAsAAAADAAIAAABBAAsAAAACAAIAAABBAAsAAAAAAAAAAABBAAsAAAAAAAEAAABBAAsAAAAAAAIAAABBAAsAAAAAAAMAAABBAAsAAAAAAAQAAABBAAsAAAAAAAUAAABBAAsAAAAAAAYAAABBAAsAAAAAAAcAAABBAAsAAAABAAUAAABBAAsAAAABAAYAAABBAAsAAAABAAcAAABBAAsAAAACAAYAAABBAAsAAAAEAAYAAABBAAsAAAAFAAYAAABBAAsAAAAGAAYAAABBAAsAAAAHAAYAAABBAAsAAAAFAAcAAABBAAsAAAAGAAcAAABBAAsAAAAHAAcAAABBAAsAAAAFAAUAAABBAAsAAAAGAAUAAABBAAsAAAAHAAUAAABBAAsAAAAGAAQAAABBAAsAAAAHAAQAAABBAAsAAAAHAAAAAABBAAsAAAAHAAEAAABBAAsAAAAHAAIAAABBAAsAAAAHAAMAAABBAAsAAAAEAAAAAABBAAsAAAAEAAEAAABBAAsAAAAEAAIAAABBAAsAAAAFAAAAAABBAAsAAAAFAAEAAABBAAsAAAAFAAIAAABBAAsAAAAGAAAAAABBAAsAAAAGAAEAAABBAAsAAAAGAAIAAABBAAsAAAAEAAMAAABBAAsAAAABAAAAAABBAAsAAAABAAEAAABBAAsAAAACAAAAAABBAAsAAAACAAEAAABBAAsAAAADAAAAAABBAAsAAAADAAEAAABBAAsAAAABAAIAAABBAAsAAAABAAMAAABBAAsAAAACAAMAAABBAAsAAAAIAAAAAABBAAsAAAAIAAEAAABBAAsAAAAIAAIAAABBAAsAAAAIAAMAAABBAAsAAAAIAAQAAABBAAsAAAAIAAUAAABBAAsAAAAIAAYAAABBAAsAAAAIAAcAAABBAAsAAAA=")
 tile_set = SubResource("TileSet_8g1ja")
 
-[node name="TriforceBackground" type="TextureRect" parent="VBoxContainer"]
+[node name="SNESTileMapLayer" type="TileMapLayer" parent="VBoxContainer/MapBackground/EagleDungeon"]
+position = Vector2(128, 8)
+tile_map_data = PackedByteArray("AAADAAcAAQBIAAwAAAACAAcAAQA6AAwAAAAEAAcAAQA7AAwAAAADAAYAAQBFAAwAAAADAAUAAQBAAAwAAAAEAAUAAQA7AAwAAAACAAUAAQBCAAwAAAACAAQAAQBAAAwAAAABAAQAAQA6AAwAAAADAAQAAQBEAAwAAAAEAAQAAQA8AAwAAAAFAAQAAQBDAAwAAAAFAAMAAQA+AAwAAAAGAAMAAQA7AAwAAAADAAMAAQBFAAwAAAADAAIAAQA/AAwAAAACAAIAAQA6AAwAAAAAAAAAAQAwAA8AAAAAAAEAAQAwAA8AAAAAAAIAAQAwAA8AAAAAAAMAAQAwAA8AAAAAAAQAAQAwAA8AAAAAAAUAAQAwAA8AAAAAAAYAAQAwAA8AAAAAAAcAAQAwAA8AAAABAAUAAQAwAA8AAAABAAYAAQAwAA8AAAABAAcAAQAwAA8AAAACAAYAAQAwAA8AAAAEAAYAAQAwAA8AAAAFAAYAAQAwAA8AAAAGAAYAAQAwAA8AAAAHAAYAAQAwAA8AAAAFAAcAAQAwAA8AAAAGAAcAAQAwAA8AAAAHAAcAAQAwAA8AAAAFAAUAAQAwAA8AAAAGAAUAAQAwAA8AAAAHAAUAAQAwAA8AAAAGAAQAAQAwAA8AAAAHAAQAAQAwAA8AAAAHAAAAAQAwAA8AAAAHAAEAAQAwAA8AAAAHAAIAAQAwAA8AAAAHAAMAAQAwAA8AAAAEAAAAAQAwAA8AAAAEAAEAAQAwAA8AAAAEAAIAAQAwAA8AAAAFAAAAAQAwAA8AAAAFAAEAAQAwAA8AAAAFAAIAAQAwAA8AAAAGAAAAAQAwAA8AAAAGAAEAAQAwAA8AAAAGAAIAAQAwAA8AAAAEAAMAAQAwAA8AAAABAAAAAQAwAA8AAAABAAEAAQAwAA8AAAACAAAAAQAwAA8AAAACAAEAAQAwAA8AAAADAAAAAQAwAA8AAAADAAEAAQAwAA8AAAABAAIAAQAwAA8AAAABAAMAAQAwAA8AAAACAAMAAQAwAA8AAAAIAAAAAQAwAA8AAAAIAAEAAQAwAA8AAAAIAAIAAQAwAA8AAAAIAAMAAQAwAA8AAAAIAAQAAQAwAA8AAAAIAAUAAQAwAA8AAAAIAAYAAQAwAA8AAAAIAAcAAQAwAA8AAAD//wQAAQAwAA8AAAD//wUAAQAwAA8AAAD//wYAAQAwAA8AAAD//wcAAQAwAA8AAAD//wAAAQAwAA8AAAD//wEAAQAwAA8AAAD//wIAAQAwAA8AAAD//wMAAQAwAA8AAAA=")
+tile_set = SubResource("TileSet_8g1ja")
+
+[node name="SNESTileMapLayerCover" type="TileMapLayer" parent="VBoxContainer/MapBackground/EagleDungeon"]
 visible = false
+position = Vector2(128, 8)
+tile_map_data = PackedByteArray("AAADAAcAAQAwAA8AAAACAAcAAQAwAA8AAAAEAAcAAQAwAA8AAAADAAYAAQAwAA8AAAADAAUAAQAwAA8AAAAEAAUAAQAwAA8AAAACAAUAAQAwAA8AAAACAAQAAQAwAA8AAAABAAQAAQAwAA8AAAADAAQAAQAwAA8AAAAEAAQAAQAwAA8AAAAFAAQAAQAwAA8AAAAFAAMAAQAwAA8AAAAGAAMAAQAwAA8AAAADAAMAAQAwAA8AAAADAAIAAQAwAA8AAAACAAIAAQAwAA8AAAAAAAAAAQAwAA8AAAAAAAEAAQAwAA8AAAAAAAIAAQAwAA8AAAAAAAMAAQAwAA8AAAAAAAQAAQAwAA8AAAAAAAUAAQAwAA8AAAAAAAYAAQAwAA8AAAAAAAcAAQAwAA8AAAABAAUAAQAwAA8AAAABAAYAAQAwAA8AAAABAAcAAQAwAA8AAAACAAYAAQAwAA8AAAAEAAYAAQAwAA8AAAAFAAYAAQAwAA8AAAAGAAYAAQAwAA8AAAAHAAYAAQAwAA8AAAAFAAcAAQAwAA8AAAAGAAcAAQAwAA8AAAAHAAcAAQAwAA8AAAAFAAUAAQAwAA8AAAAGAAUAAQAwAA8AAAAHAAUAAQAwAA8AAAAGAAQAAQAwAA8AAAAHAAQAAQAwAA8AAAAHAAAAAQAwAA8AAAAHAAEAAQAwAA8AAAAHAAIAAQAwAA8AAAAHAAMAAQAwAA8AAAAEAAAAAQAwAA8AAAAEAAEAAQAwAA8AAAAEAAIAAQAwAA8AAAAFAAAAAQAwAA8AAAAFAAEAAQAwAA8AAAAFAAIAAQAwAA8AAAAGAAAAAQAwAA8AAAAGAAEAAQAwAA8AAAAGAAIAAQAwAA8AAAAEAAMAAQAwAA8AAAABAAAAAQAwAA8AAAABAAEAAQAwAA8AAAACAAAAAQAwAA8AAAACAAEAAQAwAA8AAAADAAAAAQAwAA8AAAADAAEAAQAwAA8AAAABAAIAAQAwAA8AAAABAAMAAQAwAA8AAAACAAMAAQAwAA8AAAAIAAAAAQAwAA8AAAAIAAEAAQAwAA8AAAAIAAIAAQAwAA8AAAAIAAMAAQAwAA8AAAAIAAQAAQAwAA8AAAAIAAUAAQAwAA8AAAAIAAYAAQAwAA8AAAAIAAcAAQAwAA8AAAA=")
+tile_set = SubResource("TileSet_8g1ja")
+
+[node name="TriforceBackground" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_abo5a")
+script = ExtResource("3_llx3h")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TriforceBackground"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

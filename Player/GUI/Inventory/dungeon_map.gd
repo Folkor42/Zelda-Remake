@@ -2,9 +2,16 @@ extends Control
 
 @onready var map_pickup_sprite: Sprite2D = $MapPickupSprite
 @onready var compass_pickup_sprite: Sprite2D = $CompassPickupSprite
-@onready var tile_map_layer: TileMapLayer = $TileMapLayer2
+@onready var nes_tile_map_layer: TileMapLayer = $NESTileMapLayer
+@onready var nes_tile_map_layer_cover: TileMapLayer = $NESTileMapLayerCover
+@onready var snes_tile_map_layer: TileMapLayer = $SNESTileMapLayer
+@onready var snes_tile_map_layer_cover: TileMapLayer = $SNESTileMapLayerCover
+
+var tile_map_layer : TileMapLayer
 
 func _ready() -> void:
+	toggle_graphics(PlayerManager.upgraded_graphics)
+	Events.toggle_graphics.connect(toggle_graphics)
 	if PlayerManager.inventory.contents.has("Map"):
 		map_pickup_sprite.visible=true
 		tile_map_layer.visible=false
@@ -58,3 +65,17 @@ func _input(event):
 
 		# Tried to force an update to ensure changes are rendered
 		tile_map_layer.update_internals()
+
+func toggle_graphics( _new_value : bool )->void:
+	if _new_value:
+		tile_map_layer=snes_tile_map_layer_cover
+		snes_tile_map_layer.visible=true
+		snes_tile_map_layer_cover.visible=true
+		nes_tile_map_layer.visible=false
+		nes_tile_map_layer_cover.visible=false
+	else:
+		tile_map_layer=nes_tile_map_layer_cover
+		snes_tile_map_layer.visible=false
+		snes_tile_map_layer_cover.visible=false
+		nes_tile_map_layer.visible=true
+		nes_tile_map_layer_cover.visible=true

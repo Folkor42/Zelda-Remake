@@ -19,6 +19,7 @@ var grid = []
 var grid_width = 8
 var grid_height = 8
 var in_dungeon: bool = false
+var dungeon_name : String = ""
 var time_played : float = 0.0
 var upgraded_graphics : bool = true
 
