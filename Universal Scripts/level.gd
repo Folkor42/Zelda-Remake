@@ -4,6 +4,7 @@ class_name Level extends Node2D
 @export var music : AudioStream
 @export var dungeon_camera: Camera2D
 @export var dungeon_name : String = "01 - Eagle"
+@export var in_dungeon : bool = false
 
 var scene : String
 
@@ -17,7 +18,7 @@ func _ready():
 	scene = get_tree().current_scene.scene_file_path
 	#check_for_previous_drops()
 	LevelManager.level_loaded.connect(level_ready)
-	PlayerManager.in_dungeon = true
+	PlayerManager.in_dungeon = in_dungeon
 	PlayerManager.dungeon_name = dungeon_name
 	Events.dungeon_entered.emit(dungeon_name)
 	pass

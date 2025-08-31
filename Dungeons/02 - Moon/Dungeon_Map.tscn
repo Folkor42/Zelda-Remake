@@ -32,6 +32,7 @@ script = ExtResource("1_1wrd3")
 music = ExtResource("2_bwojh")
 dungeon_camera = NodePath("DungeonCamera")
 dungeon_name = "02 - Moon"
+in_dungeon = true
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_w2bdo")]
 z_index = 1
