@@ -90,7 +90,7 @@ func _process(_delta: float) -> void:
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55jyx"]
-atlas = ExtResource("1_cptov")
+atlas = ExtResource("2_g0203")
 region = Rect2(258, 112, 256, 88)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0avk"]

@@ -209,3 +209,4 @@ autoplay = "wave1"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_bobn0")
 autoplay = true
+bus = &"Music"

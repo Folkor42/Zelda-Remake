@@ -5224,7 +5224,7 @@ _data = {
 [node name="Cave-SwordA" type="Node2D" node_paths=PackedStringArray("dungeon_camera")]
 script = ExtResource("1_51a3b")
 dungeon_camera = NodePath("Camera2D")
-dungeon_name = "02 - Moon"
+dungeon_name = "01 - Eagle"
 in_dungeon = true
 
 [node name="OverWorldMapTiles" parent="." instance=ExtResource("1_aftb8")]

@@ -30,6 +30,7 @@
 script = ExtResource("1_gev80")
 music = ExtResource("20_bhtn0")
 dungeon_camera = NodePath("DungeonCamera")
+dungeon_name = "01 - Eagle"
 in_dungeon = true
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("20_acy5b")]

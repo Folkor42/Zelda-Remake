@@ -16,7 +16,7 @@ func update_hud_map(dungeon_name)->void:
 	if dungeon_name == "01 - Eagle":
 		player_map = EAGLE_MAP.instantiate()
 		add_child(player_map)
-	else:
+	elif dungeon_name == "02 - Moon":
 		player_map = MOON_MAP.instantiate()
 		add_child(player_map)
 	pass

@@ -3,7 +3,7 @@ class_name Level extends Node2D
 #const PICKUP = preload("res://Items/Item_pickup/item_pickup.tscn")
 @export var music : AudioStream
 @export var dungeon_camera: Camera2D
-@export var dungeon_name : String = "01 - Eagle"
+@export var dungeon_name : String = ""
 @export var in_dungeon : bool = false
 
 var scene : String

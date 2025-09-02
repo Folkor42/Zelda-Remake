@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://ca5ikq44abhqv"]
+
+[ext_resource type="Script" uid="uid://bq3tughjlrxkt" path="res://Items/Item Effects/item_effect.gd" id="1_d2slc"]
+[ext_resource type="Script" uid="uid://cyaa0n3ef72cf" path="res://Items/item_data.gd" id="2_cahy6"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_48cov"]
+[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="4_08yrf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o2e2"]
+atlas = ExtResource("3_48cov")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vggew"]
+atlas = ExtResource("4_08yrf")
+region = Rect2(88, 0, 8, 16)
+
+[resource]
+script = ExtResource("2_cahy6")
+name = "MoonMap"
+description = ""
+texture = SubResource("AtlasTexture_vggew")
+snes_texture = SubResource("AtlasTexture_1o2e2")
+value = 0
+effects = Array[ExtResource("1_d2slc")]([])
+animated = false
+h_frames = 1
+v_frames = 1
+frames = 1

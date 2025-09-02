@@ -155,34 +155,6 @@ func load_game() -> void:
 	PlayerManager.player.revive_player("res://Overworld/over_world_quest_1.tscn")
 	pass
 	
-#func title_screen() -> void:
-	#play_audio( button_select_audio )
-	#await fade_to_black()
-	#LevelManager.load_new_level("res://scenes/Title Screen.tscn","",Vector2.ZERO)	
-	#pass
-
-#func fade_to_black() -> bool:
-	#animation_player.play("fade_to_black")
-	#await animation_player.animation_finished
-	#PlayerManager.player.revive_player()
-	#
-	#return true
-
-#func hide_boss_health () -> void:
-	#boss_ui.visible=false
-	#pass
-
-#func show_boss_health ( boss_name : String, boss_hp : int ) -> void:
-	#boss_label.text=boss_name
-	#boss_hp__bar.max_value=boss_hp
-	#update_boss_health(boss_hp,boss_hp)
-	#boss_ui.visible=true
-	#pass
-
-#func update_boss_health( hp : int, max_hp : int ) -> void:
-	#boss_hp__bar.value=clampi(hp,0,max_hp)
-	#pass
-
 func _unhandled_input(_event):
 	#if _event.is_action_pressed("test"):
 		#PlayerManager.shake_camera()
