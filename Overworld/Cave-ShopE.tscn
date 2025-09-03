@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_5euc3"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_rqttp"]
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="3_mgb30"]
-[ext_resource type="Script" uid="uid://b2d5c3hlu1tmk" path="res://Overworld/snes_tiles.gd" id="4_i0msp"]
+[ext_resource type="Script" uid="uid://c6maa44yhqx14" path="res://Overworld/snes_tiles.gd" id="4_i0msp"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="5_0m15t"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="6_36mvv"]
 [ext_resource type="PackedScene" uid="uid://d1v3t4s83ym6t" path="res://NPCs/old_woman.tscn" id="7_lq4s6"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bxhw0ins77nc7" path="res://Items/item_buy.tscn" id="10_c8cil"]
 [ext_resource type="Resource" uid="uid://crv3ixmnjghew" path="res://Items/blue_potion.tres" id="11_thsc7"]
 [ext_resource type="Resource" uid="uid://6mo6hhvcdohj" path="res://Items/red_potion.tres" id="12_gdtet"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="13_2wich"]
+[ext_resource type="PackedScene" uid="uid://ckjmootgmthq3" path="res://Overworld/shopping_ruby_sprite.tscn" id="13_5euc3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7v3pw"]
 texture = ExtResource("3_mgb30")
@@ -5277,12 +5277,6 @@ item_data = ExtResource("11_thsc7")
 position = Vector2(146, 90)
 item_data = ExtResource("12_gdtet")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(65, 104)
-texture = ExtResource("13_2wich")
-region_enabled = true
-region_rect = Rect2(72, 0, 8, 16)
-
 [node name="Label2" type="Label" parent="."]
 offset_left = 75.0
 offset_top = 96.0
@@ -5291,3 +5285,6 @@ offset_bottom = 119.0
 theme_override_fonts/font = ExtResource("6_36mvv")
 theme_override_font_sizes/font_size = 16
 text = "x"
+
+[node name="Sprite2D" parent="." instance=ExtResource("13_5euc3")]
+position = Vector2(66, 104)

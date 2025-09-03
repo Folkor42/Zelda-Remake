@@ -33,12 +33,12 @@ func add_item ( item : ItemData, count : int = 1 ) -> bool:
 		contents[item.name]=count
 	if item.name == "Wooden Sword" or item.name == "White Sword" or item.name == "Magic Sword" :
 		PlayerManager.update_sword (item.name)
-	print (contents)
+	#print (contents)
 	return true
 	
 func use_potion ( _item : ItemData, _count : int = 1 ) -> bool:
 	if contents.has(_item.name):
-		print ("Found: " + _item.name)
+		#print ("Found: " + _item.name)
 		if _item.name == "Red Potion":
 			add_item(load("res://Items/blue_potion.tres"))
 		contents.erase(_item.name)

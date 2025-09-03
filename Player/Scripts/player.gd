@@ -184,9 +184,9 @@ func SetShader_BlinkIntensity( newvalue : float) -> void:
 	#pass
 
 func remove_camera()->void:
-	print ("Removing Cameras")
+	#print ("Removing Cameras")
 	for c in get_children():
-		print(c)
+		#print(c)
 		if c is Camera2D:
 			c.queue_free()
 			

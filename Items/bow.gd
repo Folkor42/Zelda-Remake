@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 func shoot_arrow()->void:
 	if PlayerManager.rubies < 1:
-		print ("You have no money to shoot!")
+		#print ("You have no money to shoot!")
 		return
 	# We have "arrows"
 	PlayerManager.update_rubies(-1)

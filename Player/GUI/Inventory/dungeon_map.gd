@@ -64,7 +64,7 @@ func _input(event):
 
 		# Set the tile at the tile_position in the TileMapLayer
 		var source_id = tile_map_layer.get_cell_source_id(tile_position)
-		print("Tile source ID at position ", tile_position, ": ", source_id)
+		#print("Tile source ID at position ", tile_position, ": ", source_id)
 
 		tile_map_layer.set_cell(tile_position, source_id, Vector2i(0, 5), 0)
 

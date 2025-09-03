@@ -27,7 +27,7 @@ func _on_enemy_destroyed ( _hurt_box : HurtBox ) -> void:
 
 func drop_carried()->bool:
 	for i in enemy.get_children():
-		print (i)
+		#print (i)
 		if i is ItemDropper:
 			i.reparent(enemy.get_parent(),true)
 			return true
@@ -35,14 +35,14 @@ func drop_carried()->bool:
 		
 func drop_items() -> void:
 	if drop_carried():
-		print("DROPPED")
+		#print("DROPPED")
 		return
 	var turn_drop = drop_table.get_drop(PlayerManager.kill_count)
 	PlayerManager.increase_kill_counter()
 	if turn_drop:
 		var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
 		drop.item_data = turn_drop
-		print (drop.item_data.name)
+		#print (drop.item_data.name)
 		enemy.get_parent().add_child( drop )
 		drop.global_position = enemy.global_position
 		drop.velocity = enemy.velocity.rotated( randf_range(-1.5, 1.5) ) * randf_range( 0.9, 1.5)

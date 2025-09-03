@@ -11,7 +11,7 @@ func init () -> void:
 
 func Enter() -> void:
 	next_state = null
-	print ("PICKING UP STATE")
+	#print ("PICKING UP STATE")
 	animation_player.play("pickup")
 	await animation_player.animation_finished
 	next_state = idle

@@ -38,21 +38,21 @@ func physics( _delta : float ) -> EnemyState:
 		if player_detector_down.get_collider() is Player:
 			enemy.update_wall_check_direction(Vector2.DOWN)
 			enemy.current_direction=Vector2.DOWN
-			print ("Player DOWN")
+			#print ("Player DOWN")
 			return charge
 	if player_detector_up.is_colliding():
 		enemy.update_wall_check_direction(Vector2.UP)
 		enemy.current_direction=Vector2.UP
-		print ("Player UP")
+		#print ("Player UP")
 		return charge
 	if player_detector_right.is_colliding():
 		enemy.update_wall_check_direction(Vector2.RIGHT)
 		enemy.current_direction=Vector2.RIGHT
-		print ("Player RIGHT")
+		#print ("Player RIGHT")
 		return charge
 	if player_detector_left.is_colliding():
 		enemy.update_wall_check_direction(Vector2.LEFT)
 		enemy.current_direction=Vector2.LEFT
-		print ("Player LEFT")
+		#print ("Player LEFT")
 		return charge
 	return null

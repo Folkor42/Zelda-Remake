@@ -27,12 +27,12 @@ func _ready() -> void:
 
 func check_for_purchase( _b )->void:
 	if PlayerManager.rubies - -cost < 0:
-		print ("You don't have enough Money")
+		#print ("You don't have enough Money")
 		broke.emit()
 	else:
 		selected.emit()
 		PlayerManager.update_rubies(cost)
-		print ("You won: " + str(result))
+		#print ("You won: " + str(result))
 		PlayerManager.update_rubies(result)
 		#drop_item()
 
@@ -67,7 +67,7 @@ func _update_cost() -> void:
 	pass
 
 func _update_result() -> void:
-	print ("Updating Results")
+	#print ("Updating Results")
 	cost_label.text = str(result)
 	area_2d.body_entered.disconnect ( check_for_purchase )
 	pass

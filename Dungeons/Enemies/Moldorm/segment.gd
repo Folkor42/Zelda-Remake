@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _process(delta):
 	if follow_target == null:
-		print("No follow")
+		#print("No follow")
 		return
 
 	var to_target = follow_target.global_position - global_position

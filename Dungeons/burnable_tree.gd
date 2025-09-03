@@ -15,7 +15,7 @@ func _ready() -> void:
 	toggle_graphics(PlayerManager.upgraded_graphics)
 
 func unlock_door(_b)->void:
-	print ("BOOM!")
+	#print ("BOOM!")
 	opened.set_value()	
 	Events.secret_found()
 	queue_free()

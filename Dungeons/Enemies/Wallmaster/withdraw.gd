@@ -8,7 +8,7 @@ var waiting : bool = false
 
 func enter() -> void:
 	waiting=false
-	print ("Withdrawing")
+	#print ("Withdrawing")
 	if enemy.wall == 0:
 		enemy.current_direction=Vector2.DOWN
 	elif enemy.wall == 1:
@@ -37,7 +37,7 @@ func physics( _delta : float ) -> EnemyState:
 func wait() -> void:
 	waiting = true
 	enemy.velocity=Vector2.ZERO
-	print("Withinwall")
+	#print("Withinwall")
 	await get_tree().create_timer(1).timeout
 	next_state = move_state
 	waiting=false

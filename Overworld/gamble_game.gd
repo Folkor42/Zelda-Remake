@@ -28,7 +28,7 @@ func _ready() -> void:
 	item_bet_3.broke.connect (too_broke)
 
 func show_results()->void:
-	print ("Showing Results")
+	#print ("Showing Results")
 	item_bet_1._update_result()
 	item_bet_2._update_result()
 	item_bet_3._update_result()

@@ -54,7 +54,7 @@ func _set_item_data ( value : ItemData ) -> void:
 func _on_area_entered ( a ) -> void:
 	if a is Boomerang:
 		if item_data:
-			print ("Attempting to pick up with a flying drone!")
+			#print ("Attempting to pick up with a flying drone!")
 			if PlayerManager.inventory.add_item ( item_data ) == true:
 				item_picked_up( item_data.name )
 				area_2d.area_entered.disconnect( _on_area_entered )
@@ -64,7 +64,7 @@ func _on_area_entered ( a ) -> void:
 func _on_body_entered ( b ) -> void:
 	if b is Player:
 		if item_data:
-			print ("Picking up!")
+			#print ("Picking up!")
 			if PlayerManager.inventory.add_item ( item_data ) == true:
 				item_picked_up( item_data.name )
 				area_2d.body_entered.disconnect( _on_body_entered )
@@ -99,13 +99,13 @@ func _update_texture() -> void:
 		if item_data.animated:
 			sprite_2d.hframes=item_data.h_frames
 			sprite_2d.vframes=item_data.v_frames
-			print("Animated")
+			#print("Animated")
 		sprite_2d.texture = item_data.texture
 	elif item_data and sprite_2d and PlayerManager.upgraded_graphics == true:
 		if item_data.animated:
 			sprite_2d.hframes=item_data.h_frames
 			sprite_2d.vframes=item_data.v_frames
-			print("Animated")
+			#print("Animated")
 		sprite_2d.texture = item_data.snes_texture
 	pass
 

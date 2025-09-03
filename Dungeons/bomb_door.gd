@@ -29,6 +29,6 @@ func _ready() -> void:
 		snes.region_rect = Rect2(1040,96,32,32)
 
 func unlock_door(_b)->void:
-	print ("BOOM!")
+	#print ("BOOM!")
 	unlocked.emit()
 	queue_free()

@@ -21,23 +21,23 @@ func player_entered()->void:
 	if item_count <=0:
 		cleared.emit()
 		return
-	print (item_count)
+	#print (item_count)
 
 	child_exiting_tree.connect( on_enemy_destroyed )
-	print (enemy_count())
+	#print (enemy_count())
 
 func item_leave( _c )->void:
 	item_count -= 1
-	print (item_count)
+	#print (item_count)
 	if item_count <= 0:
-		print ("All Removed")
+		#print ("All Removed")
 		cleared.emit()
 		Events.secret_found()
 	
 func on_enemy_destroyed ( _e : Node2D ) -> void:
 	if _e is Enemy or _e is DungeonEnemy:
 		if enemy_count() <= 1:
-			print("Enemy Defeated")
+			#print("Enemy Defeated")
 			enemies_defeated.emit()
 			cleared.emit()
 	pass

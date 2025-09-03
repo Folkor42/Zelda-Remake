@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func playerdamaged(_hb : HurtBox)->void:
 	hp -= _hb.damage
-	print (hp)
+	#print (hp)
 	pass
 
 func get_input():
@@ -28,11 +28,11 @@ func get_input():
 	sprite.scale.x = 1
 	
 	if input_direction.x==0 and input_direction.y > 0:
-		print("Down")
+		#print("Down")
 		animation_player.play("walk_down")
 		cardinal_direction = Vector2.DOWN
 	elif input_direction.x==0 and input_direction.y < 0:
-		print("UP")
+		#print("UP")
 		animation_player.play("walk_up")
 		cardinal_direction = Vector2.UP
 	elif input_direction==Vector2(-1, 0):

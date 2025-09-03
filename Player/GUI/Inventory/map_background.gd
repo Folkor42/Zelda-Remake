@@ -13,7 +13,7 @@ func toggle_graphics( _new_value : bool )->void:
 	super( _new_value )
 	
 func update_player_map() -> void:
-	print ("Player Map")
+	#print ("Player Map")
 	for c  in get_children():
 		if c is DungeonMap:
 			c.queue_free()

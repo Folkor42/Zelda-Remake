@@ -5217,6 +5217,7 @@ tile_set = SubResource("TileSet_3px3g")
 script = ExtResource("6_wi5d5")
 
 [node name="Edge of World - Bottom" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(0, 208)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Edge of World - Bottom"]
@@ -5357,7 +5358,7 @@ center_player = true
 side = 0
 
 [node name="Cave-MoneyG" parent="Caves" instance=ExtResource("4_e5f6w")]
-position = Vector2(967, -32)
+position = Vector2(968, -32)
 level = "res://Overworld/Cave-MoneyG.tscn"
 center_player = true
 side = 0
@@ -5634,7 +5635,7 @@ position = Vector2(-8, -48)
 mob_to_spawn = ExtResource("13_f8bql")
 
 [node name="MobSpawner5" parent="Map Triggers/Player Detector - Overworld 9, 4" instance=ExtResource("21_aqjpe")]
-position = Vector2(-8, 80)
+position = Vector2(41, -32)
 mob_to_spawn = ExtResource("13_f8bql")
 
 [node name="MobSpawner6" parent="Map Triggers/Player Detector - Overworld 9, 4" instance=ExtResource("21_aqjpe")]

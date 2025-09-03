@@ -15,7 +15,7 @@ func enter() -> void:
 	fly_time.start(randf_range(min_time,max_time))
 	change_direction.start(randf_range(2,6))
 	next_state = null
-	print("Flying")
+	#print("Flying")
 	enemy.animation_player.play("Move")
 	enemy.velocity = enemy.current_direction * enemy.speed
 	pass

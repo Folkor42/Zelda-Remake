@@ -46,7 +46,7 @@ func save_game() -> void:
 	var save_json = JSON.stringify( current_save )
 	file.store_line( save_json )
 	game_saved.emit()
-	print ("Game Saved")
+	#print ("Game Saved")
 	pass
 
 func get_save_file() -> FileAccess:
@@ -85,7 +85,7 @@ func load_game() -> void:
 	
 	game_loaded.emit()
 	#print(current_save)
-	print ("Game Loaded")
+	#print ("Game Loaded")
 	pass
 
 func update_active_items()->void:
@@ -119,7 +119,7 @@ func update_item_data () -> void:
 	#var drops = get_drop_save_data()
 	#current_save.saved_drops = drops
 	#current_save.drops = []
-	##print (drops)
+	#print (drops)
 
 func add_persistant_value( value : String ) -> void:
 	if check_persistant_value( value ) == false:

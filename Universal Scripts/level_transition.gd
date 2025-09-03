@@ -35,7 +35,7 @@ func _ready() -> void:
 	pass
 
 func _player_entered ( _p : Node2D ) -> void:
-	print ("Load new Scene!")
+	#print ("Load new Scene!")
 	LevelManager.load_new_level( level, target_transition_area, Vector2.ZERO )
 	SaveManager.save_game()
 	pass

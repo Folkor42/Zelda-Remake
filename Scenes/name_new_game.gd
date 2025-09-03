@@ -25,7 +25,7 @@ func hide_new_game_screen() -> void:
 
 func attempt_new_game()->void:
 	if create_new_game():
-		print("Success")
+		#print("Success")
 		loading_overlay.visible=true
 		PlayerHud.visible=true
 		PlayerManager.player.visible=true

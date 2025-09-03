@@ -61,7 +61,7 @@ func drop_carried()->void:
 	pass
 	
 func drop_items() -> void:
-	print("DROPPING ITEMS")
+	#print("DROPPING ITEMS")
 	if drops.size() == 0:
 		return
 	for i in drops.size():

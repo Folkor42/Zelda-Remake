@@ -4,7 +4,7 @@ class_name TrapIdle extends TrapState
 
 func enter() -> void:
 	enemy.label.text = "IDLE"
-	print (enemy.home)
+	#print (enemy.home)
 	enemy.velocity = Vector2.ZERO
 	if enemy.up:
 		enemy.ray_cast_up.enabled=true

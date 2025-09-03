@@ -3,18 +3,18 @@
 [ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_ye1ma"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_qes7p"]
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="3_7lyu0"]
-[ext_resource type="Script" uid="uid://b2d5c3hlu1tmk" path="res://Overworld/snes_tiles.gd" id="4_xgjek"]
+[ext_resource type="Script" uid="uid://c6maa44yhqx14" path="res://Overworld/snes_tiles.gd" id="4_xgjek"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="5_jalvy"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="6_kdkdo"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="7_0b2qj"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="8_kaxqb"]
 [ext_resource type="PackedScene" uid="uid://dq6cbkk4pfjkv" path="res://NPCs/moblin_npc.tscn" id="9_6ad7q"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="10_c0y5v"]
-[ext_resource type="Script" uid="uid://bekgkkrbtm1v" path="res://Items/Item Effects/item_effect.gd" id="11_wvoot"]
-[ext_resource type="Script" uid="uid://dn6tmuletmhk7" path="res://Items/item_data.gd" id="12_xjnlv"]
+[ext_resource type="Script" uid="uid://bq3tughjlrxkt" path="res://Items/Item Effects/item_effect.gd" id="11_wvoot"]
+[ext_resource type="Script" uid="uid://cyaa0n3ef72cf" path="res://Items/item_data.gd" id="12_xjnlv"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="13_q8mfy"]
 [ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="13_qes7p"]
-[ext_resource type="Script" uid="uid://dswfnkjwjegrv" path="res://Overworld/moneylabel.gd" id="14_yghcy"]
+[ext_resource type="Script" uid="uid://dmt4hrqiw7ttv" path="res://Overworld/moneylabel.gd" id="14_yghcy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srdpo"]
 texture = ExtResource("3_7lyu0")
@@ -5220,9 +5220,9 @@ _data = {
 &"Show Text": SubResource("Animation_ve2go")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7lyu0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qes7p"]
 atlas = ExtResource("13_qes7p")
-region = Rect2(144, 0, 32, 16)
+region = Rect2(148, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6go35"]
 atlas = ExtResource("13_q8mfy")
@@ -5233,7 +5233,7 @@ script = ExtResource("12_xjnlv")
 name = "Transaction"
 description = ""
 texture = SubResource("AtlasTexture_6go35")
-snes_texture = SubResource("AtlasTexture_7lyu0")
+snes_texture = SubResource("AtlasTexture_qes7p")
 value = 10
 effects = Array[ExtResource("11_wvoot")]([])
 animated = false

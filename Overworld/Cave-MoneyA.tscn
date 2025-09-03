@@ -5294,6 +5294,7 @@ position = Vector2(184, 58)
 position = Vector2(128, 71)
 
 [node name="ItemDropper" parent="." instance=ExtResource("8_0s4bn")]
+top_level = true
 position = Vector2(129, 101)
 item_data = SubResource("Resource_l8oq3")
 major_drop = true

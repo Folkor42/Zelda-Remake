@@ -9,7 +9,7 @@ func _ready() -> void:
 	Events.dungeon_entered.connect(update_hud_map)
 	
 func update_hud_map(dungeon_name)->void:
-	print ("Updating Hud Map")
+	#print ("Updating Hud Map")
 	for c  in get_children():
 		if c is HudMap:
 			c.queue_free()

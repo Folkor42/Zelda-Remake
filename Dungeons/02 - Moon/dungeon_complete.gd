@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func triforce_grabbed () ->void:
-	print("Triforce Picked Up")
+	#print("Triforce Picked Up")
 	$AudioStreamPlayer2D.play()
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -24,6 +24,6 @@ func triforce_grabbed () ->void:
 	await get_tree().create_timer(8).timeout
 	PlayerManager.player.process_mode = Node.PROCESS_MODE_ALWAYS
 	await $AudioStreamPlayer2D.finished
-	print ("WARPING OUTSIDE")
+	#print ("WARPING OUTSIDE")
 	LevelManager.load_new_level( level, target_transition_area, Vector2.ZERO )
 	pass

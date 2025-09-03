@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 func place_bomb()->void:
 	if PlayerManager.bombs < 1:
-		print ("You have no bombs!")
+		#print ("You have no bombs!")
 		return
 	# We have bombs
 	PlayerManager.update_bombs(-1)

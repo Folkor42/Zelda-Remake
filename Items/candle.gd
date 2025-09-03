@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 func cast_fire()->void:
 	if !timer.is_stopped():
-		print ("You can't cast yet")
+		#print ("You can't cast yet")
 		return
 	# We can cast fire
 	timer.start()

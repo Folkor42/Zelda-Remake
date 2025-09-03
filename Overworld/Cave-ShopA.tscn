@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bxhw0ins77nc7" path="res://Items/item_buy.tscn" id="8_bgyhh"]
 [ext_resource type="Resource" uid="uid://b1kn50p6vfcr2" path="res://Items/candle.tres" id="9_cgaxv"]
 [ext_resource type="Resource" uid="uid://bdrqiutagyist" path="res://Items/bomb.tres" id="11_ecfia"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="11_lnd4s"]
 [ext_resource type="Resource" uid="uid://cou22i0duwxoo" path="res://Items/arrows.tres" id="13_g3up5"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="14_2ijjg"]
 [ext_resource type="PackedScene" uid="uid://b57hdmdgfnpjj" path="res://NPCs/merchant.tscn" id="14_agq48"]
+[ext_resource type="PackedScene" uid="uid://ckjmootgmthq3" path="res://Overworld/shopping_ruby_sprite.tscn" id="14_g4m68"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndcrj"]
 texture = ExtResource("3_rsg06")
@@ -5254,7 +5254,7 @@ visible_ratio = -0.0454545
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {
-"": SubResource("AnimationLibrary_j6cp2")
+&"": SubResource("AnimationLibrary_j6cp2")
 }
 autoplay = "Show Text"
 
@@ -5282,12 +5282,6 @@ item_data = ExtResource("9_cgaxv")
 position = Vector2(97, 90)
 item_data = ExtResource("13_g3up5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(65, 104)
-texture = ExtResource("11_lnd4s")
-region_enabled = true
-region_rect = Rect2(72, 0, 8, 16)
-
 [node name="Label2" type="Label" parent="."]
 offset_left = 75.0
 offset_top = 96.0
@@ -5296,3 +5290,6 @@ offset_bottom = 119.0
 theme_override_fonts/font = ExtResource("4_8kgr4")
 theme_override_font_sizes/font_size = 16
 text = "x"
+
+[node name="Sprite2D" parent="." instance=ExtResource("14_g4m68")]
+position = Vector2(66, 104)

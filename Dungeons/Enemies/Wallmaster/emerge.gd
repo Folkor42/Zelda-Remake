@@ -8,7 +8,7 @@ var next_state : EnemyState = null
 var timer : float
 
 func enter() -> void:
-	print ("Emerging")
+	#print ("Emerging")
 	timer = 0
 	var dir = randi_range (0,1)
 	if enemy.wall == 0:

@@ -44,9 +44,9 @@ func _process(delta: float) -> void:
 
 func check_for_key() -> bool:
 	if PlayerManager.keys >= 1:
-		print ("Unlocked")
+		#print ("Unlocked")
 		PlayerManager.update_keys(-1)
 		opened=true
 		return true
-	print ("You don't have a key!")
+	#print ("You don't have a key!")
 	return false

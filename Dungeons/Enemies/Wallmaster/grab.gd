@@ -22,7 +22,7 @@ func enter() -> void:
 	store_z = PlayerManager.player.z_index
 	#var timer = get_tree().create_timer(0.2)
 	enemy.animation_player.play( anim_name )
-	print ("Pulling into Wall")
+	#print ("Pulling into Wall")
 	if enemy.wall == 0:
 		enemy.current_direction=Vector2.DOWN
 	elif enemy.wall == 1:

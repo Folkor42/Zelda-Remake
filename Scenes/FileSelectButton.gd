@@ -50,20 +50,20 @@ func load_details(filename : String)->void:
 			valid_game=false
 			continue
 		initial_save_info=JSON.parse_string(json_string)
-		print(initial_save_info)
+		#print(initial_save_info)
 		name_label.text = str(initial_save_info["name"])
 		time_label.text = str(seconds2hhmmss(initial_save_info["time_played"]))
 		valid_game=true
-		print (JSON.parse_string(json_string)	)
+		#print (JSON.parse_string(json_string)	)
 		
 func validate_save_slot(slot : int, slot_button : Button ) -> bool:
 	var filename = "user://"+str(slot)+".save"
 	if FileAccess.file_exists(filename):
-		print ("Slot "+str(slot)+" has a valid save!")
+		#print ("Slot "+str(slot)+" has a valid save!")
 		slot_button.load_details(filename)
 		return true
 	else:
-		print ("Slot "+str(slot)+" does not have a valid save.")
+		#print ("Slot "+str(slot)+" does not have a valid save.")
 		slot_button.load_defaults()
 		valid_game=false
 		return false	

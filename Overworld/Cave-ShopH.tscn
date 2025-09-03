@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://bdrqiutagyist" path="res://Items/bomb.tres" id="11_6d6pq"]
 [ext_resource type="Resource" uid="uid://cou22i0duwxoo" path="res://Items/arrows.tres" id="12_fqndj"]
 [ext_resource type="Resource" uid="uid://pktp0jdaulx" path="res://Items/shield.tres" id="13_sc25o"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="14_emkbg"]
+[ext_resource type="PackedScene" uid="uid://ckjmootgmthq3" path="res://Overworld/shopping_ruby_sprite.tscn" id="14_6d6pq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndcrj"]
 texture = ExtResource("3_u6smy")
@@ -5282,12 +5282,6 @@ item_data = ExtResource("12_fqndj")
 position = Vector2(97, 90)
 item_data = ExtResource("13_sc25o")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(65, 104)
-texture = ExtResource("14_emkbg")
-region_enabled = true
-region_rect = Rect2(72, 0, 8, 16)
-
 [node name="Label2" type="Label" parent="."]
 offset_left = 75.0
 offset_top = 96.0
@@ -5296,3 +5290,6 @@ offset_bottom = 119.0
 theme_override_fonts/font = ExtResource("6_quxbp")
 theme_override_font_sizes/font_size = 16
 text = "x"
+
+[node name="Sprite2D" parent="." instance=ExtResource("14_6d6pq")]
+position = Vector2(66, 104)

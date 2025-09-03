@@ -5220,9 +5220,9 @@ _data = {
 &"Show Text": SubResource("Animation_ve2go")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hrj0p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7w5j"]
 atlas = ExtResource("13_gm1uw")
-region = Rect2(160, 0, 16, 16)
+region = Rect2(148, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6go35"]
 atlas = ExtResource("14_4mw7m")
@@ -5233,7 +5233,7 @@ script = ExtResource("12_vtx3e")
 name = "Transaction"
 description = ""
 texture = SubResource("AtlasTexture_6go35")
-snes_texture = SubResource("AtlasTexture_hrj0p")
+snes_texture = SubResource("AtlasTexture_t7w5j")
 value = 100
 effects = Array[ExtResource("11_wmnbh")]([])
 animated = false

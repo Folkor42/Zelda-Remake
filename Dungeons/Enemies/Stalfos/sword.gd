@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 		queue_free()
 	
 func _on_area_entered(_area):
+	# TODO Stop Ting Sound
 	print("HIT SHIELD")
 	PlayerManager.player.shield_block_sound.play()
 	queue_free()

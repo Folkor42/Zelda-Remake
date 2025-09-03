@@ -22,7 +22,7 @@ func enter() -> void:
 			animation_player.play("move_down")
 		enemy.velocity = enemy.current_direction * enemy.speed
 		#update_wall_check_direction(enemy.current_direction)
-	print (enemy.velocity)
+	#print (enemy.velocity)
 	pass
 	
 func exit() -> void:
@@ -34,7 +34,7 @@ func process( _delta: float) -> EnemyState:
 		return next_state
 	if enemy.active and (enemy.WallDetector.is_colliding() or timer.is_stopped()):
 		timer.stop()
-		print("Need new Direction")
+		#print("Need new Direction")
 		next_state=after_move_state
 	return next_state
 

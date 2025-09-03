@@ -26,7 +26,8 @@ func _ready() -> void:
 
 func check_for_purchase( _b )->void:
 	if PlayerManager.rubies - cost < 0:
-		print ("You don't have enough Money")
+		#print ("You don't have enough Money")
+		return
 	else:
 		PlayerManager.update_rubies(-cost)
 		drop_item()
@@ -57,18 +58,18 @@ func _update_texture() -> void:
 		if item_data.animated:
 			sprite.hframes=item_data.h_frames
 			sprite.vframes=item_data.v_frames
-			print("Animated")
+			#print("Animated")
 		sprite.texture = item_data.texture
 	elif item_data and sprite and PlayerManager.upgraded_graphics == true:
 		if item_data.animated:
 			sprite.hframes=item_data.h_frames
 			sprite.vframes=item_data.v_frames
-			print("Animated")
+			#print("Animated")
 		sprite.texture = item_data.snes_texture
 	pass
 	
 func _update_cost() -> void:
-	print ("Updating Costs")
+	#print ("Updating Costs")
 	if item_data and cost_label:
 		cost = item_data.value
 		cost_label.text = str(cost)

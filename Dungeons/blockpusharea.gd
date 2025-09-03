@@ -53,16 +53,16 @@ func _process(delta: float) -> void:
 				unlock_timer=0
 
 func move_block() -> bool:
-	print ("Pushed")
+	#print ("Pushed")
 	opened=true
 	var tween = create_tween()
 	var start = get_parent().position
-	print("Move:" + str(start)+" by "+ str(move_to_position))
+	#print("Move:" + str(start)+" by "+ str(move_to_position))
 	var final_position=get_parent().position+move_to_position
 	tween.tween_property(get_parent(),"position",final_position,1)
 	await get_tree().create_timer(1).timeout
-	print("MOVED BLOCK")
-	print(get_parent().position)
+	#print("MOVED BLOCK")
+	#print(get_parent().position)
 	return true
 	
 func moved()->void:

@@ -13,9 +13,9 @@ func _ready():
 
 func UpdateLimits( bounds : Array [ Vector2 ] ) -> void:
 	if bounds == []:
-		print ("Bounds not set")
+		#print ("Bounds not set")
 		return
-	print (bounds)
+	#print (bounds)
 	limit_left = int( bounds[0].x )
 	limit_top = int( bounds[0].y )
 	limit_right = int( bounds[1].x )

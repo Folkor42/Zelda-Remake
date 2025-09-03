@@ -25,4 +25,4 @@ func clear()->void:
 
 func _on_data_loaded () -> void:
 	has_chosen=persistant_data_handler.value
-	print(has_chosen)
+	#print(has_chosen)

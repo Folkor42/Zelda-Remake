@@ -66,6 +66,7 @@ func throw( throw_direction : Vector2 ) -> void:
 	pass
 
 func _on_area_entered(_area):
+	# BUG Walls Play Time as well
 	print("HIT SHIELD")
 	PlayerManager.player.shield_block_sound.play()
 	queue_free()

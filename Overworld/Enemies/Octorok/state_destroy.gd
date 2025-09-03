@@ -61,5 +61,5 @@ func drop_items() -> void:
 		drop.velocity = enemy.velocity.rotated( randf_range(-1.5, 1.5) ) * randf_range( 0.9, 1.5)
 		drop.bounce()
 		drop.start_timer()
-		print(drop.item_data.name)
+		#print(drop.item_data.name)
 	pass
