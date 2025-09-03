@@ -226,7 +226,7 @@ tile_map_data = PackedByteArray("AAACAAIAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
 
 [node name="Player Detector" parent="Floor" instance=ExtResource("4_dmd0i")]
-x = 2
+x = 4
 y = 7
 
 [node name="SNES" parent="." instance=ExtResource("5_y5pcm")]

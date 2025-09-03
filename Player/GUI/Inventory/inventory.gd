@@ -24,7 +24,7 @@ func add_item ( item : ItemData, count : int = 1 ) -> bool:
 	elif item.name == "Compass":
 		contents[item.name]=count
 		Events.dungeon_map_update.emit()
-	elif item.name == "Map":
+	elif item.name == "Map" or "MoonMap":
 		contents[item.name]=count
 		Events.dungeon_map_update.emit()
 	#elif contents.has(item.name):

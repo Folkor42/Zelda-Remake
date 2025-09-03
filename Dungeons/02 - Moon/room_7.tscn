@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b644eginugf4o" path="res://Scenes/door.tscn" id="4_vqq8l"]
 [ext_resource type="PackedScene" uid="uid://c7snu8c7im0hm" path="res://TileMaps/SNES - Dungeon Tile Set.tscn" id="5_q4xnk"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="6_kexwx"]
-[ext_resource type="Resource" uid="uid://bmpus74owgljf" path="res://Items/map.tres" id="7_6w5t5"]
+[ext_resource type="Resource" uid="uid://ca5ikq44abhqv" path="res://Items/map_moon.tres" id="7_6w5t5"]
 [ext_resource type="PackedScene" uid="uid://b8dk4ji4aa5fb" path="res://Dungeons/Enemies/Gel/Gel.tscn" id="8_k1w41"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
@@ -238,7 +238,7 @@ tile_set = SubResource("TileSet_xbmq4")
 
 [node name="Player Detector" parent="Floor" instance=ExtResource("3_fgv5x")]
 z_index = -2
-x = 4
+x = 5
 y = 5
 
 [node name="Placeables" type="TileMapLayer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://e3m87fab8sjm"]
+[gd_scene load_steps=42 format=4 uid="uid://e3m87fab8sjm"]
 
 [ext_resource type="Script" uid="uid://43iv625m25jn" path="res://Player/GUI/Inventory/inventoryScreen.gd" id="1_5xidi"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="1_cptov"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://cd7cw40f02qpu" path="res://Player/GUI/Inventory/dungeon_map.gd" id="3_q6a2o"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="4_4nv32"]
 [ext_resource type="Script" uid="uid://w5idauso0ot2" path="res://Player/GUI/Inventory/item_sprite.gd" id="5_76lvl"]
+[ext_resource type="Script" uid="uid://bvadcutwfvf4d" path="res://Player/GUI/Inventory/map_background.gd" id="7_jip17"]
+[ext_resource type="Resource" uid="uid://bmpus74owgljf" path="res://Items/map.tres" id="8_ax7cu"]
+[ext_resource type="Script" uid="uid://k8l6qx4k60h8" path="res://Dungeons/map_pickup_sprite.gd" id="8_g033n"]
+[ext_resource type="Resource" uid="uid://drad24ak7ur3c" path="res://Items/compass.tres" id="9_jip17"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_us4bt"]
 atlas = ExtResource("2_g0203")
@@ -470,7 +474,7 @@ script = SubResource("GDScript_llx3h")
 [node name="MapBackground" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_55jyx")
-script = ExtResource("3_llx3h")
+script = ExtResource("7_jip17")
 
 [node name="EagleDungeon" type="Control" parent="VBoxContainer/MapBackground"]
 layout_mode = 1
@@ -480,18 +484,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_q6a2o")
+map_item = ExtResource("8_ax7cu")
+compass_item = ExtResource("9_jip17")
 
 [node name="MapPickupSprite" type="Sprite2D" parent="VBoxContainer/MapBackground/EagleDungeon"]
-position = Vector2(52, 30)
+position = Vector2(51, 30)
 texture = SubResource("CompressedTexture2D_h0avk")
 region_enabled = true
-region_rect = Rect2(601, 156, 8, 16)
+region_rect = Rect2(630, 156, 16, 16)
+script = ExtResource("8_g033n")
 
 [node name="CompassPickupSprite" type="Sprite2D" parent="VBoxContainer/MapBackground/EagleDungeon"]
 position = Vector2(51, 68)
 texture = SubResource("CompressedTexture2D_c3gdr")
 region_enabled = true
 region_rect = Rect2(614, 158, 11, 12)
+script = ExtResource("8_g033n")
 
 [node name="NESTileMapLayer" type="TileMapLayer" parent="VBoxContainer/MapBackground/EagleDungeon"]
 position = Vector2(128, 8)
@@ -536,11 +544,23 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_he7ak")
 
 [node name="EagleDungeonTriforce" type="Sprite2D" parent="VBoxContainer/TriforceBackground/TextureRect"]
+visible = false
 position = Vector2(40, 16)
 texture = ExtResource("1_cptov")
 region_enabled = true
 region_rect = Rect2(519, 91, 16, 16)
 script = ExtResource("3_gkv1e")
+triforce_piece = "Triforce"
+
+[node name="MoonDungeonTriforce" type="Sprite2D" parent="VBoxContainer/TriforceBackground/TextureRect"]
+visible = false
+position = Vector2(56, 16)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_cptov")
+region_enabled = true
+region_rect = Rect2(519, 91, 16, 16)
+script = ExtResource("3_gkv1e")
+triforce_piece = "Triforce_Moon"
 
 [node name="PLACEHOLDER" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)

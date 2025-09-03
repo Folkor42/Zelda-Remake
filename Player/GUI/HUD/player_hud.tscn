@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://cmsmx8l7jgoid" path="res://Player/GUI/HUD/hud_sprite_2d.gd" id="3_v5oju"]
 [ext_resource type="Script" uid="uid://to14ok62iq4o" path="res://Player/GUI/HUD/hudmaploader.gd" id="4_hb2f8"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="5_jggjn"]
-[ext_resource type="Script" uid="uid://bw54db61f5fjd" path="res://Player/GUI/HUD/hud_map.gd" id="5_s20qa"]
 [ext_resource type="Script" uid="uid://brquh35tp14xr" path="res://Player/GUI/HUD/over_world_map.gd" id="5_xi55x"]
+[ext_resource type="PackedScene" uid="uid://k068boojdvok" path="res://Dungeons/default_hud_map.tscn" id="7_13l3q"]
 
 [sub_resource type="GDScript" id="GDScript_j4pyk"]
 script/source = "extends Label
@@ -389,8 +389,7 @@ max_lines_visible = 1
 wait_time = 2.0
 one_shot = true
 
-[node name="HUDDungeonMap" type="Node2D" parent="Control"]
-script = ExtResource("5_s20qa")
+[node name="HUDDungeonMap" parent="Control" instance=ExtResource("7_13l3q")]
 
 [node name="OverWorldMap" type="GridContainer" parent="Control"]
 visible = false

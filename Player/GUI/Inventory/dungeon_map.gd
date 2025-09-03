@@ -1,4 +1,4 @@
-extends Control
+class_name DungeonMap extends Control
 
 @onready var map_pickup_sprite: Sprite2D = $MapPickupSprite
 @onready var compass_pickup_sprite: Sprite2D = $CompassPickupSprite
@@ -7,18 +7,23 @@ extends Control
 @onready var snes_tile_map_layer: TileMapLayer = $SNESTileMapLayer
 @onready var snes_tile_map_layer_cover: TileMapLayer = $SNESTileMapLayerCover
 
+@export var map_item : ItemData
+@export var compass_item : ItemData
+
 var tile_map_layer : TileMapLayer
 
 func _ready() -> void:
+	if !PlayerManager.in_dungeon:
+		return
 	toggle_graphics(PlayerManager.upgraded_graphics)
 	Events.toggle_graphics.connect(toggle_graphics)
-	if PlayerManager.inventory.contents.has("Map"):
+	if PlayerManager.inventory.contents.has(map_item.name):
 		map_pickup_sprite.visible=true
 		tile_map_layer.visible=false
 	else: 
 		map_pickup_sprite.visible=false
 	
-	if PlayerManager.inventory.contents.has("Compass"):
+	if PlayerManager.inventory.contents.has(compass_item.name):
 		compass_pickup_sprite.visible=true
 	else: 
 		compass_pickup_sprite.visible=false	

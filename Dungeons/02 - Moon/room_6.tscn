@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://cajnapq01a4r5" path="res://Dungeons/01 - Eagle/remove_trigger.gd" id="6_4vcqg"]
 [ext_resource type="PackedScene" uid="uid://b8dk4ji4aa5fb" path="res://Dungeons/Enemies/Gel/Gel.tscn" id="7_tvpur"]
 [ext_resource type="PackedScene" uid="uid://dm6pykt80dbur" path="res://Items/item_dropper.tscn" id="8_ati1j"]
-[ext_resource type="Resource" uid="uid://drad24ak7ur3c" path="res://Items/compass.tres" id="9_kocv2"]
+[ext_resource type="Resource" uid="uid://co8umv7xca2uk" path="res://Items/compass_moon.tres" id="9_cj7ug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkj53"]
 texture = ExtResource("2_iffbc")
@@ -238,8 +238,8 @@ tile_map_data = PackedByteArray("AAACAAIAAQADAAAAAAA=")
 tile_set = SubResource("TileSet_xbmq4")
 
 [node name="Player Detector" parent="Floor" instance=ExtResource("3_f7m7v")]
-x = 2
-y = 5
+x = 5
+y = 6
 
 [node name="Placeables" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAHAAUAAAA6AAAAAAAHAAYAAAA6AAAAAAAIAAQAAAA6AAAAAAAIAAUAAAA6AAAAAAAIAAYAAAA6AAAAAAAHAAQAAAA6AAAAAAA=")
@@ -282,4 +282,4 @@ position = Vector2(200, 104)
 
 [node name="Room6ItemDrop" parent="RemoveTriggerRoom16" instance=ExtResource("8_ati1j")]
 position = Vector2(216, 40)
-item_data = ExtResource("9_kocv2")
+item_data = ExtResource("9_cj7ug")

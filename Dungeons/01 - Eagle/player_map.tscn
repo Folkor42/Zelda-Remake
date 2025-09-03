@@ -1,14 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://bckskkquxhj0j"]
+[gd_scene load_steps=10 format=4 uid="uid://bckskkquxhj0j"]
 
 [ext_resource type="Script" uid="uid://cd7cw40f02qpu" path="res://Player/GUI/Inventory/dungeon_map.gd" id="1_26o8p"]
+[ext_resource type="Script" uid="uid://k8l6qx4k60h8" path="res://Dungeons/map_pickup_sprite.gd" id="2_3w0hy"]
 [ext_resource type="Texture2D" uid="uid://bbiqai1hq0o5m" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - HUD & Pause Screen.png" id="2_m64ct"]
+[ext_resource type="Resource" uid="uid://bmpus74owgljf" path="res://Items/map.tres" id="2_ugsqu"]
+[ext_resource type="Resource" uid="uid://drad24ak7ur3c" path="res://Items/compass.tres" id="3_2ceq7"]
 [ext_resource type="Texture2D" uid="uid://dt0s1y0488h03" path="res://Assets/SpriteSheets/SNES - HUD & Pause Screen.png" id="3_3w0hy"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0avk"]
-load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c3gdr"]
-load_path = "res://.godot/imported/NES - The Legend of Zelda - HUD & Pause Screen.png-9bbbe5ff734a6f1af1a80f99f4bf1ecb.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7age1"]
 texture = ExtResource("2_m64ct")
@@ -71,18 +68,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_26o8p")
+map_item = ExtResource("2_ugsqu")
+compass_item = ExtResource("3_2ceq7")
 
 [node name="MapPickupSprite" type="Sprite2D" parent="."]
 position = Vector2(52, 30)
-texture = SubResource("CompressedTexture2D_h0avk")
+texture = ExtResource("3_3w0hy")
 region_enabled = true
-region_rect = Rect2(601, 156, 8, 16)
+region_rect = Rect2(630, 156, 16, 16)
+script = ExtResource("2_3w0hy")
 
 [node name="CompassPickupSprite" type="Sprite2D" parent="."]
 position = Vector2(51, 68)
-texture = SubResource("CompressedTexture2D_c3gdr")
+texture = ExtResource("3_3w0hy")
 region_enabled = true
 region_rect = Rect2(614, 158, 11, 12)
+script = ExtResource("2_3w0hy")
 
 [node name="NESTileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(128, 8)
@@ -100,7 +101,6 @@ tile_map_data = PackedByteArray("AAADAAcAAQBIAAwAAAACAAcAAQA6AAwAAAAEAAcAAQA7AAw
 tile_set = SubResource("TileSet_8g1ja")
 
 [node name="SNESTileMapLayerCover" type="TileMapLayer" parent="."]
-visible = false
 position = Vector2(128, 8)
 tile_map_data = PackedByteArray("AAADAAcAAQAwAA8AAAACAAcAAQAwAA8AAAAEAAcAAQAwAA8AAAADAAYAAQAwAA8AAAADAAUAAQAwAA8AAAAEAAUAAQAwAA8AAAACAAUAAQAwAA8AAAACAAQAAQAwAA8AAAABAAQAAQAwAA8AAAADAAQAAQAwAA8AAAAEAAQAAQAwAA8AAAAFAAQAAQAwAA8AAAAFAAMAAQAwAA8AAAAGAAMAAQAwAA8AAAADAAMAAQAwAA8AAAADAAIAAQAwAA8AAAACAAIAAQAwAA8AAAAAAAAAAQAwAA8AAAAAAAEAAQAwAA8AAAAAAAIAAQAwAA8AAAAAAAMAAQAwAA8AAAAAAAQAAQAwAA8AAAAAAAUAAQAwAA8AAAAAAAYAAQAwAA8AAAAAAAcAAQAwAA8AAAABAAUAAQAwAA8AAAABAAYAAQAwAA8AAAABAAcAAQAwAA8AAAACAAYAAQAwAA8AAAAEAAYAAQAwAA8AAAAFAAYAAQAwAA8AAAAGAAYAAQAwAA8AAAAHAAYAAQAwAA8AAAAFAAcAAQAwAA8AAAAGAAcAAQAwAA8AAAAHAAcAAQAwAA8AAAAFAAUAAQAwAA8AAAAGAAUAAQAwAA8AAAAHAAUAAQAwAA8AAAAGAAQAAQAwAA8AAAAHAAQAAQAwAA8AAAAHAAAAAQAwAA8AAAAHAAEAAQAwAA8AAAAHAAIAAQAwAA8AAAAHAAMAAQAwAA8AAAAEAAAAAQAwAA8AAAAEAAEAAQAwAA8AAAAEAAIAAQAwAA8AAAAFAAAAAQAwAA8AAAAFAAEAAQAwAA8AAAAFAAIAAQAwAA8AAAAGAAAAAQAwAA8AAAAGAAEAAQAwAA8AAAAGAAIAAQAwAA8AAAAEAAMAAQAwAA8AAAABAAAAAQAwAA8AAAABAAEAAQAwAA8AAAACAAAAAQAwAA8AAAACAAEAAQAwAA8AAAADAAAAAQAwAA8AAAADAAEAAQAwAA8AAAABAAIAAQAwAA8AAAABAAMAAQAwAA8AAAACAAMAAQAwAA8AAAAIAAAAAQAwAA8AAAAIAAEAAQAwAA8AAAAIAAIAAQAwAA8AAAAIAAMAAQAwAA8AAAAIAAQAAQAwAA8AAAAIAAUAAQAwAA8AAAAIAAYAAQAwAA8AAAAIAAcAAQAwAA8AAAA=")
 tile_set = SubResource("TileSet_8g1ja")
