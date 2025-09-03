@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://0rxdqg787124"]
+[gd_scene load_steps=8 format=3 uid="uid://0rxdqg787124"]
 
 [ext_resource type="Script" uid="uid://coxoqps4iojrq" path="res://Items/item_bet.gd" id="1_tjxen"]
 [ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="3_kggkg"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="3_neshb"]
+[ext_resource type="Texture2D" uid="uid://d0o7vl4xn41gb" path="res://Assets/SpriteSheets/SNES - Items & Weapons.png" id="3_r5v8a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_banbj"]
 atlas = ExtResource("3_kggkg")
 region = Rect2(72, 16, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klstx"]
+atlas = ExtResource("3_r5v8a")
+region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iukbu"]
 size = Vector2(12, 20)
@@ -15,7 +20,11 @@ size = Vector2(12, 20)
 script = ExtResource("1_tjxen")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("AtlasTexture_banbj")
+
+[node name="SNESSprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_klstx")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

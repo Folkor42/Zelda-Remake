@@ -6,15 +6,9 @@ class_name BurnableTree extends StaticBody2D
 @onready var opened: PersistantDataHandler = $PersistantDataHandler
 @onready var snes_sprite: Sprite2D = $"SNES Sprite"
 
-@export var snes_grass : bool = true
-
 var is_opened : bool = false
 
 func _ready() -> void:
-	if snes_grass:
-		snes_sprite.texture.region=Rect2(80, 0, 16, 16)
-	else:
-		snes_sprite.texture.region=Rect2(0, 112, 16, 16)
 	opened.data_loaded.connect( set_state )
 	bomb_area.Damaged.connect ( unlock_door )
 	Events.toggle_graphics.connect(toggle_graphics)

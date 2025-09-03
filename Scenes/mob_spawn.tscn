@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk7ahk4o27lqo"]
+[gd_scene load_steps=7 format=3 uid="uid://dk7ahk4o27lqo"]
 
 [ext_resource type="Script" uid="uid://d3b2dejurknum" path="res://Scenes/mob_spawn.gd" id="1_xsffi"]
-[ext_resource type="Texture2D" uid="uid://c0m8mrgxu8poh" path="res://Assets/SpriteSheets/SNES - Link.png" id="2_ow75g"]
+[ext_resource type="Texture2D" uid="uid://43nr4vtn4al2" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Link-2.png" id="2_5i6x2"]
+[ext_resource type="Script" uid="uid://oipara6eb0q5" path="res://Scenes/cloud.gd" id="3_xfr6v"]
 
 [sub_resource type="Animation" id="Animation_yd72l"]
 length = 0.001
@@ -68,10 +69,11 @@ _data = {
 script = ExtResource("1_xsffi")
 
 [node name="Cloud" type="Sprite2D" parent="."]
-texture = ExtResource("2_ow75g")
+texture = ExtResource("2_5i6x2")
 hframes = 3
 region_enabled = true
 region_rect = Rect2(144, 176, 48, 16)
+script = ExtResource("3_xfr6v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

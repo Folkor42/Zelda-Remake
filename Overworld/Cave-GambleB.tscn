@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://05rxo2iqmvry" path="res://Universal Scripts/level.gd" id="1_3c8f2"]
 [ext_resource type="PackedScene" uid="uid://c14nbho10g8mm" path="res://TileMaps/over_world_map_tiles.tscn" id="2_pvyr0"]
 [ext_resource type="Texture2D" uid="uid://81v6e71w8d6" path="res://Assets/SpriteSheets/SNES - Overworld Tileset - Revised.png" id="3_nj52f"]
-[ext_resource type="Script" uid="uid://b2d5c3hlu1tmk" path="res://Overworld/snes_tiles.gd" id="4_prn5q"]
+[ext_resource type="Script" uid="uid://c6maa44yhqx14" path="res://Overworld/snes_tiles.gd" id="4_prn5q"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Universal Scripts/level_transition.tscn" id="5_p1dge"]
 [ext_resource type="FontFile" uid="uid://birn6e5nqa478" path="res://Player/GUI/fonts/m5x7.ttf" id="6_oqlvp"]
 [ext_resource type="PackedScene" uid="uid://ctsnowjve7avk" path="res://Player/player_spawn.tscn" id="7_obbdn"]
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="8_qdd2w"]
 [ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="9_nhtx8"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="10_bix3x"]
-[ext_resource type="Script" uid="uid://wqqly8w6dep" path="res://Overworld/gamble_game.gd" id="11_cafsf"]
+[ext_resource type="Script" uid="uid://bmx4tjvde1yxy" path="res://Overworld/gamble_game.gd" id="11_cafsf"]
+[ext_resource type="PackedScene" uid="uid://ckjmootgmthq3" path="res://Overworld/shopping_ruby_sprite.tscn" id="12_3c8f2"]
 [ext_resource type="PackedScene" uid="uid://0rxdqg787124" path="res://Items/item_bet.tscn" id="12_j6ya8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4lne"]
@@ -5269,12 +5269,6 @@ position = Vector2(184, 58)
 [node name="OldMan1" parent="." instance=ExtResource("9_nhtx8")]
 position = Vector2(128, 71)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(65, 104)
-texture = ExtResource("10_bix3x")
-region_enabled = true
-region_rect = Rect2(72, 0, 8, 16)
-
 [node name="Label2" type="Label" parent="."]
 offset_left = 75.0
 offset_top = 96.0
@@ -5295,3 +5289,6 @@ position = Vector2(128, 90)
 
 [node name="ItemBet3" parent="GambleGame" instance=ExtResource("12_j6ya8")]
 position = Vector2(160, 90)
+
+[node name="Sprite2D" parent="." instance=ExtResource("12_3c8f2")]
+position = Vector2(64, 104)

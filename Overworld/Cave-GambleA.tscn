@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://hbv6tv21efd" path="res://NPCs/fire.tscn" id="6_50gx1"]
 [ext_resource type="PackedScene" uid="uid://c0tgajcndy5fi" path="res://NPCs/old_man.tscn" id="7_iv2lp"]
 [ext_resource type="Script" uid="uid://bmx4tjvde1yxy" path="res://Overworld/gamble_game.gd" id="9_81ilj"]
+[ext_resource type="PackedScene" uid="uid://ckjmootgmthq3" path="res://Overworld/shopping_ruby_sprite.tscn" id="10_ek0ux"]
 [ext_resource type="PackedScene" uid="uid://0rxdqg787124" path="res://Items/item_bet.tscn" id="10_kesek"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="11_ucbra"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4lne"]
 texture = ExtResource("3_qxytu")
@@ -5253,7 +5253,7 @@ visible_ratio = -0.030303
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {
-"": SubResource("AnimationLibrary_j6cp2")
+&"": SubResource("AnimationLibrary_j6cp2")
 }
 autoplay = "Show Text"
 
@@ -5268,12 +5268,6 @@ position = Vector2(184, 58)
 
 [node name="OldMan1" parent="." instance=ExtResource("7_iv2lp")]
 position = Vector2(128, 71)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(65, 104)
-texture = ExtResource("11_ucbra")
-region_enabled = true
-region_rect = Rect2(72, 0, 8, 16)
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 75.0
@@ -5295,3 +5289,6 @@ position = Vector2(128, 90)
 
 [node name="ItemBet3" parent="GambleGame" instance=ExtResource("10_kesek")]
 position = Vector2(160, 90)
+
+[node name="Sprite2D" parent="." instance=ExtResource("10_ek0ux")]
+position = Vector2(64, 104)
