@@ -5251,10 +5251,10 @@ offset_right = 215.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("4_ntd8r")
 text = "It's dangerous to go alone!
-Take these."
+Take this."
 horizontal_alignment = 1
 autowrap_mode = 2
-visible_ratio = -0.025641
+visible_ratio = -0.0263158
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {

@@ -199,13 +199,13 @@ shape = SubResource("RectangleShape2D_h7att")
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("6_8pfxw")
 
-[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
-script = ExtResource("7_lj0ot")
-after_idle_state = NodePath("../Take Off")
-
 [node name="Take Off" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
 script = ExtResource("9_411lh")
 after_move_state = NodePath("../Fly")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("7_lj0ot")
+after_idle_state = NodePath("../Take Off")
 
 [node name="Fly" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_move_state")]
 script = ExtResource("10_pj5ka")
