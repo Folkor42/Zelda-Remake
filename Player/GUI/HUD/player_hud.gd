@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal controller_change (connected)
+
 @export var button_focus_audio : AudioStream = preload("res://Assets/Audio/Sounds/menu_focus.wav")
 @export var button_select_audio : AudioStream = preload("res://Assets/Audio/Sounds/menu_select.wav")
 
@@ -12,9 +14,6 @@ var hearts : Array[ HeartGUI ] = []
 @onready var continue_button = $GameOver/VBoxContainer/ButtonContinue
 @onready var animation_player = $GameOver/AnimationPlayer
 @onready var audio = $AudioStreamPlayer
-#@onready var boss_ui = $Control2/BossUI
-#@onready var boss_hp__bar = $Control2/BossUI/TextureProgressBar
-#@onready var boss_label = $Control2/BossUI/Label
 @onready var rubies: Label = $Control/Rubies
 @onready var bombs: Label = $Control/Bombs
 @onready var keys: Label = $Control/Keys
@@ -23,8 +22,13 @@ var hearts : Array[ HeartGUI ] = []
 @onready var a_item: Sprite2D = $"Control/A-Item"
 @onready var over_world_map: GridContainer = $Control/OverWorldMap
 
+# HUD LABELS
+@onready var sword_label: Label = $Control/SwordLabel
+@onready var item_label: Label = $Control/ItemLabel
+@onready var inventory_hint: Label = $Control/InventoryHint
 
-
+var controller_enabled : bool = false
+var controller_id : int = -1
 
 func _ready():
 	#hide_boss_health()
@@ -44,7 +48,13 @@ func _ready():
 	title_button.focus_entered.connect( button_focused.bind(title_button) )
 	title_button.pressed.connect( title_screen )
 	LevelManager.level_load_started.connect(hide_game_over_screen)
-	pass # Replace with function body.
+	# Print connected joypads on startup
+	print("Connected Joypads: ", Input.get_connected_joypads())
+	# Connect to the signal for dynamic changes
+	Input.joy_connection_changed.connect(_on_joy_connection_changed)
+	controller_change.connect(update_controller_maps)
+	pass
+	
 func button_focused( _b : Button ) -> void:
 	play_audio( button_focus_audio )
 
@@ -171,3 +181,53 @@ func map_select() -> void:
 	else:
 		over_world_map.visible=true
 	pass
+
+func _input(event: InputEvent):
+	if event is InputEventJoypadButton:
+		#print("Controller input detected")
+		controller_enabled = true
+		controller_change.emit(true, controller_id)
+		
+func _on_joy_connection_changed(device_id: int, connected: bool):
+	if connected:
+		print("Controller Connected: ID ", device_id, ", Name: ", Input.get_joy_name(device_id))
+		controller_enabled = true
+		await get_tree().process_frame
+		controller_change.emit(true, device_id)
+	else:
+		print("Controller Disconnected: ID ", device_id)
+		controller_enabled = false
+		controller_change.emit(false)
+
+func update_controller_maps(connected : bool, device_id : int = -1) -> void:
+	if controller_id == device_id:
+		return
+	else:
+		controller_id = device_id
+	var joy_name := Input.get_joy_name(device_id).to_lower()
+
+	if "xbox" in joy_name:
+		print("Switch HUD to Xbox layout")
+		sword_label.text="X"
+		item_label.text="Y"
+		inventory_hint.text = "MENU : Inventory"
+	elif "sony" in joy_name or "playstation" in joy_name or "ps4" in joy_name or "ps5" in joy_name:
+		print("Switch HUD to PlayStation layout")
+		sword_label.text="[]"
+		item_label.text="/\\"
+		inventory_hint.text = "START : Inventory"
+	elif "switch" in joy_name or "nintendo" in joy_name:
+		print("Switch HUD to Switch layout")
+		sword_label.text="Y"
+		item_label.text="X"
+		inventory_hint.text = "+ : Inventory"
+	else:
+		print("Defaulting to generic controller HUD")
+		sword_label.text="Z"
+		item_label.text="X"
+		inventory_hint.text = "I : Inventory"
+	if !connected:
+		print("Switching to Keyboard Layout")
+		sword_label.text="Z"
+		item_label.text="X"
+		inventory_hint.text = "I : Inventory"

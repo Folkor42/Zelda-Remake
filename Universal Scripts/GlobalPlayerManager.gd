@@ -8,7 +8,7 @@ var interact_handled : bool = true
 var player : Player
 var player_spawned : bool = false
 var inventory : InventoryData
-var rubies : int = 0
+var rubies : int = 20
 var bombs : int = 0
 var max_bombs : int = 8
 var keys : int = 0

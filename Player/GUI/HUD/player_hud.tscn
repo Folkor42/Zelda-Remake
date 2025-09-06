@@ -374,13 +374,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -64.0
-offset_right = 21.0
+offset_left = -120.0
+offset_right = -35.0
 offset_bottom = 9.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_jggjn")
 theme_override_font_sizes/font_size = 10
-text = "ITEM NAME"
 clip_text = true
 text_overrun_behavior = 2
 max_lines_visible = 1
@@ -1293,6 +1292,7 @@ size_flags_vertical = 6
 color = Color(0.12549, 0.219608, 0.92549, 1)
 
 [node name="LocationLabel" type="Label" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1358,7 +1358,7 @@ theme_override_fonts/font = ExtResource("5_jggjn")
 theme_override_font_sizes/font_size = 16
 text = "255"
 
-[node name="Label" type="Label" parent="Control"]
+[node name="SwordLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 123.0
 offset_top = 9.0
@@ -1369,7 +1369,7 @@ text = "Z"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label2" type="Label" parent="Control"]
+[node name="ItemLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 147.0
 offset_top = 9.0
@@ -1399,12 +1399,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -12.0
-offset_right = 44.0
+offset_right = 55.0
 offset_bottom = 9.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_jggjn")
 theme_override_font_sizes/font_size = 10
-text = "ESC - Inventory"
+text = "I : INVENTORY"
 horizontal_alignment = 1
 clip_text = true
 text_overrun_behavior = 2
