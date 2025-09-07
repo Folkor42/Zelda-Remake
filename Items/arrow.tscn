@@ -1,8 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6hb4awpctgfe"]
+[gd_scene load_steps=7 format=3 uid="uid://c6hb4awpctgfe"]
 
 [ext_resource type="Script" uid="uid://7qcql3bj7qjf" path="res://Items/arrow.gd" id="1_0dyw4"]
-[ext_resource type="Texture2D" uid="uid://cxbudd051meij" path="res://Assets/SpriteSheets/NES - The Legend of Zelda - Items & Weapons.png" id="1_51tpm"]
+[ext_resource type="Texture2D" uid="uid://dj3tolp4j3efp" path="res://Assets/SpriteSheets/NES - Items & Weapons.png" id="2_o5v04"]
 [ext_resource type="Script" uid="uid://furv363hxfgr" path="res://Universal Scripts/hurt_box.gd" id="4_nnlsa"]
+
+[sub_resource type="GDScript" id="GDScript_hmdrj"]
+script/source = "extends Sprite2D
+
+const NES_HUD : Texture = preload(\"res://Assets/SpriteSheets/NES - Items & Weapons.png\")
+const SNES_HUD : Texture = preload(\"res://Assets/SpriteSheets/SNES - Items & Weapons.png\")
+
+func _ready() -> void:
+	toggle_graphics(PlayerManager.upgraded_graphics)
+	Events.toggle_graphics.connect(toggle_graphics)
+		
+func toggle_graphics( _new_value : bool )->void:
+	if _new_value:
+		texture=SNES_HUD
+	else:
+		texture=NES_HUD
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gv77"]
 size = Vector2(16, 6)
@@ -21,9 +38,12 @@ script = ExtResource("1_0dyw4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.57084
-texture = ExtResource("1_51tpm")
-region_enabled = true
+texture = ExtResource("2_o5v04")
+hframes = 18
+vframes = 3
+frame = 5
 region_rect = Rect2(154, 0, 5, 16)
+script = SubResource("GDScript_hmdrj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2gv77")
