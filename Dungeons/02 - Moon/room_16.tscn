@@ -271,11 +271,6 @@ tile_map_data = PackedByteArray("AAAAAAAABgAhAAAAAAAAAAEABgAhAAEAAAABAAAABgAiAAA
 [node name="RemoveTrigger" type="Node2D" parent="."]
 script = ExtResource("6_nfpnu")
 
-[node name="BombDropper" parent="RemoveTrigger" instance=ExtResource("9_moun8")]
-position = Vector2(216, 40)
-item_data = ExtResource("8_5ebc7")
-start_dropped = false
-
 [node name="Goriya" parent="RemoveTrigger" instance=ExtResource("9_10bpd")]
 position = Vector2(88, 40)
 
@@ -299,4 +294,9 @@ direction = 0
 position = Vector2(129, 160)
 direction = 1
 
-[connection signal="cleared" from="RemoveTrigger" to="RemoveTrigger/BombDropper" method="drop_item"]
+[node name="BombDropper" parent="." instance=ExtResource("9_moun8")]
+position = Vector2(216, 40)
+item_data = ExtResource("8_5ebc7")
+start_dropped = false
+
+[connection signal="cleared" from="RemoveTrigger" to="BombDropper" method="drop_item"]
